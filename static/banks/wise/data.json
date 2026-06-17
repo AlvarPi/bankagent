@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "wise",
   "name": "Wise",
-  "fetchedAt": "2026-06-17T20:41:59.104Z",
-  "generatedAt": "2026-06-17T20:42:02.290Z",
+  "fetchedAt": "2026-06-17T21:00:45.598Z",
+  "generatedAt": "2026-06-17T21:00:48.209Z",
   "sources": [
     {
       "kind": "primary",
@@ -49,5 +49,92 @@
   "links": {
     "html": "/banks/wise/",
     "json": "/banks/wise/data.json"
+  },
+  "website": "https://wise.com/ee",
+  "catalog": {
+    "sections": [
+      {
+        "title": "Kontod ja intress",
+        "items": [
+          {
+            "name": "Wise konto",
+            "url": "https://wise.com/ee/",
+            "summary": "Mitme valuutaga konto. Ei ole Eesti litsentseeritud pank — raha hoitakse partnerpankades.",
+            "details": [
+              "SEPA ja SWIFT maksed",
+              "40+ valuutat"
+            ]
+          },
+          {
+            "name": "Wise Interest",
+            "url": "https://wise.com/ee/interest/",
+            "summary": "Intress kontojäägilt fondi kaudu (mitte pangahoiusena). Muutuv määr, sõltub valuutast.",
+            "rates": [
+              "EUR: muutuv määr (vaata wise.com/ee/interest)",
+              "Aastatasu ~0,26%"
+            ]
+          },
+          {
+            "name": "Wise Debit Card",
+            "url": "https://wise.com/ee/card/",
+            "summary": "Mitme valuutaga deebetkaart välismaa ostudeks."
+          }
+        ]
+      },
+      {
+        "title": "Maksed ja ülekanded",
+        "items": [
+          {
+            "name": "Rahvusvahelised ülekanded",
+            "url": "https://wise.com/ee/send-money/",
+            "summary": "Odavamad välismaa ülekanded võrreldes traditsiooniliste pankadega.",
+            "details": [
+              "Reaalne vahetuskurss",
+              "Läbipaistev tasustruktuur"
+            ]
+          },
+          {
+            "name": "Wise Business",
+            "url": "https://wise.com/ee/business/",
+            "summary": "Ettevõtte kontod ja massmaksed."
+          },
+          {
+            "name": "Wise API",
+            "url": "https://wise.com/ee/business/api",
+            "summary": "API integratsioon ettevõtetele."
+          }
+        ]
+      },
+      {
+        "title": "Tasud",
+        "items": [
+          {
+            "name": "Hinnakiri",
+            "url": "https://wise.com/ee/pricing/",
+            "summary": "Konto, kaardi ja ülekannete tasud.",
+            "details": [
+              "Isiklik konto: tasuta avamine",
+              "Kaart: ühekordne ja kuutasu",
+              "Ülekanded: sõltuvad valuutast ja summast"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Tingimused ja info",
+        "items": [
+          {
+            "name": "Wise Eesti",
+            "url": "https://wise.com/ee/help/",
+            "summary": "Abi ja KKK.",
+            "details": [
+              "Wise ei ole traditsiooniline Eesti pank",
+              "Intress tuleb fondi kaudu, mitte hoiusena",
+              "Ei ole minuraha.ee baromeetris"
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

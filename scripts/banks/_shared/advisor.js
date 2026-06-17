@@ -69,8 +69,8 @@ function formatFee(cents) {
  * @param {{ sections?: Array<{ title: string, items?: Array<{ name: string, summary?: string, rates?: string[] }> }> }} catalog
  * @returns {string[]}
  */
-function formatCoopCatalogLines(catalog) {
-  const lines = ['Tootekataloog (tooted, laenud, liising, paketid, kindlustus):'];
+function formatCatalogLines(catalog) {
+  const lines = ['Tootekataloog:'];
   for (const section of catalog.sections ?? []) {
     lines.push(`  ### ${section.title}`);
     for (const item of section.items ?? []) {
@@ -115,11 +115,9 @@ function formatBankBlock(data) {
     lines.push(`  - [${rate.product_type}] ${rate.label}: ${rateStr}, tasu ${formatFee(rate.fee_cents)}`);
   }
 
-  if (data.slug === 'coop') {
-    const catalog = /** @type {{ sections?: unknown[] } | undefined} */ (data.catalog);
-    if (catalog?.sections?.length) {
-      lines.push(...formatCoopCatalogLines(/** @type {Parameters<typeof formatCoopCatalogLines>[0]} */ (catalog)));
-    }
+  const catalog = /** @type {{ sections?: unknown[] } | undefined} */ (data.catalog);
+  if (catalog?.sections?.length) {
+    lines.push(...formatCatalogLines(/** @type {Parameters<typeof formatCatalogLines>[0]} */ (catalog)));
   }
 
   return lines.join('\n');
@@ -169,7 +167,7 @@ export function buildAdvisorSystemPrompt(knowledge) {
 
 Kasuta AINULT bank_data infot. Kui infot pole: "Seda infot mul kogutud andmetes pole." Ära väljamõtle numbreid. Maini panganimi ja fetchedAt. Mitte finants- ega õigusnõu.
 
-Coop Panga andmetes on lisaks intressidele täielik tootekataloog (hoiused, paketid, laenud, liising, kindlustus jm) — kasuta seda Coop toodete ja teenuste küsimustele.
+Iga panga andmetes on lisaks intressidele tootekataloog (catalog.sections: hoiused, paketid, laenud, kaardid jm) — kasuta seda toodete ja teenuste küsimustele.
 
 bank_data:
 ${context}`;
