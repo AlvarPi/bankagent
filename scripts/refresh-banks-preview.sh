@@ -6,12 +6,12 @@ cd "$ROOT"
 
 NODE_BIN="${NODE_BIN:-$HOME/.nvm/versions/node/v20.19.0/bin/node}"
 LOG_DIR="$ROOT/logs"
-LOG_FILE="$LOG_DIR/banks-preview-refresh.log"
+LOG_FILE="$LOG_DIR/banks-preview.log"
 
 mkdir -p "$LOG_DIR"
 
 {
-  echo "=== $(date -Is) banks preview refresh ==="
+  echo "=== $(date -Is) scheduled refresh ==="
   "$NODE_BIN" scripts/generate-bank-previews.js
-  echo "done"
+  echo "=== $(date -Is) refresh done ==="
 } >>"$LOG_FILE" 2>&1
