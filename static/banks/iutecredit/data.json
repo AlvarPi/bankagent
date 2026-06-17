@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "iutecredit",
   "name": "IuteCredit",
-  "fetchedAt": "2026-06-17T21:00:47.644Z",
-  "generatedAt": "2026-06-17T21:00:48.214Z",
+  "fetchedAt": "2026-06-17T21:08:59.627Z",
+  "generatedAt": "2026-06-17T21:09:00.002Z",
   "sources": [
     {
       "kind": "primary",

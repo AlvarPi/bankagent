@@ -10,13 +10,14 @@
     .wrap { max-width: 960px; margin: 0 auto; }
     h1 { margin: 0 0 0.5rem; }
     .lead { color: var(--muted); }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1.5rem; }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem; }
-    .card h2 { margin:0 0 0.5rem; font-size:1.1rem; }
-    .card p { margin:0.25rem 0; color:var(--muted); font-size:0.95rem; }
-    .warn { color:#8a5a00; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.25rem; margin-top:1.5rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:14px; min-height:120px; padding:1.5rem; display:flex; align-items:center; justify-content:center; }
+    .card-link { display:flex; align-items:center; justify-content:center; width:100%; min-height:72px; text-decoration:none; }
+    .card-link:hover .card-logo { opacity:0.85; }
+    .card-logo { display:block; max-width:100%; max-height:72px; width:auto; height:auto; object-fit:contain; object-position:center center; }
     a { color:var(--accent); text-decoration:none; }
     a:hover { text-decoration:underline; }
+    .card-link:hover { text-decoration:none; }
   </style>
 </head>
 <body>
@@ -24,64 +25,64 @@
     <h1>Pankade avalik info</h1>
     <p class="lead">Kogutud <code>npm run collect-rates</code> skriptiga. Vali pank.</p>
     <div class="grid"><article class="card">
-        <h2><a href="/banks/coop/">Coop Pank</a></h2>
-        <p>12 hoiuse rida · 13 kokku</p>
-        
+        <a class="card-link" href="/banks/coop/">
+          <img class="card-logo" src="/banks/logos/coop.svg" alt="Coop Pank" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/lhv/">LHV</a></h2>
-        <p>1 hoiuse rida · 3 kokku</p>
-        <p class="warn">LHV veebileht blokeerib automaatse päringu (403) — kasutatud minuraha.ee baromeetrit</p>
+        <a class="card-link" href="/banks/lhv/">
+          <img class="card-logo" src="/banks/logos/lhv.svg" alt="LHV" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/seb/">SEB</a></h2>
-        <p>3 hoiuse rida · 7 kokku</p>
-        
+        <a class="card-link" href="/banks/seb/">
+          <img class="card-logo" src="/banks/logos/seb.svg" alt="SEB" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/swedbank/">Swedbank</a></h2>
-        <p>1 hoiuse rida · 4 kokku</p>
-        
+        <a class="card-link" href="/banks/swedbank/">
+          <img class="card-logo" src="/banks/logos/swedbank.svg" alt="Swedbank" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/luminor/">Luminor</a></h2>
-        <p>1 hoiuse rida · 3 kokku</p>
-        <p class="warn">Luminor leht on SPA (andmed laaditakse JS-iga) — kasutatud minuraha.ee baromeetrit</p>
+        <a class="card-link" href="/banks/luminor/">
+          <img class="card-logo" src="/banks/logos/luminor.svg" alt="Luminor" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/citadele/">Citadele</a></h2>
-        <p>4 hoiuse rida · 5 kokku</p>
-        
+        <a class="card-link" href="/banks/citadele/">
+          <img class="card-logo" src="/banks/logos/citadele.png" alt="Citadele" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/wise/">Wise</a></h2>
-        <p>0 hoiuse rida · 3 kokku</p>
-        <p class="warn">Wise ei ole Eesti litsentseeritud pank — intress tuleb fondi kaudu, mitte pangahoiusena</p>
+        <a class="card-link" href="/banks/wise/">
+          <img class="card-logo" src="/banks/logos/wise.png" alt="Wise" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/holm/">Holm Bank</a></h2>
-        <p>2 hoiuse rida · 4 kokku</p>
-        
+        <a class="card-link" href="/banks/holm/">
+          <img class="card-logo" src="/banks/logos/holm.svg" alt="Holm Bank" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/bigbank/">Bigbank</a></h2>
-        <p>3 hoiuse rida · 5 kokku</p>
-        
+        <a class="card-link" href="/banks/bigbank/">
+          <img class="card-logo" src="/banks/logos/bigbank.svg" alt="Bigbank" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/iutecredit/">IuteCredit</a></h2>
-        <p>0 hoiuse rida · 1 kokku</p>
-        <p class="warn">IuteCredit ei ole traditsiooniline hoiuspank — kogutud andmed on võlakirja intress, mitte hoiuse määr</p>
+        <a class="card-link" href="/banks/iutecredit/">
+          <img class="card-logo" src="/banks/logos/iutecredit.svg" alt="IuteCredit" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/morgan-stanley/">Morgan Stanley</a></h2>
-        <p>5 hoiuse rida · 8 kokku</p>
-        <p class="warn">Morgan Stanley intressid sõltuvad kontotüübist ja varade mahust (tiered rates)</p>
+        <a class="card-link" href="/banks/morgan-stanley/">
+          <img class="card-logo" src="/banks/logos/morgan-stanley.svg" alt="Morgan Stanley" loading="lazy" />
+        </a>
       </article>
 <article class="card">
-        <h2><a href="/banks/nordea/">Nordea</a></h2>
-        <p>6 hoiuse rida · 8 kokku</p>
-        <p class="warn">Nordea.com/en ei avalda ühtseid intressimäärasid — kogutud riiklikud näited (FI, SE)</p>
+        <a class="card-link" href="/banks/nordea/">
+          <img class="card-logo" src="/banks/logos/nordea.svg" alt="Nordea" loading="lazy" />
+        </a>
       </article></div>
   </div>
   

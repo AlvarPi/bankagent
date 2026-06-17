@@ -23,7 +23,9 @@ const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css',
   '.js': 'text/javascript',
-  '.json': 'application/json; charset=utf-8'
+  '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png'
 };
 
 /** @type {Promise<{ knowledge: { index: object, banks: Record<string, unknown> }, systemPrompt: string }> | null} */

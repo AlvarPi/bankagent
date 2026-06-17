@@ -100,13 +100,18 @@ export function buildBankPreviewHtml(data) {
     .rate { color: var(--positive); font-weight: 700; }
     a { color: var(--accent); }
     .back { display: inline-block; margin-bottom: 1rem; }
+    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
+    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
     ul { margin: 0; padding-left: 1.2rem; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <a class="back" href="/banks/">← kõik pangad</a>
-    <h1>${escapeHtml(data.bankName)}</h1>
+    <div class="bank-header">
+      <img class="bank-logo" src="${escapeHtml(bankLogoSrc(data.slug))}" alt="${escapeHtml(data.bankName)}" width="160" height="40" />
+      <h1>${escapeHtml(data.bankName)}</h1>
+    </div>
     <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
     <div class="meta">
       <span class="pill">Kogutud: ${escapeHtml(fetchedLocal)}</span>
@@ -137,17 +142,31 @@ export function buildBankPreviewHtml(data) {
 </html>`;
 }
 
+/** @type {Record<string, 'svg' | 'png'>} */
+const BANK_LOGO_EXT = {
+  citadele: 'png',
+  wise: 'png'
+};
+
+/**
+ * @param {string} slug
+ */
+export function bankLogoSrc(slug) {
+  const ext = BANK_LOGO_EXT[slug] || 'svg';
+  return `/banks/logos/${slug}.${ext}`;
+}
+
 /**
  * @param {import('./util.js').CollectResult[]} all
  */
 export function buildBanksIndexHtml(all) {
   const cards = all
     .map((bank) => {
-      const depositCount = bank.rows.filter((row) => row.product_type === 'deposit').length;
+      const logoSrc = bankLogoSrc(bank.slug);
       return `<article class="card">
-        <h2><a href="/banks/${escapeHtml(bank.slug)}/">${escapeHtml(bank.bankName)}</a></h2>
-        <p>${depositCount} hoiuse rida · ${bank.rows.length} kokku</p>
-        ${bank.warnings.length ? `<p class="warn">${escapeHtml(bank.warnings[0])}</p>` : ''}
+        <a class="card-link" href="/banks/${escapeHtml(bank.slug)}/">
+          <img class="card-logo" src="${escapeHtml(logoSrc)}" alt="${escapeHtml(bank.bankName)}" loading="lazy" />
+        </a>
       </article>`;
     })
     .join('\n');
@@ -164,13 +183,14 @@ export function buildBanksIndexHtml(all) {
     .wrap { max-width: 960px; margin: 0 auto; }
     h1 { margin: 0 0 0.5rem; }
     .lead { color: var(--muted); }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1.5rem; }
-    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem; }
-    .card h2 { margin:0 0 0.5rem; font-size:1.1rem; }
-    .card p { margin:0.25rem 0; color:var(--muted); font-size:0.95rem; }
-    .warn { color:#8a5a00; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.25rem; margin-top:1.5rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:14px; min-height:120px; padding:1.5rem; display:flex; align-items:center; justify-content:center; }
+    .card-link { display:flex; align-items:center; justify-content:center; width:100%; min-height:72px; text-decoration:none; }
+    .card-link:hover .card-logo { opacity:0.85; }
+    .card-logo { display:block; max-width:100%; max-height:72px; width:auto; height:auto; object-fit:contain; object-position:center center; }
     a { color:var(--accent); text-decoration:none; }
     a:hover { text-decoration:underline; }
+    .card-link:hover { text-decoration:none; }
   </style>
 </head>
 <body>
