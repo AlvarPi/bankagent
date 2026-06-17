@@ -152,7 +152,9 @@ export function buildBankPreviewHtml(data) {
 /** @type {Record<string, 'svg' | 'png'>} */
 const BANK_LOGO_EXT = {
   citadele: 'png',
-  wise: 'png'
+  wise: 'png',
+  bigbank: 'png',
+  iutecredit: 'png'
 };
 
 /**

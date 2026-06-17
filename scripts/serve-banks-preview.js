@@ -28,17 +28,14 @@ const MIME = {
   '.png': 'image/png'
 };
 
-/** @type {Promise<{ knowledge: { index: object, banks: Record<string, unknown> }, systemPrompt: string }> | null} */
-let advisorBundlePromise = null;
+/** @type {Promise<{ index: object, banks: Record<string, unknown> }> | null} */
+let advisorKnowledgePromise = null;
 
-function getAdvisorBundle() {
-  if (!advisorBundlePromise) {
-    advisorBundlePromise = loadBankKnowledge(STATIC_BANKS).then((knowledge) => ({
-      knowledge,
-      systemPrompt: buildAdvisorSystemPrompt(knowledge)
-    }));
+function getAdvisorKnowledge() {
+  if (!advisorKnowledgePromise) {
+    advisorKnowledgePromise = loadBankKnowledge(STATIC_BANKS);
   }
-  return advisorBundlePromise;
+  return advisorKnowledgePromise;
 }
 
 /**
@@ -90,7 +87,8 @@ async function handleAdvisor(req, res) {
   try {
     const body = await readJsonBody(req);
     const messages = parseAdvisorMessages(body);
-    const { knowledge, systemPrompt } = await getAdvisorBundle();
+    const knowledge = await getAdvisorKnowledge();
+    const systemPrompt = buildAdvisorSystemPrompt(knowledge, messages);
     const result = await chatWithAdvisor(messages, systemPrompt);
 
     sendJson(res, 200, {

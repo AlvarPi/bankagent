@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "holm",
   "name": "Holm Bank",
-  "fetchedAt": "2026-06-17T21:23:17.209Z",
-  "generatedAt": "2026-06-17T21:23:20.080Z",
+  "fetchedAt": "2026-06-17T21:45:12.748Z",
+  "generatedAt": "2026-06-17T21:45:14.833Z",
   "sources": [
     {
       "kind": "primary",

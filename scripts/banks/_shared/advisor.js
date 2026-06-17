@@ -1,18 +1,10 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { buildRetrievedContext, SKIP_CONTEXT_SLUGS } from './advisor-retrieval.js';
 import { chatWithOpenAI, checkOpenAIHealth, getOpenAIApiKey } from './openai.js';
 
 /** @type {Map<string, { index: object, banks: Record<string, unknown> }>} */
 const knowledgeCache = new Map();
-
-/** @type {string | null} */
-let cachedCompactContext = null;
-
-/** @type {string | null} */
-let cachedCompactContextKey = null;
-
-/** Pangad, mida kontekstist välja jätta — tühi, kasutaja soovib maksimaalset infot. */
-const SKIP_CONTEXT_SLUGS = new Set();
 
 /**
  * @returns {'openai' | 'none'}
@@ -57,120 +49,32 @@ export async function loadBankKnowledge(staticBanksDir) {
 }
 
 /**
- * @param {number | null | undefined} cents
- */
-function formatFee(cents) {
-  if (cents == null) return '—';
-  if (cents === 0) return 'tasuta';
-  return `${(cents / 100).toFixed(2)} €`;
-}
-
-/**
- * @param {{ sections?: Array<{ title: string, items?: Array<{ name: string, summary?: string, rates?: string[] }> }> }} catalog
- * @returns {string[]}
- */
-function formatCatalogLines(catalog) {
-  const lines = ['Tootekataloog:'];
-  for (const section of catalog.sections ?? []) {
-    lines.push(`  ### ${section.title}`);
-    for (const item of section.items ?? []) {
-      let line = `  - ${item.name}`;
-      if (item.summary) line += `: ${item.summary}`;
-      if (item.url) line += ` (${item.url})`;
-      if (item.rates?.length) line += ` [${item.rates.join('; ')}]`;
-      lines.push(line);
-      for (const detail of item.details ?? []) {
-        lines.push(`      · ${detail}`);
-      }
-    }
-  }
-  return lines;
-}
-
-/**
- * @param {Record<string, unknown>} data
- */
-function formatBankBlock(data) {
-  const rates = Array.isArray(data.rates) ? data.rates : [];
-  if (!rates.length) {
-    const warn = Array.isArray(data.warnings) && data.warnings.length ? data.warnings[0] : 'andmed puuduvad';
-    return `## ${data.name} (${data.slug}) — ${warn}`;
-  }
-
-  const lines = [];
-  lines.push(`## ${data.name} (${data.slug}), kogutud ${data.fetchedAt}`);
-
-  if (Array.isArray(data.warnings) && data.warnings.length) {
-    lines.push(`Märkus: ${data.warnings[0]}`);
-  }
-
-  const primaryUrl = Array.isArray(data.sources) && data.sources[0]?.url ? data.sources[0].url : null;
-  if (primaryUrl) {
-    lines.push(`Allikas: ${primaryUrl}`);
-  }
-
-  lines.push('Intressid/tasud (kõik kogutud read):');
-  for (const rate of rates) {
-    const rateStr = rate.rate_percent != null ? `${rate.rate_percent}%` : '—';
-    const raw = rate.raw_text ? ` | ${rate.raw_text}` : '';
-    lines.push(
-      `  - [${rate.product_type}] ${rate.label}: ${rateStr}, tasu ${formatFee(rate.fee_cents)} | ${rate.source_url}${raw}`
-    );
-  }
-
-  const catalog = /** @type {{ sections?: unknown[] } | undefined} */ (data.catalog);
-  if (catalog?.sections?.length) {
-    lines.push(...formatCatalogLines(/** @type {Parameters<typeof formatCatalogLines>[0]} */ (catalog)));
-  }
-
-  return lines.join('\n');
-}
-
-/**
+ * @deprecated Kasuta buildRetrievedContext — säilitatud testimiseks.
  * @param {{ index: { generatedAt?: string }, banks: Record<string, Record<string, unknown>> }} knowledge
  */
 export function buildCompactContext(knowledge) {
-  const cacheKey = String(knowledge.index.generatedAt ?? '');
-  if (cachedCompactContext && cachedCompactContextKey === cacheKey) {
-    return cachedCompactContext;
-  }
-
-  const banks = Object.values(knowledge.banks).sort((a, b) =>
-    String(a.name).localeCompare(String(b.name), 'et')
-  );
-
-  const lines = [
-    `Indeks: ${knowledge.index.generatedAt ?? 'teadmata'}`,
-    `Pangad (${banks.length}): ${banks.map((bank) => bank.name).join(', ')}`,
-    ''
-  ];
-
-  for (const bank of banks) {
-    if (SKIP_CONTEXT_SLUGS.has(String(bank.slug))) continue;
-    lines.push(formatBankBlock(bank));
-    lines.push('');
-  }
-
-  cachedCompactContext = lines.join('\n').trim();
-  cachedCompactContextKey = cacheKey;
-  return cachedCompactContext;
+  return buildRetrievedContext(knowledge, [
+    { role: 'user', content: 'kõik pangad võrdlus intress hoius laen kataloog' }
+  ]);
 }
 
 /**
  * @param {{ index: object, banks: Record<string, unknown> }} knowledge
+ * @param {Array<{ role: string, content: string }>} messages
  */
-export function buildAdvisorSystemPrompt(knowledge) {
-  const context = buildCompactContext(
-    /** @type {{ index: { generatedAt?: string }, banks: Record<string, Record<string, unknown>> }} */ (
+export function buildAdvisorSystemPrompt(knowledge, messages) {
+  const context = buildRetrievedContext(
+    /** @type {{ index: { generatedAt?: string, banks?: Array<{ slug: string, name: string }> }, banks: Record<string, Record<string, unknown>> }} */ (
       knowledge
-    )
+    ),
+    messages
   );
 
   return `Eesti pangateenuste võrdlusabiline. Vasta eesti keeles, selgelt ja põhjalikult (võib olla kuni ~12 lauset keerukamate küsimuste puhul).
 
 Kasuta AINULT bank_data infot. Kui infot pole: "Seda infot mul kogutud andmetes pole." Ära väljamõtle numbreid. Maini panganimi ja fetchedAt. Mitte finants- ega õigusnõu.
 
-Iga panga andmetes on lisaks intressidele tootekataloog (catalog.sections: hoiused, paketid, laenud, kaardid jm) — kasuta seda toodete ja teenuste küsimustele.
+Iga panga andmetes on lisaks intressidele tootekataloog (catalog.sections: hoiused, paketid, laenud, kaardid jm) — kasuta seda toodete ja teenuste küsimustele. Kontekst on filtreeritud päringu järgi; kui vajalik info puudub, ütle seda.
 
 bank_data:
 ${context}`;
@@ -192,8 +96,17 @@ export async function chatWithAdvisor(messages, systemPrompt) {
  * @returns {Array<{ role: string, content: string }>}
  */
 export function parseAdvisorMessages(body) {
-  if (!body || typeof body !== 'object' || !Array.isArray(body.messages)) {
+  if (!body || typeof body !== 'object') {
     throw new Error('Oodatud JSON: { "messages": [{ "role": "user"|"assistant", "content": "..." }] }');
+  }
+
+  if (!Array.isArray(body.messages)) {
+    const single = typeof body.message === 'string' ? body.message.trim() : '';
+    if (single) {
+      body = { messages: [{ role: 'user', content: single }] };
+    } else {
+      throw new Error('Oodatud JSON: { "messages": [{ "role": "user"|"assistant", "content": "..." }] }');
+    }
   }
 
   const messages = body.messages
@@ -214,3 +127,5 @@ export function parseAdvisorMessages(body) {
 
   return messages.slice(-12);
 }
+
+export { SKIP_CONTEXT_SLUGS };

@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "morgan-stanley",
   "name": "Morgan Stanley",
-  "fetchedAt": "2026-06-17T21:23:19.826Z",
-  "generatedAt": "2026-06-17T21:23:20.085Z",
+  "fetchedAt": "2026-06-17T21:45:14.489Z",
+  "generatedAt": "2026-06-17T21:45:14.839Z",
   "sources": [
     {
       "kind": "primary",

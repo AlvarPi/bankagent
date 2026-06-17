@@ -13,7 +13,7 @@ REEGLID:
 - Võrdle pangaid objektiivselt, kui kasutaja küsib võrdlust.
 - Ära anna juriidilist ega isiklikku finantsnõu — ainult avalike tingimuste võrdlus.
 - Ole lühike ja selge.
-- Coop Panga andmetes on lisaks intressidele täielik tootekataloog (hoiused, paketid, laenud, liising, kindlustus jm) — kasuta seda Coop toodete ja teenuste küsimustele.`;
+- Iga panga andmetes on lisaks intressidele tootekataloog (hoiused, paketid, laenud, kaardid jm) — kasuta seda toodete ja teenuste küsimustele. Kontekst on filtreeritud päringu järgi; kui vajalik info puudub, ütle seda.`;
 
 const VALID_ROLES = new Set(['user', 'assistant']);
 
@@ -56,7 +56,7 @@ export async function POST({ request }) {
   let knowledgeGeneratedAt;
   try {
     [context, knowledgeGeneratedAt] = await Promise.all([
-      buildAdvisorContext(),
+      buildAdvisorContext(messages),
       getKnowledgeGeneratedAt()
     ]);
   } catch (err) {
