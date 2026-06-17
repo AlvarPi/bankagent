@@ -1,0 +1,9 @@
+[Unit]
+Description=Uuenda pangaintresside eelvaadet (ühekordne)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+WorkingDirectory=/home/ubuntu/pankade-teenused
+ExecStart=/home/ubuntu/pankade-teenused/scripts/refresh-banks-preview.sh

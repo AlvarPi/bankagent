@@ -1,0 +1,182 @@
+/**
+ * @param {string} value
+ */
+export function escapeHtml(value) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
+}
+
+/**
+ * @param {number | null | undefined} rate
+ */
+export function formatRate(rate) {
+  if (rate == null) return '—';
+  return `${rate.toLocaleString('et-EE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}%`;
+}
+
+/**
+ * @param {number | null | undefined} cents
+ */
+export function formatFee(cents) {
+  if (cents == null) return '—';
+  if (cents === 0) return 'tasuta';
+  return `${(cents / 100).toLocaleString('et-EE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+}
+
+/**
+ * @param {import('./util.js').CollectResult} data
+ */
+export function buildBankPreviewHtml(data) {
+  const fetchedLocal = new Date(data.fetchedAt).toLocaleString('et-EE');
+  const deposits = data.rows.filter((row) => row.product_type === 'deposit');
+  const accounts = data.rows.filter((row) => row.product_type === 'account');
+  const fees = data.rows.filter((row) => row.product_type === 'fee');
+
+  const rowHtml = (rows) =>
+    rows
+      .map(
+        (row) => `<tr>
+          <td>${escapeHtml(row.label)}</td>
+          <td class="rate">${formatRate(row.rate_percent)}</td>
+          <td>${formatFee(row.fee_cents)}</td>
+          <td><a href="${escapeHtml(row.source_url)}">allikas</a></td>
+        </tr>`
+      )
+      .join('\n');
+
+  const sourcesHtml = data.sources
+    .map(
+      (source) =>
+        `<li><strong>${escapeHtml(source.kind)}</strong>: <a href="${escapeHtml(source.url)}">${escapeHtml(source.url)}</a> — ${escapeHtml(source.note)}</li>`
+    )
+    .join('\n');
+
+  const warningsHtml = data.warnings.length
+    ? `<section class="warn"><h2>Märkused</h2><ul>${data.warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join('')}</ul></section>`
+    : '';
+
+  return `<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${escapeHtml(data.bankName)} — avaliku info kogumine</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f6f8;
+      --card: #fff;
+      --text: #1a2332;
+      --muted: #5c6b7a;
+      --accent: #1e5a8a;
+      --accent-soft: #e8f1f8;
+      --border: #d8e0e8;
+      --positive: #1b7f4a;
+      --warn-bg: #fff8e6;
+      --warn-border: #e8c96a;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 1.5rem; }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { margin: 0 0 0.35rem; }
+    .lead { color: var(--muted); margin: 0 0 1rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
+    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
+    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
+    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-size: 0.85rem; }
+    .rate { color: var(--positive); font-weight: 700; }
+    a { color: var(--accent); }
+    .back { display: inline-block; margin-bottom: 1rem; }
+    ul { margin: 0; padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="/banks/">← kõik pangad</a>
+    <h1>${escapeHtml(data.bankName)}</h1>
+    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
+    <div class="meta">
+      <span class="pill">Kogutud: ${escapeHtml(fetchedLocal)}</span>
+      <span class="pill">${data.rows.length} rida</span>
+    </div>
+    ${warningsHtml}
+    <section>
+      <h2>Allikad</h2>
+      <ul>${sourcesHtml}</ul>
+    </section>
+    ${
+      deposits.length
+        ? `<section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody>${rowHtml(deposits)}</tbody></table></section>`
+        : ''
+    }
+    ${
+      accounts.length
+        ? `<section><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody>${rowHtml(accounts)}</tbody></table></section>`
+        : ''
+    }
+    ${
+      fees.length
+        ? `<section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody>${rowHtml(fees)}</tbody></table></section>`
+        : ''
+    }
+  </div>
+</body>
+</html>`;
+}
+
+/**
+ * @param {import('./util.js').CollectResult[]} all
+ */
+export function buildBanksIndexHtml(all) {
+  const cards = all
+    .map((bank) => {
+      const depositCount = bank.rows.filter((row) => row.product_type === 'deposit').length;
+      return `<article class="card">
+        <h2><a href="/banks/${escapeHtml(bank.slug)}/">${escapeHtml(bank.bankName)}</a></h2>
+        <p>${depositCount} hoiuse rida · ${bank.rows.length} kokku</p>
+        ${bank.warnings.length ? `<p class="warn">${escapeHtml(bank.warnings[0])}</p>` : ''}
+      </article>`;
+    })
+    .join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pankade avalik info</title>
+  <style>
+    :root { --bg:#f4f6f8; --card:#fff; --text:#1a2332; --muted:#5c6b7a; --accent:#1e5a8a; --border:#d8e0e8; font-family:'Segoe UI',system-ui,sans-serif; color:var(--text); background:var(--bg); }
+    body { margin:0; padding:1.5rem; }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { margin: 0 0 0.5rem; }
+    .lead { color: var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1.5rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem; }
+    .card h2 { margin:0 0 0.5rem; font-size:1.1rem; }
+    .card p { margin:0.25rem 0; color:var(--muted); font-size:0.95rem; }
+    .warn { color:#8a5a00; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Pankade avalik info</h1>
+    <p class="lead">Kogutud <code>npm run collect-rates</code> skriptiga. Vali pank.</p>
+    <div class="grid">${cards}</div>
+  </div>
+</body>
+</html>`;
+}

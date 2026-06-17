@@ -1,0 +1,19 @@
+[Unit]
+Description=Pankade intresside eelvaate server (genofin.eu /banks)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/pankade-teenused
+Environment=NODE_ENV=production
+Environment=BANKS_PREVIEW_PORT=8765
+Environment=BANKS_PREVIEW_HOST=127.0.0.1
+ExecStartPre=/home/ubuntu/.nvm/versions/node/v20.19.0/bin/node /home/ubuntu/pankade-teenused/scripts/generate-bank-previews.js
+ExecStart=/home/ubuntu/.nvm/versions/node/v20.19.0/bin/node /home/ubuntu/pankade-teenused/scripts/serve-banks-preview.js
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

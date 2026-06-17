@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nordea — avaliku info kogumine</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f6f8;
+      --card: #fff;
+      --text: #1a2332;
+      --muted: #5c6b7a;
+      --accent: #1e5a8a;
+      --accent-soft: #e8f1f8;
+      --border: #d8e0e8;
+      --positive: #1b7f4a;
+      --warn-bg: #fff8e6;
+      --warn-border: #e8c96a;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 1.5rem; }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { margin: 0 0 0.35rem; }
+    .lead { color: var(--muted); margin: 0 0 1rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
+    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
+    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
+    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-size: 0.85rem; }
+    .rate { color: var(--positive); font-weight: 700; }
+    a { color: var(--accent); }
+    .back { display: inline-block; margin-bottom: 1rem; }
+    ul { margin: 0; padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="/banks/">← kõik pangad</a>
+    <h1>Nordea</h1>
+    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
+    <div class="meta">
+      <span class="pill">Kogutud: 17.6.2026, 21:26:20</span>
+      <span class="pill">8 rida</span>
+    </div>
+    <section class="warn"><h2>Märkused</h2><ul><li>Nordea.com/en ei avalda ühtseid intressimäärasid — kogutud riiklikud näited (FI, SE)</li><li>Ei ole Eesti pank ega minuraha.ee baromeetris</li></ul></section>
+    <section>
+      <h2>Allikad</h2>
+      <ul><li><strong>primary</strong>: <a href="https://www.nordea.com/en">https://www.nordea.com/en</a> — Nordea grupi koduleht</li>
+<li><strong>primary</strong>: <a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html">https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html</a> — Suomi JoustoTalletus</li>
+<li><strong>primary</strong>: <a href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/">https://www.nordea.se/privat/produkter/spara-investera/sparkonton/</a> — Ruotsi sparkonton</li>
+<li><strong>reference</strong>: <a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/">https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/</a> — Suomi säästötilid</li></ul>
+    </section>
+    <section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+          <td>FI JoustoTalletus: Vuotuinen korko 1 kk talletusjaksolle</td>
+          <td class="rate">1,45%</td>
+          <td>—</td>
+          <td><a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html">allikas</a></td>
+        </tr>
+<tr>
+          <td>FI JoustoTalletus: Vuotuinen korko 3 kk talletusjaksolle</td>
+          <td class="rate">1,65%</td>
+          <td>—</td>
+          <td><a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html">allikas</a></td>
+        </tr>
+<tr>
+          <td>FI JoustoTalletus: Vuotuinen korko 12 kk talletusjaksolle</td>
+          <td class="rate">2,00%</td>
+          <td>—</td>
+          <td><a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html">allikas</a></td>
+        </tr>
+<tr>
+          <td>SE Sparkonto Extra</td>
+          <td class="rate">0,50%</td>
+          <td>—</td>
+          <td><a href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/">allikas</a></td>
+        </tr>
+<tr>
+          <td>SE Fasträntekonto (min)</td>
+          <td class="rate">1,75%</td>
+          <td>—</td>
+          <td><a href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/">allikas</a></td>
+        </tr>
+<tr>
+          <td>SE Fasträntekonto (max)</td>
+          <td class="rate">2,10%</td>
+          <td>—</td>
+          <td><a href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/">allikas</a></td>
+        </tr></tbody></table></section>
+    
+    <section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+          <td>Nordea.com (grupi koduleht)</td>
+          <td class="rate">—</td>
+          <td>—</td>
+          <td><a href="https://www.nordea.com/en">allikas</a></td>
+        </tr>
+<tr>
+          <td>Suomi säästötilit</td>
+          <td class="rate">—</td>
+          <td>—</td>
+          <td><a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/">allikas</a></td>
+        </tr></tbody></table></section>
+  </div>
+</body>
+</html>

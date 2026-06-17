@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coop collect eelvaade — Pankade teenused</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f6f8;
+      --card: #ffffff;
+      --text: #1a2332;
+      --muted: #5c6b7a;
+      --accent: #1e5a8a;
+      --accent-soft: #e8f1f8;
+      --border: #d8e0e8;
+      --positive: #1b7f4a;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 1.5rem; }
+    .wrap { max-width: 920px; margin: 0 auto; }
+    h1 { margin: 0 0 0.35rem; font-size: 1.6rem; }
+    .lead { color: var(--muted); margin: 0 0 1.5rem; }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .pill {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.9rem;
+    }
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    h2 { margin: 0 0 1rem; font-size: 1.1rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.65rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th { color: var(--muted); font-weight: 600; font-size: 0.85rem; }
+    .rate, .rate-large { color: var(--positive); font-weight: 700; }
+    .rate-large { font-size: 2rem; margin: 0; }
+    .savings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .savings-card h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+    .savings-card {
+      background: var(--accent-soft);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    code {
+      background: #eef2f6;
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+    a { color: var(--accent); }
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .flow-step {
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .flow-step strong { display: block; margin-bottom: 0.25rem; }
+    @media (max-width: 640px) {
+      .flow { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Coop Pank — avaliku info kogumine</h1>
+    <p class="lead">See leht näitab, mida <code>npm run collect-rates</code> Coop Panga avalikult lehelt kätte saab ja kuidas see andmebaasi läheb.</p>
+
+    <div class="meta">
+      <span class="pill">Kogutud: 17.6.2026, 20:30:39</span>
+      <span class="pill">Intressid 27.05.2026</span>
+      <span class="pill">12 intressirida</span>
+    </div>
+
+    <section>
+      <h2>Kuidas see töötab</h2>
+      <div class="flow">
+        <div class="flow-step">
+          <strong>1. Fetch</strong>
+          Laadib alla <a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">hoiuste intresside lehe</a>.
+        </div>
+        <div class="flow-step">
+          <strong>2. Parse</strong>
+          Regex loeb tabelist perioodid ja Rahasahtli/Lastehoiu määrad.
+        </div>
+        <div class="flow-step">
+          <strong>3. Salvesta</strong>
+          Kirjutab read <code>public_rate_snapshots</code> tabelisse.
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tähtajalised hoiused</h2>
+      <table>
+        <thead>
+          <tr><th>Periood</th><th>Intress</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+        <td>1-2 kuud</td>
+        <td class="rate">1,80%</td>
+      </tr>
+<tr>
+        <td>3-5 kuud</td>
+        <td class="rate">2,05%</td>
+      </tr>
+<tr>
+        <td>6-8 kuud</td>
+        <td class="rate">2,10%</td>
+      </tr>
+<tr>
+        <td>9-11 kuud</td>
+        <td class="rate">2,10%</td>
+      </tr>
+<tr>
+        <td>12-17 kuud</td>
+        <td class="rate">2,15%</td>
+      </tr>
+<tr>
+        <td>18-23 kuud</td>
+        <td class="rate">2,15%</td>
+      </tr>
+<tr>
+        <td>24-35 kuud</td>
+        <td class="rate">2,15%</td>
+      </tr>
+<tr>
+        <td>36-47 kuud</td>
+        <td class="rate">2,15%</td>
+      </tr>
+<tr>
+        <td>48-59 kuud</td>
+        <td class="rate">2,15%</td>
+      </tr>
+<tr>
+        <td>60- kuud</td>
+        <td class="rate">2,15%</td>
+      </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Päevajäägi kontod</h2>
+      <div class="savings-grid">
+        <article class="card savings-card">
+        <h3>Rahasahtel (päevajääk)</h3>
+        <p class="rate-large">2,00%</p>
+      </article>
+<article class="card savings-card">
+        <h3>Lastehoius (päevajääk)</h3>
+        <p class="rate-large">2,00%</p>
+      </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Mis läheb andmebaasi (<code>public_rate_snapshots</code>)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>bank_slug</th>
+            <th>product_type</th>
+            <th>label</th>
+            <th>rate_percent</th>
+            <th>source_url</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 1-2 kuud</td>
+        <td class="rate">1,80%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 3-5 kuud</td>
+        <td class="rate">2,05%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 6-8 kuud</td>
+        <td class="rate">2,10%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 9-11 kuud</td>
+        <td class="rate">2,10%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 12-17 kuud</td>
+        <td class="rate">2,15%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 18-23 kuud</td>
+        <td class="rate">2,15%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 24-35 kuud</td>
+        <td class="rate">2,15%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 36-47 kuud</td>
+        <td class="rate">2,15%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 48-59 kuud</td>
+        <td class="rate">2,15%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Tähtajaline hoius 60- kuud</td>
+        <td class="rate">2,15%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Rahasahtel (päevajääk)</td>
+        <td class="rate">2,00%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>deposit</code></td>
+        <td>Lastehoius (päevajääk)</td>
+        <td class="rate">2,00%</td>
+        <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
+      </tr>
+<tr>
+        <td><code>coop</code></td>
+        <td><code>fee</code></td>
+        <td>Erakliendi hinnakiri (PDF lingid)</td>
+        <td class="rate">—</td>
+        <td><a href="https://www.cooppank.ee/info/tingimused-ja-hinnakirjad">allikas</a></td>
+      </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

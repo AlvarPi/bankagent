@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pankade avalik info</title>
+  <style>
+    :root { --bg:#f4f6f8; --card:#fff; --text:#1a2332; --muted:#5c6b7a; --accent:#1e5a8a; --border:#d8e0e8; font-family:'Segoe UI',system-ui,sans-serif; color:var(--text); background:var(--bg); }
+    body { margin:0; padding:1.5rem; }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { margin: 0 0 0.5rem; }
+    .lead { color: var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1.5rem; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:1rem; }
+    .card h2 { margin:0 0 0.5rem; font-size:1.1rem; }
+    .card p { margin:0.25rem 0; color:var(--muted); font-size:0.95rem; }
+    .warn { color:#8a5a00; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Pankade avalik info</h1>
+    <p class="lead">Kogutud <code>npm run collect-rates</code> skriptiga. Vali pank.</p>
+    <div class="grid"><article class="card">
+        <h2><a href="/banks/coop/">Coop Pank</a></h2>
+        <p>12 hoiuse rida · 13 kokku</p>
+        
+      </article>
+<article class="card">
+        <h2><a href="/banks/lhv/">LHV</a></h2>
+        <p>1 hoiuse rida · 3 kokku</p>
+        <p class="warn">LHV veebileht blokeerib automaatse päringu (403) — kasutatud minuraha.ee baromeetrit</p>
+      </article>
+<article class="card">
+        <h2><a href="/banks/seb/">SEB</a></h2>
+        <p>3 hoiuse rida · 7 kokku</p>
+        
+      </article>
+<article class="card">
+        <h2><a href="/banks/swedbank/">Swedbank</a></h2>
+        <p>1 hoiuse rida · 4 kokku</p>
+        
+      </article>
+<article class="card">
+        <h2><a href="/banks/luminor/">Luminor</a></h2>
+        <p>1 hoiuse rida · 3 kokku</p>
+        <p class="warn">Luminor leht on SPA (andmed laaditakse JS-iga) — kasutatud minuraha.ee baromeetrit</p>
+      </article>
+<article class="card">
+        <h2><a href="/banks/citadele/">Citadele</a></h2>
+        <p>4 hoiuse rida · 5 kokku</p>
+        
+      </article>
+<article class="card">
+        <h2><a href="/banks/wise/">Wise</a></h2>
+        <p>0 hoiuse rida · 3 kokku</p>
+        <p class="warn">Wise ei ole Eesti litsentseeritud pank — intress tuleb fondi kaudu, mitte pangahoiusena</p>
+      </article>
+<article class="card">
+        <h2><a href="/banks/bank-of-america/">Bank of America</a></h2>
+        <p>0 hoiuse rida · 0 kokku</p>
+        <p class="warn">Kogumine ebaõnnestus: HTTP 403 for https://media.bac-assets.com/DigitalDeposit_NY_NY_Tri_State_Area.pdf</p>
+      </article>
+<article class="card">
+        <h2><a href="/banks/holm/">Holm Bank</a></h2>
+        <p>2 hoiuse rida · 4 kokku</p>
+        
+      </article>
+<article class="card">
+        <h2><a href="/banks/bigbank/">Bigbank</a></h2>
+        <p>3 hoiuse rida · 5 kokku</p>
+        
+      </article>
+<article class="card">
+        <h2><a href="/banks/iutecredit/">IuteCredit</a></h2>
+        <p>0 hoiuse rida · 1 kokku</p>
+        <p class="warn">IuteCredit ei ole traditsiooniline hoiuspank — kogutud andmed on võlakirja intress, mitte hoiuse määr</p>
+      </article>
+<article class="card">
+        <h2><a href="/banks/morgan-stanley/">Morgan Stanley</a></h2>
+        <p>5 hoiuse rida · 8 kokku</p>
+        <p class="warn">Morgan Stanley intressid sõltuvad kontotüübist ja varade mahust (tiered rates)</p>
+      </article>
+<article class="card">
+        <h2><a href="/banks/nordea/">Nordea</a></h2>
+        <p>6 hoiuse rida · 8 kokku</p>
+        <p class="warn">Nordea.com/en ei avalda ühtseid intressimäärasid — kogutud riiklikud näited (FI, SE)</p>
+      </article></div>
+  </div>
+</body>
+</html>
