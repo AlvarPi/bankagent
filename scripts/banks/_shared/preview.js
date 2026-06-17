@@ -1,3 +1,5 @@
+import { buildAdvisorWidgetHtml } from './advisor-widget.js';
+
 /**
  * @param {string} value
  */
@@ -177,6 +179,7 @@ export function buildBanksIndexHtml(all) {
     <p class="lead">Kogutud <code>npm run collect-rates</code> skriptiga. Vali pank.</p>
     <div class="grid">${cards}</div>
   </div>
+  ${buildAdvisorWidgetHtml()}
 </body>
 </html>`;
 }

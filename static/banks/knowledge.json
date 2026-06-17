@@ -1,0 +1,119 @@
+{
+  "schema": "pankade-teenused/knowledge-index/1",
+  "generatedAt": "2026-06-17T20:42:02.296Z",
+  "agent": {
+    "usage": "Lae /banks/knowledge.json, seejärel iga panga /banks/{slug}/data.json. Coop sisaldab täielikku tootekataloogi (catalog.sections).",
+    "indexUrl": "/banks/knowledge.json",
+    "dataUrlPattern": "/banks/{slug}/data.json"
+  },
+  "banks": [
+    {
+      "slug": "coop",
+      "name": "Coop Pank",
+      "fetchedAt": "2026-06-17T20:41:56.107Z",
+      "json": "/banks/coop/data.json",
+      "html": "/banks/coop/",
+      "hasCatalog": true,
+      "rateCount": 13
+    },
+    {
+      "slug": "lhv",
+      "name": "LHV",
+      "fetchedAt": "2026-06-17T20:41:56.109Z",
+      "json": "/banks/lhv/data.json",
+      "html": "/banks/lhv/",
+      "hasCatalog": false,
+      "rateCount": 3
+    },
+    {
+      "slug": "seb",
+      "name": "SEB",
+      "fetchedAt": "2026-06-17T20:41:56.916Z",
+      "json": "/banks/seb/data.json",
+      "html": "/banks/seb/",
+      "hasCatalog": false,
+      "rateCount": 7
+    },
+    {
+      "slug": "swedbank",
+      "name": "Swedbank",
+      "fetchedAt": "2026-06-17T20:41:57.123Z",
+      "json": "/banks/swedbank/data.json",
+      "html": "/banks/swedbank/",
+      "hasCatalog": false,
+      "rateCount": 4
+    },
+    {
+      "slug": "luminor",
+      "name": "Luminor",
+      "fetchedAt": "2026-06-17T20:41:57.123Z",
+      "json": "/banks/luminor/data.json",
+      "html": "/banks/luminor/",
+      "hasCatalog": false,
+      "rateCount": 3
+    },
+    {
+      "slug": "citadele",
+      "name": "Citadele",
+      "fetchedAt": "2026-06-17T20:41:58.487Z",
+      "json": "/banks/citadele/data.json",
+      "html": "/banks/citadele/",
+      "hasCatalog": false,
+      "rateCount": 5
+    },
+    {
+      "slug": "wise",
+      "name": "Wise",
+      "fetchedAt": "2026-06-17T20:41:59.104Z",
+      "json": "/banks/wise/data.json",
+      "html": "/banks/wise/",
+      "hasCatalog": false,
+      "rateCount": 3
+    },
+    {
+      "slug": "holm",
+      "name": "Holm Bank",
+      "fetchedAt": "2026-06-17T20:41:59.301Z",
+      "json": "/banks/holm/data.json",
+      "html": "/banks/holm/",
+      "hasCatalog": false,
+      "rateCount": 4
+    },
+    {
+      "slug": "bigbank",
+      "name": "Bigbank",
+      "fetchedAt": "2026-06-17T20:42:01.829Z",
+      "json": "/banks/bigbank/data.json",
+      "html": "/banks/bigbank/",
+      "hasCatalog": false,
+      "rateCount": 5
+    },
+    {
+      "slug": "iutecredit",
+      "name": "IuteCredit",
+      "fetchedAt": "2026-06-17T20:42:01.923Z",
+      "json": "/banks/iutecredit/data.json",
+      "html": "/banks/iutecredit/",
+      "hasCatalog": false,
+      "rateCount": 1
+    },
+    {
+      "slug": "morgan-stanley",
+      "name": "Morgan Stanley",
+      "fetchedAt": "2026-06-17T20:42:02.058Z",
+      "json": "/banks/morgan-stanley/data.json",
+      "html": "/banks/morgan-stanley/",
+      "hasCatalog": false,
+      "rateCount": 8
+    },
+    {
+      "slug": "nordea",
+      "name": "Nordea",
+      "fetchedAt": "2026-06-17T20:42:02.267Z",
+      "json": "/banks/nordea/data.json",
+      "html": "/banks/nordea/",
+      "hasCatalog": false,
+      "rateCount": 8
+    }
+  ]
+}

@@ -5,7 +5,6 @@ import { collect as collectSwedbank } from './swedbank/index.js';
 import { collect as collectLuminor } from './luminor/index.js';
 import { collect as collectCitadele } from './citadele/index.js';
 import { collect as collectWise } from './wise/index.js';
-import { collect as collectBankOfAmerica } from './bank-of-america/index.js';
 import { collect as collectHolm } from './holm/index.js';
 import { collect as collectBigbank } from './bigbank/index.js';
 import { collect as collectIutecredit } from './iutecredit/index.js';
@@ -21,7 +20,6 @@ export const COLLECTORS = {
   luminor: collectLuminor,
   citadele: collectCitadele,
   wise: collectWise,
-  'bank-of-america': collectBankOfAmerica,
   holm: collectHolm,
   bigbank: collectBigbank,
   iutecredit: collectIutecredit,
@@ -37,7 +35,6 @@ const BANK_NAMES = {
   luminor: 'Luminor',
   citadele: 'Citadele',
   wise: 'Wise',
-  'bank-of-america': 'Bank of America',
   holm: 'Holm Bank',
   bigbank: 'Bigbank',
   iutecredit: 'IuteCredit',

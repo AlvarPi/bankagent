@@ -16,7 +16,6 @@ INSERT INTO banks (slug, name, website) VALUES
   ('coop', 'Coop Pank', 'https://www.cooppank.ee'),
   ('citadele', 'Citadele', 'https://www.citadele.ee'),
   ('wise', 'Wise', 'https://wise.com/ee'),
-  ('bank-of-america', 'Bank of America', 'https://www.bankofamerica.com'),
   ('holm', 'Holm Bank', 'https://www.holmbank.ee'),
   ('bigbank', 'Bigbank', 'https://www.bigbank.ee'),
   ('iutecredit', 'IuteCredit', 'https://iute.com/et'),
@@ -65,5 +64,15 @@ CREATE TABLE IF NOT EXISTS public_rate_snapshots (
 
 CREATE INDEX IF NOT EXISTS idx_public_rates_bank_scraped
   ON public_rate_snapshots (bank_slug, product_type, scraped_at DESC);
+
+CREATE TABLE IF NOT EXISTS bank_knowledge_snapshots (
+  id SERIAL PRIMARY KEY,
+  bank_slug TEXT NOT NULL REFERENCES banks (slug),
+  data JSONB NOT NULL,
+  scraped_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_bank_knowledge_slug_scraped
+  ON bank_knowledge_snapshots (bank_slug, scraped_at DESC);
 
 COMMIT;

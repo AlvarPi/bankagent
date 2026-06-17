@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coop Pank — avaliku info kogumine</title>
+  <title>Coop Pank — avalik info</title>
   <style>
     :root {
       color-scheme: light;
@@ -32,23 +32,29 @@
     section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
     section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
     h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+    h3 { margin: 0 0 0.35rem; font-size: 1rem; }
+    .items { display: grid; gap: 0.85rem; }
+    .item { border-top: 1px solid var(--border); padding-top: 0.85rem; }
+    .item:first-child { border-top: 0; padding-top: 0; }
+    .item p { margin: 0.25rem 0 0.5rem; color: var(--muted); }
+    ul { margin: 0; padding-left: 1.2rem; }
+    ul.item-rates li { color: var(--positive); font-weight: 600; }
     table { width: 100%; border-collapse: collapse; }
     th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
     th { color: var(--muted); font-size: 0.85rem; }
     .rate { color: var(--positive); font-weight: 700; }
     a { color: var(--accent); }
     .back { display: inline-block; margin-bottom: 1rem; }
-    ul { margin: 0; padding-left: 1.2rem; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <a class="back" href="/banks/">← kõik pangad</a>
     <h1>Coop Pank</h1>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
+    <p class="lead">Avalikult kogutud intressid, tooted, laenud, kampaaniad ja teenused (cooppank.ee).</p>
     <div class="meta">
-      <span class="pill">Kogutud: 17.6.2026, 21:47:02</span>
-      <span class="pill">13 rida</span>
+      <span class="pill">Kogutud: 17.6.2026, 23:41:56</span>
+      <span class="pill">13 intressi/tasu rida</span>
     </div>
     
     <section>
@@ -56,7 +62,7 @@
       <ul><li><strong>primary</strong>: <a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid</a> — hoiuste intressid (parse)</li>
 <li><strong>reference</strong>: <a href="https://www.cooppank.ee/info/tingimused-ja-hinnakirjad">https://www.cooppank.ee/info/tingimused-ja-hinnakirjad</a> — hinnakirja lingid</li></ul>
     </section>
-    <section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+    <section><h2>Hoiused (kogutud)</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Tähtajaline hoius 1-2 kuud</td>
           <td class="rate">1,80%</td>
           <td>—</td>
@@ -129,12 +135,348 @@
           <td><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid">allikas</a></td>
         </tr></tbody></table></section>
     
-    <section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+    <section><h2>Tasud / hinnakirjad (kogutud)</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Erakliendi hinnakiri (PDF lingid)</td>
           <td class="rate">—</td>
           <td>—</td>
           <td><a href="https://www.cooppank.ee/info/tingimused-ja-hinnakirjad">allikas</a></td>
         </tr></tbody></table></section>
+    <section>
+      <h2>Hoiused ja säästmine</h2>
+      <div class="items"><article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/tahtajaline-hoius">Tähtajaline hoius</a></h3>
+          <p>Tähtajaline hoius alates 100 €, periood 1–120 kuud. Intress kuni 2,15%. Tagatud Riikliku Tagatisfondi poolt kuni 100 000 € hoiustaja kohta.</p>
+          <ul class="item-rates"><li>1–2 kuud: 1,80%</li><li>3–5 kuud: 2,05%</li><li>6–11 kuud: 2,10%</li><li>12+ kuud: 2,15%</li><li>Igakuise intressimakse korral −0,05%</li><li>Kehtib kuni 5 000 000 € kliendi kohta (kehtivad alates 27.05.2026)</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/rahasahtel">Rahasahtel</a></h3>
+          <p>Automatiseeritud säästmine (ümardus, % ostudest). Garanteeritud 2% aastas, paindlik väljavõtt.</p>
+          <ul class="item-rates"><li>2,0% aastas</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/lastehoius">Lastehoius</a></h3>
+          <p>Lapsele raha kogumine kuni 18 aastaks. Pank lisab 50 € stardikapitali. Haldustasud puuduvad.</p>
+          <ul class="item-rates"><li>2,0% aastas</li><li>50 € stardiboonus</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/investeerimine">Investeerimine</a></h3>
+          <p>Investeerimislahendused ja elustiilile sobiv kogumine.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/raha-kasvatamine/tuleva-ii-samba-pensionifondid">Tuleva pensionifondid</a></h3>
+          <p>II ja III samba pensionifondid (Tuleva).</p>
+          
+          
+        </article></div>
+    </section>
+<section>
+      <h2>Igapäevapangandus – paketid</h2>
+      <div class="items"><article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/igapaevapangandus/paketid">Lihtne</a></h3>
+          <p>Tasuta virtuaalkaart, maksed ja ostukindlustus.</p>
+          
+          <ul class="item-details"><li>Sobib igapäevaseks arvelduseks minimaalse hüvepaketiga.</li></ul>
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/igapaevapangandus/paketid">Kasulik</a></h3>
+          <p>1% ostupreemia Coopi ostudelt, lai sularahavõrgustik, kõik Lihtne paketi hüved.</p>
+          <ul class="item-rates"><li>1% ostupreemia kuus (Coop Panga deebetkaardiga)</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/igapaevapangandus/paketid">Piirideta</a></h3>
+          <p>1% intress kontojäägilt, isiklik reisikindlustus, kõik Kasulik paketi hüved.</p>
+          <ul class="item-rates"><li>1% intress arvelduskonto jäägilt aastas</li></ul>
+          <ul class="item-details"><li>Sularaha väljavõtt välismaal kuni 10 000 €/kuus (võib lisanduda automaadi tasu)</li><li>Noored ja 65+ võivad Kasulik paketis tasuta arveldada (eraldi kampaania)</li></ul>
+        </article></div>
+    </section>
+<section>
+      <h2>Kaardid ja maksed</h2>
+      <div class="items"><article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/igapaevapangandus/kaardid/deebetkaart">Deebetkaart</a></h3>
+          <p>Ostukindlustusega deebetkaart; ühtlasi Coopi ja Alexela kliendikaart.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/igapaevapangandus/kaardid/krediitkaart">Krediitkaart</a></h3>
+          <p>Paindlik krediitkaart.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/igapaevapangandus/kaardid/coop-pluss">Coop Pluss</a></h3>
+          <p>Coop Pluss kaarditoode.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/igapaevapangandus/nutikad-makseviisid">Nutimaksed</a></h3>
+          <p>Apple Pay ja Google Pay.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/igapaevapangandus/maksed">Maksed</a></h3>
+          <p>Maksed, välkmaksed ja Euroopa maksed mobiilipangast.</p>
+          
+          
+        </article></div>
+    </section>
+<section>
+      <h2>Laenud (eraklient)</h2>
+      <div class="items"><article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kodu/kodulaen">Kodulaen</a></h3>
+          <p>Ostmine, ehitus, renoveerimine. MES kaaslaen, EIS koostöö.</p>
+          <ul class="item-rates"><li>A-energiaklassi intress alates 1,49%</li><li>Esmane pakkumine minutiga</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kodu/opetaja-kodulaen">Õpetaja kodulaen</a></h3>
+          <p>Eritingimused õpetajatele.</p>
+          <ul class="item-rates"><li>Intressimarginaal alates 1,49%</li><li>Lepingutasu 0 €</li><li>Hüvitatakse eksperthinnang ja 1 aasta kodukindlustus</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kodu/kodukaitsja-kodulaen">Kodukaitsja kodulaen</a></h3>
+          <p>Spetsiaalne kodulaen Kodukaitsja programmi raames.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kodu/remondilaen">Remondilaen</a></h3>
+          <p>Kodu remondiks.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kodu/kinnisvara-tagatisel-laen">Kinnisvara tagatisel laen</a></h3>
+          <p>Laen kinnisvara tagatisel.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/vaikelaen">Väikelaen</a></h3>
+          <p>Tagatiseta laen 300–25 000 €, kuni 10 aastat. Fikseeritud kuumakse.</p>
+          <ul class="item-rates"><li>Intress alates 7,9%</li><li>Ennetähtaegne tagastamine tasuta</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/vaikelaen/reisilaen">Reisilaen</a></h3>
+          <p>Väikelaenu erivariant reisiks.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/auto/autolaen">Autolaen</a></h3>
+          <p>300–25 000 €. Sissemakset ja kaskot pole vaja, sõiduk kohe sinu oma.</p>
+          <ul class="item-rates"><li>Intress alates 6,9%</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/auto/liising">Autoliising</a></h3>
+          <p>Auto, kaubik, mootorratas, ATV. Pakkumine ~3 päeva.</p>
+          <ul class="item-rates"><li>Sissemakse alates 0%</li><li>Lepingutasu alates 0 €</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/auto/kasutatud-auto-liising">Kasutatud auto liising</a></h3>
+          <p>Kasutatud sõiduki liising.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/auto/autoportaal">Autoportaal</a></h3>
+          <p>Uute ja kasutatud autode müügiportaal.</p>
+          
+          
+        </article></div>
+    </section>
+<section>
+      <h2>Kindlustus</h2>
+      <div class="items"><article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kindlustamine/liikluskindlustus/kalkulaator">Liikluskindlustus</a></h3>
+          <p>Kuni 8 pakkumist, võrdlus kalkulaatoris.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kindlustamine/kaskokindlustus/kalkulaator">Kaskokindlustus</a></h3>
+          <p>Kaskokindlustuse kalkulaator ja ost.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kindlustamine/kodukindlustus">Kodukindlustus</a></h3>
+          <p>Kodu ja koduvara kindlustus.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kindlustamine/reisikindlustus">Reisikindlustus</a></h3>
+          <p>Reisikindlustus üksikule reisile.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kindlustamine/reisikindlustus-kuumaksega">Kuumaksega reisikindlustus</a></h3>
+          <p>Perele terveks aastaks.</p>
+          <ul class="item-rates"><li>8,90 €/kuus (kampaanialeht)</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kindlustamine/onnetusjuhtumi-kindlustus">Õnnetusjuhtumi kindlustus</a></h3>
+          <p>Õnnetusjuhtumi kindlustus.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kindlustamine/ostukindlustus">Ostukindlustus</a></h3>
+          <p>Kaardiga seotud ostukaitse.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/kindlustamine/coop-kindlustusmaakler">Coop Kindlustusmaakler</a></h3>
+          <p>Kindlustusmaakleri teenus ja ärikliendi kindlustuslahendused.</p>
+          
+          
+        </article></div>
+    </section>
+<section>
+      <h2>Kampaaniad ja partnerpakkumised</h2>
+      <div class="items"><article class="item">
+          <h3><a href="https://www.cooppank.ee/kampaania">Sissetuleku kampaania 500 €</a></h3>
+          <p>Too palga sissetulek Coop Panka ja osale loosimistes.</p>
+          <ul class="item-rates"><li>Periood: 20.04.2026 – 10.07.2026</li><li>Iganädalaselt 5 × 500 €</li><li>Peaauhind 5000 €</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/pakkumised/kasulik-ostupreemia">Kasulik ostupreemia</a></h3>
+          <p>1% ostupreemia Coopi ostudelt (Kasulik/Piirideta pakett).</p>
+          <ul class="item-rates"><li>1% kuus kontole</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/pakkumised/alates-65-eluaastast-on-sulle-pangateenused-tasuta">65+ tasuta teenused</a></h3>
+          <p>Alates 65. eluaastast pangateenused tasuta Kasulik paketis.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/pakkumised/coopi-kliendiprogramm">Coopi kliendiprogramm</a></h3>
+          <p>Panga kaart on Coopi kaupluste kliendikaart.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/pakkumised/alexela-0">Alexela programm</a></h3>
+          <p>Panga kaart on Alexela kliendikaart (liitu äpis või internetipangas).</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/pakkumised/panustame-koos-eesti-kaitsevoimesse">Kaardivägi</a></h3>
+          <p>Iga kaardimaksega 1 sent reservväelastele (+ pank lisab 1 sendi).</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/pakkumised/spordis-nuud-coop-panga-kaardiga-makstes-10-soodustus">AT Sport −10%</a></h3>
+          <p>10% soodustus AT Sport poedes kaardiga.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/pakkumised/jazz-pesulad-soodustus-coop-panga-kaardiga">Jazz Pesulad −5%</a></h3>
+          <p>5% soodustus Jazz autopesulates (füüsilise kaardiga).</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/eraklient/pakkumised/parim-intress-eestis">Lastehoius 50 €</a></h3>
+          <p>50 € stardikapital lastehoiuse avamisel.</p>
+          
+          
+        </article></div>
+    </section>
+<section>
+      <h2>Äriklient</h2>
+      <div class="items"><article class="item">
+          <h3><a href="https://www.cooppank.ee/ariklient/igapaevapangandus/arikliendi-paketid">Äripakett</a></h3>
+          <p>Kuutasuta arveldus, tasuta Eesti/Euroopa maksed, sularaha sissemakse Coopis.</p>
+          <ul class="item-rates"><li>Intress arvelduskonto jäägilt (turu parim mainitud)</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/ariklient/igapaevapangandus/arikliendi-paketid">Korteriühistu pakett</a></h3>
+          <p>Korteriühistutele.</p>
+          <ul class="item-rates"><li>2 €/kuus</li></ul>
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/ariklient/finantseerimine/arilaen">Ärilaen</a></h3>
+          <p>Ettevõtte laen.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/ariklient/finantseerimine/arvelduskrediit">Arvelduskrediit</a></h3>
+          <p>Arvelduskrediit.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/ariklient/finantseerimine/faktooring">Faktooring</a></h3>
+          <p>Arvete faktooring.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/ariklient/finantseerimine/liising">Liising (äri)</a></h3>
+          <p>Ettevõtte liising.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/ariklient/finantseerimine/alustava-ettevotja-vaikelaen">Alustava ettevõtja väikelaen</a></h3>
+          <p>Stardiettevõttele.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/ariklient/pakkumised">Partnerpakkumised</a></h3>
+          <p>SimplBooks (4 kuud tasuta), Merit (6 kuud), Envoice (90 päeva, COOP90), Directo (−20% 12 kuud), Shoproller, SmartPost (−30%), VeeRa, Fondia jt.</p>
+          
+          
+        </article></div>
+    </section>
+<section>
+      <h2>Tingimused ja info</h2>
+      <div class="items"><article class="item">
+          <h3><a href="https://www.cooppank.ee/info/tingimused-ja-hinnakirjad">Tingimused ja hinnakirjad</a></h3>
+          <p>Erakliendi ja ärikliendi hinnakirjad, kaartide ja arvelduse tüüptingimused (uuendused alates 01.08.2026).</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://www.cooppank.ee/info/pangakontorid">Pangakontorid</a></h3>
+          <p>Kontorite asukohad ja lahtiolekuajad.</p>
+          
+          
+        </article>
+<article class="item">
+          <h3><a href="https://openbanking.cooppank.ee">Open Banking</a></h3>
+          <p>Coop Panga avatud panganduse portaal.</p>
+          
+          
+        </article></div>
+    </section>
   </div>
 </body>
 </html>

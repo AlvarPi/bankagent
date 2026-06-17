@@ -1,0 +1,76 @@
+{
+  "schema": "pankade-teenused/bank-knowledge/1",
+  "slug": "bigbank",
+  "name": "Bigbank",
+  "fetchedAt": "2026-06-17T20:42:01.829Z",
+  "generatedAt": "2026-06-17T20:42:02.292Z",
+  "sources": [
+    {
+      "kind": "primary",
+      "url": "https://www.bigbank.ee/hoiused/",
+      "note": "tähtajaline hoius"
+    },
+    {
+      "kind": "primary",
+      "url": "https://www.bigbank.ee/saastuhoius/",
+      "note": "säästuhoius"
+    },
+    {
+      "kind": "fallback",
+      "url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "note": "FI baromeeter"
+    },
+    {
+      "kind": "reference",
+      "url": "https://www.bigbank.ee/dokumendid/?main=549&sec&doc",
+      "note": "hinnakiri / dokumendid"
+    }
+  ],
+  "warnings": [],
+  "rates": [
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius (kuni, veebileht)",
+      "rate_percent": 2.75,
+      "fee_cents": null,
+      "source_url": "https://www.bigbank.ee/hoiused/",
+      "raw_text": "bigbank-collect: tähtajaline hoius leht"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Säästuhoius (aastane intress, veebileht)",
+      "rate_percent": 2.2,
+      "fee_cents": null,
+      "source_url": "https://www.bigbank.ee/saastuhoius/",
+      "raw_text": "bigbank-collect: säästuhoius leht"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius 12 kuu (baromeeter), min 500 €",
+      "rate_percent": 2.55,
+      "fee_cents": null,
+      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "raw_text": "minuraha: uuendatud 06.02.2026"
+    },
+    {
+      "product_type": "account",
+      "label": "Arvelduskonto (baromeeter), min 1 €",
+      "rate_percent": 2,
+      "fee_cents": null,
+      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "raw_text": "minuraha: uuendatud 12.12.2024"
+    },
+    {
+      "product_type": "fee",
+      "label": "Teenuste hinnakiri / dokumendid",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://www.bigbank.ee/dokumendid/?main=549&sec&doc",
+      "raw_text": "bigbank-collect: dokumendid leht"
+    }
+  ],
+  "links": {
+    "html": "/banks/bigbank/",
+    "json": "/banks/bigbank/data.json"
+  }
+}

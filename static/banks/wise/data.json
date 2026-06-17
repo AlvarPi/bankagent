@@ -1,0 +1,53 @@
+{
+  "schema": "pankade-teenused/bank-knowledge/1",
+  "slug": "wise",
+  "name": "Wise",
+  "fetchedAt": "2026-06-17T20:41:59.104Z",
+  "generatedAt": "2026-06-17T20:42:02.290Z",
+  "sources": [
+    {
+      "kind": "primary",
+      "url": "https://wise.com/ee/interest/",
+      "note": "Wise Interest (fintech)"
+    },
+    {
+      "kind": "reference",
+      "url": "https://wise.com/ee/pricing/",
+      "note": "tasud"
+    }
+  ],
+  "warnings": [
+    "Wise ei ole Eesti litsentseeritud pank — intress tuleb fondi kaudu, mitte pangahoiusena",
+    "Ei ole minuraha.ee baromeetris"
+  ],
+  "rates": [
+    {
+      "product_type": "account",
+      "label": "Wise Interest EUR (muutuv määr)",
+      "rate_percent": 1.8,
+      "fee_cents": null,
+      "source_url": "https://wise.com/ee/interest/",
+      "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
+    },
+    {
+      "product_type": "fee",
+      "label": "Wise Interest aastatasu (ligikaudu)",
+      "rate_percent": 0.26,
+      "fee_cents": null,
+      "source_url": "https://wise.com/ee/interest/",
+      "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
+    },
+    {
+      "product_type": "fee",
+      "label": "Wise tasude info",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://wise.com/ee/pricing/",
+      "raw_text": "wise-collect: pricing leht"
+    }
+  ],
+  "links": {
+    "html": "/banks/wise/",
+    "json": "/banks/wise/data.json"
+  }
+}
