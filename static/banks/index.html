@@ -12,12 +12,13 @@
     .lead { color: var(--muted); }
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.25rem; margin-top:1.5rem; }
     .card { background:var(--card); border:1px solid var(--border); border-radius:14px; min-height:120px; padding:1.5rem; display:flex; align-items:center; justify-content:center; }
-    .card-link { display:flex; align-items:center; justify-content:center; width:100%; min-height:72px; text-decoration:none; }
-    .card-link:hover .card-logo { opacity:0.85; }
-    .card-logo { display:block; max-width:100%; max-height:72px; width:auto; height:auto; object-fit:contain; object-position:center center; }
+    .card-logo-link { display:flex; align-items:center; justify-content:center; width:100%; min-height:72px; text-decoration:none; }
+    .card-logo-link:hover { text-decoration:none; }
+    .card-logo-link:hover .card-logo { opacity:0.85; }
+    .card-logo { display:block; max-width:100%; max-height:44px; width:auto; height:auto; object-fit:contain; object-position:center center; margin:0 auto; }
+    .card-logo-fallback { display:block; font-size:1.05rem; font-weight:700; color:var(--text); text-align:center; line-height:1.25; }
     a { color:var(--accent); text-decoration:none; }
     a:hover { text-decoration:underline; }
-    .card-link:hover { text-decoration:none; }
   </style>
 </head>
 <body>
@@ -25,65 +26,41 @@
     <h1>Pankade avalik info</h1>
     <p class="lead">Kogutud <code>npm run collect-rates</code> skriptiga. Vali pank.</p>
     <div class="grid"><article class="card">
-        <a class="card-link" href="/banks/coop/">
-          <img class="card-logo" src="/banks/logos/coop.svg" alt="Coop Pank" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/coop/" class="card-logo-link"><img src="/banks/logos/coop.svg" alt="Coop Pank" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/lhv/">
-          <img class="card-logo" src="/banks/logos/lhv.svg" alt="LHV" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/lhv/" class="card-logo-link"><img src="/banks/logos/lhv.svg" alt="LHV" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/seb/">
-          <img class="card-logo" src="/banks/logos/seb.svg" alt="SEB" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/seb/" class="card-logo-link"><img src="/banks/logos/seb.svg" alt="SEB" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/swedbank/">
-          <img class="card-logo" src="/banks/logos/swedbank.svg" alt="Swedbank" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/swedbank/" class="card-logo-link"><img src="/banks/logos/swedbank.svg" alt="Swedbank" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/luminor/">
-          <img class="card-logo" src="/banks/logos/luminor.svg" alt="Luminor" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/luminor/" class="card-logo-link"><img src="/banks/logos/luminor.svg" alt="Luminor" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/citadele/">
-          <img class="card-logo" src="/banks/logos/citadele.png" alt="Citadele" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/citadele/" class="card-logo-link"><img src="/banks/logos/citadele.png" alt="Citadele" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/wise/">
-          <img class="card-logo" src="/banks/logos/wise.png" alt="Wise" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/wise/" class="card-logo-link"><img src="/banks/logos/wise.png" alt="Wise" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/holm/">
-          <img class="card-logo" src="/banks/logos/holm.svg" alt="Holm Bank" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/holm/" class="card-logo-link"><img src="/banks/logos/holm.svg" alt="Holm Bank" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/bigbank/">
-          <img class="card-logo" src="/banks/logos/bigbank.svg" alt="Bigbank" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/bigbank/" class="card-logo-link"><img src="/banks/logos/bigbank.svg" alt="Bigbank" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/iutecredit/">
-          <img class="card-logo" src="/banks/logos/iutecredit.svg" alt="IuteCredit" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/iutecredit/" class="card-logo-link"><img src="/banks/logos/iutecredit.svg" alt="IuteCredit" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/morgan-stanley/">
-          <img class="card-logo" src="/banks/logos/morgan-stanley.svg" alt="Morgan Stanley" loading="lazy" />
-        </a>
-      </article>
+  <a href="/banks/morgan-stanley/" class="card-logo-link"><img src="/banks/logos/morgan-stanley.svg" alt="Morgan Stanley" class="card-logo"></a>
+</article>
 <article class="card">
-        <a class="card-link" href="/banks/nordea/">
-          <img class="card-logo" src="/banks/logos/nordea.svg" alt="Nordea" loading="lazy" />
-        </a>
-      </article></div>
+  <a href="/banks/nordea/" class="card-logo-link"><img src="/banks/logos/nordea.svg" alt="Nordea" class="card-logo"></a>
+</article></div>
   </div>
   
   <div id="bank-advisor" class="advisor-root" aria-live="polite">

@@ -1,4 +1,11 @@
 import { buildAdvisorWidgetHtml } from './advisor-widget.js';
+import fs from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __previewDir = dirname(fileURLToPath(import.meta.url));
+/** @type {string} */
+const BANK_LOGOS_DIR = join(__previewDir, '../../../static/banks/logos');
 
 /**
  * @param {string} value
@@ -157,19 +164,40 @@ export function bankLogoSrc(slug) {
 }
 
 /**
+ * @param {string} slug
+ * @returns {string | null} Logo filename when present under static/banks/logos.
+ */
+export function resolveBankLogoFile(slug) {
+  const ext = BANK_LOGO_EXT[slug] || 'svg';
+  const fileName = `${slug}.${ext}`;
+  if (fs.existsSync(join(BANK_LOGOS_DIR, fileName))) {
+    return fileName;
+  }
+  return null;
+}
+
+/**
+ * @param {import('./util.js').CollectResult} bank
+ * @returns {string}
+ */
+function buildBankCardMarkup(bank) {
+  const href = `/banks/${bank.slug}/`;
+  const logoFile = resolveBankLogoFile(bank.slug);
+  if (logoFile) {
+    return `<article class="card">
+  <a href="${escapeHtml(href)}" class="card-logo-link"><img src="/banks/logos/${escapeHtml(logoFile)}" alt="${escapeHtml(bank.bankName)}" class="card-logo"></a>
+</article>`;
+  }
+  return `<article class="card">
+  <a href="${escapeHtml(href)}" class="card-logo-link"><span class="card-logo-fallback">${escapeHtml(bank.bankName)}</span></a>
+</article>`;
+}
+
+/**
  * @param {import('./util.js').CollectResult[]} all
  */
 export function buildBanksIndexHtml(all) {
-  const cards = all
-    .map((bank) => {
-      const logoSrc = bankLogoSrc(bank.slug);
-      return `<article class="card">
-        <a class="card-link" href="/banks/${escapeHtml(bank.slug)}/">
-          <img class="card-logo" src="${escapeHtml(logoSrc)}" alt="${escapeHtml(bank.bankName)}" loading="lazy" />
-        </a>
-      </article>`;
-    })
-    .join('\n');
+  const cards = all.map((bank) => buildBankCardMarkup(bank)).join('\n');
 
   return `<!DOCTYPE html>
 <html lang="et">
@@ -185,12 +213,13 @@ export function buildBanksIndexHtml(all) {
     .lead { color: var(--muted); }
     .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.25rem; margin-top:1.5rem; }
     .card { background:var(--card); border:1px solid var(--border); border-radius:14px; min-height:120px; padding:1.5rem; display:flex; align-items:center; justify-content:center; }
-    .card-link { display:flex; align-items:center; justify-content:center; width:100%; min-height:72px; text-decoration:none; }
-    .card-link:hover .card-logo { opacity:0.85; }
-    .card-logo { display:block; max-width:100%; max-height:72px; width:auto; height:auto; object-fit:contain; object-position:center center; }
+    .card-logo-link { display:flex; align-items:center; justify-content:center; width:100%; min-height:72px; text-decoration:none; }
+    .card-logo-link:hover { text-decoration:none; }
+    .card-logo-link:hover .card-logo { opacity:0.85; }
+    .card-logo { display:block; max-width:100%; max-height:44px; width:auto; height:auto; object-fit:contain; object-position:center center; margin:0 auto; }
+    .card-logo-fallback { display:block; font-size:1.05rem; font-weight:700; color:var(--text); text-align:center; line-height:1.25; }
     a { color:var(--accent); text-decoration:none; }
     a:hover { text-decoration:underline; }
-    .card-link:hover { text-decoration:none; }
   </style>
 </head>
 <body>

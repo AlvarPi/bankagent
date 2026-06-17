@@ -9,30 +9,50 @@ export const SEB_CATALOG = [
       {
         name: 'Tähtajaline hoius',
         url: 'https://www.seb.ee/eraklient/raha-kasvatamine/hoiused/tahtajaline-hoius',
-        summary: 'Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt.',
-        rates: ['Kuni 1,65% (intressimaarad leht)']
+        summary:
+          'Fikseeritud intressiga tähtajaline hoius alates 64 €. Periood 3–60 kuud. Tagatud Tagatisfondi poolt kuni 100 000 €.',
+        rates: ['Kuni 2,00% (intressimaarad leht)', '12 kuu baromeeter: ~2,30% (min 500 €, minuraha)'],
+        details: [
+          'Intress makstakse tähtaja lõpus või igakuiselt (igakuine −0,05%)',
+          'Ennetähtaegne lõpetamine võimalik, intressi korrigeeritakse'
+        ]
       },
       {
         name: 'Kogumishoius',
         url: 'https://www.seb.ee/eraklient/raha-kasvatamine/hoiused/kogumishoius',
-        summary: 'Paindlik kogumishoius, sh Digikassa integratsioon.',
-        rates: ['Muutuv intress (vaata intressimaarad)']
+        summary: 'Paindlik kogumishoius igakuise sissemaksega. Sobib pikaajaliseks säästmiseks.',
+        rates: ['1,65% aastas (intressimaarad leht)'],
+        details: ['Minimaalne sissemakse 1 €', 'Digikassa raha võib automaatselt koguda']
       },
       {
         name: 'Arvelduskonto intress',
         url: 'https://www.seb.ee/intressimaarad',
-        summary: 'Intress arvelduskonto jäägilt.',
-        rates: ['Vaata intressimaarad lehte']
+        summary: 'Intress EUR arvelduskonto jäägilt.',
+        rates: ['0,01% aastas (intressimaarad)', 'Baromeeter: 0,20% kuni 5000 €; üle 5000 €: 0,01%'],
+        details: ['Intress arvutatakse päevade lõikes', 'Tingimused sõltuvad kontotüübist']
+      },
+      {
+        name: 'Digikassa',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/digikassa',
+        summary: 'Digitaalne rahakott ja makselahendused. Seotud kogumishoiusega.',
+        details: ['Ümardus ostudest kogumishoiusesse', 'Mobiilirakendus eraldi']
       },
       {
         name: 'Investeerimine',
         url: 'https://www.seb.ee/eraklient/raha-kasvatamine/investeerimine',
-        summary: 'Fondid, aktsiad, obligatsioonid. SEB investeerimisplatvorm.'
+        summary: 'Fondid, aktsiad, ETF-id, obligatsioonid. SEB investeerimisplatvorm ja nõustamine.',
+        details: ['SEB fondid ja kolmandate osapoolte fondid', 'Investeerimiskonto ja väärtpaberikonto']
       },
       {
-        name: 'Pension',
+        name: 'Pension (II ja III sammas)',
         url: 'https://www.seb.ee/eraklient/raha-kasvatamine/pension',
-        summary: 'II ja III samba pensionifondid.'
+        summary: 'II samba pensionifondid ja III samba vabatahtlik pension.',
+        details: ['SEB pensionifondide valik', 'III samba maksusoodustus kuni 15% tulust']
+      },
+      {
+        name: 'Lapsele kogumine',
+        url: 'https://www.seb.ee/eraklient/raha-kasvatamine',
+        summary: 'Lapse tuleviku jaoks säästmine kogumishoiuse või investeerimise kaudu.'
       }
     ]
   },
@@ -42,27 +62,33 @@ export const SEB_CATALOG = [
       {
         name: 'Põhipakett',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangapaketid',
-        summary: 'Põhiline pangapakett igapäevaseks kasutuseks.'
+        summary: 'Põhiline pangapakett igapäevaseks arvelduseks.',
+        details: ['Arvelduskonto, internetipank, mobiilipank', 'Deebetkaart', 'Kuutasu: vaata hinnakirja']
       },
       {
         name: 'Optimaalne pakett',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangapaketid',
-        summary: 'Laiendatud teenuste pakett.'
+        summary: 'Laiendatud teenuste pakett reisikindlustuse ja lisahüvedega.',
+        details: ['Kõik Põhipaketi teenused', 'Reisikindlustus', 'Soodustused partnerite juures']
       },
       {
         name: 'Premium pakett',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangapaketid',
-        summary: 'Kõrgeima taseme pangapakett koos lisahüvedega.'
+        summary: 'Kõrgeima taseme pangapakett koos laia kindlustuskaitse ja concierge-teenustega.',
+        details: ['Premium reisikindlustus', 'Airport lounge juurdepääs (tingimustel)', 'Personaalne nõustamine']
       },
       {
         name: 'Noortepakett',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/noortepakett',
-        summary: 'Eritingimused noortele.'
+        summary: 'Eritingimused noortele (kuni 26 a.).',
+        rates: ['Soodushinnaga või tasuta teenused (vaata hinnakirja)'],
+        details: ['Tasuta või soodushinnaga pangateenused', 'Noortele suunatud pakkumised']
       },
       {
-        name: 'Digikassa',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/digikassa',
-        summary: 'Digitaalne rahakott ja makselahendused.'
+        name: 'Pensionäride pakett',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangapaketid',
+        summary: 'Soodustingimused pensioniealistele klientidele.',
+        details: ['Võimalik tasuta või soodushinnaga arveldus']
       }
     ]
   },
@@ -72,47 +98,73 @@ export const SEB_CATALOG = [
       {
         name: 'Deebetkaart',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid',
-        summary: 'Visa/Mastercard deebetkaardid, nutimaksed.'
+        summary: 'Visa/Mastercard deebetkaardid, Apple Pay, Google Pay, Garmin Pay.',
+        details: ['Kaardi väljastamise ja kuutasu: hinnakiri', 'Ostukaitse ja pettusekaitse']
       },
       {
         name: 'Krediitkaart',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid/krediitkaart',
-        summary: 'Krediitkaart ostukindlustusega.'
+        summary: 'Krediitkaart ostukindlustuse ja reisikindlustusega.',
+        details: ['Intressimäär sõltub limiidist', 'Grace period ostudele']
       },
       {
-        name: 'Maksed',
+        name: 'SEB Maksed',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/maksed',
-        summary: 'SEPA, kiirmaksed, välismaa maksed.'
+        summary: 'SEPA maksed, kiirmaksed, välismaa maksed, püsikorraldused.',
+        details: ['SEPA makse tavaliselt 1 tööpäev', 'Kiirmaksed SEPA Instant raames']
+      },
+      {
+        name: 'Nutimaksed',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid',
+        summary: 'Apple Pay, Google Pay, Samsung Pay, Garmin Pay.'
       }
     ]
   },
   {
-    title: 'Laenud',
+    title: 'Laenud (eraklient)',
     items: [
       {
         name: 'Kodulaen',
         url: 'https://www.seb.ee/eraklient/laenud/kodulaen',
-        summary: 'Kinnisvara ostmine, ehitus, renoveerimine.'
+        summary: 'Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine.',
+        rates: ['Intressimarginaal sõltub profiilist (vaata seb.ee)'],
+        details: ['Kuni 30 aastat', 'Esmaspakkumine internetis', 'Kodukindlustus nõutav']
+      },
+      {
+        name: 'Kodulaen noortele',
+        url: 'https://www.seb.ee/eraklient/laenud/kodulaen',
+        summary: 'Eritingimused noortele koduostjatele.',
+        details: ['Võimalik KredEx toetus', 'Madalam sissemakse tingimustel']
       },
       {
         name: 'Väikelaen',
         url: 'https://www.seb.ee/eraklient/laenud/vaikelaen',
-        summary: 'Tagatiseta isiklik laen.'
+        summary: 'Tagatiseta isiklik laen 300–30 000 €, kuni 10 aastat.',
+        details: ['Fikseeritud kuumakse', 'Taotlus internetipangas või mobiilis']
       },
       {
         name: 'Autolaen',
         url: 'https://www.seb.ee/eraklient/laenud/autolaen',
-        summary: 'Sõiduki soetamiseks.'
+        summary: 'Sõiduki soetamiseks uuele või kasutatud autole.',
+        details: ['Sissemakse alates 10%', 'Kaskokindlustus soovituslik']
       },
       {
         name: 'Liising',
         url: 'https://www.seb.ee/eraklient/laenud/liising',
-        summary: 'Finants- ja operatiivliising.'
+        summary: 'Finants- ja operatiivliising sõidukitele ja seadmetele.',
+        details: ['Kapitaliliising ja finantsliising', 'Operatiivliising ettevõtetele']
       },
       {
         name: 'Krediidikonto',
         url: 'https://www.seb.ee/eraklient/laenud/krediidikonto',
-        summary: 'Paindlik krediidikonto.'
+        summary: 'Paindlik krediidikonto igapäevaseks kasutuseks.',
+        details: ['Kasutad ainult vajadusel', 'Intress ainult kasutatud summalt']
+      },
+      {
+        name: 'Õppelaen',
+        url: 'https://www.seb.ee/eraklient/laenud',
+        summary: 'Õpingute finantseerimine.',
+        details: ['Koolitustasude katmine', 'Paindlik tagasimakse graafik']
       }
     ]
   },
@@ -122,17 +174,47 @@ export const SEB_CATALOG = [
       {
         name: 'Kodukindlustus',
         url: 'https://www.seb.ee/eraklient/kindlustus/kodukindlustus',
-        summary: 'Kodu ja koduvara kindlustus.'
+        summary: 'Kodu, koduvara ja vastutuskindlustus.',
+        details: ['Kasko ja vastutus', 'Erinevad kaitsetasemed']
       },
       {
         name: 'Reisikindlustus',
         url: 'https://www.seb.ee/eraklient/kindlustus/reisikindlustus',
-        summary: 'Reisi- ja tervisekindlustus.'
+        summary: 'Reisi tühistamine, meditsiin, pagas. Pakettides kaasas.',
+        details: ['Ühekordne reis või aastapoliis', 'Premium paketis laiem kaitse']
       },
       {
-        name: 'Liiklus- ja kaskokindlustus',
+        name: 'Liikluskindlustus',
         url: 'https://www.seb.ee/eraklient/kindlustus',
-        summary: 'Sõiduki kindlustuslahendused.'
+        summary: 'Kohustuslik liikluskindlustus ja kaskokindlustus.',
+        details: ['Võrdle pakkumisi SEB keskkonnas', 'Liisingu puhul kasko nõutav']
+      },
+      {
+        name: 'Õnnetusjuhtumi kindlustus',
+        url: 'https://www.seb.ee/eraklient/kindlustus',
+        summary: 'Trahvide ja invaliidsuse kaitse.'
+      },
+      {
+        name: 'Elukindlustus',
+        url: 'https://www.seb.ee/eraklient/kindlustus',
+        summary: 'Elukindlustus pere kaitsmiseks.'
+      }
+    ]
+  },
+  {
+    title: 'Kampaaniad ja pakkumised',
+    items: [
+      {
+        name: 'SEB Rewards',
+        url: 'https://www.seb.ee/eraklient/pakkumised',
+        summary: 'Partnerite soodustused SEB kaardi või paketiga.',
+        details: ['Reisi-, ostu- ja meelelahutuspakkumised', 'Muutuvad kampaaniad']
+      },
+      {
+        name: 'Uue kliendi pakkumised',
+        url: 'https://www.seb.ee/eraklient',
+        summary: 'Aeg-ajalt kampaaniad uutele klientidele.',
+        details: ['Tingimused lehel kampaania ajal']
       }
     ]
   },
@@ -142,17 +224,37 @@ export const SEB_CATALOG = [
       {
         name: 'Ärikonto',
         url: 'https://www.seb.ee/ariklient',
-        summary: 'Ettevõtte arveldus ja teenused.'
+        summary: 'Ettevõtte arvelduskonto ja igapäevapangandus.',
+        details: ['SEPA maksed', 'Mitme kasutajaga ligipääs', 'Integratsioonid raamatupidamisega']
+      },
+      {
+        name: 'Äripaketid',
+        url: 'https://www.seb.ee/ariklient/igapaevapangandus',
+        summary: 'Erineva mahuga äripaketid väikeettevõttest suurkorporatsioonini.',
+        details: ['Kuutasu sõltub mahust', 'Tasuta maksed teatud mahus']
       },
       {
         name: 'Ärilaen',
         url: 'https://www.seb.ee/ariklient/laenud',
-        summary: 'Ettevõtte finantseerimine.'
+        summary: 'Investeerimislaen, käibekapitali laen, kinnisvara tagatisel.',
+        details: ['MES ja KredEx kaasfinantseerimine', 'Leasing äriklientidele']
       },
       {
-        name: 'Kaardimaksed',
+        name: 'Kaardimaksed (POS ja e-kaubandus)',
         url: 'https://www.seb.ee/ariklient/kaardimaksed',
-        summary: 'POS, e-kaubandus, makselahendused.'
+        summary: 'Kaupluse terminalid, e-kaubanduse makselahendused, arvemaksed.',
+        details: ['Visa/Mastercard', 'Apple Pay ja Google Pay kaupmehele']
+      },
+      {
+        name: 'Faktooring ja arvelduskrediit',
+        url: 'https://www.seb.ee/ariklient/laenud',
+        summary: 'Raha laekumise kiirendamine ja käibekapital.',
+        details: ['Arvete ost', 'Arvelduskrediidi limiit']
+      },
+      {
+        name: 'Investeerimispangandus (äri)',
+        url: 'https://www.seb.ee/ariklient',
+        summary: 'Suuremate ettevõtete finantseerimine ja nõustamine.'
       }
     ]
   },
@@ -162,12 +264,30 @@ export const SEB_CATALOG = [
       {
         name: 'Pangateenuste hinnakiri',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri',
-        summary: 'Erakliendi teenuste hinnakiri.'
+        summary: 'Erakliendi ja ärikliendi teenuste hinnakiri (PDF ja veeb).',
+        details: ['Pakettide kuutasud', 'Kaartide tasud', 'Maksete hinnad']
       },
       {
         name: 'Intressimäärad',
         url: 'https://www.seb.ee/intressimaarad',
-        summary: 'Hoiuste ja kontode intressimäärad.'
+        summary: 'Hoiuste, kontode ja laenude intressimäärad.',
+        details: ['Uuendatakse regulaarselt', 'Kehtivad määrad lehel']
+      },
+      {
+        name: 'Tingimused ja infolehed',
+        url: 'https://www.seb.ee/et/tingimused',
+        summary: 'Üldtingimused, infolehed ja privaatsuspoliitika.'
+      },
+      {
+        name: 'Pangakontorid ja klienditugi',
+        url: 'https://www.seb.ee/et/kontakt',
+        summary: 'Kontorite asukohad, lahtiolekuajad, klienditugi.',
+        details: ['24/7 klienditugi kaartide ja pettuste jaoks', 'Videokohtumine võimalik']
+      },
+      {
+        name: 'Open Banking',
+        url: 'https://developer.sebgroup.com',
+        summary: 'SEB avatud panganduse API arendajatele.'
       }
     ]
   }

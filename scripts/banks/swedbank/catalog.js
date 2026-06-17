@@ -9,29 +9,35 @@ export const SWEDBANK_CATALOG = [
       {
         name: 'Tähtajaline hoius',
         url: 'https://www.swedbank.ee/private/savings/deposit',
-        summary: 'Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 €.',
-        rates: ['Vaata swedbank.ee hoiuste intresse']
+        summary:
+          'Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 €.',
+        rates: ['12 kuu baromeeter: ~2,30% (min 190 €, minuraha)', 'Vaata depositrates lehte'],
+        details: ['Periood 3–60 kuud', 'Minimaalne summa 100 €', 'Intress tähtaja lõpus või igakuiselt']
       },
       {
         name: 'Kogumishoius',
         url: 'https://www.swedbank.ee/private/savings/savings-account',
-        summary: 'Paindlik kogumiskonto igapäevaseks säästmiseks.'
+        summary: 'Paindlik kogumiskonto igapäevaseks säästmiseks.',
+        details: ['Igakuine sissemakse', 'Väljavõtt võimalik', 'Intress koguneb']
       },
       {
         name: 'Arvelduskonto intress',
         url: 'https://www.swedbank.ee/private/home/more/pricesrates/depositrates',
         summary: 'Intress EUR arvelduskonto jäägilt.',
-        rates: ['0,2% (depositsrates leht, muutuv)']
+        rates: ['0,01% (depositsrates leht)', 'Baromeeter: ~0,20% (min 1 €, minuraha)'],
+        details: ['Intress arvutatakse päevade lõikes']
       },
       {
         name: 'Investeerimine',
         url: 'https://www.swedbank.ee/private/savings/invest',
-        summary: 'Fondid, aktsiad, pension. Swedbank investeerimisplatvorm.'
+        summary: 'Fondid, aktsiad, pension. Swedbank investeerimisplatvorm.',
+        details: ['Swedbank fondid', 'Robo-nõustamine', 'Väärtpaberikonto']
       },
       {
-        name: 'Pension',
+        name: 'Pension (II ja III sammas)',
         url: 'https://www.swedbank.ee/private/savings/pension',
-        summary: 'II ja III samba pensionifondid.'
+        summary: 'II samba pensionifondid ja III samba vabatahtlik pension.',
+        details: ['Swedbank pensionifondid', 'III samba maksusoodustus']
       }
     ]
   },
@@ -41,24 +47,37 @@ export const SWEDBANK_CATALOG = [
       {
         name: 'Põhipakett',
         url: 'https://www.swedbank.ee/private/dailybanking/packages',
-        summary: 'Põhiline pangapakett.',
-        rates: ['Kuutasu: vaata depositrates lehte']
+        summary: 'Põhiline pangapakett igapäevaseks arvelduseks.',
+        rates: ['Kuutasu 1,00 € (täishind)', 'Kuni 25 a.: tasuta', 'Alates 65 a.: 0,32 €'],
+        details: ['Arvelduskonto, internetipank, mobiilipank', 'Deebetkaart', 'Piiramatu arv makseid internetis']
       },
       {
         name: 'Ostupakett',
         url: 'https://www.swedbank.ee/private/dailybanking/packages',
         summary: 'Pakett ostuhüvede ja lisateenustega.',
-        rates: ['Kuutasu: vaata depositrates lehte']
+        rates: ['Kuutasu: vaata depositrates lehte'],
+        details: ['Ostukindlustus', 'Reisikindlustus', 'Soodustused partnerite juures']
       },
       {
         name: 'Premium pakett',
         url: 'https://www.swedbank.ee/private/dailybanking/packages',
-        summary: 'Kõrgeima taseme pangapakett.'
+        summary: 'Kõrgeima taseme pangapakett.',
+        rates: ['Kuutasu: vaata depositrates lehte'],
+        details: ['Laiem kindlustuskaitse', 'Concierge-teenus', 'Airport lounge (tingimustel)']
       },
       {
         name: 'Noortepakett',
         url: 'https://www.swedbank.ee/private/dailybanking/for-young-people',
-        summary: 'Eritingimused noortele (kuni 26 a.).'
+        summary: 'Eritingimused noortele (kuni 26 a.).',
+        rates: ['Tasuta või soodushinnaga teenused'],
+        details: ['Tasuta arveldus noortele', 'Noortele suunatud pakkumised']
+      },
+      {
+        name: 'Pensionäride soodustused',
+        url: 'https://www.swedbank.ee/private/dailybanking/packages',
+        summary: 'Soodustingimused pensioniealistele.',
+        rates: ['Põhipakett alates 65 a.: 0,32 €/kuus'],
+        details: ['60+ kliendid võivad olla vabastatud kuutasust (tingimustel)']
       }
     ]
   },
@@ -68,47 +87,66 @@ export const SWEDBANK_CATALOG = [
       {
         name: 'Deebetkaart',
         url: 'https://www.swedbank.ee/private/dailybanking/cards',
-        summary: 'Visa/Mastercard deebetkaardid, Apple Pay, Google Pay.'
+        summary: 'Visa/Mastercard deebetkaardid, Apple Pay, Google Pay.',
+        details: ['Kaardi tasud hinnakirjas', 'Ostukaitse', 'Pettusekaitse']
       },
       {
         name: 'Krediitkaart',
         url: 'https://www.swedbank.ee/private/dailybanking/cards/credit-card',
-        summary: 'Krediitkaart ostukindlustusega.'
+        summary: 'Krediitkaart ostukindlustuse ja reisikindlustusega.',
+        details: ['Krediidilimiit', 'Grace period']
       },
       {
         name: 'Maksed',
         url: 'https://www.swedbank.ee/private/dailybanking/payments',
-        summary: 'SEPA, kiirmaksed, välismaa maksed.'
+        summary: 'SEPA maksed, kiirmaksed, välismaa maksed.',
+        details: ['SEPA Instant', 'Püsikorraldused', 'Swish ja muud Põhjamaade maksed']
+      },
+      {
+        name: 'Nutimaksed',
+        url: 'https://www.swedbank.ee/private/dailybanking/cards',
+        summary: 'Apple Pay, Google Pay, Garmin Pay.'
       }
     ]
   },
   {
-    title: 'Laenud',
+    title: 'Laenud (eraklient)',
     items: [
       {
         name: 'Kodulaen',
         url: 'https://www.swedbank.ee/private/loans/home-loan',
-        summary: 'Kinnisvara ostmine, ehitus, renoveerimine.'
+        summary: 'Kinnisvara ostmine, ehitus, renoveerimine.',
+        rates: ['Intressimarginaal sõltub profiilist'],
+        details: ['Kuni 30 aastat', 'Eelotsus internetis', 'KredEx toetused']
       },
       {
         name: 'Väikelaen',
         url: 'https://www.swedbank.ee/private/loans/consumer-loan',
-        summary: 'Tagatiseta isiklik laen.'
+        summary: 'Tagatiseta isiklik laen.',
+        details: ['Fikseeritud kuumakse', 'Taotlus internetipangas']
       },
       {
         name: 'Autolaen',
         url: 'https://www.swedbank.ee/private/loans/car-loan',
-        summary: 'Sõiduki soetamiseks.'
+        summary: 'Sõiduki soetamiseks.',
+        details: ['Uus ja kasutatud auto', 'Liising alternatiivina']
       },
       {
         name: 'Liising',
         url: 'https://www.swedbank.ee/private/loans/leasing',
-        summary: 'Finants- ja operatiivliising.'
+        summary: 'Finants- ja operatiivliising.',
+        details: ['Kapitaliliising', 'Operatiivliising']
       },
       {
         name: 'Krediidikonto',
         url: 'https://www.swedbank.ee/private/loans/credit-line',
-        summary: 'Paindlik krediidikonto.'
+        summary: 'Paindlik krediidikonto.',
+        details: ['Intress kasutatud summalt', 'Limiit sõltub sissetulekust']
+      },
+      {
+        name: 'Õppelaen',
+        url: 'https://www.swedbank.ee/private/loans',
+        summary: 'Õpingute finantseerimine.'
       }
     ]
   },
@@ -118,17 +156,46 @@ export const SWEDBANK_CATALOG = [
       {
         name: 'Kodukindlustus',
         url: 'https://www.swedbank.ee/private/insurance/home',
-        summary: 'Kodu ja koduvara kindlustus.'
+        summary: 'Kodu ja koduvara kindlustus.',
+        details: ['Erinevad kaitsetasemed', 'Kodulaenu puhul nõutav']
       },
       {
         name: 'Reisikindlustus',
         url: 'https://www.swedbank.ee/private/insurance/travel',
-        summary: 'Reisi- ja tervisekindlustus.'
+        summary: 'Reisi- ja tervisekindlustus.',
+        details: ['Pakettides kaasas', 'Ühekordne või aastapoliis']
       },
       {
         name: 'Liiklus- ja kaskokindlustus',
         url: 'https://www.swedbank.ee/private/insurance',
-        summary: 'Sõiduki kindlustuslahendused.'
+        summary: 'Sõiduki kindlustuslahendused.',
+        details: ['Võrdle pakkumisi', 'Liisingu puhul kasko']
+      },
+      {
+        name: 'Õnnetusjuhtumi kindlustus',
+        url: 'https://www.swedbank.ee/private/insurance',
+        summary: 'Trahvide kaitse.'
+      },
+      {
+        name: 'Elukindlustus',
+        url: 'https://www.swedbank.ee/private/insurance',
+        summary: 'Elukindlustus pere kaitsmiseks.'
+      }
+    ]
+  },
+  {
+    title: 'Kampaaniad ja pakkumised',
+    items: [
+      {
+        name: 'Swedbank pakkumised',
+        url: 'https://www.swedbank.ee/private/offers',
+        summary: 'Partnerite soodustused ja kampaaniad.',
+        details: ['Muutuvad pakkumised', 'Ostupaketi hüved']
+      },
+      {
+        name: 'Uue kliendi kampaaniad',
+        url: 'https://www.swedbank.ee/private',
+        summary: 'Aeg-ajalt kampaaniad uutele klientidele.'
       }
     ]
   },
@@ -138,12 +205,31 @@ export const SWEDBANK_CATALOG = [
       {
         name: 'Ärikonto',
         url: 'https://www.swedbank.ee/business',
-        summary: 'Ettevõtte arveldus ja teenused.'
+        summary: 'Ettevõtte arveldus ja teenused.',
+        details: ['SEPA maksed', 'Mitme kasutaja ligipääs']
+      },
+      {
+        name: 'Äripaketid',
+        url: 'https://www.swedbank.ee/business/daily-banking',
+        summary: 'Erineva mahuga äripaketid.',
+        details: ['Kuutasu sõltub mahust']
       },
       {
         name: 'Ärilaen',
         url: 'https://www.swedbank.ee/business/financing',
-        summary: 'Ettevõtte finantseerimine.'
+        summary: 'Ettevõtte finantseerimine.',
+        details: ['Investeerimislaen', 'Käibekapital', 'Leasing']
+      },
+      {
+        name: 'Kaardimaksed',
+        url: 'https://www.swedbank.ee/business/card-payments',
+        summary: 'POS, e-kaubandus, arvemaksed.',
+        details: ['Visa/Mastercard kaupmehele']
+      },
+      {
+        name: 'Faktooring',
+        url: 'https://www.swedbank.ee/business/financing',
+        summary: 'Arvete faktooring ja käibekapital.'
       }
     ]
   },
@@ -151,14 +237,26 @@ export const SWEDBANK_CATALOG = [
     title: 'Tingimused ja info',
     items: [
       {
-        name: 'Hinnakiri ja intressid',
+        name: 'Hinnakiri ja intressid (depositsrates)',
         url: 'https://www.swedbank.ee/private/home/more/pricesrates/depositrates',
-        summary: 'Hoiuste intressid, pakettide tasud, arvelduskonto intress.'
+        summary: 'Hoiuste intressid, pakettide tasud, arvelduskonto intress.',
+        details: ['Pakettide kuutasud', 'Hoiuste intressid']
       },
       {
-        name: 'Intressimäärad',
+        name: 'Intressimäärad (interests)',
         url: 'https://www.swedbank.ee/private/home/more/pricesrates/interests',
-        summary: 'Laenu- ja hoiuseintresside detailid (JS leht).'
+        summary: 'Laenu- ja hoiuseintresside detailid (JS leht).',
+        details: ['Dünaamiline leht', 'Täpsemad laenumäärad']
+      },
+      {
+        name: 'Teenuste tingimused',
+        url: 'https://www.swedbank.ee/private/home/more/terms',
+        summary: 'Üldtingimused ja infolehed.'
+      },
+      {
+        name: 'Pangakontorid',
+        url: 'https://www.swedbank.ee/private/home/contact',
+        summary: 'Kontorite asukohad ja klienditugi.'
       }
     ]
   }

@@ -11,8 +11,8 @@ let cachedCompactContext = null;
 /** @type {string | null} */
 let cachedCompactContextKey = null;
 
-/** Pangad, mida kontekstist välja jätta (vähe andmeid, suur müra). */
-const SKIP_CONTEXT_SLUGS = new Set(['morgan-stanley']);
+/** Pangad, mida kontekstist välja jätta — tühi, kasutaja soovib maksimaalset infot. */
+const SKIP_CONTEXT_SLUGS = new Set();
 
 /**
  * @returns {'openai' | 'none'}
@@ -76,8 +76,12 @@ function formatCatalogLines(catalog) {
     for (const item of section.items ?? []) {
       let line = `  - ${item.name}`;
       if (item.summary) line += `: ${item.summary}`;
+      if (item.url) line += ` (${item.url})`;
       if (item.rates?.length) line += ` [${item.rates.join('; ')}]`;
       lines.push(line);
+      for (const detail of item.details ?? []) {
+        lines.push(`      · ${detail}`);
+      }
     }
   }
   return lines;
@@ -105,14 +109,13 @@ function formatBankBlock(data) {
     lines.push(`Allikas: ${primaryUrl}`);
   }
 
-  const usefulRates = rates
-    .filter((rate) => rate.product_type === 'deposit' || rate.product_type === 'account')
-    .slice(0, 10);
-  const shown = usefulRates.length ? usefulRates : rates.slice(0, 6);
-  lines.push('Intressid/tasud:');
-  for (const rate of shown) {
+  lines.push('Intressid/tasud (kõik kogutud read):');
+  for (const rate of rates) {
     const rateStr = rate.rate_percent != null ? `${rate.rate_percent}%` : '—';
-    lines.push(`  - [${rate.product_type}] ${rate.label}: ${rateStr}, tasu ${formatFee(rate.fee_cents)}`);
+    const raw = rate.raw_text ? ` | ${rate.raw_text}` : '';
+    lines.push(
+      `  - [${rate.product_type}] ${rate.label}: ${rateStr}, tasu ${formatFee(rate.fee_cents)} | ${rate.source_url}${raw}`
+    );
   }
 
   const catalog = /** @type {{ sections?: unknown[] } | undefined} */ (data.catalog);
@@ -163,7 +166,7 @@ export function buildAdvisorSystemPrompt(knowledge) {
     )
   );
 
-  return `Eesti pangateenuste võrdlusabiline. Vasta eesti keeles, lühidalt (max ~8 lauset).
+  return `Eesti pangateenuste võrdlusabiline. Vasta eesti keeles, selgelt ja põhjalikult (võib olla kuni ~12 lauset keerukamate küsimuste puhul).
 
 Kasuta AINULT bank_data infot. Kui infot pole: "Seda infot mul kogutud andmetes pole." Ära väljamõtle numbreid. Maini panganimi ja fetchedAt. Mitte finants- ega õigusnõu.
 

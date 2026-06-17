@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "luminor",
   "name": "Luminor",
-  "fetchedAt": "2026-06-17T21:13:49.027Z",
-  "generatedAt": "2026-06-17T21:13:53.206Z",
+  "fetchedAt": "2026-06-17T21:23:15.031Z",
+  "generatedAt": "2026-06-17T21:23:20.073Z",
   "sources": [
     {
       "kind": "fallback",
@@ -63,30 +63,65 @@
           {
             "name": "Tähtajaline hoius",
             "url": "https://luminor.ee/eraklient/hoiused",
-            "summary": "Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt.",
+            "summary": "Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 €.",
             "rates": [
-              "Vaata luminor.ee intressimäärasid või minuraha baromeetrit"
+              "12 kuu baromeeter: ~2,30% (min 100 €, minuraha)",
+              "Täpsed määrad: luminor.ee (SPA/JS leht)",
+              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+            ],
+            "details": [
+              "Periood 3–60 kuud",
+              "Minimaalne summa 100 €"
             ]
           },
           {
             "name": "Kogumishoius",
             "url": "https://luminor.ee/eraklient/hoiused/kogumishoius",
-            "summary": "Paindlik kogumishoius igakuise sissemaksega."
+            "summary": "Paindlik kogumishoius igakuise sissemaksega.",
+            "details": [
+              "Igakuine sissemakse",
+              "Väljavõtt võimalik"
+            ]
           },
           {
             "name": "Arvelduskonto intress",
             "url": "https://luminor.ee/intressi-ja-viivisemaarad",
-            "summary": "Intress arvelduskonto jäägilt (JS leht)."
+            "summary": "Intress arvelduskonto jäägilt (JS leht).",
+            "rates": [
+              "Baromeeter: intress alates 18 000 € jäägilt (minuraha)",
+              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+            ],
+            "details": [
+              "Sõltub paketist",
+              "Intressi- ja viivistemäärad lehel"
+            ]
           },
           {
             "name": "Investeerimine",
             "url": "https://luminor.ee/eraklient/investeerimine",
-            "summary": "Fondid, aktsiad, obligatsioonid."
+            "summary": "Fondid, aktsiad, obligatsioonid.",
+            "details": [
+              "Luminor investeerimisplatvorm",
+              "Pensionifondid"
+            ]
           },
           {
-            "name": "Pension",
+            "name": "Pension (II ja III sammas)",
             "url": "https://luminor.ee/eraklient/pension",
-            "summary": "II ja III samba pensionifondid."
+            "summary": "II samba pensionifondid ja III samba vabatahtlik pension.",
+            "details": [
+              "Luminor pensionifondid",
+              "III samba maksusoodustus"
+            ]
+          },
+          {
+            "name": "Lapsele säästmine",
+            "url": "https://luminor.ee/eraklient/hoiused",
+            "summary": "Lapse tuleviku jaoks säästmine.",
+            "details": [
+              "Kogumishoius lapsele",
+              "Vanemate kontroll"
+            ]
           }
         ]
       },
@@ -96,22 +131,64 @@
           {
             "name": "Põhipakett",
             "url": "https://luminor.ee/eraklient/pangapaketid",
-            "summary": "Põhiline pangapakett igapäevaseks kasutuseks."
+            "summary": "Põhiline pangapakett igapäevaseks kasutuseks.",
+            "details": [
+              "Arvelduskonto, internetipank",
+              "Deebetkaart",
+              "Kuutasu: hinnakiri"
+            ],
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ]
           },
           {
             "name": "Aktiivne pakett",
             "url": "https://luminor.ee/eraklient/pangapaketid",
-            "summary": "Laiendatud teenuste pakett."
+            "summary": "Laiendatud teenuste pakett aktiivsele kasutajale.",
+            "details": [
+              "Reisikindlustus",
+              "Ostukaitse",
+              "Soodustused"
+            ],
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ]
           },
           {
             "name": "Premium pakett",
             "url": "https://luminor.ee/eraklient/pangapaketid",
-            "summary": "Kõrgeima taseme pangapakett koos lisahüvedega."
+            "summary": "Kõrgeima taseme pangapakett koos lisahüvedega.",
+            "details": [
+              "Laiem kindlustuskaitse",
+              "Concierge",
+              "Airport lounge (tingimustel)"
+            ],
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ]
           },
           {
             "name": "Noortepakett",
             "url": "https://luminor.ee/eraklient/noortele",
-            "summary": "Eritingimused noortele."
+            "summary": "Eritingimused noortele.",
+            "rates": [
+              "Soodushinnaga või tasuta teenused",
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ],
+            "details": [
+              "Noortele suunatud pakkumised"
+            ]
+          },
+          {
+            "name": "Pensionäride pakett",
+            "url": "https://luminor.ee/eraklient/pangapaketid",
+            "summary": "Soodustingimused pensioniealistele.",
+            "details": [
+              "Võimalik tasuta arveldus"
+            ],
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ]
           }
         ]
       },
@@ -121,47 +198,89 @@
           {
             "name": "Deebetkaart",
             "url": "https://luminor.ee/eraklient/kaardid",
-            "summary": "Visa/Mastercard deebetkaardid, nutimaksed."
+            "summary": "Visa/Mastercard deebetkaardid, nutimaksed.",
+            "details": [
+              "Apple Pay, Google Pay",
+              "Ostukaitse"
+            ]
           },
           {
             "name": "Krediitkaart",
             "url": "https://luminor.ee/eraklient/kaardid/krediitkaart",
-            "summary": "Krediitkaart ostukindlustusega."
+            "summary": "Krediitkaart ostukindlustusega.",
+            "details": [
+              "Krediidilimiit",
+              "Grace period"
+            ]
           },
           {
             "name": "Maksed",
             "url": "https://luminor.ee/eraklient/maksed",
-            "summary": "SEPA, kiirmaksed, välismaa maksed."
+            "summary": "SEPA, kiirmaksed, välismaa maksed.",
+            "details": [
+              "SEPA Instant",
+              "Püsikorraldused"
+            ]
+          },
+          {
+            "name": "Nutimaksed",
+            "url": "https://luminor.ee/eraklient/kaardid",
+            "summary": "Apple Pay, Google Pay, Garmin Pay."
           }
         ]
       },
       {
-        "title": "Laenud",
+        "title": "Laenud (eraklient)",
         "items": [
           {
             "name": "Kodulaen",
             "url": "https://luminor.ee/eraklient/laenud/kodulaen",
-            "summary": "Kinnisvara ostmine, ehitus, renoveerimine."
+            "summary": "Kinnisvara ostmine, ehitus, renoveerimine.",
+            "rates": [
+              "Intressimarginaal sõltub profiilist"
+            ],
+            "details": [
+              "Kuni 30 aastat",
+              "Eelotsus internetis"
+            ]
           },
           {
             "name": "Väikelaen",
             "url": "https://luminor.ee/eraklient/laenud/vaikelaen",
-            "summary": "Tagatiseta isiklik laen."
+            "summary": "Tagatiseta isiklik laen.",
+            "details": [
+              "Fikseeritud kuumakse"
+            ]
           },
           {
             "name": "Autolaen",
             "url": "https://luminor.ee/eraklient/laenud/autolaen",
-            "summary": "Sõiduki soetamiseks."
+            "summary": "Sõiduki soetamiseks.",
+            "details": [
+              "Uus ja kasutatud auto"
+            ]
           },
           {
             "name": "Liising",
             "url": "https://luminor.ee/eraklient/laenud/liising",
-            "summary": "Finants- ja operatiivliising."
+            "summary": "Finants- ja operatiivliising.",
+            "details": [
+              "Kapitaliliising",
+              "Operatiivliising"
+            ]
           },
           {
             "name": "Krediidikonto",
             "url": "https://luminor.ee/eraklient/laenud/krediidikonto",
-            "summary": "Paindlik krediidikonto."
+            "summary": "Paindlik krediidikonto.",
+            "details": [
+              "Intress kasutatud summalt"
+            ]
+          },
+          {
+            "name": "Õppelaen",
+            "url": "https://luminor.ee/eraklient/laenud",
+            "summary": "Õpingute finantseerimine."
           }
         ]
       },
@@ -171,17 +290,54 @@
           {
             "name": "Kodukindlustus",
             "url": "https://luminor.ee/eraklient/kindlustus/kodukindlustus",
-            "summary": "Kodu ja koduvara kindlustus."
+            "summary": "Kodu ja koduvara kindlustus.",
+            "details": [
+              "Erinevad kaitsetasemed"
+            ]
           },
           {
             "name": "Reisikindlustus",
             "url": "https://luminor.ee/eraklient/kindlustus/reisikindlustus",
-            "summary": "Reisi- ja tervisekindlustus."
+            "summary": "Reisi- ja tervisekindlustus.",
+            "details": [
+              "Pakettides kaasas"
+            ]
           },
           {
             "name": "Liiklus- ja kaskokindlustus",
             "url": "https://luminor.ee/eraklient/kindlustus",
-            "summary": "Sõiduki kindlustuslahendused."
+            "summary": "Sõiduki kindlustuslahendused.",
+            "details": [
+              "Võrdle pakkumisi"
+            ]
+          },
+          {
+            "name": "Õnnetusjuhtumi kindlustus",
+            "url": "https://luminor.ee/eraklient/kindlustus",
+            "summary": "Trahvide kaitse."
+          },
+          {
+            "name": "Elukindlustus",
+            "url": "https://luminor.ee/eraklient/kindlustus",
+            "summary": "Elukindlustus."
+          }
+        ]
+      },
+      {
+        "title": "Kampaaniad ja pakkumised",
+        "items": [
+          {
+            "name": "Luminor pakkumised",
+            "url": "https://luminor.ee/eraklient/pakkumised",
+            "summary": "Partnerite soodustused ja kampaaniad.",
+            "details": [
+              "Muutuvad pakkumised"
+            ]
+          },
+          {
+            "name": "Uue kliendi kampaaniad",
+            "url": "https://luminor.ee/eraklient",
+            "summary": "Aeg-ajalt kampaaniad uutele klientidele."
           }
         ]
       },
@@ -191,17 +347,44 @@
           {
             "name": "Ärikonto",
             "url": "https://luminor.ee/ariklient",
-            "summary": "Ettevõtte arveldus ja teenused."
+            "summary": "Ettevõtte arveldus ja teenused.",
+            "details": [
+              "SEPA maksed",
+              "Mitme kasutaja ligipääs"
+            ],
+            "rates": [
+              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+            ]
+          },
+          {
+            "name": "Äripaketid",
+            "url": "https://luminor.ee/ariklient/pangateenused",
+            "summary": "Erineva mahuga äripaketid.",
+            "details": [
+              "Kuutasu sõltub mahust"
+            ]
           },
           {
             "name": "Ärilaen",
             "url": "https://luminor.ee/ariklient/laenud",
-            "summary": "Ettevõtte finantseerimine."
+            "summary": "Ettevõtte finantseerimine.",
+            "details": [
+              "Investeerimislaen",
+              "Leasing"
+            ]
           },
           {
             "name": "Kaardimaksed",
             "url": "https://luminor.ee/ariklient/kaardimaksed",
-            "summary": "POS, e-kaubandus."
+            "summary": "POS, e-kaubandus.",
+            "details": [
+              "Visa/Mastercard kaupmehele"
+            ]
+          },
+          {
+            "name": "Faktooring",
+            "url": "https://luminor.ee/ariklient/laenud",
+            "summary": "Arvete faktooring."
           }
         ]
       },
@@ -211,12 +394,35 @@
           {
             "name": "Hinnakiri",
             "url": "https://luminor.ee/hinnakiri",
-            "summary": "Erakliendi ja ärikliendi teenuste hinnakiri."
+            "summary": "Erakliendi ja ärikliendi teenuste hinnakiri.",
+            "details": [
+              "Pakettide kuutasud",
+              "Kaartide tasud"
+            ],
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ]
           },
           {
             "name": "Intressi- ja viivistemäärad",
             "url": "https://luminor.ee/intressi-ja-viivisemaarad",
-            "summary": "Hoiuste ja laenude intressimäärad (SPA/JS leht)."
+            "summary": "Hoiuste ja laenude intressimäärad (SPA/JS leht).",
+            "details": [
+              "Dünaamiline leht — automaatne scrape ebausaldusväärne"
+            ]
+          },
+          {
+            "name": "Tingimused",
+            "url": "https://luminor.ee/tingimused",
+            "summary": "Üldtingimused ja infolehed.",
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ]
+          },
+          {
+            "name": "Pangakontorid",
+            "url": "https://luminor.ee/kontakt",
+            "summary": "Kontorite asukohad ja klienditugi."
           }
         ]
       }
