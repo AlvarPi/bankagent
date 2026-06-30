@@ -27,6 +27,7 @@ export function buildAdvisorWidgetHtml() {
         <button type="submit" id="advisor-send">Saada</button>
       </form>
       <p class="advisor-status" id="advisor-status" hidden></p>
+      <div class="advisor-resize" id="advisor-resize" title="Venita akna suurust" aria-hidden="true"></div>
     </div>
   </div>
   <style>
@@ -40,13 +41,20 @@ export function buildAdvisorWidgetHtml() {
     .advisor-root.advisor-open .advisor-toggle { display: none; }
     .advisor-panel {
       position: fixed; right: 1.25rem; bottom: 1.25rem;
-      width: min(520px, calc(100vw - 2rem)); max-height: min(560px, 80vh);
+      width: min(520px, calc(100vw - 1.5rem)); height: min(540px, calc(100vh - 7rem));
+      min-width: 300px; min-height: 260px;
+      max-width: calc(100vw - 1rem); max-height: calc(100vh - 1rem);
       background: #fff; border: 1px solid #d8e0e8; border-radius: 12px;
       display: flex; flex-direction: column; overflow: hidden;
       box-shadow: 0 8px 32px rgba(26, 35, 50, 0.18);
     }
     .advisor-panel[hidden] { display: none; }
     .advisor-panel.advisor-dragging { user-select: none; }
+    .advisor-resize {
+      position: absolute; right: 1px; bottom: 1px; width: 18px; height: 18px;
+      cursor: nwse-resize; touch-action: none; z-index: 5;
+      background-image: linear-gradient(135deg, transparent 0 44%, #9aa9b3 44% 52%, transparent 52% 66%, #9aa9b3 66% 74%, transparent 74%);
+    }
     .advisor-header {
       display: flex; align-items: flex-start; gap: 0.5rem;
       padding: 0.7rem 0.7rem 0.6rem 1rem; border-bottom: 1px solid #d8e0e8; background: #eaf6ec;
@@ -62,8 +70,8 @@ export function buildAdvisorWidgetHtml() {
     }
     .advisor-icon-btn:hover { background: rgba(0,0,0,0.07); color: #1a2332; }
     .advisor-messages {
-      flex: 1; overflow-y: auto; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.6rem;
-      min-height: 180px; max-height: 320px;
+      flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0.75rem;
+      display: flex; flex-direction: column; gap: 0.6rem;
     }
     .advisor-msg {
       max-width: 92%; padding: 0.55rem 0.7rem; border-radius: 10px; font-size: 0.9rem; line-height: 1.45;
@@ -94,6 +102,7 @@ export function buildAdvisorWidgetHtml() {
     var toggle = document.getElementById('advisor-toggle');
     var panel = document.getElementById('advisor-panel');
     var header = document.getElementById('advisor-header');
+    var resizeHandle = document.getElementById('advisor-resize');
     var minBtn = document.getElementById('advisor-min');
     var closeBtn = document.getElementById('advisor-close');
     var messagesEl = document.getElementById('advisor-messages');
@@ -201,6 +210,51 @@ export function buildAdvisorWidgetHtml() {
     }
     header.addEventListener('pointerup', endDrag);
     header.addEventListener('pointercancel', endDrag);
+
+    /* ---- Suuruse muutmine (alt-paremast nurgast) ---- */
+    var resizing = false, rStartX = 0, rStartY = 0, rStartW = 0, rStartH = 0;
+
+    function ensureAnchored() {
+      if (!pos) {
+        var rect = panel.getBoundingClientRect();
+        pos = { left: rect.left, top: rect.top };
+        applyPosition();
+      }
+    }
+
+    resizeHandle.addEventListener('pointerdown', function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      ensureAnchored();
+      resizing = true;
+      rStartX = ev.clientX;
+      rStartY = ev.clientY;
+      rStartW = panel.offsetWidth;
+      rStartH = panel.offsetHeight;
+      panel.classList.add('advisor-dragging');
+      try { resizeHandle.setPointerCapture(ev.pointerId); } catch (e) {}
+    });
+
+    resizeHandle.addEventListener('pointermove', function (ev) {
+      if (!resizing) return;
+      var left = pos ? pos.left : 0;
+      var top = pos ? pos.top : 0;
+      var maxW = Math.max(300, window.innerWidth - left - 6);
+      var maxH = Math.max(260, window.innerHeight - top - 6);
+      var nw = Math.max(300, Math.min(rStartW + (ev.clientX - rStartX), maxW));
+      var nh = Math.max(260, Math.min(rStartH + (ev.clientY - rStartY), maxH));
+      panel.style.width = nw + 'px';
+      panel.style.height = nh + 'px';
+    });
+
+    function endResize(ev) {
+      if (!resizing) return;
+      resizing = false;
+      panel.classList.remove('advisor-dragging');
+      try { resizeHandle.releasePointerCapture(ev.pointerId); } catch (e) {}
+    }
+    resizeHandle.addEventListener('pointerup', endResize);
+    resizeHandle.addEventListener('pointercancel', endResize);
 
     // Akna suuruse muutmisel hoia paneel vaateaknas
     window.addEventListener('resize', function () {
