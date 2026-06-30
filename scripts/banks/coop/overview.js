@@ -75,8 +75,8 @@ export function buildCoopPreviewHtml(data) {
       --card: #fff;
       --text: #1a2332;
       --muted: #5c6b7a;
-      --accent: #1e5a8a;
-      --accent-soft: #e8f1f8;
+      --accent: #1e494d;
+      --accent-soft: #eaf6ec;
       --border: #d8e0e8;
       --positive: #1b7f4a;
       --warn-bg: #fff8e6;

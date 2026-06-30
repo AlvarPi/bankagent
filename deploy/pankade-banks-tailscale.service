@@ -1,0 +1,21 @@
+[Unit]
+Description=Pankade /banks teenus (genofin-mp100, Tailscale)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=agent
+WorkingDirectory=/home/agent/bankagent
+Environment=NODE_ENV=production
+Environment=BANKS_PREVIEW_PORT=5173
+Environment=BANKS_PREVIEW_HOST=0.0.0.0
+EnvironmentFile=-/home/agent/bankagent/.env
+ExecStart=/usr/bin/node /home/agent/bankagent/scripts/serve-banks-preview.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/home/agent/bankagent/logs/banks-preview.log
+StandardError=append:/home/agent/bankagent/logs/banks-preview.log
+
+[Install]
+WantedBy=multi-user.target

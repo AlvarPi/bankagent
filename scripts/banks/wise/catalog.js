@@ -10,48 +10,63 @@ export const WISE_CATALOG = [
         name: 'Wise konto (mitme valuutaga)',
         url: 'https://wise.com/ee/',
         summary:
-          'Mitme valuutaga konto 40+ valuutas. Ei ole Eesti litsentseeritud pank — raha hoitakse partnerpankides.',
+          'Mitme valuutaga konto, mis hoiab ja vahetab raha 40+ valuutas (kasutatav 160+ riigis). Ei ole klassikaline Eesti hoiusepank — see on rahaülekande- ja multivaluuta-kontoteenus.',
         details: [
-          'SEPA ja SWIFT maksed',
-          'IBAN mitmes riigis (sh EE, GB, US)',
-          'Tasuta konto avamine',
-          'Raha eraldi kontodel partnerpankides'
+          'Konto avamine ja kuuhaldus: tasuta (wise.com/ee/pricing)',
+          'Kuutasu puudub — makstakse ainult kasutamise eest',
+          'Kohalikud kontorekvisiidid (IBAN/account details) 22 valuutas tasuta, sh EUR, USD, GBP (wise.com/ee/pricing/receive)',
+          'SEPA (EUR) ja SWIFT maksed',
+          'Raha hoitakse eraldi partnerinstitutsioonides'
         ]
       },
       {
         name: 'Wise Interest (EUR)',
         url: 'https://wise.com/ee/interest/',
         summary:
-          'Intress EUR kontojäägilt fondi kaudu (mitte pangahoiusena). Muutuv määr, sõltub valuutast ja turutingimustest.',
-        rates: ['EUR: muutuv määr (vaata wise.com/ee/interest)', 'Aastatasu ~0,26% bruto tootluselt'],
+          'Tootlus EUR kontojäägilt valitsuse tagatud varadega fondi kaudu (mitte pangahoiusena). Muutuv määr, jälgib keskpanga intressi; tootlus arvutatakse fondi viimase 7 päeva tootluse põhjal.',
+        rates: [
+          'EUR: 1,98% aastas (peale 0,26% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)',
+          'EUR aastatasu: alates 0,26% (wise.com/ee/pricing)'
+        ],
         details: [
-          'Raha investeeritakse likiidsesse fondi',
-          'Ei ole Tagatisfondi kaitstud hoius',
-          'Saadaval valitud riikides'
+          'Raha investeeritakse intressi teenivasse fondi (valitsuse tagatud varad)',
+          'Tootlus lisatakse iga tööpäev; raha saab igal ajal kulutada/üle kanda',
+          'Kapital on riskis, tootlus ei ole garanteeritud',
+          'Wise andmetel kaitstud Tagatisfondi investorikaitse osafondi kaudu kuni 20 000 EUR ulatuses (wise.com/ee/interest)'
         ]
       },
       {
         name: 'Wise Interest (GBP, USD jt)',
         url: 'https://wise.com/ee/interest/',
-        summary: 'Intress ka teistes valuutades (GBP, USD jne).',
-        details: ['Iga valuuta oma määr', 'Tingimused erinevad riigiti']
+        summary: 'Tootlus ka teistes valuutades, iga valuuta oma muutuva määraga.',
+        rates: [
+          'GBP: 3,25% aastas (peale 0,55% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)',
+          'USD: 3,39% aastas (peale 0,28% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)'
+        ],
+        details: ['Iga valuuta oma määr', 'Määr on muutuv ja sõltub turutingimustest', 'Saadaval valitud riikides']
       },
       {
         name: 'Wise Debit Card',
         url: 'https://wise.com/ee/card/',
-        summary: 'Mitme valuutaga deebetkaart välismaa ostudeks.',
+        summary: 'Mitme valuutaga deebetkaart, mis kulutab automaatselt õiges valuutas (40+ valuutat, 160+ riiki) ilma peidetud kursimarginaalita.',
+        rates: [
+          'Füüsilise kaardi tellimise tasu: 7 EUR (ühekordne) (wise.com/ee/pricing)',
+          'Sularaha väljavõtt: tasuta kuni 250 EUR kuus konto kohta (wise.com/ee/pricing)',
+          'Sularaha väljavõtt üle 250 EUR kuus: 2,69% ületavalt summalt (wise.com/ee/pricing)',
+          'Kaardimaksed: tasuta (wise.com/ee/pricing)'
+        ],
         details: [
-          'Maksad kohalikus valuutas ilma peidetud tasudeta',
-          'Ühekordne kaardi tellimise tasu',
-          'Võimalik virtuaalkaart',
-          'Apple Pay ja Google Pay'
+          'Virtuaalkaart kohe peale konto loomist',
+          'Apple Pay ja Google Pay',
+          'Kaardi külmutamine/avamine ja mitu digitaalset kaarti',
+          'Makseteated'
         ]
       },
       {
         name: 'Wise Business konto',
         url: 'https://wise.com/ee/business/',
-        summary: 'Ettevõtte mitme valuutaga konto.',
-        details: ['Massmaksed', 'API integratsioon', 'Arvete haldus']
+        summary: 'Ettevõtte mitme valuutaga konto rahvusvahelisteks makseteks.',
+        details: ['Massmaksed', 'API integratsioon', 'Arvete haldus', 'Rahvusvahelised kontorekvisiidid']
       }
     ]
   },
@@ -61,19 +76,30 @@ export const WISE_CATALOG = [
       {
         name: 'Rahvusvahelised ülekanded',
         url: 'https://wise.com/ee/send-money/',
-        summary: 'Odavamad välismaa ülekanded võrreldes traditsiooniliste pankadega.',
+        summary: 'Ülekanded keskmise turukursiga (mid-market rate) + läbipaistev teenustasu. Lõpphind sõltub summast, valuutapaarist ja maksemeetodist.',
+        rates: [
+          'Saatmistasu: alates 0,47%, sõltub valuutast (wise.com/ee/pricing)',
+          'Valuutavahetus: alates 0,47%, sõltub valuutast (wise.com/ee/pricing)'
+        ],
         details: [
-          'Reaalne vahetuskurss (keskmine turukurss)',
-          'Läbipaistev tasustruktuur',
-          'SEPA ülekanded EUR-s',
-          'SWIFT ülekanded teistes valuutades'
+          'Reaalne vahetuskurss (keskmine turukurss) ilma peidetud marginaalita',
+          'Tasu = väike fikseeritud osa + protsent summast',
+          'Pangaülekanne maksmismeetodina on odavaim; kaardiga maksmine kallim',
+          'SEPA EUR ja SWIFT teistes valuutades',
+          'Täpne hind veebikalkulaatoris enne kinnitamist'
         ]
       },
       {
-        name: 'Wise Receive (IBAN)',
-        url: 'https://wise.com/ee/',
-        summary: 'Saa raha otse Wise kontole IBAN-ile.',
-        details: ['EE IBAN võimalik', 'GB, US ja teised IBAN-id']
+        name: 'Wise Receive (raha vastuvõtt)',
+        url: 'https://wise.com/ee/pricing/receive',
+        summary: 'Raha vastuvõtt Wise kontole on üldjuhul tasuta; mõnel kiirel SWIFT/wire meetodil on fikseeritud tasu, kuid alati on olemas tasuta alternatiiv.',
+        rates: [
+          'Kohalikud (mitte-SWIFT) maksed EUR, GBP, USD jt: tasuta (wise.com/ee/pricing/receive)',
+          'USD wire vastuvõtt: 6,11 USD makse kohta (wise.com/ee/pricing/receive)',
+          'GBP SWIFT vastuvõtt: 2,16 GBP makse kohta (wise.com/ee/pricing/receive)',
+          'EUR SWIFT vastuvõtt: 2,39 EUR makse kohta (wise.com/ee/pricing/receive)'
+        ],
+        details: ['Kontorekvisiidid 22 valuutas tasuta', 'EE/GB/US ja teised IBAN-id/account details']
       },
       {
         name: 'Wise API',
@@ -82,10 +108,11 @@ export const WISE_CATALOG = [
         details: ['Automatiseeritud maksed', 'Webhookid', 'Arendajadokumentatsioon']
       },
       {
-        name: 'Wise Assets',
+        name: 'Wise Assets / Stocks (investeerimine)',
         url: 'https://wise.com/ee/invest/',
         summary: 'Aktsiate ja ETF-ide ostmine Wise rakenduses (valitud turgudel).',
-        details: ['Ei ole kõigis riikides saadaval', 'Eraldi teenus']
+        rates: ['Aktsiate aastatasu: alates 0,59% (wise.com/ee/pricing)'],
+        details: ['Ei ole kõigis riikides saadaval', 'Eraldi teenus', 'Kapital on riskis']
       }
     ]
   },
@@ -95,25 +122,40 @@ export const WISE_CATALOG = [
       {
         name: 'Isiklik konto tasud',
         url: 'https://wise.com/ee/pricing/',
-        summary: 'Konto avamine ja haldamine.',
-        details: ['Konto avamine: tasuta', 'Kuutasu: puudub', 'Kontojäägi hoidmine: tasuta']
+        summary: 'Konto avamine ja haldamine on tasuta, kuutasu puudub.',
+        details: [
+          'Konto avamine: tasuta',
+          'Kuutasu: puudub (pay-per-use mudel)',
+          'Kontojäägi hoidmine: tasuta',
+          'Kontorekvisiidid (IBAN/account details): tasuta'
+        ]
       },
       {
         name: 'Kaardi tasud',
         url: 'https://wise.com/ee/pricing/',
         summary: 'Deebetkaardi tellimise ja kasutamise tasud.',
-        details: ['Ühekordne kaardi tellimise tasu', 'Kuutasu võib puududa', 'Sularaha väljavõtu tasu']
+        rates: [
+          'Füüsilise kaardi tellimine: 7 EUR (ühekordne) (wise.com/ee/pricing)',
+          'Sularaha väljavõtt: tasuta kuni 250 EUR/kuu, seejärel 2,69% (wise.com/ee/pricing)',
+          'Kaardimaksed: tasuta (wise.com/ee/pricing)'
+        ],
+        details: ['Virtuaalkaart tasuta', 'Kuutasu puudub']
       },
       {
         name: 'Ülekannete tasud',
         url: 'https://wise.com/ee/pricing/',
-        summary: 'Ülekannete tasustruktuur valuuta ja summast sõltuvalt.',
-        details: ['SEPA: sageli tasuta või madal tasu', 'SWIFT: fikseeritud + protsent', 'Kalkulaator veebis']
+        summary: 'Ülekande tasu sõltub valuutast, summast ja maksemeetodist.',
+        rates: [
+          'Saatmine: alates 0,47% (wise.com/ee/pricing)',
+          'E-rahakoti laadimine (top-up): 2% (wise.com/ee/pricing)'
+        ],
+        details: ['Tasu = fikseeritud osa + protsent', 'SEPA odavam, SWIFT fikseeritud + protsent', 'Kalkulaator veebis']
       },
       {
         name: 'Vahetuskursi marginaal',
         url: 'https://wise.com/ee/pricing/',
-        summary: 'Wise kasutab keskmist turukurssi ilma peidetud marginaalita.',
+        summary: 'Wise kasutab keskmist turukurssi (mid-market) ilma peidetud marginaalita; vahetustasu on eraldi ja läbipaistev.',
+        rates: ['Valuutavahetus: alates 0,47%, sõltub valuutapaarist (wise.com/ee/pricing)'],
         details: ['Läbipaistev hind', 'Võrdle enne ülekannet']
       }
     ]
@@ -132,17 +174,17 @@ export const WISE_CATALOG = [
         url: 'https://wise.com/ee/safety-and-security/',
         summary: 'Wise regulatiivne staatus ja turvalisus.',
         details: [
-          'Wise ei ole traditsiooniline Eesti pank',
-          'Raha hoitakse eraldi kontodel litsentseeritud institutsioonides',
-          'Intress tuleb fondi kaudu, mitte hoiusena',
-          'Ei ole minuraha.ee baromeetris'
+          'Wise ei ole traditsiooniline Eesti hoiusepank',
+          'Tavaline kontojääk hoitakse eraldi (safeguarded) kontodel litsentseeritud institutsioonides',
+          'Intress/tootlus tuleb fondi kaudu, mitte hoiusena',
+          'Wise andmetel on Interest-fondi rahale investorikaitse Tagatisfondi osafondi kaudu kuni 20 000 EUR (wise.com/ee/interest)'
         ]
       },
       {
         name: 'Wise vs traditsiooniline pank',
         url: 'https://wise.com/ee/',
         summary: 'Wise sobib eelkõige rahvusvahelisteks makseteks ja mitme valuutaga haldamiseks.',
-        details: ['Ei paku kodulaene ega täispangateenuseid Eestis', 'Hoiuse asemel fondi-põhine intress']
+        details: ['Ei paku kodulaene ega täispangateenuseid Eestis', 'Hoiuse asemel fondi-põhine tootlus']
       }
     ]
   }

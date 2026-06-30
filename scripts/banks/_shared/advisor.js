@@ -1,16 +1,16 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { buildRetrievedContext, SKIP_CONTEXT_SLUGS } from './advisor-retrieval.js';
-import { chatWithOpenAI, checkOpenAIHealth, getOpenAIApiKey } from './openai.js';
+import { chatWithAnthropic, checkAnthropicHealth, getAnthropicApiKey } from './anthropic.js';
 
 /** @type {Map<string, { index: object, banks: Record<string, unknown> }>} */
 const knowledgeCache = new Map();
 
 /**
- * @returns {'openai' | 'none'}
+ * @returns {'anthropic' | 'none'}
  */
 export function getAdvisorBackend() {
-  if (getOpenAIApiKey()) return 'openai';
+  if (getAnthropicApiKey()) return 'anthropic';
   return 'none';
 }
 
@@ -18,8 +18,8 @@ export function getAdvisorBackend() {
  * @returns {Promise<{ ok: boolean, model: string, error?: string }>}
  */
 export async function checkAdvisorHealth() {
-  if (getAdvisorBackend() === 'openai') return checkOpenAIHealth();
-  return { ok: false, model: '', error: 'Seadista OPENAI_API_KEY' };
+  if (getAdvisorBackend() === 'anthropic') return checkAnthropicHealth();
+  return { ok: false, model: '', error: 'Seadista ANTHROPIC_API_KEY' };
 }
 
 /**
@@ -85,10 +85,10 @@ ${context}`;
  * @param {string} systemPrompt
  */
 export async function chatWithAdvisor(messages, systemPrompt) {
-  if (getAdvisorBackend() === 'openai') {
-    return chatWithOpenAI({ messages, systemPrompt });
+  if (getAdvisorBackend() === 'anthropic') {
+    return chatWithAnthropic({ messages, systemPrompt });
   }
-  throw new Error('Nõustaja backend pole seadistatud (OPENAI_API_KEY)');
+  throw new Error('Nõustaja backend pole seadistatud (ANTHROPIC_API_KEY)');
 }
 
 /**

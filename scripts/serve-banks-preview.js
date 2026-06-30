@@ -2,22 +2,25 @@
 import 'dotenv/config';
 import { createReadStream, existsSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { stat } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   buildAdvisorSystemPrompt,
   chatWithAdvisor,
+  checkAdvisorHealth,
   loadBankKnowledge,
   parseAdvisorMessages
 } from './banks/_shared/advisor.js';
-import { checkOpenAIHealth } from './banks/_shared/openai.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATIC_ROOT = join(__dirname, '..', 'static');
 const STATIC_BANKS = join(STATIC_ROOT, 'banks');
 const startPort = Number(process.env.BANKS_PREVIEW_PORT || 8765);
 const listenHost = process.env.BANKS_PREVIEW_HOST || '127.0.0.1';
+// Väline baastee (nt /bankagent). Failid jäävad kettal static/banks/ alla;
+// see prefiks mäpitakse sinna ja serveeritavas HTML/JSON-is asendatakse /banks/.
+const BASE = (process.env.BANKS_BASE_PATH || '/banks').replace(/\/+$/, '');
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -73,13 +76,13 @@ async function handleAdvisor(req, res) {
   const url = new URL(req.url || '/', 'http://localhost');
   const pathname = decodeURIComponent(url.pathname);
 
-  if (req.method === 'GET' && pathname === '/banks/api/advisor/health') {
-    const health = checkOpenAIHealth();
+  if (req.method === 'GET' && pathname === `${BASE}/api/advisor/health`) {
+    const health = await checkAdvisorHealth();
     sendJson(res, health.ok ? 200 : 503, health);
     return;
   }
 
-  if (req.method !== 'POST' || pathname !== '/banks/api/advisor') {
+  if (req.method !== 'POST' || pathname !== `${BASE}/api/advisor`) {
     sendJson(res, 404, { error: 'Not found' });
     return;
   }
@@ -122,8 +125,11 @@ async function handleStatic(req, res) {
   const url = new URL(req.url || '/', 'http://localhost');
   let pathname = decodeURIComponent(url.pathname);
 
-  if (pathname === '/' || pathname === '/banks' || pathname === '/banks/') {
+  // Väline baastee -> kettal /banks
+  if (pathname === '/' || pathname === BASE || pathname === `${BASE}/`) {
     pathname = '/banks/index.html';
+  } else if (pathname.startsWith(`${BASE}/`)) {
+    pathname = `/banks${pathname.slice(BASE.length)}`;
   }
   if (pathname.endsWith('/')) pathname += 'index.html';
 
@@ -142,6 +148,13 @@ async function handleStatic(req, res) {
   }
 
   const ext = pathname.slice(pathname.lastIndexOf('.'));
+  // HTML/JSON sisaldab absoluutseid /banks/ viiteid — asenda väljastatava baasteega.
+  if (BASE !== '/banks' && (ext === '.html' || ext === '.json')) {
+    const body = (await readFile(filePath, 'utf8')).split('/banks/').join(`${BASE}/`);
+    res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
+    res.end(body);
+    return;
+  }
   res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
   createReadStream(filePath).pipe(res);
 }
@@ -154,7 +167,7 @@ async function handle(req, res) {
   const url = new URL(req.url || '/', 'http://localhost');
   const pathname = decodeURIComponent(url.pathname);
 
-  if (pathname.startsWith('/banks/api/advisor')) {
+  if (pathname.startsWith(`${BASE}/api/advisor`)) {
     await handleAdvisor(req, res);
     return;
   }
@@ -208,8 +221,8 @@ if (!started) {
   process.exit(1);
 }
 
-const health = checkOpenAIHealth();
-const url = `http://localhost:${started.port}/banks/`;
+const health = await checkAdvisorHealth();
+const url = `http://localhost:${started.port}${BASE}/`;
 console.log('');
 console.log('  Panganduse eelvaade on valmis.');
 console.log('');

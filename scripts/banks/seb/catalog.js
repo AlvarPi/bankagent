@@ -8,87 +8,131 @@ export const SEB_CATALOG = [
     items: [
       {
         name: 'Tähtajaline hoius',
-        url: 'https://www.seb.ee/eraklient/raha-kasvatamine/hoiused/tahtajaline-hoius',
+        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine/tahtajalise-hoiuse-intressimaarad',
         summary:
-          'Fikseeritud intressiga tähtajaline hoius alates 64 €. Periood 3–60 kuud. Tagatud Tagatisfondi poolt kuni 100 000 €.',
-        rates: ['Kuni 2,00% (intressimaarad leht)', '12 kuu baromeeter: ~2,30% (min 500 €, minuraha)'],
+          'Fikseeritud intressiga tähtajaline hoius. Intress fikseeritud kogu hoiuperioodiks. Valuutad EUR, USD, SEK, GBP. Tagatud Tagatisfondi poolt kuni 100 000 €.',
+        rates: [
+          'Kuni 2,00% aastas (seb.ee tähtajalise hoiuse intressimäärade leht, 06.2026)',
+          '12 kuu baromeeter: 2,30%, min 500 € (minuraha.ee intressibaromeeter)',
+          'Avalikes otsingusnippetides nähtud perioodimäärad (mitte ametlikult kinnitatud lehel): ~3 kuud 3,5%, 6 kuud 3,25%, 9 kuud 3,5%, 12 kuud 4,0%, 24 kuud 3,25%, 36 kuud 3,0% — täpne määr sõltub kampaaniast ja lepingust'
+        ],
         details: [
-          'Intress makstakse tähtaja lõpus või igakuiselt (igakuine −0,05%)',
-          'Ennetähtaegne lõpetamine võimalik, intressi korrigeeritakse'
+          'Intressimäärad lehel on informatiivsed; lepingu sõlmimisel kehtivad määrad võivad erineda (seb.ee)',
+          'Intress makstakse tähtaja lõpus või kokkuleppel igakuiselt',
+          'Intressikalkulaator saadaval seb.ee lehel'
         ]
       },
       {
         name: 'Kogumishoius',
-        url: 'https://www.seb.ee/eraklient/raha-kasvatamine/hoiused/kogumishoius',
-        summary: 'Paindlik kogumishoius igakuise sissemaksega. Sobib pikaajaliseks säästmiseks.',
-        rates: ['1,65% aastas (intressimaarad leht)'],
-        details: ['Minimaalne sissemakse 1 €', 'Digikassa raha võib automaatselt koguda']
+        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine',
+        summary: 'Paindlik kogumishoius (sh Digikassa) vabade vahendite kasvatamiseks igakuise sissemaksega.',
+        rates: ['1,65% aastas (seb.ee hoiuste intressimäärade leht, 06.2026; varem 1,55%)'],
+        details: ['Paindlik sissemakse', 'Digikassa raha kogutakse automaatselt kogumishoiusesse']
       },
       {
         name: 'Arvelduskonto intress',
         url: 'https://www.seb.ee/intressimaarad',
-        summary: 'Intress EUR arvelduskonto jäägilt.',
-        rates: ['0,01% aastas (intressimaarad)', 'Baromeeter: 0,20% kuni 5000 €; üle 5000 €: 0,01%'],
-        details: ['Intress arvutatakse päevade lõikes', 'Tingimused sõltuvad kontotüübist']
+        summary: 'Intress EUR arvelduskonto vabalt jäägilt.',
+        rates: [
+          '0,01% aastas (seb.ee hoiuste intressimäärade leht, 06.2026)',
+          'Baromeeter: 0,20% summalt 1–5000 €; üle 5000 € 0,01% (minuraha.ee intressibaromeeter)'
+        ],
+        details: ['Intress arvutatakse vabalt jäägilt', 'Tingimused võivad kontotüübiti erineda']
       },
       {
         name: 'Digikassa',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/digikassa',
-        summary: 'Digitaalne rahakott ja makselahendused. Seotud kogumishoiusega.',
-        details: ['Ümardus ostudest kogumishoiusesse', 'Mobiilirakendus eraldi']
+        summary: 'Digitaalne rahakott ja makselahendus. Seotud kogumishoiusega (intress 1,65% aastas).',
+        details: ['Ostudest kogumishoiusesse kogumine', 'Mobiilirakendus']
       },
       {
         name: 'Investeerimine',
-        url: 'https://www.seb.ee/eraklient/raha-kasvatamine/investeerimine',
+        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine',
         summary: 'Fondid, aktsiad, ETF-id, obligatsioonid. SEB investeerimisplatvorm ja nõustamine.',
         details: ['SEB fondid ja kolmandate osapoolte fondid', 'Investeerimiskonto ja väärtpaberikonto']
       },
       {
         name: 'Pension (II ja III sammas)',
-        url: 'https://www.seb.ee/eraklient/raha-kasvatamine/pension',
+        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine',
         summary: 'II samba pensionifondid ja III samba vabatahtlik pension.',
-        details: ['SEB pensionifondide valik', 'III samba maksusoodustus kuni 15% tulust']
+        details: ['SEB pensionifondide valik', 'III samba sissemaksetelt tulumaksusoodustus kuni 15% tulust (max 6000 €/a, riiklik reegel)']
       },
       {
         name: 'Lapsele kogumine',
-        url: 'https://www.seb.ee/eraklient/raha-kasvatamine',
+        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine',
         summary: 'Lapse tuleviku jaoks säästmine kogumishoiuse või investeerimise kaudu.'
       }
     ]
   },
   {
-    title: 'Igapäevapangandus – paketid',
+    title: 'Igapäevapangandus – arvelduspaketid',
     items: [
       {
-        name: 'Põhipakett',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangapaketid',
-        summary: 'Põhiline pangapakett igapäevaseks arvelduseks.',
-        details: ['Arvelduskonto, internetipank, mobiilipank', 'Deebetkaart', 'Kuutasu: vaata hinnakirja']
+        name: 'Noortepakett (Youth)',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid',
+        summary: 'Tasuta pakett lastele ja noortele kuni 26. eluaastani.',
+        rates: ['Kuutasu: 0 € (seb.ee hinnakiri, 06.2026)'],
+        details: [
+          '1 tasuta deebetkaart',
+          'Piiramatud Euroopa maksed e-kanalites',
+          'Sularaha väljavõtt kuni 600 €/kuus',
+          'Traumakindlustus 50 € (seb.ee teenuspakettide võrdlus)'
+        ]
       },
       {
-        name: 'Optimaalne pakett',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangapaketid',
-        summary: 'Laiendatud teenuste pakett reisikindlustuse ja lisahüvedega.',
-        details: ['Kõik Põhipaketi teenused', 'Reisikindlustus', 'Soodustused partnerite juures']
+        name: 'Igapäevane pakett (Daily)',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid',
+        summary: 'Põhiline igapäevapangandus arvelduseks.',
+        rates: [
+          'Kuutasu: 1,45 €/kuus (seb.ee hinnakiri, 06.2026)',
+          '18–25-aastastele tasuta; 65+ klientidele 0,32 €/kuus'
+        ],
+        details: [
+          '1 tasuta deebetkaart',
+          'Piiramatud maksed',
+          'Sularaha väljavõtt kuni 1000 €/kuus',
+          'Traumakindlustus 100 €',
+          'Võimalik krediitkaart'
+        ]
       },
       {
-        name: 'Premium pakett',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangapaketid',
-        summary: 'Kõrgeima taseme pangapakett koos laia kindlustuskaitse ja concierge-teenustega.',
-        details: ['Premium reisikindlustus', 'Airport lounge juurdepääs (tingimustel)', 'Personaalne nõustamine']
+        name: 'Mitmekesine pakett (Diverse)',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid',
+        summary: 'Laiendatud pakett lisahüvede ja kindlustusega, kuni 2 lisaliiget.',
+        rates: ['Kuutasu: 2,95 €/kuus (seb.ee hinnakiri, 06.2026)'],
+        details: [
+          '1 tasuta Mastercard Gold deebetkaart',
+          'Sularaha väljavõtt kuni 1200 €/kuus',
+          'Traumakindlustus 100 €',
+          '1 krediitkaart ostukindlustusega',
+          'Kuni 2 lisaliiget (liikme kuutasu 1 €/inimene; SEB gold-klientide liikmetele tasuta)'
+        ]
       },
       {
-        name: 'Noortepakett',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/noortepakett',
-        summary: 'Eritingimused noortele (kuni 26 a.).',
-        rates: ['Soodushinnaga või tasuta teenused (vaata hinnakirja)'],
-        details: ['Tasuta või soodushinnaga pangateenused', 'Noortele suunatud pakkumised']
+        name: 'Esmaklassiline pakett (Exclusive)',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid',
+        summary: 'Kõrgema taseme pakett laiema kindlustuskaitse ja lisahüvedega, kuni 4 lisaliiget.',
+        rates: ['Kuutasu: 10 €/kuus (seb.ee hinnakiri, 06.2026)'],
+        details: [
+          '1 tasuta Mastercard Gold deebetkaart',
+          'Sularaha väljavõtt kuni 2000 €/kuus',
+          'Traumakindlustus 200 €',
+          '1 krediitkaart ostukindlustusega',
+          'Kuni 4 lisaliiget liikme kuutasuta'
+        ]
       },
       {
-        name: 'Pensionäride pakett',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangapaketid',
-        summary: 'Soodustingimused pensioniealistele klientidele.',
-        details: ['Võimalik tasuta või soodushinnaga arveldus']
+        name: 'Eliit pakett (Elite)',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid',
+        summary: 'Kõrgeima taseme premium-pakett, Premium Mastercard ja personaalsed hüved, kuni 4 lisaliiget.',
+        rates: ['Kuutasu: 33 €/kuus (seb.ee hinnakiri, 06.2026)'],
+        details: [
+          'Premium Mastercard',
+          'Sularaha väljavõtt kuni 3000 €/kuus',
+          'Traumakindlustus 200 €',
+          'Eksklusiivsed krediitkaardihüved',
+          'Kuni 4 lisaliiget liikme kuutasuta'
+        ]
       }
     ]
   },
@@ -99,19 +143,38 @@ export const SEB_CATALOG = [
         name: 'Deebetkaart',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid',
         summary: 'Visa/Mastercard deebetkaardid, Apple Pay, Google Pay, Garmin Pay.',
-        details: ['Kaardi väljastamise ja kuutasu: hinnakiri', 'Ostukaitse ja pettusekaitse']
+        rates: [
+          'Mastercard deebetkaart: 1 €/kuus (seb.ee hinnakiri, 06.2026)',
+          'Mastercard Gold deebetkaart: 1,50 €/kuus',
+          'Mastercard Business deebetkaart: 2 €/kuus',
+          'Pildikaart eraklient: 1 €/kuus; juriidiline isik: 2 €/kuus'
+        ],
+        details: ['Kuutasu sõltub pakettist (paketis sageli kaasas)', 'Ostukaitse ja pettusekaitse']
       },
       {
         name: 'Krediitkaart',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid/krediitkaart',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid',
         summary: 'Krediitkaart ostukindlustuse ja reisikindlustusega.',
-        details: ['Intressimäär sõltub limiidist', 'Grace period ostudele']
+        rates: [
+          'Standard / pildi-krediitkaart: tasuta (seb.ee hinnakiri, 06.2026)',
+          'Mastercard krediitkaart: 1,60 €/kuus',
+          'Gold / Premium: 7,50 €/kuus',
+          'Platinum: 10 €/kuus',
+          'World Elite: 30 €/kuus'
+        ],
+        details: ['Intressivaba periood (grace period) ostudele', 'Intressimäär sõltub lepingust']
       },
       {
         name: 'SEB Maksed',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/maksed',
-        summary: 'SEPA maksed, kiirmaksed, välismaa maksed, püsikorraldused.',
-        details: ['SEPA makse tavaliselt 1 tööpäev', 'Kiirmaksed SEPA Instant raames']
+        summary: 'SEPA maksed, kiirmaksed, välismaksed, püsikorraldused.',
+        rates: [
+          'SEPA/Euroopa makse e-kanalis: 0,25 € (seb.ee hinnakiri, 06.2026)',
+          'Euroopa kiirmakse (instant): sisaldub tavalise Euroopa makse hinnas (0,25 €)',
+          'Eurooa ekspressmakse: 30 €',
+          'Väljaspool EL-i tavamakse: 6–26 €; kiir: 14–34 €; ekspress: 30–59 €'
+        ],
+        details: ['Pakettides sageli piiramatud Euroopa maksed e-kanalites']
       },
       {
         name: 'Nutimaksed',
@@ -126,45 +189,73 @@ export const SEB_CATALOG = [
       {
         name: 'Kodulaen',
         url: 'https://www.seb.ee/eraklient/laenud/kodulaen',
-        summary: 'Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine.',
-        rates: ['Intressimarginaal sõltub profiilist (vaata seb.ee)'],
-        details: ['Kuni 30 aastat', 'Esmaspakkumine internetis', 'Kodukindlustus nõutav']
+        summary: 'Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine. Muutuv intress = individuaalne marginaal + Euribor (3, 6 või 12 kuud).',
+        rates: [
+          'Euribor (seb.ee, 25.06.2026): 3 kuud 2,2930%; 6 kuud 2,6060%; 12 kuud 2,7850%',
+          'Näidislepingu KKM ~3,66% (näide: 150 000 €, 26 a, marginaal 1,40% + 6 kuu Euribor 2,114%; seb.ee)',
+          'Lepingu sõlmimise tasu: 0,4% laenusummast, min 190 €',
+          'Lepingu muutmise tasu: kuni 0,4% jääksummast, min 190 €'
+        ],
+        details: [
+          'Minimaalne laenusumma 15 000 €',
+          'Kuni 30 aastat',
+          'Omafinantseering alates 15% (KredEx/EIS käendusega võimalik vähem)',
+          'Tagatis peab olema kindlustatud vähemalt taastamisväärtuses kogu laenuperioodi vältel'
+        ]
       },
       {
-        name: 'Kodulaen noortele',
+        name: 'Kodulaen noortele / KredEx',
         url: 'https://www.seb.ee/eraklient/laenud/kodulaen',
-        summary: 'Eritingimused noortele koduostjatele.',
-        details: ['Võimalik KredEx toetus', 'Madalam sissemakse tingimustel']
+        summary: 'Eritingimused noortele ja peredele KredEx/EIS käendusega.',
+        details: ['KredEx/EIS käendusega omafinantseering alla 15%', 'Tingimused sõltuvad käenduse reeglitest']
       },
       {
         name: 'Väikelaen',
         url: 'https://www.seb.ee/eraklient/laenud/vaikelaen',
-        summary: 'Tagatiseta isiklik laen 300–30 000 €, kuni 10 aastat.',
-        details: ['Fikseeritud kuumakse', 'Taotlus internetipangas või mobiilis']
+        summary: 'Tagatiseta isiklik laen erinevateks vajadusteks. Fikseeritud intress kogu perioodiks.',
+        rates: [
+          'Intress alates 6,9% aastas (seb.ee, 06.2026)',
+          'Kampaania 01.04–30.06.2026: 7,5% laenukindlustusega / 8,5% ilma kindlustuseta; lepingutasu 0 €',
+          'Lepingutasu (tavaolukord): 1,5% laenusummast, min 35 € (auto puhul min 75 €; kinnisvara/päikesepaneelid 1%, min 75 €; kodu energiatõhusus 1%, min 50 €)'
+        ],
+        details: [
+          'Summa kuni 25 000 € (üksiktaotleja); kuni 40 000 € kaaslaenajaga',
+          'Periood kuni 7 aastat',
+          'Taotlus internetipangas või mobiilis'
+        ]
       },
       {
         name: 'Autolaen',
         url: 'https://www.seb.ee/eraklient/laenud/autolaen',
-        summary: 'Sõiduki soetamiseks uuele või kasutatud autole.',
-        details: ['Sissemakse alates 10%', 'Kaskokindlustus soovituslik']
+        summary: 'Tarbimislaen sõiduki soetamiseks. Fikseeritud intress kogu perioodiks.',
+        rates: [
+          'Intress alates 7,5% aastas (seb.ee, 06.2026); laenukindlustusega madalam',
+          'Lepingutasu: 1,5% laenusummast, min 75 €'
+        ],
+        details: [
+          'Summa 2000–40 000 €',
+          'Periood kuni 7 aastat',
+          'Omafinantseering ei ole nõutav (erinevalt liisingust)'
+        ]
       },
       {
         name: 'Liising',
         url: 'https://www.seb.ee/eraklient/laenud/liising',
-        summary: 'Finants- ja operatiivliising sõidukitele ja seadmetele.',
-        details: ['Kapitaliliising ja finantsliising', 'Operatiivliising ettevõtetele']
+        summary: 'Liisingufinantseering sõidukitele ja seadmetele.',
+        rates: ['Omafinantseering alates 10% sõiduki hinnast (seb.ee)'],
+        details: ['Kapitali- ja kasutusrent', 'Kaskokindlustus tavaliselt nõutav']
       },
       {
         name: 'Krediidikonto',
-        url: 'https://www.seb.ee/eraklient/laenud/krediidikonto',
+        url: 'https://www.seb.ee/eraklient/laenud',
         summary: 'Paindlik krediidikonto igapäevaseks kasutuseks.',
         details: ['Kasutad ainult vajadusel', 'Intress ainult kasutatud summalt']
       },
       {
         name: 'Õppelaen',
         url: 'https://www.seb.ee/eraklient/laenud',
-        summary: 'Õpingute finantseerimine.',
-        details: ['Koolitustasude katmine', 'Paindlik tagasimakse graafik']
+        summary: 'Õpingute finantseerimine (riiklikult reguleeritud õppelaen).',
+        details: ['Tingimused riiklike reeglite alusel']
       }
     ]
   },
@@ -173,31 +264,32 @@ export const SEB_CATALOG = [
     items: [
       {
         name: 'Kodukindlustus',
-        url: 'https://www.seb.ee/eraklient/kindlustus/kodukindlustus',
-        summary: 'Kodu, koduvara ja vastutuskindlustus.',
-        details: ['Kasko ja vastutus', 'Erinevad kaitsetasemed']
+        url: 'https://www.seb.ee/eraklient/kindlustus',
+        summary: 'Kodu, koduvara ja vastutuskindlustus. Kodulaenu tagatis peab olema kindlustatud vähemalt taastamisväärtuses.',
+        details: ['Erinevad kaitsetasemed']
       },
       {
         name: 'Reisikindlustus',
-        url: 'https://www.seb.ee/eraklient/kindlustus/reisikindlustus',
-        summary: 'Reisi tühistamine, meditsiin, pagas. Pakettides kaasas.',
-        details: ['Ühekordne reis või aastapoliis', 'Premium paketis laiem kaitse']
+        url: 'https://www.seb.ee/eraklient/kindlustus',
+        summary: 'Reisi tühistamine, meditsiin, pagas. Traumakindlustus kaasas pakettides (50–200 € sõltuvalt pakettist).',
+        details: ['Ühekordne reis või aastapoliis']
       },
       {
-        name: 'Liikluskindlustus',
+        name: 'Laenukindlustus',
+        url: 'https://www.seb.ee/eraklient/laenud',
+        summary: 'Väike- ja autolaenu kaitse; vähendab laenu intressimäära (nt väikelaenul 7,5% vs 8,5%).',
+        details: ['Vabatahtlik, soodustab madalamat intressi']
+      },
+      {
+        name: 'Liikluskindlustus ja kasko',
         url: 'https://www.seb.ee/eraklient/kindlustus',
         summary: 'Kohustuslik liikluskindlustus ja kaskokindlustus.',
-        details: ['Võrdle pakkumisi SEB keskkonnas', 'Liisingu puhul kasko nõutav']
+        details: ['Liisingu/autolaenu puhul kasko sageli nõutav']
       },
       {
-        name: 'Õnnetusjuhtumi kindlustus',
+        name: 'Õnnetusjuhtumi- ja elukindlustus',
         url: 'https://www.seb.ee/eraklient/kindlustus',
-        summary: 'Trahvide ja invaliidsuse kaitse.'
-      },
-      {
-        name: 'Elukindlustus',
-        url: 'https://www.seb.ee/eraklient/kindlustus',
-        summary: 'Elukindlustus pere kaitsmiseks.'
+        summary: 'Õnnetusjuhtumi- ja elukindlustus pere kaitsmiseks.'
       }
     ]
   },
@@ -205,16 +297,16 @@ export const SEB_CATALOG = [
     title: 'Kampaaniad ja pakkumised',
     items: [
       {
-        name: 'SEB Rewards',
-        url: 'https://www.seb.ee/eraklient/pakkumised',
-        summary: 'Partnerite soodustused SEB kaardi või paketiga.',
-        details: ['Reisi-, ostu- ja meelelahutuspakkumised', 'Muutuvad kampaaniad']
+        name: 'Väikelaenu kampaania (kevad 2026)',
+        url: 'https://www.seb.ee/eraklient/laenud/vaikelaen',
+        summary: 'Kampaania 01.04–30.06.2026: väikelaen 7,5% laenukindlustusega (8,5% ilma), lepingutasu 0 €.',
+        details: ['Tingimused kehtivad kampaaniaperioodil (seb.ee)']
       },
       {
-        name: 'Uue kliendi pakkumised',
-        url: 'https://www.seb.ee/eraklient',
-        summary: 'Aeg-ajalt kampaaniad uutele klientidele.',
-        details: ['Tingimused lehel kampaania ajal']
+        name: 'Kliendihüvitusprogramm',
+        url: 'https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid',
+        summary: 'Partnerite soodustused SEB kaardi või paketiga (Customer Benefit Programme).',
+        details: ['Muutuvad kampaaniad ja partnerpakkumised']
       }
     ]
   },
@@ -222,27 +314,35 @@ export const SEB_CATALOG = [
     title: 'Äriklient',
     items: [
       {
-        name: 'Ärikonto',
-        url: 'https://www.seb.ee/ariklient',
-        summary: 'Ettevõtte arvelduskonto ja igapäevapangandus.',
-        details: ['SEPA maksed', 'Mitme kasutajaga ligipääs', 'Integratsioonid raamatupidamisega']
-      },
-      {
-        name: 'Äripaketid',
+        name: 'Ärikonto ja äripaketid',
         url: 'https://www.seb.ee/ariklient/igapaevapangandus',
-        summary: 'Erineva mahuga äripaketid väikeettevõttest suurkorporatsioonini.',
-        details: ['Kuutasu sõltub mahust', 'Tasuta maksed teatud mahus']
+        summary: 'Ettevõtte arvelduskonto ja igapäevapangandus erineva mahuga pakettides.',
+        rates: [
+          'Baas: 1 €/kuus (seb.ee hinnakiri, 06.2026)',
+          'Standard: 2 €/kuus',
+          'Standard+: 4 €/kuus',
+          'Premium: 6 €/kuus',
+          'Premium+: 15 €/kuus'
+        ],
+        details: ['SEPA maksed', 'Mitme kasutajaga ligipääs', 'Integratsioonid raamatupidamisega']
       },
       {
         name: 'Ärilaen',
         url: 'https://www.seb.ee/ariklient/laenud',
         summary: 'Investeerimislaen, käibekapitali laen, kinnisvara tagatisel.',
-        details: ['MES ja KredEx kaasfinantseerimine', 'Leasing äriklientidele']
+        details: ['MES ja KredEx/EIS kaasfinantseerimine', 'Liising äriklientidele']
+      },
+      {
+        name: 'Tähtajaline hoius ärikliendile',
+        url: 'https://www.seb.ee/ariklient/hoiuste-intressimaarad-arikliendile',
+        summary: 'Ettevõtte vabade vahendite paigutamine tähtajalisse hoiusesse.',
+        details: ['Intressimäärad ärikliendi lehel', 'Sobib inflatsiooniga võitlemiseks (SEB pressiteated)']
       },
       {
         name: 'Kaardimaksed (POS ja e-kaubandus)',
         url: 'https://www.seb.ee/ariklient/kaardimaksed',
-        summary: 'Kaupluse terminalid, e-kaubanduse makselahendused, arvemaksed.',
+        summary: 'Kaupluse terminalid, e-kaubanduse makselahendused.',
+        rates: ['Mastercard Business deebetkaart: 2 €/kuus (seb.ee hinnakiri)'],
         details: ['Visa/Mastercard', 'Apple Pay ja Google Pay kaupmehele']
       },
       {
@@ -263,15 +363,15 @@ export const SEB_CATALOG = [
     items: [
       {
         name: 'Pangateenuste hinnakiri',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri',
-        summary: 'Erakliendi ja ärikliendi teenuste hinnakiri (PDF ja veeb).',
+        url: 'https://www.seb.ee/en/price-list',
+        summary: 'Erakliendi ja ärikliendi teenuste hinnakiri (veeb ja PDF). Kehtiv alates 01.06.2026.',
         details: ['Pakettide kuutasud', 'Kaartide tasud', 'Maksete hinnad']
       },
       {
-        name: 'Intressimäärad',
-        url: 'https://www.seb.ee/intressimaarad',
-        summary: 'Hoiuste, kontode ja laenude intressimäärad.',
-        details: ['Uuendatakse regulaarselt', 'Kehtivad määrad lehel']
+        name: 'Hoiuste intressimäärad',
+        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine/tahtajalise-hoiuse-intressimaarad',
+        summary: 'Hoiuste, kontode ja laenude intressimäärad. Tähtajaline hoius kuni 2%, kogumishoius 1,65%, arvelduskonto 0,01%.',
+        details: ['Uuendatakse regulaarselt', 'Lehel toodud määrad on informatiivsed']
       },
       {
         name: 'Tingimused ja infolehed',

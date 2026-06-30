@@ -1,0 +1,12 @@
+[Unit]
+Description=Bankagent — uuenda pangaeelvaadet (ühekordne)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=agent
+WorkingDirectory=/home/agent/bankagent
+Environment=NODE_BIN=/usr/bin/node
+EnvironmentFile=-/home/agent/bankagent/.env
+ExecStart=/home/agent/bankagent/scripts/refresh-banks-preview.sh

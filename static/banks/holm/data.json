@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "holm",
   "name": "Holm Bank",
-  "fetchedAt": "2026-06-17T21:45:12.748Z",
-  "generatedAt": "2026-06-17T21:45:14.833Z",
+  "fetchedAt": "2026-06-30T00:35:18.564Z",
+  "generatedAt": "2026-06-30T00:35:20.953Z",
   "sources": [
     {
       "kind": "primary",
@@ -74,17 +74,28 @@
           {
             "name": "Tähtajaline hoius",
             "url": "https://www.holmbank.ee/et/eraklient/hoius",
-            "summary": "Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 €. Minimaalne summa 100 €.",
+            "summary": "Fikseeritud intressiga tähtajaline hoius. Minimaalne summa 100 €, periood 1–60 kuud. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta (koos kogunenud intressiga). Allikas: https://www.holmbank.ee/hoiused",
             "rates": [
-              "Kuni 3,00% aastas (veebileht, muutuv)",
-              "12 kuu baromeeter: ~2,75% (min 100 €, minuraha)",
-              "Perioodid: 3–60 kuud",
+              "Intressitabel (kehtiv alates 08.06.2026, allikas: https://www.holmbank.ee/hoiused):",
+              "1–2 kuud: 2,30% aastas",
+              "3–5 kuud: 2,40% aastas",
+              "6–8 kuud: 2,50% aastas",
+              "9–11 kuud: 2,60% aastas",
+              "12–17 kuud: 2,70% aastas",
+              "18–23 kuud: 2,70% aastas",
+              "24–35 kuud: 2,80% aastas",
+              "36–47 kuud: 2,80% aastas",
+              "48–59 kuud: 2,90% aastas",
+              "60 kuud: 3,00% aastas",
               "Tähtajaline hoius (kuni, veebileht): 3% (https://www.holmbank.ee/et/eraklient/hoius)",
               "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2.7% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
-              "Intress makstakse tähtaja lõpus või igakuiselt",
-              "Ennetähtaegne lõpetamine võimalik tingimustel",
+              "Minimaalne hoiusumma: 100 € (allikas: https://www.holmbank.ee/hoiused)",
+              "Periood: 1–60 kuud (allikas: https://www.holmbank.ee/hoiused)",
+              "Intress makstakse tähtaja lõpus või iga-aastaselt (iga-aastane makse vaid 12+ kuu perioodide puhul) (allikas: https://www.holmbank.ee/hoiused)",
+              "Intressiarvestus: 365-päevane aasta, tegelike päevade alusel (allikas: https://www.holmbank.ee/hoiused)",
+              "Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta (allikas: https://www.holmbank.ee/hoiused)",
               "Avamine internetipangas või kontoris"
             ]
           },
@@ -106,57 +117,95 @@
         "title": "Laenud (eraklient)",
         "items": [
           {
-            "name": "Kodulaen",
-            "url": "https://www.holmbank.ee/et/eraklient/kodulaen",
-            "summary": "Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine.",
+            "name": "Väikelaen",
+            "url": "https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen",
+            "summary": "Tagatiseta isiklik väikelaen kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen",
             "rates": [
-              "Intressimarginaal sõltub profiilist (vaata holmbank.ee)"
+              "Fikseeritud intress: alates 7,9% aastas (kampaania kuni 13.07.2026) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)",
+              "Krediidi kulukuse määr (näide): 19,79% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)"
             ],
             "details": [
-              "Kuni 30 aastat",
-              "Kiire eelotsus",
+              "Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)",
+              "Periood: 6–120 kuud (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)",
+              "Lepingutasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)",
+              "Kuine haldustasu: 0,99 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)",
+              "Näidisarvutus: laen 4 500 €, lepingutasu 67,50 €, haldustasu 0,99 €/kuu, periood 48 kuud, fikseeritud intress 9,40% aastas, tagasimakstav kokku 6 289,64 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)"
+            ]
+          },
+          {
+            "name": "Kodulaen",
+            "url": "https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen",
+            "summary": "Kinnisvara ostmine, ehitus, renoveerimine. Laenusumma alates 25 000 €, kuni 30 aastat. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen",
+            "rates": [
+              "Intress: 6 kuu EURIBOR + personaalne intressimarginaal (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)",
+              "Krediidi kulukuse määr (näide): 6,63% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)"
+            ],
+            "details": [
+              "Minimaalne laenusumma: 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)",
+              "Maksimaalne summa: kuni 85% kinnisvara väärtusest, KredEx/EIS tagatisega kuni 90% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)",
+              "Maksimaalne periood: 30 aastat (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)",
+              "Lepingutasu: 1% laenusummast, min. 150 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)",
+              "Haldustasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)",
+              "Omafinantseering: min 15% (10% EIS tagatisega, 0% lisatagatisega) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)",
+              "Näide: laen 70 000 €, periood 25 aastat, lepingutasu 700 €, marginaal 4% + 6 kuu EURIBOR 2,244% (11.04.2025 seisuga), KKM 6,63% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)",
               "Kodukindlustus nõutav"
             ]
           },
           {
-            "name": "Väikelaen",
-            "url": "https://www.holmbank.ee/et/eraklient/vaikelaen",
-            "summary": "Tagatiseta isiklik laen.",
-            "details": [
-              "Fikseeritud kuumakse",
-              "Taotlus internetis või kontoris"
-            ]
-          },
-          {
             "name": "Autolaen",
-            "url": "https://www.holmbank.ee/et/eraklient/autolaen",
-            "summary": "Sõiduki soetamiseks uuele või kasutatud autole.",
+            "url": "https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen",
+            "summary": "Tagatiseta laen sõiduki soetamiseks, kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen",
+            "rates": [
+              "Fikseeritud intress: alates 5,99% aastas (kampaania kuni 31.07.2026) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)",
+              "Krediidi kulukuse määr (näide): 15,74% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)"
+            ],
             "details": [
-              "Sissemakse võimalik",
-              "Liising alternatiivina"
+              "Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)",
+              "Periood: 6–120 kuud (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)",
+              "Lepingutasu: 2% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)",
+              "Haldustasu: 0,15% kuus, min 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)",
+              "Näidisarvutus: laen 4 500 €, lepingutasu 90 €, haldustasu 6,75 €, periood 48 kuud, tagasimakstav kokku 5 998,56 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)",
+              "Tagatiseta laen; kindlustus If P&C Insurance AS kaudu"
             ]
           },
           {
-            "name": "Liising",
-            "url": "https://www.holmbank.ee/et/eraklient/liising",
-            "summary": "Finants- ja operatiivliising sõidukitele.",
+            "name": "Refinantseerimislaen",
+            "url": "https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen",
+            "summary": "Olemasolevate laenude ühendamine, kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen",
+            "rates": [
+              "Intress: alates 5,99% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)",
+              "Krediidi kulukuse määr (näide): 19,79% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)"
+            ],
             "details": [
-              "Kapitaliliising",
-              "Operatiivliising"
+              "Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)",
+              "Periood: 6–120 kuud (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)",
+              "Lepingutasu: alates 50 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)",
+              "Haldustasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)",
+              "Näidisarvutus: laen 4 500 €, lepingutasu 67,50 €, haldustasu 0,99 €, periood 48 kuud, fikseeritud intress 9,40% aastas, tagasimakstav kokku 6 289,64 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)"
+            ]
+          },
+          {
+            "name": "Järelmaks (Liisi)",
+            "url": "https://www.holmbank.ee/et/eraklient/jarelmaks",
+            "summary": "Järelmaks partnerite poodides ja e-poodides üle Eesti, summa kuni 25 000 €, periood kuni 10 aastat. Allikas: https://www.holmbank.ee/et/eraklient/jarelmaks",
+            "details": [
+              "Maksimaalne summa: 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks)",
+              "Maksimaalne periood: kuni 10 aastat (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks)",
+              "Liisi järelmaks: partnerite kampaaniad, nt 0% intress 3 osamaksega (lepingutasu 9,90 €), 0% intress 6 kuuks (min 12-kuuline leping) (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks)",
+              "Liisi Pluss: kasutatav ükskõik kus, ükskõik millise toote/teenuse eest; raha kantakse kliendi kontole; otsus minutitega (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks/liisipluss)",
+              "Tavatingimuste intressi/tasusid lehel ei avaldata — vt leping"
             ]
           },
           {
             "name": "Krediidikonto",
-            "url": "https://www.holmbank.ee/et/eraklient/krediidikonto",
-            "summary": "Paindlik krediidikonto igapäevaseks kasutuseks.",
+            "url": "https://www.holmbank.ee/et/eraklient",
+            "summary": "Paindlik krediidikonto igapäevaseks kasutuseks. Konkreetsed tingimused vt holmbank.ee.",
             "details": [
               "Intress ainult kasutatud summalt"
+            ],
+            "rates": [
+              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
             ]
-          },
-          {
-            "name": "Refinantseerimine",
-            "url": "https://www.holmbank.ee/et/eraklient",
-            "summary": "Olemasolevate laenude ühendamine paremate tingimustega."
           }
         ]
       },
@@ -164,69 +213,39 @@
         "title": "Igapäevapangandus",
         "items": [
           {
+            "name": "Krediitkaart",
+            "url": "https://www.holmbank.ee/et/eraklient/krediitkaart",
+            "summary": "Krediitkaart krediidilimiidiga kuni 5 000 €, lepingu- ja kuutasu 0 €, 15 päeva intressivaba periood. Allikas: https://www.holmbank.ee/et/eraklient/krediitkaart",
+            "rates": [
+              "Intress: alates 1,2% kuus (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)",
+              "Krediidi kulukuse määr (näide): 36,89% aastas (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)"
+            ],
+            "details": [
+              "Krediidilimiit: kuni 5 000 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)",
+              "Lepingu- ja kuutasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)",
+              "Intressivaba periood: 15 päeva (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)",
+              "KKM näide: limiit 2 000 €, fikseeritud intress 30% aastas, tagasimakse 12 kuuga, makstav kokku 2 605,19 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)",
+              "Kaardi tasud hinnakirjas: uuendamine/sulgemine tasuta, asendamine 10 €, sularaha väljavõtt Eestis/Euroopas 2 €, valuutatehing 1% tehingu summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)"
+            ]
+          },
+          {
             "name": "Arvelduskonto",
-            "url": "https://www.holmbank.ee/et/eraklient/arvelduskonto",
+            "url": "https://www.holmbank.ee/et/eraklient",
             "summary": "Põhiarvelduskonto interneti- ja mobiilipangaga.",
             "details": [
               "SEPA maksed",
               "Püsikorraldused",
-              "Kuutasu: hinnakiri"
+              "Kuutasu: vt hinnakiri https://www.holmbank.ee/et/eraklient/hinnakiri"
             ]
           },
           {
-            "name": "Deebetkaart",
-            "url": "https://www.holmbank.ee/et/eraklient/kaardid",
-            "summary": "Deebetkaart igapäevasteks ostudeks.",
-            "details": [
-              "Apple Pay, Google Pay",
-              "Kaardi tasud hinnakirjas"
-            ]
-          },
-          {
-            "name": "Krediitkaart",
-            "url": "https://www.holmbank.ee/et/eraklient/kaardid",
-            "summary": "Krediitkaart paindlikuks kasutuseks.",
-            "details": [
-              "Krediidilimiit sõltub sissetulekust"
-            ]
-          },
-          {
-            "name": "Maksed",
-            "url": "https://www.holmbank.ee/et/eraklient/maksed",
-            "summary": "SEPA maksed ja ülekanded.",
-            "details": [
-              "SEPA makse",
-              "Kiirmaksed võimalikud"
-            ]
-          },
-          {
-            "name": "Internetipank",
+            "name": "Internetipank ja mobiilipank",
             "url": "https://www.holmbank.ee/et/eraklient",
             "summary": "Holm Bank internetipank ja mobiilipank.",
             "details": [
               "Smart-ID, Mobile-ID",
-              "Tehingute ajalugu"
-            ]
-          }
-        ]
-      },
-      {
-        "title": "Kindlustus",
-        "items": [
-          {
-            "name": "Kodukindlustus",
-            "url": "https://www.holmbank.ee/et/eraklient/kindlustus",
-            "summary": "Kodu ja koduvara kindlustus (partnerite kaudu).",
-            "details": [
-              "Kodulaenu puhul nõutav"
-            ]
-          },
-          {
-            "name": "Liiklus- ja kaskokindlustus",
-            "url": "https://www.holmbank.ee/et/eraklient/kindlustus",
-            "summary": "Sõiduki kindlustuslahendused.",
-            "details": [
-              "Liisingu puhul kasko nõutav"
+              "Tehingute ajalugu",
+              "SEPA maksed ja ülekanded"
             ]
           }
         ]
@@ -235,21 +254,27 @@
         "title": "Äriklient",
         "items": [
           {
-            "name": "Ärikonto",
-            "url": "https://www.holmbank.ee/et/ariklient",
-            "summary": "Ettevõtte arveldus ja pangateenused.",
-            "details": [
-              "SEPA maksed",
-              "Mitme kasutaja ligipääs"
+            "name": "Investeerimislaen",
+            "url": "https://www.holmbank.ee/et/ariklient/laenud/investeerimislaen",
+            "summary": "Ettevõtte investeeringute finantseerimine. Konkreetsed tingimused vt holmbank.ee.",
+            "rates": [
+              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
             ]
           },
           {
-            "name": "Ärilaen",
-            "url": "https://www.holmbank.ee/et/ariklient/arilaen",
-            "summary": "Ettevõtte finantseerimine ja käibekapital.",
-            "details": [
-              "Investeerimislaen",
-              "Kinnisvara tagatisel"
+            "name": "Limiidilaen",
+            "url": "https://www.holmbank.ee/et/ariklient/laenud/limiidilaen",
+            "summary": "Käibekapitali finantseerimine krediidilimiidina. Konkreetsed tingimused vt holmbank.ee.",
+            "rates": [
+              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
+            ]
+          },
+          {
+            "name": "Laen põllumaa tagatisel",
+            "url": "https://www.holmbank.ee/et/ariklient/laen-pollumaa-tagatisel",
+            "summary": "Laen põllumajandusmaa tagatisel. Konkreetsed tingimused vt holmbank.ee.",
+            "rates": [
+              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
             ]
           },
           {
@@ -259,15 +284,6 @@
             "details": [
               "Finantsliising",
               "Operatiivliising"
-            ]
-          },
-          {
-            "name": "Kaardimaksed",
-            "url": "https://www.holmbank.ee/et/ariklient",
-            "summary": "Kaardimaksete lahendused ettevõtetele.",
-            "details": [
-              "POS terminalid",
-              "E-kaubandus"
             ]
           }
         ]
@@ -280,21 +296,19 @@
             "url": "https://www.holmbank.ee/et/eraklient/hinnakiri",
             "summary": "Erakliendi ja ärikliendi teenuste hinnakiri.",
             "details": [
-              "Kontode kuutasud",
-              "Kaartide tasud",
-              "Maksete hinnad"
+              "Krediitkaart: kuu-/uuendamis-/sulgemistasu tasuta, asendamine 10 € (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)",
+              "Sularaha väljavõtt Eestis/Euroopas: 2 €; väljaspool Euroopat 2 € + 2,6% summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)",
+              "Valuutatehing: 1% tehingu summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)",
+              "Saldopäring/muu sularahaautomaadi tehing: 0,47 € (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)"
             ],
             "rates": [
               "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
             ]
           },
           {
-            "name": "Tingimused ja dokumendid",
-            "url": "https://www.holmbank.ee/et/eraklient/dokumendid",
-            "summary": "Teenuste tingimused ja infolehed.",
-            "rates": [
-              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
-            ]
+            "name": "Korduma kippuvad küsimused",
+            "url": "https://www.holmbank.ee/et/eraklient/kkk",
+            "summary": "Korduma kippuvad küsimused toodete ja teenuste kohta."
           },
           {
             "name": "Kontakt ja pangakontorid",
@@ -306,7 +320,7 @@
             ]
           },
           {
-            "name": "Karjäär ja meist",
+            "name": "Meist",
             "url": "https://www.holmbank.ee/et/meist",
             "summary": "Holm Bank AS ülevaade — Eesti kapitalil põhinev pank."
           }

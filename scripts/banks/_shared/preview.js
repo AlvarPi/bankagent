@@ -80,8 +80,8 @@ export function buildBankPreviewHtml(data) {
       --card: #fff;
       --text: #1a2332;
       --muted: #5c6b7a;
-      --accent: #1e5a8a;
-      --accent-soft: #e8f1f8;
+      --accent: #1e494d;
+      --accent-soft: #eaf6ec;
       --border: #d8e0e8;
       --positive: #1b7f4a;
       --warn-bg: #fff8e6;
@@ -208,7 +208,7 @@ export function buildBanksIndexHtml(all) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pankade avalik info</title>
   <style>
-    :root { --bg:#f4f6f8; --card:#fff; --text:#1a2332; --muted:#5c6b7a; --accent:#1e5a8a; --border:#d8e0e8; font-family:'Segoe UI',system-ui,sans-serif; color:var(--text); background:var(--bg); }
+    :root { --bg:#f4f6f8; --card:#fff; --text:#1a2332; --muted:#5c6b7a; --accent:#1e494d; --border:#d8e0e8; font-family:'Segoe UI',system-ui,sans-serif; color:var(--text); background:var(--bg); }
     body { margin:0; padding:1.5rem; }
     .wrap { max-width: 960px; margin: 0 auto; }
     h1 { margin: 0 0 0.5rem; }

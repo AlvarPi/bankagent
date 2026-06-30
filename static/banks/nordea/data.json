@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "nordea",
   "name": "Nordea",
-  "fetchedAt": "2026-06-17T21:45:14.776Z",
-  "generatedAt": "2026-06-17T21:45:14.842Z",
+  "fetchedAt": "2026-06-30T00:35:20.912Z",
+  "generatedAt": "2026-06-30T00:35:20.960Z",
   "sources": [
     {
       "kind": "primary",
@@ -74,7 +74,7 @@
     {
       "product_type": "deposit",
       "label": "SE Fasträntekonto (max)",
-      "rate_percent": 2.1,
+      "rate_percent": 2,
       "fee_cents": null,
       "source_url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
       "raw_text": "nordea-collect: Ruotsi sparkonton"
@@ -107,33 +107,55 @@
         "title": "Nordea grupp",
         "items": [
           {
-            "name": "Nordea.com",
+            "name": "Nordea — Põhjamaade suurim pank",
             "url": "https://www.nordea.com/en",
-            "summary": "Põhjamaade suurim pank (Soome, Rootsi, Taani, Norra). Ei paku Eesti erakliendi pangateenuseid — kogutud riiklikud näited (FI, SE).",
+            "summary": "Nordea Bank Abp on Põhjamaade suurim finantsteenuste grupp. Tegutseb Soomes, Rootsis, Taanis ja Norras. Eestis jaepangandust ei paku — siinsed teenused läksid üle Luminorile (vt allpool).",
             "details": [
-              "Eesti filiaal suletud",
-              "Andmed viiteks Põhjamaade toodetele"
+              "Peakontor Helsingis (peakontor viidi Stockholmist Helsingisse 2018)",
+              "Ligikaudu 9,3 miljonit erakliendi ja u 530 000 ärikliendi suhet",
+              "Tegutseb peamiselt neljas Põhjamaa riigis: Soome, Rootsi, Taani, Norra",
+              "Allikas: nordea.com, Wikipedia (Nordea)"
             ],
             "rates": [
               "Nordea.com (grupi koduleht): vaata allikat (https://www.nordea.com/en)"
+            ]
+          },
+          {
+            "name": "Ärisuunad (Business Areas)",
+            "url": "https://www.nordea.com/en/our-services/personal-customers",
+            "summary": "Nordea grupp jaguneb nelja peamise ärisuuna vahel.",
+            "details": [
+              "Personal Banking (erakliendid)",
+              "Business Banking (väikese ja keskmise suurusega ettevõtted)",
+              "Large Corporates & Institutions (suurkliendid ja institutsioonid)",
+              "Asset & Wealth Management (vara- ja varahaldus)",
+              "Allikas: nordea.com"
             ]
           },
           {
             "name": "Private Banking",
-            "url": "https://www.nordea.com/en/our-services/private-banking",
-            "summary": "Private banking teenused Põhjamaades.",
+            "url": "https://www.nordea.com/en/our-services/personal-customers",
+            "summary": "Private banking ja varahaldus jõukamatele klientidele Põhjamaades.",
             "details": [
-              "Kõrge netoväärtusega klientidele",
-              "Investeerimisnõustamine"
+              "Investeerimisnõustamine",
+              "Varahaldus",
+              "Pakutakse Põhjamaade turgudel, mitte Eestis"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "title": "Ajalugu",
+        "items": [
           {
-            "name": "Nordea Investor",
-            "url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/",
-            "summary": "Investeerimisplatvorm Põhjamaades.",
+            "name": "Nordea teke (1990. aastate ühinemised)",
+            "url": "https://en.wikipedia.org/wiki/Nordea",
+            "summary": "Nordea sündis 1990. aastate lõpu ja 2000. aasta Põhjamaade pankade ühinemiste ahelast.",
             "details": [
-              "Aktsiad, fondid, ETF-id",
-              "Ei ole Eesti turul"
+              "1997: Soome Merita ja Rootsi Nordbanken moodustasid MeritaNordbankeni",
+              "2000: omandati Taani Unidanmark ja ühineti Norra Christiania Bankiga; sündis nimi Nordea",
+              "2018: peakontor viidi Stockholmist Helsingisse",
+              "Allikas: Wikipedia (Nordea)"
             ],
             "rates": [
               "Nordea.com (grupi koduleht): vaata allikat (https://www.nordea.com/en)"
@@ -142,124 +164,125 @@
         ]
       },
       {
-        "title": "Soome (FI) — säästmine",
+        "title": "Soome (FI) — säästmine ja hoiused",
         "items": [
           {
-            "name": "JoustoTalletus",
-            "url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html",
-            "summary": "Paindlik säästukonto Soomes. Muutuv intress perioodi järgi.",
-            "rates": [
-              "1 kk talletusjärk: kogutud parse (nordea.fi)",
-              "3 kk talletusjärk: kogutud parse",
-              "12 kk talletusjärk: kogutud parse",
-              "FI JoustoTalletus: Vuotuinen korko 1 kk talletusjaksolle: 1.45% (https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html)",
-              "FI JoustoTalletus: Vuotuinen korko 3 kk talletusjaksolle: 1.65% (https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html)",
-              "FI JoustoTalletus: Vuotuinen korko 12 kk talletusjaksolle: 2% (https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html)"
-            ],
+            "name": "PerkAccount (Säästötili)",
+            "url": "https://www.nordea.fi/en/personal/our-services/savings-investments/savings-accounts/",
+            "summary": "Paindlik säästukonto puhvri kogumiseks või lühiajaliseks säästmiseks. Vaba sissemakse ja väljavõtt.",
             "details": [
-              "Paindlik sissemakse ja väljavõtt",
-              "Intress sõltub perioodist"
+              "Fikseeritud, astmeline (tiered) aastaintress",
+              "Miinimumsissemakset ei ole",
+              "Allikas: nordea.fi"
             ]
           },
           {
-            "name": "Säästötilit ülevaade",
-            "url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/",
-            "summary": "Kõik Soome säästukontod ja hoiused.",
+            "name": "FlexiDeposit Account (JoustoTalletus)",
+            "url": "https://www.nordea.fi/en/personal/our-services/savings-investments/savings-accounts/flexideposit-account.html",
+            "summary": "Automaatselt uuenev säästukonto. Intress sõltub talletusperioodi pikkusest ja uueneb perioodi lõppedes.",
             "details": [
-              "Erinevad säästukontod",
-              "Pensionisäästmine"
-            ],
-            "rates": [
-              "Suomi säästötilit: vaata allikat (https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/)"
+              "Sissemakse vahemik 500–500 000 €",
+              "Väljavõtt võimalik",
+              "Intress muutub perioodi järgi — täpne määr nordea.fi lehel",
+              "Allikas: nordea.fi"
             ]
           },
           {
-            "name": "Talletustodistus",
-            "url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/talletustodistus.html",
-            "summary": "Fikseeritud intressiga talletustodistus Soomes.",
+            "name": "Time Deposit Account (Määräaikaistalletus)",
+            "url": "https://www.nordea.fi/en/personal/our-services/savings-investments/savings-accounts/",
+            "summary": "Fikseeritud intressiga tähtajaline hoius distsiplineeritud säästjale.",
             "details": [
-              "Fikseeritud periood",
-              "Kindel intress"
+              "Miinimumsumma 500 €",
+              "Tähtaeg 1–36 kuud",
+              "Intress lepitakse kokku konto avamisel",
+              "Allikas: nordea.fi"
             ]
           },
           {
-            "name": "Nordea Rahasto (fondid)",
-            "url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/rahastot/",
-            "summary": "Nordea investeerimisfondid Soomes.",
-            "details": [
-              "Aktsia- ja võlakirjafondid",
-              "Indeksifondid"
-            ],
+            "name": "ASP-konto (kodusäästukonto, esmaostja)",
+            "url": "https://www.nordea.fi/en/personal/our-services/savings-investments/savings-accounts/",
+            "summary": "Riiklikult toetatud kodusäästuskeem esmakordsele kodu ostjale (Soome ASP-süsteem).",
             "rates": [
-              "Nordea.com (grupi koduleht): vaata allikat (https://www.nordea.com/en)"
+              "1% sissemakseintress + boonusintress tagantjärele tingimuste täitmisel (nordea.fi)"
+            ],
+            "details": [
+              "Suunatud noortele esmaostjatele (alates 15. eluaastast)",
+              "Igakuine sissemakse vahemikus 50–1500 €",
+              "Säästuperioode vähemalt ~20 kuud",
+              "Allikas: nordea.fi"
+            ]
+          },
+          {
+            "name": "Equity savings account (Osakesäästötili)",
+            "url": "https://www.nordea.fi/en/personal/our-services/savings-investments/investments/equity-savings-account.html",
+            "summary": "Soome aktsiasäästukonto investeerimiseks maksusoodustusega.",
+            "details": [
+              "Aktsiatesse investeerimine",
+              "Soome maksuraamistik",
+              "Allikas: nordea.fi"
             ]
           }
         ]
       },
       {
-        "title": "Rootsi (SE) — sparkonton",
+        "title": "Rootsi (SE) — säästmine (sparkonton)",
         "items": [
           {
-            "name": "Sparkonto Extra",
-            "url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
-            "summary": "Kõrge intressiga säästukonto Rootsis.",
+            "name": "Sparkonto med fria uttag (endine Förmånskonto)",
+            "url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/formanskonto.html",
+            "summary": "Vabade väljavõtetega säästukonto Rootsis.",
             "rates": [
-              "Kogutud parse: nordea.se sparkonton leht",
+              "Kuni ~0,10% (sõltub summast) — vaata nordea.se aktuaalseid määrasid",
               "SE Sparkonto Extra: 0.5% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
             ],
             "details": [
+              "Vabad väljavõtted",
               "Muutuv intress",
-              "Pangakonto Rootsis"
+              "Allikas: nordea.se"
             ]
           },
           {
-            "name": "Fasträntekonto",
+            "name": "Sparkonto Extra",
             "url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
-            "summary": "Fikseeritud intressiga hoius Rootsis.",
+            "summary": "Kõrgema intressiga säästukonto, väljavõtul väike viivitus.",
             "rates": [
-              "Intressivahemik: vaata nordea.se (min/max kogutud)",
+              "~0,50% (kogutud nordea.se ülevaatest, võib muutuda)",
+              "SE Sparkonto Extra: 0.5% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
+            ],
+            "details": [
+              "Vabad väljavõtted 3-päevase viivitusega",
+              "Allikas: nordea.se"
+            ]
+          },
+          {
+            "name": "Fasträntekonto (tähtajaline hoius)",
+            "url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
+            "summary": "Fikseeritud intressiga tähtajaline hoius (3 kk, 6 kk, 1 a, 2 a).",
+            "rates": [
+              "Intressivahemik ~1,75–2,05% sõltuvalt tähtajast (kogutud nordea.se, kontrolli aktuaalset)",
               "SE Fasträntekonto (min): 1.75% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)",
-              "SE Fasträntekonto (max): 2.1% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
+              "SE Fasträntekonto (max): 2% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
             ],
             "details": [
-              "Fikseeritud periood",
-              "Kindel intress"
-            ]
-          },
-          {
-            "name": "Sparkonton ülevaade",
-            "url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
-            "summary": "Kõik Rootsi säästukontod.",
-            "details": [
-              "Erinevad säästukontod",
-              "Barnsparkonto (laste konto)"
-            ]
-          },
-          {
-            "name": "Nordea Fonder (Rootsi)",
-            "url": "https://www.nordea.se/privat/produkter/spara-investera/fonder/",
-            "summary": "Nordea fondid Rootsis.",
-            "details": [
-              "Lai valik fonde",
-              "Pensionisäästmine"
-            ],
-            "rates": [
-              "Nordea.com (grupi koduleht): vaata allikat (https://www.nordea.com/en)"
+              "Vahendid lukus seotusperioodiks",
+              "Kindel intress kogu perioodiks",
+              "Allikas: nordea.se"
             ]
           }
         ]
       },
       {
-        "title": "Laenud ja pangandus",
+        "title": "Laenud ja igapäevapangandus (Põhjamaad)",
         "items": [
           {
-            "name": "Soome laenud (asuntolaina)",
-            "url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/lainat/",
-            "summary": "Asuntolaina (kodulaen), kulutusluotto, autolaina Soomes.",
+            "name": "Soome laenud",
+            "url": "https://www.nordea.fi/en/personal/our-services/loans/",
+            "summary": "Asuntolaina (kodulaen), kulutusluotto (tarbimislaen), autolaina Soomes.",
             "details": [
               "Kodulaen",
               "Tarbimislaen",
-              "Autolaen"
+              "Autolaen",
+              "Allikas: nordea.fi"
             ]
           },
           {
@@ -267,37 +290,34 @@
             "url": "https://www.nordea.se/privat/produkter/lan/",
             "summary": "Bolån (kodulaen), privatlån, billån Rootsis.",
             "details": [
-              "Kodulaen",
-              "Isiklik laen",
-              "Autolaen"
+              "Kodulaen kuni 85% kinnisvara väärtusest",
+              "Tagasimakse tähtaeg ~5–50 aastat",
+              "Allikas: nordea.se"
             ]
           },
           {
-            "name": "Soome pangapaketid",
-            "url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/pankkipalvelut/",
-            "summary": "Soome pangapaketid ja igapäevapangandus.",
+            "name": "Kontod, kaardid ja kliendiprogrammid",
+            "url": "https://www.nordea.se/privat/produkter/kundprogram/premium.html",
+            "summary": "Pangakontod, deebet- ja krediitkaardid ning kliendiprogrammid (nt Nordea Premium) Põhjamaades.",
             "details": [
-              "Nordea Flex",
-              "Nordea Gold",
-              "Kuutasud erinevad"
+              "Visa/Mastercard kaardid",
+              "Kliendiprogrammid jõukamatele klientidele",
+              "Allikas: nordea.se, nordea.fi"
             ]
-          },
+          }
+        ]
+      },
+      {
+        "title": "Hoiuste tagamine",
+        "items": [
           {
-            "name": "Rootsi pangapaketid",
-            "url": "https://www.nordea.se/privat/produkter/konton-kort/",
-            "summary": "Rootsi pangakontod ja kaardid.",
+            "name": "Hoiuste tagatisskeem",
+            "url": "https://www.nordea.fi/en/personal/prices/prices.html",
+            "summary": "Nordea Bank Abp hoiused on kaitstud Soome hoiuste tagatisskeemiga kuni 100 000 € hoiustaja kohta.",
             "details": [
-              "Nordea Gold",
-              "Nordea Premium"
-            ]
-          },
-          {
-            "name": "Krediitkaardid",
-            "url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/kortit/",
-            "summary": "Nordea krediit- ja deebetkaardid Põhjamaades.",
-            "details": [
-              "Visa/Mastercard",
-              "Reisikindlustus premium kaartidel"
+              "Soome tagatisskeem kuni 100 000 € hoiustaja kohta",
+              "Rootsi säästukontode puhul nimetatakse nii Rootsi kui Soome hoiusekaitset",
+              "Allikas: nordea.fi, nordea.se"
             ]
           }
         ]
@@ -307,12 +327,13 @@
         "items": [
           {
             "name": "Soome äriklient",
-            "url": "https://www.nordea.fi/yrittajat/",
+            "url": "https://www.nordea.fi/en/business/",
             "summary": "Ettevõtte pangateenused Soomes.",
             "details": [
               "Ärikonto",
               "Ärilaen",
-              "Makseteenused"
+              "Makseteenused",
+              "Allikas: nordea.fi"
             ]
           },
           {
@@ -322,7 +343,8 @@
             "details": [
               "Ärikonto",
               "Faktooring",
-              "Kaardimaksed"
+              "Kaardimaksed",
+              "Allikas: nordea.se"
             ]
           }
         ]
@@ -331,25 +353,28 @@
         "title": "Märkused Eesti kontekstis",
         "items": [
           {
-            "name": "Eesti kontekst",
-            "summary": "Nordea ei ole Eesti erakliendi pank. Andmed on viiteks Põhjamaade toodetele.",
+            "name": "Eesti = Luminor, mitte Nordea",
+            "url": "https://en.wikipedia.org/wiki/Luminor_Bank",
+            "summary": "Nordea ei ole Eesti erakliendi pank. 2017. aastal ühines Nordea Baltikumi äri DNB Baltikumi äriga ja moodustus Luminor — Eesti kliendid teenindatakse nüüd Luminoris.",
             "details": [
-              "Ei ole minuraha.ee baromeetris",
-              "Intressid riigiti erinevad (FI vs SE)",
-              "Eesti klient ei saa Nordea EE kontot avada",
-              "Kogutud andmed aitavad võrrelda Põhjamaade hindu"
-            ]
-          },
-          {
-            "name": "Nordea ajalugu Eestis",
-            "url": "https://www.nordea.com/en/about-us/history",
-            "summary": "Nordea tegutses varem Eestis, kuid erakliendi teenused on lõpetatud.",
-            "details": [
-              "Klientide üleminek teistele pankadele",
-              "Grupi teenused jätkuvad Põhjamaades"
+              "Ühinemine teatati augustis 2016, Luminor alustas tegevust 1. oktoobril 2017",
+              "Ühendati Nordea ja DNB tegevus Eestis, Lätis ja Leedus",
+              "Nordea omas algselt enamust majanduslikest õigustest; Nordea väljus täielikult 2019 (osalus müüdi Blackstone juhitud konsortsiumile)",
+              "Eesti klient ei saa avada Nordea EE kontot — pöörduda tuleb Luminori poole",
+              "Allikas: news.err.ee/611090, Wikipedia (Luminor Bank)"
             ],
             "rates": [
               "Nordea.com (grupi koduleht): vaata allikat (https://www.nordea.com/en)"
+            ]
+          },
+          {
+            "name": "Andmete kasutus",
+            "summary": "Selles kataloogis olevad tooted ja intressid kehtivad Põhjamaade turgudel (FI/SE) ning on toodud viiteks ja võrdluseks. Need EI OLE Eestis kättesaadavad.",
+            "details": [
+              "Ei kuulu minuraha.ee Eesti baromeetrisse",
+              "Intressid ja tingimused erinevad riigiti (FI vs SE)",
+              "Aktuaalseid määrasid kontrolli vastava riigi Nordea lehel",
+              "Eesti pangateenuste jaoks vaata Luminor"
             ]
           }
         ]

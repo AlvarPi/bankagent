@@ -8,33 +8,66 @@ export const LHV_CATALOG = [
     items: [
       {
         name: 'Tähtajaline hoius',
-        url: 'https://www.lhv.ee/et/hoiused',
+        url: 'https://www.lhv.ee/et/tahtajaline-hoius',
         summary:
           'Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta.',
-        rates: ['12 kuu baromeeter: ~2,30% (min 100 €, minuraha)', 'Täpsed määrad: lhv.ee/hoiused (403 automaatpäringule)'],
-        details: ['Periood 3–60 kuud', 'Minimaalne summa 100 €', 'Intress makstakse tähtaja lõpus või igakuiselt']
+        rates: [
+          'EUR 1 kuu 1,70% (lhv.ee/tahtajaline-hoius)',
+          'EUR 3 kuud 2,05% (lhv.ee/tahtajaline-hoius)',
+          'EUR 6 kuud 2,10% (lhv.ee/tahtajaline-hoius)',
+          'EUR 9 kuud 2,10% (lhv.ee/tahtajaline-hoius)',
+          'EUR 12 kuud 2,10% (lhv.ee/tahtajaline-hoius)',
+          'EUR 15–24 kuud 2,10% (lhv.ee/tahtajaline-hoius)',
+          'USD 12 kuud 1,50% (lhv.ee/tahtajaline-hoius)'
+        ],
+        details: [
+          'Min summa EUR 100 €, USD 500 $ (lhv.ee/tahtajaline-hoius)',
+          'Intress makstakse tähtaja lõpus või igakuiselt',
+          'Pikemad perioodid (36/60 kuud) ei olnud lehel kuvatud — täpne määr: lhv.ee/tahtajaline-hoius'
+        ]
       },
       {
-        name: 'Kogumishoius',
-        url: 'https://www.lhv.ee/et/hoiused',
-        summary: 'Paindlik kogumishoius igakuise sissemaksega. Sobib eesmärgipõhiseks säästmiseks.',
-        details: ['Sissemakse igakuiselt', 'Väljavõtt võimalik', 'Intress koguneb igakuiselt']
+        name: 'Kogumiskonto',
+        url: 'https://www.lhv.ee/et/kogumiskonto',
+        summary: 'Paindlik kogumiskonto eesmärgipõhiseks säästmiseks, väljavõtt igal ajal ilma teenustasuta.',
+        rates: ['Intress 1,65% aastas (lhv.ee/kogumiskonto)'],
+        details: [
+          'Intressi teenitakse alates 109,10 € jäägist (lhv.ee/kogumiskonto)',
+          'Intress arvestatakse päevapõhiselt, makstakse igakuiselt',
+          'Ühekordsed sissemaksed, püsikorraldused või mikrosäästmine',
+          'Väljavõtt igal ajal ilma teenustasuta'
+        ]
       },
       {
-        name: 'Arvelduskonto intress',
-        url: 'https://www.lhv.ee/et/hoiused',
-        summary: 'Intress arvelduskonto jäägilt (tingimustel).',
-        rates: ['Baromeeter: intress alates 18 000 € jäägilt (minuraha)'],
-        details: ['Sõltub kontotüübist ja paketist', 'Premium/Platinum pakettides paremad tingimused']
+        name: 'Nõudmiseni hoius / arvelduskonto intress',
+        url: 'https://www.lhv.ee/et/noudmiseni-hoius',
+        summary: 'Intress arvelduskonto jäägilt nõudmiseni hoiuse tingimustel.',
+        rates: [
+          'Eraisik 0,01% aastas (lhv.ee/noudmiseni-hoius)',
+          'Juriidiline isik 0,8% aastas summalt üle 20 000 € (lhv.ee/noudmiseni-hoius)'
+        ],
+        details: [
+          'Eraisikul intress alates 18 000 € jäägilt arvelduskontol (lhv.ee/noudmiseni-hoius)',
+          'Ettevõttel intress jäägilt üle 20 000 €',
+          'Intress makstakse järgmise kuu 5. kuupäeval',
+          'Premium-kliendil arvelduskonto intress 1% kuni 100 000 € jäägilt (lhv.ee/premium)'
+        ]
       },
       {
         name: 'Investeerimine',
-        url: 'https://www.lhv.ee/et/investeerimine',
+        url: 'https://www.lhv.ee/et/vaartpaberikonto',
         summary: 'Aktsiad, ETF-id, fondid, obligatsioonid. LHV Trader platvorm.',
+        rates: [
+          'Balti väärtpaberid: kuni 100 tehingut kuus tasuta, edasi 0,2% tehingu summast (lhv.ee/hinnakiri)',
+          'Välisaktsiad (nt USA, Saksa): teenustasu 0,14% tehingu summast, min 9 € (lhv.ee/hinnakiri)',
+          'Balti väärtpaberite hoidmine tasuta'
+        ],
         details: [
           'LHV Trader veeb ja mobiil',
           'LHV pensionifondid ja kolmandate osapoolte fondid',
-          'Väärtpaberikonto ja investeerimiskonto'
+          'Väärtpaberikonto ja investeerimiskonto',
+          'USA aktsiate dividend maksustatakse 15% (lubatud madalam määr)',
+          'Mõnel turul lisandub tehingumaks (nt Prantsusmaa 0,4%, UK 0,5%)'
         ]
       },
       {
@@ -55,36 +88,62 @@ export const LHV_CATALOG = [
     title: 'Igapäevapangandus – paketid',
     items: [
       {
-        name: 'Basic',
-        url: 'https://www.lhv.ee/et/era/pangapaketid',
-        summary: 'Põhipakett igapäevaseks panganduseks.',
-        details: ['Deebetkaart', 'Internetipank ja mobiilipank', 'Kuutasu: vaata hinnakirja'],
-        rates: ['Pangateenuste hinnakiri (PDF)']
+        name: 'Tavakliendi konto',
+        url: 'https://www.lhv.ee/et/hinnakiri',
+        summary: 'Põhipakett igapäevaseks panganduseks. Konto avamine ja haldamine tasuta.',
+        rates: [
+          'Konto avamine ja haldamine tasuta (lhv.ee/hinnakiri)',
+          'Deebet- või krediitkaart 1 €/kuu (lhv.ee/hinnakiri)',
+          'SEPA makse internetis tasuta'
+        ],
+        details: ['Deebetkaart', 'Internetipank ja mobiilipank']
       },
       {
         name: 'Premium',
-        url: 'https://www.lhv.ee/et/era/pangapaketid',
+        url: 'https://www.lhv.ee/et/premium',
         summary: 'Laiendatud teenuste pakett reisikindlustuse ja lisahüvedega.',
-        details: ['Reisikindlustus', 'Ostukaitse', 'Soodustused partnerite juures']
+        rates: [
+          'Kuutasu 20 €/kuu (lhv.ee/premium)',
+          'Üks Premium deebet- või krediitkaart tasuta',
+          'Kindlustustooted 20% soodsamalt (kodu, kasko, reis)',
+          'Arvelduskonto intress 1% kuni 100 000 € jäägilt',
+          'Säästukonto määr 0,5% kõrgem standardhinnast'
+        ],
+        details: [
+          'Pere reisikindlustus',
+          'Priority Pass lennujaama ootesaal (kaaslane 35 €/in)',
+          'Fast Track turvakontroll (kaardiomanikule tasuta)',
+          'Rendiauto kindlustus',
+          'Kodulaen ja liising lepingutasuta',
+          'Balti väärtpaberite hoidmine tasuta'
+        ]
       },
       {
-        name: 'Platinum',
-        url: 'https://www.lhv.ee/et/era/pangapaketid',
-        summary: 'Premium+ pakett kõrgeima teenustaseme jaoks.',
-        details: ['Laiem reisikindlustus', 'Concierge-teenus', 'Airport lounge (tingimustel)']
+        name: 'Privaatpangandus',
+        url: 'https://www.lhv.ee/et/privaatpangandus',
+        summary: 'Personaalne privaatpanganduse teenus kõrgeima teenustaseme jaoks.',
+        rates: ['Kuutasu 100 €/kuu (lhv.ee/hinnakiri)'],
+        details: [
+          'Eeldab vähemalt 100 000 € likviidseid varasid (lhv.ee/hinnakiri)',
+          'Personaalne kliendihaldur',
+          'Premium-paketi hüved'
+        ]
       },
       {
         name: 'Noorte pakett',
-        url: 'https://www.lhv.ee/et/era/noortele',
+        url: 'https://www.lhv.ee/et/hinnakiri',
         summary: 'Eritingimused noortele (kuni 26 a.).',
-        rates: ['Soodushinnaga teenused'],
-        details: ['Tasuta või soodushinnaga arveldus', 'LHV noortepakett']
+        rates: [
+          'Deebetkaart alla 26-aastasele tasuta (lhv.ee/hinnakiri)',
+          'Alates 65-aastasel deebetkaart tasuta'
+        ],
+        details: ['Tasuta arveldus', 'LHV noortepakett']
       },
       {
-        name: 'Lapsele konto',
-        url: 'https://www.lhv.ee/et/era/lapsele-konto',
+        name: 'Lapse konto',
+        url: 'https://www.lhv.ee/et/lapse-konto',
         summary: 'Lapsele arvelduskonto taskuraha ja säästmiseks.',
-        details: ['Vanem saab jälgida tehinguid', 'Kaart lapsele võimalik']
+        details: ['Vanem saab jälgida tehinguid', 'Kaart lapsele võimalik', '(täpsed tasud: lhv.ee/hinnakiri — leht andis 403)']
       }
     ]
   },
@@ -93,20 +152,39 @@ export const LHV_CATALOG = [
     items: [
       {
         name: 'Deebetkaart',
-        url: 'https://www.lhv.ee/et/era/kaardid',
+        url: 'https://www.lhv.ee/et/hinnakiri',
         summary: 'Visa deebetkaart, Apple Pay, Google Pay, Garmin Pay.',
+        rates: [
+          'Standardne deebetkaart 1 €/kuu (lhv.ee/hinnakiri)',
+          'Kuldkaart 7 €/kuu',
+          'Premium-kaart 15 €/kuu (Premium-lepinguga tasuta)',
+          'Alla 26-a ja alates 65-a tasuta'
+        ],
         details: ['Virtuaalkaart võimalik', 'Ostukaitse', 'Pettusekaitse 24/7']
       },
       {
         name: 'Krediitkaart',
-        url: 'https://www.lhv.ee/et/era/kaardid/krediitkaart',
+        url: 'https://www.lhv.ee/et/era-krediitkaart',
         summary: 'Visa krediitkaart koos ostukindlustuse ja reisikindlustusega.',
-        details: ['Krediidilimiit sõltub sissetulekust', 'Grace period']
+        rates: [
+          'Intress 18% aastas (lhv.ee/hinnakiri, otsingutulemus)',
+          'Erakliendi krediitkaart 1 €/kuu, kuldkaart 7 €/kuu',
+          'Intressivaba periood: erakliendi kaart 22 päeva, kuld-/partnerkaart kuni 40 päeva'
+        ],
+        details: ['Krediidilimiit sõltub sissetulekust (kuni ~2 kuu palk)', 'Intressivaba periood']
       },
       {
         name: 'Maksed',
-        url: 'https://www.lhv.ee/et/era/maksed',
-        summary: 'SEPA maksed, kiirmaksed, standing order, välismaa maksed.',
+        url: 'https://www.lhv.ee/et/hinnakiri',
+        summary: 'SEPA maksed, kiirmaksed, püsikorraldused, välismaa maksed.',
+        rates: [
+          'SEPA makse internetis tasuta (väljuv ja laekuv) (lhv.ee/hinnakiri)',
+          'Pangasisene makse tasuta',
+          'Välismaksed (SWIFT) ~7–32 € sõltuvalt kulutüübist',
+          'Sularaha LHV automaadist tasuta, üle 2000 €/kuus 0,3%',
+          'Teise panga automaadist (Eesti) 1 € + 0,3% üle 2000 €/kuus',
+          'Sularaha välismaal 2 € + 2,5%'
+        ],
         details: ['SEPA Instant', 'Püsikorraldused', 'Välismaa maksed SWIFT']
       },
       {
@@ -121,39 +199,77 @@ export const LHV_CATALOG = [
     items: [
       {
         name: 'Kodulaen',
-        url: 'https://www.lhv.ee/et/laenud/kodulaen',
+        url: 'https://www.lhv.ee/et/kodulaen',
         summary: 'Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine.',
-        rates: ['Intressimarginaal alates ~1,5% (muutuv, sõltub profiilist)'],
-        details: ['Kuni 30 aastat', 'Kiire eelotsus internetis', 'KredEx toetused võimalikud']
+        rates: [
+          'Intress = individuaalne marginaal + 6 kuu euribor (lhv.ee/kodulaen)',
+          'Uue A-/B-energiaklassi kodu (rohelaen) alates 1,49% + 6 kuu euribor (lhv.ee/kodulaen)',
+          'Lepingutasu 0,5–0,9% laenusummast, min 300 € (lhv.ee/kodulaen)'
+        ],
+        details: [
+          'Laenusumma alates 20 000 €, kuni 85% vara turuväärtusest (lhv.ee/kodulaen)',
+          'Periood kuni 30 aastat',
+          'Omafinantseering vähemalt 15% (KredEx käendusega alates 10%)',
+          'Lasterikkale perele (3+ last alla 19 a) omafinantseering alates 5% KredEx käendusega (2% tasu)',
+          'Esimene pakkumine 24 tunni jooksul',
+          'Maksepuhkus kuni 12 kuud, ennetähtaegne tagastus tasuta'
+        ]
       },
       {
         name: 'Väikelaen',
-        url: 'https://www.lhv.ee/et/laenud/vaikelaen',
-        summary: 'Tagatiseta isiklik laen 500–30 000 €.',
-        details: ['Fikseeritud kuumakse', 'Taotlus internetipangas']
+        url: 'https://www.lhv.ee/et/vaikelaen',
+        summary: 'Tagatiseta isiklik laen.',
+        rates: [
+          'Laenusumma 200–15 000 € (lhv.ee/vaikelaen)',
+          'Intress personaalne, näidis alates ~5,9% (lhv.ee/vaikelaen)',
+          'Lepingutasu 2% laenusummast, min 29,90 €',
+          'Haldustasu 3,99 €/kuus'
+        ],
+        details: [
+          'Periood: kuni 7500 € puhul 6 kuud – 6 aastat; 7500–15 000 € kuni 10 aastat (lhv.ee/vaikelaen)',
+          'Fikseeritud kuumakse',
+          'Taotlus internetipangas'
+        ]
       },
       {
         name: 'Autolaen',
-        url: 'https://www.lhv.ee/et/laenud/autolaen',
+        url: 'https://www.lhv.ee/et/autolaen',
         summary: 'Sõiduki soetamiseks uuele või kasutatud autole.',
-        details: ['Sissemakse alates 10%', 'Liising alternatiivina']
+        rates: [
+          'Laenusumma 200–25 000 € (lhv.ee/autolaen)',
+          'Intress personaalne',
+          'Lepingutasu 2% laenusummast, min 29,90 €',
+          'Haldustasu 3,99 €/kuus'
+        ],
+        details: ['Sissemakse ei ole kohustuslik', 'Periood 6 kuud – 10 aastat', 'Liising alternatiivina']
       },
       {
         name: 'Liising',
-        url: 'https://www.lhv.ee/et/laenud/liising',
+        url: 'https://www.lhv.ee/et/autolaen',
         summary: 'Finants- ja kapitaliliising sõidukitele.',
-        details: ['Kapitaliliising', 'Operatiivliising ettevõtetele']
+        rates: [
+          'Liisingusumma alates 5000 € (lhv.ee/autolaen)',
+          'Intress = personaalne marginaal + 6 kuu euribor',
+          'Sissemakse vähemalt 10% vara hinnast',
+          'Lepingutasu 1% vara hinnast, min 150 €'
+        ],
+        details: ['Periood 6 kuud – 7 aastat', 'Kapitali- ja operatiivliising']
       },
       {
-        name: 'Krediidikonto',
-        url: 'https://www.lhv.ee/et/laenud/krediidikonto',
-        summary: 'Paindlik krediidikonto igapäevaseks kasutuseks.',
-        details: ['Intress ainult kasutatud summalt', 'Limiit sõltub sissetulekust']
+        name: 'Krediidikonto / krediitkaardi limiit',
+        url: 'https://www.lhv.ee/et/era-krediitkaart',
+        summary: 'Paindlik krediit igapäevaseks kasutuseks.',
+        rates: [
+          'Intress 18% aastas (lhv.ee/hinnakiri, otsingutulemus)',
+          'Limiit kuni ~2 kuu palk'
+        ],
+        details: ['Intress ainult kasutatud summalt', 'Intressivaba periood 22–40 päeva']
       },
       {
         name: 'Õppelaen',
         url: 'https://www.lhv.ee/et/laenud',
-        summary: 'Õpingute finantseerimine.'
+        summary: 'Õpingute finantseerimine.',
+        details: ['(täpsed tingimused: lhv.ee — leht/info piiratud)']
       }
     ]
   },
@@ -163,8 +279,9 @@ export const LHV_CATALOG = [
       {
         name: 'Reisikindlustus',
         url: 'https://www.lhv.ee/et/kindlustus/reisikindlustus',
-        summary: 'Reisikindlustus Premium/Platinum pakettides või eraldi.',
-        details: ['Meditsiin, pagas, reisi tühistamine', 'Perekond kaetud pakettides']
+        summary: 'Reisikindlustus Premium-paketis või eraldi.',
+        rates: ['Premium-kliendile kindlustustooted 20% soodsamalt (lhv.ee/premium)'],
+        details: ['Meditsiin, pagas, reisi tühistamine', 'Premium-paketis pere reisikindlustus']
       },
       {
         name: 'Kodukindlustus',
@@ -218,8 +335,12 @@ export const LHV_CATALOG = [
       },
       {
         name: 'Äripaketid',
-        url: 'https://www.lhv.ee/et/ariklient/pangateenused',
+        url: 'https://www.lhv.ee/et/hinnakiri',
         summary: 'Erineva mahuga äripaketid.',
+        rates: [
+          'Juriidilise isiku arvelduskonto intress 0,8% aastas summalt üle 20 000 € (lhv.ee/noudmiseni-hoius)',
+          '(täpsed kuutasud: lhv.ee/hinnakiri — ärikliendi paketihinnad ei olnud automaatpäringule kättesaadavad)'
+        ],
         details: ['Kuutasu sõltub mahust', 'Tasuta maksed teatud mahus']
       },
       {

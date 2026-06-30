@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "swedbank",
   "name": "Swedbank",
-  "fetchedAt": "2026-06-17T21:45:10.502Z",
-  "generatedAt": "2026-06-17T21:45:14.809Z",
+  "fetchedAt": "2026-06-30T00:35:15.926Z",
+  "generatedAt": "2026-06-30T00:35:20.941Z",
   "sources": [
     {
       "kind": "primary",
@@ -92,18 +92,19 @@
         "items": [
           {
             "name": "Tähtajaline hoius",
-            "url": "https://www.swedbank.ee/private/savings/deposit",
-            "summary": "Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 €.",
+            "url": "https://www.swedbank.ee/private/investor/deposits/term",
+            "summary": "Fikseeritud intressiga tähtajaline hoius. Intressimäär on fikseeritud kogu hoiuperioodi vältel. Tagatud Tagatisfondi poolt kuni 100 000 €.",
             "rates": [
-              "12 kuu baromeeter: ~2,30% (min 190 €, minuraha)",
-              "Vaata depositrates lehte",
+              "12 kuud: 2,05% (min 190 €; allikas: minuraha.ee intressibaromeeter, seisuga 16.03.2026)",
+              "Minimaalne hoiusumma 190 € (allikas: swedbank.ee/business/invest/deposits/interests)",
+              "Täpsed perioodipõhised määrad: swedbank.ee depositrates / interests leht",
               "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Tähtajaline hoius 12 kuu (baromeeter), min 190 €: 2.05% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
-              "Periood 3–60 kuud",
-              "Minimaalne summa 100 €",
-              "Intress tähtaja lõpus või igakuiselt"
+              "Minimaalne summa 190 € (swedbank.ee)",
+              "Intressimäär fikseeritud kogu perioodiks",
+              "Tagatud Tagatisfondi poolt kuni 100 000 €"
             ]
           },
           {
@@ -117,17 +118,26 @@
             ]
           },
           {
+            "name": "Investeerimishoius",
+            "url": "https://www.swedbank.ee/?pageId=hanzanet.private.investor.deposits.investment",
+            "summary": "Hoius, mille tootlus on seotud alusvara (nt indeksi) liikumisega; põhiosa kaitsega.",
+            "details": [
+              "Tootlus seotud alusvaraga",
+              "Tähtajaline"
+            ]
+          },
+          {
             "name": "Arvelduskonto intress",
             "url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
             "summary": "Intress EUR arvelduskonto jäägilt.",
             "rates": [
-              "0,01% (depositsrates leht)",
-              "Baromeeter: ~0,20% (min 1 €, minuraha)",
+              "EUR arvelduskonto: 0,01% (allikas: swedbank.ee depositrates, seisuga 27.06.2026)",
+              "Baromeeter: 0,01% (min 1 €; allikas: minuraha.ee, seisuga 22.10.2024)",
               "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
-              "Intress arvutatakse päevade lõikes"
+              "Intress arvutatakse päevasaldolt, kantakse kontole järgmise kuu 3. kuupäevaks"
             ]
           },
           {
@@ -143,10 +153,19 @@
           {
             "name": "Pension (II ja III sammas)",
             "url": "https://www.swedbank.ee/private/savings/pension",
-            "summary": "II samba pensionifondid ja III samba vabatahtlik pension.",
+            "summary": "II samba pensionifondid ja III samba vabatahtlik pension. Swedbank loobus III samba fondidelt kõikidest lisatasudest.",
+            "rates": [
+              "II sammas Indeks: valitsemistasu 0,27% aastas",
+              "II sammas elutsüklifondid: 0,31–0,75% aastas (nooremad sünniaastad kõrgem)",
+              "II sammas Konservatiivne: 0,47% aastas",
+              "III sammas indeksfondid (V30/V60/V100): jooksvad tasud ~0,29% aastas",
+              "III sammas aktiivsed fondid: 0,95–1,15% aastas",
+              "(Allikas: swedbank.ee/private/pensions/pillar2/description; blog.swedbank.ee III sammas)"
+            ],
             "details": [
-              "Swedbank pensionifondid",
-              "III samba maksusoodustus"
+              "II samba elutsükli- ja indeksfondid",
+              "III samba maksusoodustus",
+              "Swedbanki sõnul turu soodsaimad tasud"
             ]
           }
         ]
@@ -157,11 +176,11 @@
           {
             "name": "Põhipakett",
             "url": "https://www.swedbank.ee/private/dailybanking/packages",
-            "summary": "Põhiline pangapakett igapäevaseks arvelduseks.",
+            "summary": "Põhiline pangapakett igapäevaseks arvelduseks: deebetkaart ja piiramatud ülekanded Swedbanki äpis ja internetipangas.",
             "rates": [
-              "Kuutasu 1,00 € (täishind)",
-              "Kuni 25 a.: tasuta",
-              "Alates 65 a.: 0,32 €",
+              "Kuutasu 1,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)",
+              "Kuni 25 a. (k.a): tasuta",
+              "Alates 65 a.: 0,32 €/kuus",
               "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
@@ -170,59 +189,55 @@
               "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
-              "Arvelduskonto, internetipank, mobiilipank",
               "Deebetkaart",
-              "Piiramatu arv makseid internetis"
+              "Piiramatud ülekanded äpis ja internetipangas",
+              "Arvelduskonto, internetipank, mobiilipank"
             ]
           },
           {
             "name": "Ostupakett",
             "url": "https://www.swedbank.ee/private/dailybanking/packages",
-            "summary": "Pakett ostuhüvede ja lisateenustega.",
+            "summary": "Pakett ostuhüvede ja -kindlustusega (saadaval alates 6. eluaastast).",
             "rates": [
-              "Kuutasu: vaata depositrates lehte",
+              "Kuutasu 2,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)",
               "Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)"
             ],
             "details": [
-              "Ostukindlustus",
-              "Reisikindlustus",
-              "Soodustused partnerite juures"
+              "Sisaldab põhipaketi teenuseid",
+              "Ostukindlustus (sh piletikaitse)",
+              "E-poe tarnekaitse (kahjustatud/kaduma läinud kaubad)"
             ]
           },
           {
-            "name": "Premium pakett",
+            "name": "Reisipakett",
             "url": "https://www.swedbank.ee/private/dailybanking/packages",
-            "summary": "Kõrgeima taseme pangapakett.",
+            "summary": "Kõrgeima taseme pakett: ostupaketi hüved + ulatuslik reisikindlustus (saadaval alates 6. eluaastast).",
             "rates": [
-              "Kuutasu: vaata depositrates lehte",
+              "Kuutasu 6,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)",
               "Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)"
             ],
             "details": [
-              "Laiem kindlustuskaitse",
-              "Concierge-teenus",
-              "Airport lounge (tingimustel)"
+              "Kõik ostupaketi hüved",
+              "Ulatuslik reisikindlustus (ootamatud meditsiinikulud, pagas, reisi tühistamine)"
             ]
           },
           {
-            "name": "Noortepakett",
+            "name": "Noored (kuni 25 a.)",
             "url": "https://www.swedbank.ee/private/dailybanking/for-young-people",
-            "summary": "Eritingimused noortele (kuni 26 a.).",
+            "summary": "Eritingimused noortele.",
             "rates": [
-              "Tasuta või soodushinnaga teenused",
-              "Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)"
+              "Põhipakett kuni 25 a. (k.a): tasuta",
+              "Deebetkaart kuni 19 a.: tasuta; 20–25 a.: 0,32 €/kuus"
             ],
             "details": [
-              "Tasuta arveldus noortele",
-              "Noortele suunatud pakkumised"
+              "ISIC Mastercard tudengikaart (alates 16 a., kõrgkooliõpe)",
+              "Tudengikaart toimib ühistranspordikaardina Tallinnas ja Harjumaal"
             ]
           },
           {
@@ -230,11 +245,10 @@
             "url": "https://www.swedbank.ee/private/dailybanking/packages",
             "summary": "Soodustingimused pensioniealistele.",
             "rates": [
-              "Põhipakett alates 65 a.: 0,32 €/kuus"
+              "Põhipakett alates 65 a.: 0,32 €/kuus",
+              "Deebetkaart alates 65 a.: 0,32 €/kuus"
             ],
-            "details": [
-              "60+ kliendid võivad olla vabastatud kuutasust (tingimustel)"
-            ]
+            "details": []
           }
         ]
       },
@@ -242,32 +256,66 @@
         "title": "Kaardid ja maksed",
         "items": [
           {
-            "name": "Deebetkaart",
+            "name": "Deebetkaart Pluss",
             "url": "https://www.swedbank.ee/private/dailybanking/cards",
-            "summary": "Visa/Mastercard deebetkaardid, Apple Pay, Google Pay.",
+            "summary": "Visa/Mastercard deebetkaart (100% taaskasutatud plastikust, alates 6 a.). Apple Pay, Google Pay.",
+            "rates": [
+              "Kuutasu 1,00 € (kuni 19 a.: tasuta; 20–25 a. ja 65+: 0,32 €)",
+              "Esimese deebetkaardi avamine: tasuta",
+              "Kaardi uuendamine: tasuta; kaardi asendamine: 7 €",
+              "Ekspresstarne: 30 €; ajutine ATM-kaart (1 kuu): 10 €",
+              "Valuutavahetuse tasu: 1% tehingust (v.a Platinum)",
+              "(Allikas: swedbank.ee/private/cards, kehtiv alates 01.11.2024)"
+            ],
             "details": [
-              "Kaardi tasud hinnakirjas",
               "Ostukaitse",
-              "Pettusekaitse"
+              "Pettusekaitse",
+              "Viipemakse"
             ]
           },
           {
+            "name": "Sularaha väljavõtt (ATM)",
+            "url": "https://www.swedbank.ee/private/home/more/pricesrates",
+            "summary": "Sularaha väljavõtmise tasud sularahaautomaatidest.",
+            "rates": [
+              "Swedbanki ATM kuni 2 000 €/kuus: tasuta",
+              "Swedbanki ATM üle 2 000 €/kuus: 0,5% ületavast summast",
+              "Teiste pankade ATM: 2 € + 2,5%",
+              "Maksimaalne väljavõtt: 7 500 €/kuus",
+              "(Allikas: swedbank.ee/private/cards)"
+            ],
+            "details": []
+          },
+          {
             "name": "Krediitkaart",
-            "url": "https://www.swedbank.ee/private/dailybanking/cards/credit-card",
-            "summary": "Krediitkaart ostukindlustuse ja reisikindlustusega.",
+            "url": "https://www.swedbank.ee/private/cards/cards/credit",
+            "summary": "Krediitkaardid ostukindlustuse ja reisikindlustusega; vaba tagasimaksega.",
+            "rates": [
+              "Vaba tagasimaksega: 2 €/kuus (kuni 25 a.: tasuta), intress 19–22% aastas, intressivaba kalendrikuu lõpuni",
+              "Gold vaba tagasimaksega: 7 €/kuus, intress 17–20% aastas, intressivaba järgmise kuu 10. kuupäevani",
+              "Platinum: 17 €/kuus (lisapakett 160 €/aastas), intress 14–17% aastas, intressivaba kuni 40 päeva",
+              "Lisakaart: 2–15 €/kuus",
+              "(Allikas: swedbank.ee/private/cards/cards/credit)"
+            ],
             "details": [
-              "Krediidilimiit",
-              "Grace period"
+              "Krediidilimiit sõltub sissetulekust",
+              "Intressivaba periood (grace period)"
             ]
           },
           {
             "name": "Maksed",
             "url": "https://www.swedbank.ee/private/dailybanking/payments",
-            "summary": "SEPA maksed, kiirmaksed, välismaa maksed.",
+            "summary": "SEPA maksed, kiirmaksed, välismaksed.",
+            "rates": [
+              "SEPA EUR makse: paketiga klientidele tasuta, muidu kuni 0,38 €",
+              "Välismakse SHA (jagatud kulud): 6 €",
+              "Välismakse OUR (kõik kulud maksja kanda): 25 €",
+              "(Allikas: wise.com/ee Swedbanki välismakse ülevaade 2026)"
+            ],
             "details": [
               "SEPA Instant",
               "Püsikorraldused",
-              "Swish ja muud Põhjamaade maksed"
+              "Valuutavahetuse kulu sisaldub vahetuskursis"
             ]
           },
           {
@@ -283,29 +331,58 @@
           {
             "name": "Kodulaen",
             "url": "https://www.swedbank.ee/private/loans/home-loan",
-            "summary": "Kinnisvara ostmine, ehitus, renoveerimine.",
+            "summary": "Kinnisvara ostmine, ehitus, renoveerimine. Intress = panga marginaal + 6 kuu Euribor.",
             "rates": [
-              "Intressimarginaal sõltub profiilist"
+              "Summa 10 000–500 000 €",
+              "Intress alates 2% (allikas: taotle.ee/pakkuja/swedbank)",
+              "Suurpankade marginaal tüüpiliselt ~1,2–1,5% (turuülevaade, hüpoteek.ee)",
+              "Periood kuni 360 kuud (30 aastat)",
+              "6 kuu Euribor ~2,14% (veebr 2026, turuviide)"
             ],
             "details": [
-              "Kuni 30 aastat",
-              "Eelotsus internetis",
-              "KredEx toetused"
+              "Marginaal sõltub kliendiprofiilist, fikseeritud kogu laenuperioodiks",
+              "Euribor muutub iga 6 kuu järel",
+              "Eelotsus internetis, KredEx toetused"
             ]
           },
           {
             "name": "Väikelaen",
-            "url": "https://www.swedbank.ee/private/loans/consumer-loan",
-            "summary": "Tagatiseta isiklik laen.",
+            "url": "https://www.swedbank.ee/private/credit/loans/newSmall",
+            "summary": "Tagatiseta isiklik laen, ilma igakuise haldustasuta.",
+            "rates": [
+              "Summa 300–20 000 €",
+              "Intress alates 8,9% aastas",
+              "Periood 6–60 kuud",
+              "Sihtotstarbeline (nt kodu energiatõhusus) alates 4,9%",
+              "(Allikas: taotle.ee/pakkuja/swedbank; swedbank.ee väikelaen)"
+            ],
             "details": [
               "Fikseeritud kuumakse",
-              "Taotlus internetipangas"
+              "Taotlus internetipangas",
+              "Ilma tagatiseta"
+            ]
+          },
+          {
+            "name": "Kodu väikelaen",
+            "url": "https://www.swedbank.ee/private/credit/loans/homeSmall",
+            "summary": "Tagatiseta väikelaen kodu remondiks/parendamiseks.",
+            "rates": [
+              "Summa 5 000–30 000 € (allikas: otsingu snippet, swedbank.ee)"
+            ],
+            "details": [
+              "Ilma tagatiseta ja sissemakseta"
             ]
           },
           {
             "name": "Autolaen",
             "url": "https://www.swedbank.ee/private/loans/car-loan",
             "summary": "Sõiduki soetamiseks.",
+            "rates": [
+              "Summa 2 000–50 000 €",
+              "Intress alates 1,49%",
+              "Periood 12–84 kuud",
+              "(Allikas: taotle.ee/pakkuja/swedbank)"
+            ],
             "details": [
               "Uus ja kasutatud auto",
               "Liising alternatiivina"
@@ -315,6 +392,12 @@
             "name": "Liising",
             "url": "https://www.swedbank.ee/private/loans/leasing",
             "summary": "Finants- ja operatiivliising.",
+            "rates": [
+              "Sõidukiliising: 2 000–200 000 €, alates 4,5%",
+              "Üldine liising: 5 000–2 000 000 €, 12–84 kuud, alates 4,5%",
+              "Seadmeliising: 5 000–1 000 000 €, 12–84 kuud, alates 4,5%",
+              "(Allikas: taotle.ee/pakkuja/swedbank)"
+            ],
             "details": [
               "Kapitaliliising",
               "Operatiivliising"
@@ -353,7 +436,7 @@
             "url": "https://www.swedbank.ee/private/insurance/travel",
             "summary": "Reisi- ja tervisekindlustus.",
             "details": [
-              "Pakettides kaasas",
+              "Reisipaketis kaasas",
               "Ühekordne või aastapoliis"
             ]
           },
@@ -369,7 +452,7 @@
           {
             "name": "Õnnetusjuhtumi kindlustus",
             "url": "https://www.swedbank.ee/private/insurance",
-            "summary": "Trahvide kaitse."
+            "summary": "Õnnetusjuhtumikindlustus."
           },
           {
             "name": "Elukindlustus",
@@ -387,7 +470,7 @@
             "summary": "Partnerite soodustused ja kampaaniad.",
             "details": [
               "Muutuvad pakkumised",
-              "Ostupaketi hüved"
+              "Ostu- ja reisipaketi hüved"
             ]
           },
           {
@@ -402,11 +485,12 @@
         "items": [
           {
             "name": "Ärikonto",
-            "url": "https://www.swedbank.ee/business",
-            "summary": "Ettevõtte arveldus ja teenused.",
+            "url": "https://www.swedbank.ee/business/d2d/accounts/open",
+            "summary": "Ettevõtte arveldus ja teenused. Uutele äriklientidele alustamise hüved.",
             "details": [
               "SEPA maksed",
-              "Mitme kasutaja ligipääs"
+              "Mitme kasutaja ligipääs",
+              "Konto avamisel dokumendi menetlustasu (ei kohaldu EL/EMP elamisloaga isikutele)"
             ],
             "rates": [
               "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
@@ -416,9 +500,9 @@
           {
             "name": "Äripaketid",
             "url": "https://www.swedbank.ee/business/daily-banking",
-            "summary": "Erineva mahuga äripaketid.",
+            "summary": "Erineva mahuga äripaketid; kuutasu sõltub mahust.",
             "details": [
-              "Kuutasu sõltub mahust"
+              "Täpsed kuutasud: swedbank.ee/business hinnakiri (lehel ei õnnestunud konkreetseid numbreid kätte saada)"
             ]
           },
           {
@@ -428,7 +512,7 @@
             "details": [
               "Investeerimislaen",
               "Käibekapital",
-              "Leasing"
+              "Liising 5 000–2 000 000 €, alates 4,5%"
             ]
           },
           {
@@ -436,7 +520,8 @@
             "url": "https://www.swedbank.ee/business/card-payments",
             "summary": "POS, e-kaubandus, arvemaksed.",
             "details": [
-              "Visa/Mastercard kaupmehele"
+              "Visa/Mastercard kaupmehele",
+              "Click to Pay"
             ]
           },
           {
@@ -454,8 +539,8 @@
             "url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
             "summary": "Hoiuste intressid, pakettide tasud, arvelduskonto intress.",
             "details": [
-              "Pakettide kuutasud",
-              "Hoiuste intressid"
+              "Pakettide kuutasud (kehtivad alates 01.11.2025): Põhi 1 €, Ostu 2 €, Reisi 6 €",
+              "EUR arvelduskonto intress 0,01%"
             ],
             "rates": [
               "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
@@ -472,7 +557,15 @@
             "summary": "Laenu- ja hoiuseintresside detailid (JS leht).",
             "details": [
               "Dünaamiline leht",
-              "Täpsemad laenumäärad"
+              "Tähtajalise hoiuse min summa 190 €"
+            ]
+          },
+          {
+            "name": "Hinnakirja muudatused",
+            "url": "https://www.swedbank.ee/private/home/more/pricesrates/changes",
+            "summary": "Eelseisvad hinnakirja ja tingimuste muudatused.",
+            "details": [
+              "Tingimused/hinnakiri muutuvad 31.08.2026 (otsingu snippet)"
             ]
           },
           {

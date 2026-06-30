@@ -1,0 +1,22 @@
+[Unit]
+Description=Bankagent — pangaeelvaade /bankagent (gfc.genofin.ee)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=agent
+WorkingDirectory=/home/agent/bankagent
+Environment=NODE_ENV=production
+Environment=BANKS_PREVIEW_PORT=5173
+Environment=BANKS_PREVIEW_HOST=127.0.0.1
+Environment=BANKS_BASE_PATH=/bankagent
+EnvironmentFile=-/home/agent/bankagent/.env
+ExecStart=/usr/bin/node /home/agent/bankagent/scripts/serve-banks-preview.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:/home/agent/bankagent/logs/bankagent.log
+StandardError=append:/home/agent/bankagent/logs/bankagent.log
+
+[Install]
+WantedBy=multi-user.target
