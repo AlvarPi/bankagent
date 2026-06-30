@@ -11,6 +11,7 @@ import { buildBigbankKnowledge } from './bigbank/knowledge.js';
 import { buildIutecreditKnowledge } from './iutecredit/knowledge.js';
 import { buildMorganStanleyKnowledge } from './morgan-stanley/knowledge.js';
 import { buildNordeaKnowledge } from './nordea/knowledge.js';
+import { buildLightyearKnowledge } from './lightyear/knowledge.js';
 
 /** @typedef {import('./_shared/util.js').CollectResult} CollectResult */
 
@@ -27,7 +28,8 @@ const BUILDERS = {
   bigbank: buildBigbankKnowledge,
   iutecredit: buildIutecreditKnowledge,
   'morgan-stanley': buildMorganStanleyKnowledge,
-  nordea: buildNordeaKnowledge
+  nordea: buildNordeaKnowledge,
+  lightyear: buildLightyearKnowledge
 };
 
 /**

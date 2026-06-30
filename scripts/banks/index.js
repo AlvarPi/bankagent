@@ -10,6 +10,7 @@ import { collect as collectBigbank } from './bigbank/index.js';
 import { collect as collectIutecredit } from './iutecredit/index.js';
 import { collect as collectMorganStanley } from './morgan-stanley/index.js';
 import { collect as collectNordea } from './nordea/index.js';
+import { collect as collectLightyear } from './lightyear/index.js';
 
 /** @type {Record<string, () => Promise<import('./_shared/util.js').CollectResult>>} */
 export const COLLECTORS = {
@@ -24,7 +25,8 @@ export const COLLECTORS = {
   bigbank: collectBigbank,
   iutecredit: collectIutecredit,
   'morgan-stanley': collectMorganStanley,
-  nordea: collectNordea
+  nordea: collectNordea,
+  lightyear: collectLightyear
 };
 
 const BANK_NAMES = {
@@ -39,7 +41,8 @@ const BANK_NAMES = {
   bigbank: 'Bigbank',
   iutecredit: 'IuteCredit',
   'morgan-stanley': 'Morgan Stanley',
-  nordea: 'Nordea'
+  nordea: 'Nordea',
+  lightyear: 'Lightyear'
 };
 
 /**

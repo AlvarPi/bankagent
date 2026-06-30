@@ -154,7 +154,8 @@ const BANK_LOGO_EXT = {
   citadele: 'png',
   wise: 'png',
   bigbank: 'png',
-  iutecredit: 'png'
+  iutecredit: 'png',
+  lightyear: 'png'
 };
 
 /**

@@ -114,6 +114,15 @@
       "html": "/banks/nordea/",
       "hasCatalog": true,
       "rateCount": 8
+    },
+    {
+      "slug": "lightyear",
+      "name": "Lightyear",
+      "fetchedAt": "2026-06-30T21:10:41.882Z",
+      "json": "/banks/lightyear/data.json",
+      "html": "/banks/lightyear/",
+      "hasCatalog": true,
+      "rateCount": 4
     }
   ]
 }
