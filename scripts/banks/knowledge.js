@@ -9,7 +9,6 @@ import { buildWiseKnowledge } from './wise/knowledge.js';
 import { buildHolmKnowledge } from './holm/knowledge.js';
 import { buildBigbankKnowledge } from './bigbank/knowledge.js';
 import { buildIutecreditKnowledge } from './iutecredit/knowledge.js';
-import { buildMorganStanleyKnowledge } from './morgan-stanley/knowledge.js';
 import { buildNordeaKnowledge } from './nordea/knowledge.js';
 import { buildLightyearKnowledge } from './lightyear/knowledge.js';
 
@@ -27,7 +26,6 @@ const BUILDERS = {
   holm: buildHolmKnowledge,
   bigbank: buildBigbankKnowledge,
   iutecredit: buildIutecreditKnowledge,
-  'morgan-stanley': buildMorganStanleyKnowledge,
   nordea: buildNordeaKnowledge,
   lightyear: buildLightyearKnowledge
 };

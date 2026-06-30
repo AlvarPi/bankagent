@@ -8,7 +8,6 @@ import { collect as collectWise } from './wise/index.js';
 import { collect as collectHolm } from './holm/index.js';
 import { collect as collectBigbank } from './bigbank/index.js';
 import { collect as collectIutecredit } from './iutecredit/index.js';
-import { collect as collectMorganStanley } from './morgan-stanley/index.js';
 import { collect as collectNordea } from './nordea/index.js';
 import { collect as collectLightyear } from './lightyear/index.js';
 
@@ -24,7 +23,6 @@ export const COLLECTORS = {
   holm: collectHolm,
   bigbank: collectBigbank,
   iutecredit: collectIutecredit,
-  'morgan-stanley': collectMorganStanley,
   nordea: collectNordea,
   lightyear: collectLightyear
 };
@@ -40,7 +38,6 @@ const BANK_NAMES = {
   holm: 'Holm Bank',
   bigbank: 'Bigbank',
   iutecredit: 'IuteCredit',
-  'morgan-stanley': 'Morgan Stanley',
   nordea: 'Nordea',
   lightyear: 'Lightyear'
 };

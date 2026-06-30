@@ -98,15 +98,6 @@
       "rateCount": 1
     },
     {
-      "slug": "morgan-stanley",
-      "name": "Morgan Stanley",
-      "fetchedAt": "2026-06-30T00:35:20.524Z",
-      "json": "/banks/morgan-stanley/data.json",
-      "html": "/banks/morgan-stanley/",
-      "hasCatalog": true,
-      "rateCount": 8
-    },
-    {
       "slug": "nordea",
       "name": "Nordea",
       "fetchedAt": "2026-06-30T00:35:20.912Z",
