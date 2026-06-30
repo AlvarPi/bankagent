@@ -222,10 +222,13 @@ export function buildBanksIndexHtml(all) {
     .card-logo-fallback { display:block; font-size:1.05rem; font-weight:700; color:var(--text); text-align:center; line-height:1.25; }
     a { color:var(--accent); text-decoration:none; }
     a:hover { text-decoration:underline; }
+    .back-link { display:inline-flex; align-items:center; gap:0.4rem; margin-bottom:1.25rem; padding:0.5rem 0.9rem; border:1px solid var(--border); border-radius:999px; background:var(--card); color:var(--accent); font-weight:600; font-size:0.95rem; }
+    .back-link:hover { text-decoration:none; background:var(--accent); color:#fff; border-color:var(--accent); }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <a href="https://genofin.ee/" class="back-link">&#8592; Tagasi genofin.ee</a>
     <h1>Pankade avalik info</h1>
     <p class="lead">Kogutud <code>npm run collect-rates</code> skriptiga. Vali pank.</p>
     <div class="grid">${cards}</div>
