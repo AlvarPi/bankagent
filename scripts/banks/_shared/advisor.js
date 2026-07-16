@@ -1,7 +1,13 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { buildRetrievedContext, SKIP_CONTEXT_SLUGS } from './advisor-retrieval.js';
-import { chatWithAnthropic, checkAnthropicHealth, getAnthropicApiKey } from './anthropic.js';
+import {
+  chatWithAnthropic,
+  chatWithAnthropicTools,
+  checkAnthropicHealth,
+  getAnthropicApiKey
+} from './anthropic.js';
+import { AVAANDMED_TOOLS, runAvaandmedTool } from './avaandmed.js';
 
 /** @type {Map<string, { index: object, banks: Record<string, unknown> }>} */
 const knowledgeCache = new Map();
@@ -85,6 +91,8 @@ Avalike pankade võrdluse puhul kasuta AINULT bank_data infot. Kui infot pole: "
 
 Iga panga andmetes on lisaks intressidele tootekataloog (catalog.sections: hoiused, paketid, laenud, kaardid jm) — kasuta seda toodete ja teenuste küsimustele. Kontekst on filtreeritud päringu järgi; kui vajalik info puudub, ütle seda.
 
+Riiklike/registri-/statistika-andmete kohta (rahvastik, ettevõtted, majandus, tervis, aadressid jms) on sul tööriistad Eesti avaandmete portaali (andmed.eesti.ee) päringuks: search_avaandmed (otsi andmestikke), get_avaandmed_dataset (failide loend), fetch_avaandmed_file (tõmba faili sisu). Kasuta neid AINULT kui küsimus on avaandmete-teemaline (mitte pankade tavaküsimustele). Too vastuses andmestiku pealkiri ja et allikas on andmed.eesti.ee. Kui tööriist tagastab vea või andmeid ei leia, ütle ausalt.
+
 bank_data:
 ${context}${personalSection}`;
 }
@@ -95,7 +103,12 @@ ${context}${personalSection}`;
  */
 export async function chatWithAdvisor(messages, systemPrompt) {
   if (getAdvisorBackend() === 'anthropic') {
-    return chatWithAnthropic({ messages, systemPrompt });
+    return chatWithAnthropicTools({
+      messages,
+      systemPrompt,
+      tools: AVAANDMED_TOOLS,
+      runTool: runAvaandmedTool
+    });
   }
   throw new Error('Nõustaja backend pole seadistatud (ANTHROPIC_API_KEY)');
 }
