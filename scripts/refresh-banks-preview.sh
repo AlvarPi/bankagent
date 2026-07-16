@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
-NODE_BIN="${NODE_BIN:-$HOME/.nvm/versions/node/v20.19.0/bin/node}"
+NODE_BIN="${NODE_BIN:-$(command -v node)}"
 LOG_DIR="$ROOT/logs"
 LOG_FILE="$LOG_DIR/banks-preview.log"
 
