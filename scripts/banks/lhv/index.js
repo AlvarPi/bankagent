@@ -1,37 +1,11 @@
-import { collectMinurahaForBank } from '../_shared/minuraha.js';
-import { makeRow } from '../_shared/util.js';
+export {
+  collect,
+  LHV_DEPOSIT_URL,
+  LHV_SAVINGS_URL,
+  LHV_FEES_URL,
+  parseTermDeposits,
+  parseSavings
+} from './collect.js';
 
-export const LHV_RATES_URL = 'https://www.lhv.ee/et/tahtajaline-hoius';
-export const LHV_FEES_URL = 'https://www.lhv.ee/et/hinnakiri';
-
-/**
- * @returns {Promise<import('../_shared/util.js').CollectResult>}
- */
-export async function collect() {
-  const fetchedAt = new Date().toISOString();
-  /** @type {string[]} */
-  const warnings = ['Hoiuseintressid minuraha.ee baromeetrist; kataloogi määrad lhv.ee tootelehtedelt (vt catalog.js)'];
-
-  const rows = await collectMinurahaForBank('lhv');
-  rows.push(
-    makeRow('lhv', {
-      product_type: 'fee',
-      label: 'Pangateenuste hinnakiri',
-      source_url: LHV_FEES_URL,
-      raw_text: 'lhv-collect: hinnakiri link'
-    })
-  );
-
-  return {
-    slug: 'lhv',
-    bankName: 'LHV',
-    rows,
-    sources: [
-      { kind: 'fallback', url: 'https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter', note: 'FI baromeeter' },
-      { kind: 'reference', url: LHV_RATES_URL, note: 'panga hoiuste leht' },
-      { kind: 'reference', url: LHV_FEES_URL, note: 'hinnakiri' }
-    ],
-    fetchedAt,
-    warnings
-  };
-}
+// Tagasiühilduvus varasemate importidega.
+export { LHV_DEPOSIT_URL as LHV_RATES_URL } from './collect.js';

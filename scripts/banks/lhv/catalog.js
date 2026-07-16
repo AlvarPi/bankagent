@@ -377,8 +377,8 @@ export const LHV_CATALOG = [
     items: [
       {
         name: 'Pangateenuste hinnakiri',
-        url: 'https://www.lhv.ee/et/era/pangateenuste-hinnakiri',
-        summary: 'Erakliendi teenuste hinnakiri (PDF).',
+        url: 'https://www.lhv.ee/et/hinnakiri',
+        summary: 'Erakliendi teenuste hinnakiri.',
         details: ['Pakettide kuutasud', 'Kaartide tasud', 'Maksete hinnad']
       },
       {
@@ -396,7 +396,19 @@ export const LHV_CATALOG = [
       {
         name: 'Open Banking',
         url: 'https://developers.lhv.ee',
-        summary: 'LHV avatud panganduse API arendajatele.'
+        summary: 'LHV avatud panganduse (PSD2) API arendajatele — Berliini grupi standard, nõuab litsentseeritud TPP-d ja eIDAS QWAC serte.'
+      },
+      {
+        name: 'LHV.ai — pangaandmed AI-assistendis',
+        url: 'https://lhv.ai',
+        summary: 'Ühenda oma LHV konto AI-assistendiga (MCP või REST API) — kontod, saldod ja tehingud loetavad otse tehisintellekti tööriistas.',
+        details: [
+          'Read-only: assistent EI saa makseid teha ega andmeid muuta',
+          'Autentimine OAuth2 + Smart-ID; õigused valid ise (accounts:read ja/või transactions:read)',
+          'REST API https://api.lhv.ai/api/v1 (GET /accounts, /accounts/{iban}/transactions); MCP https://mcp.lhv.ai/mcp',
+          'Ligipääs kehtib 30 päeva; saab igal ajal tühistada internetipangas (Seaded → Aktiivsed sessioonid)',
+          'Tokenid saab https://api.lhv.ai/api-access (Smart-ID login)'
+        ]
       }
     ]
   }

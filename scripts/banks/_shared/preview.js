@@ -60,11 +60,11 @@ function buildCatalogHtml(catalog) {
   const sectionHtml = sections
     .map(
       (section) =>
-        `<section><h2>${escapeHtml(section.title)}</h2>${(section.items || []).map(itemHtml).join('')}</section>`
+        `<section class="card"><h2>${escapeHtml(section.title)}</h2>${(section.items || []).map(itemHtml).join('')}</section>`
     )
     .join('\n');
 
-  return `<p class="lead" style="margin-top:1.5rem">Tootekataloog</p>\n${sectionHtml}`;
+  return `<p class="cat-lead">Tootekataloog</p>\n${sectionHtml}`;
 }
 
 /**
@@ -98,95 +98,99 @@ export function buildBankPreviewHtml(data, catalog = null) {
     .join('\n');
 
   const warningsHtml = data.warnings.length
-    ? `<section class="warn"><h2>Märkused</h2><ul>${data.warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join('')}</ul></section>`
+    ? `<section class="card warn"><h2>Märkused</h2><ul>${data.warnings.map((w) => `<li>${escapeHtml(w)}</li>`).join('')}</ul></section>`
     : '';
+
+  const tableSection = (title, rows, firstCol) =>
+    rows.length
+      ? `<section class="card"><h2>${title}</h2><table><thead><tr><th>${firstCol}</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody>${rowHtml(rows)}</tbody></table></section>`
+      : '';
 
   return `<!DOCTYPE html>
 <html lang="et">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>${escapeHtml(data.bankName)} — avaliku info kogumine</title>
+  <title>${escapeHtml(data.bankName)} — avalik pangainfo | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --card: #fff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --accent: #1e494d;
-      --accent-soft: #eaf6ec;
-      --border: #d8e0e8;
-      --positive: #1b7f4a;
-      --warn-bg: #fff8e6;
-      --warn-border: #e8c96a;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      background: var(--bg);
+      --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
+      --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 1.5rem; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.35rem; }
-    .lead { color: var(--muted); margin: 0 0 1rem; }
-    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
-    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
-    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { color: var(--muted); font-size: 0.85rem; }
-    .rate { color: var(--positive); font-weight: 700; }
-    a { color: var(--accent); }
-    .back { display: inline-block; margin-bottom: 1rem; }
-    .cat-item { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
-    .cat-item:last-child { border-bottom: 0; }
-    .cat-item h3 { margin: 0 0 0.25rem; font-size: 0.98rem; }
-    .cat-summary { margin: 0 0 0.4rem; color: var(--muted); font-size: 0.92rem; }
-    .cat-rates, .cat-details { margin: 0.2rem 0 0.4rem; }
-    .cat-rates li { font-size: 0.9rem; }
-    .cat-details li { font-size: 0.88rem; color: var(--muted); }
-    .cat-src { text-decoration: none; font-size: 0.9rem; }
-    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
-    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); line-height:1.5; }
+    .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.55rem; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
+    .nav-actions { margin-left:auto; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,#fff 75%); padding:2.5rem 0 1.75rem; }
+    .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); font-size:1.02rem; margin:.6rem 0 0; max-width:60ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pill { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.85rem; font-weight:600; }
+    .section { padding:1.75rem 0 3.5rem; }
+    section.card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    section.warn { background:var(--warn-bg); border-color:var(--warn-border); box-shadow:none; }
+    h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:.55rem .45rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.82rem; font-weight:600; }
+    .rate { color:var(--positive); font-weight:700; }
+    ul { margin:0; padding-left:1.2rem; }
+    .cat-lead { font-weight:700; font-size:1.25rem; color:var(--maroon); margin:1.5rem 0 .75rem; letter-spacing:-.01em; }
+    .cat-item { padding:.6rem 0; border-bottom:1px solid var(--line); }
+    .cat-item:last-child { border-bottom:0; }
+    .cat-item h3 { margin:0 0 .25rem; font-size:.98rem; }
+    .cat-summary { margin:0 0 .4rem; color:var(--muted); font-size:.92rem; }
+    .cat-rates, .cat-details { margin:.2rem 0 .4rem; }
+    .cat-rates li { font-size:.9rem; }
+    .cat-details li { font-size:.88rem; color:var(--muted); }
+    .cat-src { text-decoration:none; font-size:.9rem; }
+    @media (max-width:560px){ .hero h1 { font-size:1.6rem; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/banks/">← kõik pangad</a>
-    <div class="bank-header">
-      <img class="bank-logo" src="${escapeHtml(bankLogoSrc(data.slug))}" alt="${escapeHtml(data.bankName)}" width="160" height="40" />
-      <h1>${escapeHtml(data.bankName)}</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://genofin.ee/">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#76FB8D"/><path d="M9 22V17M16 22V10M23 22V14" stroke="#0D2022" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <span class="brand-name">Finovo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/banks/" class="back-link">&#8592; Kõik pangad</a>
+      </div>
     </div>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
-    <div class="meta">
-      <span class="pill">Kogutud: ${escapeHtml(fetchedLocal)}</span>
-      <span class="pill">${data.rows.length} rida</span>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-head">
+        <img class="hero-logo" src="${escapeHtml(bankLogoSrc(data.slug))}" alt="${escapeHtml(data.bankName)}" />
+        <h1>${escapeHtml(data.bankName)}</h1>
+      </div>
+      <p class="lead">Avalikult kogutud tooteinfo, intressid ja hinnakirjad.</p>
+      <div class="meta"><span class="pill">Uuendatud: ${escapeHtml(fetchedLocal)}</span></div>
     </div>
-    ${warningsHtml}
-    <section>
-      <h2>Allikad</h2>
-      <ul>${sourcesHtml}</ul>
-    </section>
-    ${
-      deposits.length
-        ? `<section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody>${rowHtml(deposits)}</tbody></table></section>`
-        : ''
-    }
-    ${
-      accounts.length
-        ? `<section><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody>${rowHtml(accounts)}</tbody></table></section>`
-        : ''
-    }
-    ${
-      fees.length
-        ? `<section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody>${rowHtml(fees)}</tbody></table></section>`
-        : ''
-    }
-    ${catalogHtml}
+  </section>
+  <div class="section">
+    <div class="container">
+      ${warningsHtml}
+      <section class="card"><h2>Allikad</h2><ul>${sourcesHtml}</ul></section>
+      ${tableSection('Hoiused', deposits, 'Toode')}
+      ${tableSection('Arvelduskontod', accounts, 'Toode')}
+      ${tableSection('Tasud / hinnakirjad', fees, 'Kirje')}
+      ${catalogHtml}
+    </div>
   </div>
 </body>
 </html>`;
