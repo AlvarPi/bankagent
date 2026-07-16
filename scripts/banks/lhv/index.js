@@ -1,8 +1,8 @@
 import { collectMinurahaForBank } from '../_shared/minuraha.js';
 import { makeRow } from '../_shared/util.js';
 
-export const LHV_RATES_URL = 'https://www.lhv.ee/et/hoiused';
-export const LHV_FEES_URL = 'https://www.lhv.ee/et/era/pangateenuste-hinnakiri';
+export const LHV_RATES_URL = 'https://www.lhv.ee/et/tahtajaline-hoius';
+export const LHV_FEES_URL = 'https://www.lhv.ee/et/hinnakiri';
 
 /**
  * @returns {Promise<import('../_shared/util.js').CollectResult>}
@@ -10,7 +10,7 @@ export const LHV_FEES_URL = 'https://www.lhv.ee/et/era/pangateenuste-hinnakiri';
 export async function collect() {
   const fetchedAt = new Date().toISOString();
   /** @type {string[]} */
-  const warnings = ['LHV veebileht blokeerib automaatse päringu (403) — kasutatud minuraha.ee baromeetrit'];
+  const warnings = ['Hoiuseintressid minuraha.ee baromeetrist; kataloogi määrad lhv.ee tootelehtedelt (vt catalog.js)'];
 
   const rows = await collectMinurahaForBank('lhv');
   rows.push(

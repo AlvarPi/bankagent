@@ -22,10 +22,13 @@ async function main() {
   for (const data of results) {
     const bankDir = join(STATIC_BANKS, data.slug);
     await mkdir(bankDir, { recursive: true });
-    const html = data.slug === 'coop' ? buildCoopPreviewHtml(data) : buildBankPreviewHtml(data);
+    const knowledge = buildBankKnowledge(data);
+    const html =
+      data.slug === 'coop'
+        ? buildCoopPreviewHtml(data)
+        : buildBankPreviewHtml(data, /** @type {any} */ (knowledge).catalog);
     await writeFile(join(bankDir, 'index.html'), html, 'utf8');
 
-    const knowledge = buildBankKnowledge(data);
     await writeKnowledgeFile(bankDir, knowledge);
     knowledgeList.push(knowledge);
 

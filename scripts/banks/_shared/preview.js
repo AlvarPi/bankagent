@@ -36,13 +36,47 @@ export function formatFee(cents) {
 }
 
 /**
- * @param {import('./util.js').CollectResult} data
+ * @param {{ sections?: Array<{ title: string, items: Array<{ name: string, summary?: string, url?: string, rates?: string[], details?: string[] }> }> } | null | undefined} catalog
+ * @returns {string}
  */
-export function buildBankPreviewHtml(data) {
+function buildCatalogHtml(catalog) {
+  const sections = catalog && Array.isArray(catalog.sections) ? catalog.sections : [];
+  if (!sections.length) return '';
+
+  const itemHtml = (item) => {
+    const rates =
+      item.rates && item.rates.length
+        ? `<ul class="cat-rates">${item.rates.map((r) => `<li>${escapeHtml(r)}</li>`).join('')}</ul>`
+        : '';
+    const details =
+      item.details && item.details.length
+        ? `<ul class="cat-details">${item.details.map((d) => `<li>${escapeHtml(d)}</li>`).join('')}</ul>`
+        : '';
+    const src = item.url ? ` <a class="cat-src" href="${escapeHtml(item.url)}" title="allikas">↗</a>` : '';
+    const summary = item.summary ? `<p class="cat-summary">${escapeHtml(item.summary)}</p>` : '';
+    return `<div class="cat-item"><h3>${escapeHtml(item.name)}${src}</h3>${summary}${rates}${details}</div>`;
+  };
+
+  const sectionHtml = sections
+    .map(
+      (section) =>
+        `<section><h2>${escapeHtml(section.title)}</h2>${(section.items || []).map(itemHtml).join('')}</section>`
+    )
+    .join('\n');
+
+  return `<p class="lead" style="margin-top:1.5rem">Tootekataloog</p>\n${sectionHtml}`;
+}
+
+/**
+ * @param {import('./util.js').CollectResult} data
+ * @param {{ sections?: Array<object> } | null} [catalog]
+ */
+export function buildBankPreviewHtml(data, catalog = null) {
   const fetchedLocal = new Date(data.fetchedAt).toLocaleString('et-EE');
   const deposits = data.rows.filter((row) => row.product_type === 'deposit');
   const accounts = data.rows.filter((row) => row.product_type === 'account');
   const fees = data.rows.filter((row) => row.product_type === 'fee');
+  const catalogHtml = buildCatalogHtml(catalog);
 
   const rowHtml = (rows) =>
     rows
@@ -107,6 +141,14 @@ export function buildBankPreviewHtml(data) {
     .rate { color: var(--positive); font-weight: 700; }
     a { color: var(--accent); }
     .back { display: inline-block; margin-bottom: 1rem; }
+    .cat-item { padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+    .cat-item:last-child { border-bottom: 0; }
+    .cat-item h3 { margin: 0 0 0.25rem; font-size: 0.98rem; }
+    .cat-summary { margin: 0 0 0.4rem; color: var(--muted); font-size: 0.92rem; }
+    .cat-rates, .cat-details { margin: 0.2rem 0 0.4rem; }
+    .cat-rates li { font-size: 0.9rem; }
+    .cat-details li { font-size: 0.88rem; color: var(--muted); }
+    .cat-src { text-decoration: none; font-size: 0.9rem; }
     .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
     .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
     ul { margin: 0; padding-left: 1.2rem; }
@@ -144,6 +186,7 @@ export function buildBankPreviewHtml(data) {
         ? `<section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody>${rowHtml(fees)}</tbody></table></section>`
         : ''
     }
+    ${catalogHtml}
   </div>
 </body>
 </html>`;

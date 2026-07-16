@@ -12,12 +12,12 @@ export const LHV_CATALOG = [
         summary:
           'Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta.',
         rates: [
-          'EUR 1 kuu 1,70% (lhv.ee/tahtajaline-hoius)',
+          'EUR 1 kuu 1,80% (lhv.ee/tahtajaline-hoius)',
           'EUR 3 kuud 2,05% (lhv.ee/tahtajaline-hoius)',
-          'EUR 6 kuud 2,10% (lhv.ee/tahtajaline-hoius)',
-          'EUR 9 kuud 2,10% (lhv.ee/tahtajaline-hoius)',
-          'EUR 12 kuud 2,10% (lhv.ee/tahtajaline-hoius)',
-          'EUR 15–24 kuud 2,10% (lhv.ee/tahtajaline-hoius)',
+          'EUR 6 kuud 2,15% (lhv.ee/tahtajaline-hoius)',
+          'EUR 9 kuud 2,15% (lhv.ee/tahtajaline-hoius)',
+          'EUR 12 kuud 2,20% (lhv.ee/tahtajaline-hoius)',
+          'EUR 15–24 kuud 2,20% (lhv.ee/tahtajaline-hoius)',
           'USD 12 kuud 1,50% (lhv.ee/tahtajaline-hoius)'
         ],
         details: [
@@ -167,7 +167,8 @@ export const LHV_CATALOG = [
         url: 'https://www.lhv.ee/et/era-krediitkaart',
         summary: 'Visa krediitkaart koos ostukindlustuse ja reisikindlustusega.',
         rates: [
-          'Intress 18% aastas (lhv.ee/hinnakiri, otsingutulemus)',
+          'Intress 18% aastas (lhv.ee/era-krediitkaart)',
+          'Krediidi kulukuse määr (KKM) 19,15% aastas (lhv.ee/era-krediitkaart)',
           'Erakliendi krediitkaart 1 €/kuu, kuldkaart 7 €/kuu',
           'Intressivaba periood: erakliendi kaart 22 päeva, kuld-/partnerkaart kuni 40 päeva'
         ],
@@ -204,6 +205,7 @@ export const LHV_CATALOG = [
         rates: [
           'Intress = individuaalne marginaal + 6 kuu euribor (lhv.ee/kodulaen)',
           'Uue A-/B-energiaklassi kodu (rohelaen) alates 1,49% + 6 kuu euribor (lhv.ee/kodulaen)',
+          'Üürikodu (üürikinnisvara) laen alates 1,89% + 6 kuu euribor (lhv.ee/kodulaen)',
           'Lepingutasu 0,5–0,9% laenusummast, min 300 € (lhv.ee/kodulaen)'
         ],
         details: [
@@ -221,7 +223,8 @@ export const LHV_CATALOG = [
         summary: 'Tagatiseta isiklik laen.',
         rates: [
           'Laenusumma 200–15 000 € (lhv.ee/vaikelaen)',
-          'Intress personaalne, näidis alates ~5,9% (lhv.ee/vaikelaen)',
+          'Intress personaalne (lhv.ee/vaikelaen)',
+          'Krediidi kulukuse määr (KKM) näidis ~19,67% aastas (lhv.ee/vaikelaen)',
           'Lepingutasu 2% laenusummast, min 29,90 €',
           'Haldustasu 3,99 €/kuus'
         ],
