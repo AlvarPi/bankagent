@@ -8,6 +8,19 @@ import {
   getAnthropicApiKey
 } from './anthropic.js';
 import { AVAANDMED_TOOLS, runAvaandmedTool } from './avaandmed.js';
+import { ARIREGISTER_TOOLS, runAriregisterTool } from './ariregister.js';
+
+const ADVISOR_TOOLS = [...AVAANDMED_TOOLS, ...ARIREGISTER_TOOLS];
+const ARIREGISTER_TOOL_NAMES = new Set(ARIREGISTER_TOOLS.map((t) => t.name));
+
+/**
+ * @param {string} name
+ * @param {any} input
+ */
+function runAdvisorTool(name, input) {
+  if (ARIREGISTER_TOOL_NAMES.has(name)) return runAriregisterTool(name, input);
+  return runAvaandmedTool(name, input);
+}
 
 /** @type {Map<string, { index: object, banks: Record<string, unknown> }>} */
 const knowledgeCache = new Map();
@@ -91,7 +104,7 @@ Avalike pankade võrdluse puhul kasuta AINULT bank_data infot. Kui infot pole: "
 
 Iga panga andmetes on lisaks intressidele tootekataloog (catalog.sections: hoiused, paketid, laenud, kaardid jm) — kasuta seda toodete ja teenuste küsimustele. Kontekst on filtreeritud päringu järgi; kui vajalik info puudub, ütle seda.
 
-Riiklike/registri-/statistika-andmete kohta (rahvastik, ettevõtted, majandus, tervis, aadressid jms) on sul tööriistad Eesti avaandmete portaali (andmed.eesti.ee) päringuks: search_avaandmed (otsi andmestikke), get_avaandmed_dataset (failide loend), fetch_avaandmed_file (tõmba faili sisu). Kasuta neid AINULT kui küsimus on avaandmete-teemaline (mitte pankade tavaküsimustele). Too vastuses andmestiku pealkiri ja et allikas on andmed.eesti.ee. Kui tööriist tagastab vea või andmeid ei leia, ütle ausalt.
+Riiklike/registri-/statistika-andmete kohta (rahvastik, ettevõtted, majandus, tervis, aadressid jms) on sul tööriistad Eesti avaandmete portaali (andmed.eesti.ee) päringuks: search_avaandmed (otsi andmestikke), get_avaandmed_dataset (failide loend), fetch_avaandmed_file (tõmba faili sisu). Konkreetse ettevõtte kohta (nimi või registrikood) kasuta lookup_ariregister (e-äriregister) — annab nime, regkoodi, staatuse, aadressi, lingi. Kasuta tööriistu AINULT kui küsimus on avaandmete-/registri-teemaline (mitte pankade tavaküsimustele). Too vastuses allikas (andmed.eesti.ee või e-äriregister). Kui tööriist tagastab vea või andmeid ei leia, ütle ausalt.
 
 bank_data:
 ${context}${personalSection}`;
@@ -106,8 +119,8 @@ export async function chatWithAdvisor(messages, systemPrompt) {
     return chatWithAnthropicTools({
       messages,
       systemPrompt,
-      tools: AVAANDMED_TOOLS,
-      runTool: runAvaandmedTool
+      tools: ADVISOR_TOOLS,
+      runTool: runAdvisorTool
     });
   }
   throw new Error('Nõustaja backend pole seadistatud (ANTHROPIC_API_KEY)');
