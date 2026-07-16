@@ -314,7 +314,12 @@ function formatFilteredCatalog(catalog, tokens, topics, includeAll) {
 export function formatBankBlock(data, opts) {
   const allRates = Array.isArray(data.rates) ? data.rates : [];
   const rates = selectRatesForDisplay(allRates, Boolean(opts.depositRatesOnly));
-  if (!rates.length) {
+  const catalog = /** @type {{ sections?: unknown[] } | undefined} */ (data.catalog);
+  const hasCatalog = Boolean(opts.includeCatalog && catalog?.sections?.length);
+
+  // "Andmed puuduvad" ainult siis, kui pole EGA ridu EGA kataloogi
+  // (nt LHV hoiab kõik andmed kataloogis, rows on tühi).
+  if (!rates.length && !hasCatalog) {
     const warn = Array.isArray(data.warnings) && data.warnings.length ? data.warnings[0] : 'andmed puuduvad';
     return `## ${data.name} (${data.slug}) — ${warn}`;
   }
@@ -331,31 +336,30 @@ export function formatBankBlock(data, opts) {
     lines.push(`Allikas: ${primaryUrl}`);
   }
 
-  const ratesHeader =
-    opts.depositRatesOnly && rates.length < allRates.length
-      ? 'Intressid/tasud (hoiused):'
-      : 'Intressid/tasud (kõik kogutud read):';
-  lines.push(ratesHeader);
-  for (const rate of rates) {
-    const rateStr = rate.rate_percent != null ? `${rate.rate_percent}%` : '—';
-    const raw = rate.raw_text ? ` | ${rate.raw_text}` : '';
-    lines.push(
-      `  - [${rate.product_type}] ${rate.label}: ${rateStr}, tasu ${formatFee(rate.fee_cents)} | ${rate.source_url}${raw}`
-    );
-  }
-
-  if (opts.includeCatalog) {
-    const catalog = /** @type {{ sections?: unknown[] } | undefined} */ (data.catalog);
-    if (catalog?.sections?.length) {
+  if (rates.length) {
+    const ratesHeader =
+      opts.depositRatesOnly && rates.length < allRates.length
+        ? 'Intressid/tasud (hoiused):'
+        : 'Intressid/tasud (kõik kogutud read):';
+    lines.push(ratesHeader);
+    for (const rate of rates) {
+      const rateStr = rate.rate_percent != null ? `${rate.rate_percent}%` : '—';
+      const raw = rate.raw_text ? ` | ${rate.raw_text}` : '';
       lines.push(
-        ...formatFilteredCatalog(
-          /** @type {Parameters<typeof formatFilteredCatalog>[0]} */ (catalog),
-          opts.tokens,
-          opts.topics,
-          opts.catalogAll
-        )
+        `  - [${rate.product_type}] ${rate.label}: ${rateStr}, tasu ${formatFee(rate.fee_cents)} | ${rate.source_url}${raw}`
       );
     }
+  }
+
+  if (hasCatalog) {
+    lines.push(
+      ...formatFilteredCatalog(
+        /** @type {Parameters<typeof formatFilteredCatalog>[0]} */ (catalog),
+        opts.tokens,
+        opts.topics,
+        opts.catalogAll
+      )
+    );
   }
 
   return lines.join('\n');
@@ -476,7 +480,13 @@ export function buildRetrievedContext(knowledge, messages) {
 
   for (const bank of banksToShow) {
     const slug = String(bank.slug);
-    const includeCatalog = !singleBankDepositOnly && fullCatalogSlugs.has(slug) && wantsCatalogTopic;
+    const bankRates = Array.isArray(bank.rates) ? bank.rates : [];
+    const bankHasCatalog = Boolean(/** @type {any} */ (bank).catalog?.sections?.length);
+    // Tavaloogika + varuvariant: kui pangal pole ridu, kuid on kataloog
+    // (nt LHV), näita kataloogi ikka (muidu jääks "andmed puuduvad").
+    const includeCatalog =
+      (!singleBankDepositOnly && fullCatalogSlugs.has(slug) && wantsCatalogTopic) ||
+      (bankRates.length === 0 && bankHasCatalog);
     lines.push(
       formatBankBlock(bank, {
         includeCatalog,
