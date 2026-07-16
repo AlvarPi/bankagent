@@ -111,6 +111,16 @@ export function buildAdvisorWidgetHtml() {
     var sendBtn = document.getElementById('advisor-send');
     var statusEl = document.getElementById('advisor-status');
 
+    // Isiklik LHV-võti URL-i hash'ist (#a=...). Ainult omanik teab; avalikul lehel puudub.
+    var ADVISOR_KEY = (function () {
+      try {
+        var m = /[#&]a=([^&]+)/.exec(window.location.hash || '');
+        return m ? decodeURIComponent(m[1]) : '';
+      } catch (e) {
+        return '';
+      }
+    })();
+
     /** @type {{ role: string, content: string }[]} */
     var history = [];
     var busy = false;
@@ -299,7 +309,7 @@ export function buildAdvisorWidgetHtml() {
       fetch('/banks/api/advisor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: history }),
+        body: JSON.stringify(ADVISOR_KEY ? { messages: history, key: ADVISOR_KEY } : { messages: history }),
         signal: controller.signal
       })
         .then(function (res) {

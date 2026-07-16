@@ -92,8 +92,11 @@ async function handleAdvisor(req, res) {
     const body = await readJsonBody(req);
     const messages = parseAdvisorMessages(body);
     const knowledge = await getAdvisorKnowledge();
-    // Isiklik LHV-kontekst (kui seadistatud); ei tohi avalikku nõustajat katki teha.
-    const lhvContext = await buildLhvContext().catch(() => '');
+    // Isiklik LHV-kontekst AINULT õige võtmega (avalik leht ei tohi seda saada).
+    const advisorKey = (process.env.LHV_ADVISOR_KEY || '').trim();
+    const keyOk =
+      advisorKey.length > 0 && body && typeof body.key === 'string' && body.key === advisorKey;
+    const lhvContext = keyOk ? await buildLhvContext().catch(() => '') : '';
     const systemPrompt = buildAdvisorSystemPrompt(knowledge, messages, lhvContext);
     const result = await chatWithAdvisor(messages, systemPrompt);
 
