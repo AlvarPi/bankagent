@@ -62,7 +62,7 @@ export function buildCompactContext(knowledge) {
  * @param {{ index: object, banks: Record<string, unknown> }} knowledge
  * @param {Array<{ role: string, content: string }>} messages
  */
-export function buildAdvisorSystemPrompt(knowledge, messages) {
+export function buildAdvisorSystemPrompt(knowledge, messages, lhvContext = '') {
   const context = buildRetrievedContext(
     /** @type {{ index: { generatedAt?: string, banks?: Array<{ slug: string, name: string }> }, banks: Record<string, Record<string, unknown>> }} */ (
       knowledge
@@ -70,14 +70,23 @@ export function buildAdvisorSystemPrompt(knowledge, messages) {
     messages
   );
 
+  const personalSection = lhvContext
+    ? `
+
+Lisaks on all "minu_lhv_andmed" — kasutaja enda LHV pangakontod ja tehingud (päris andmed, read-only LHV API-st). Isiklike küsimuste puhul ("minu saldo", "kui palju ma kulutasin", "mu tehingud") kasuta SEDA. Ära väljamõtle ega ümarda numbreid; too summad täpselt. Kui küsitu andmetes puudub, ütle seda. See on kasutaja enda info — võid seda vabalt esitada. Endiselt mitte finants- ega õigusnõu.
+
+minu_lhv_andmed:
+${lhvContext}`
+    : '';
+
   return `Eesti pangateenuste võrdlusabiline. Vasta eesti keeles, selgelt ja põhjalikult (võib olla kuni ~12 lauset keerukamate küsimuste puhul).
 
-Kasuta AINULT bank_data infot. Kui infot pole: "Seda infot mul kogutud andmetes pole." Ära väljamõtle numbreid. Maini panganimi ja fetchedAt. Mitte finants- ega õigusnõu.
+Avalike pankade võrdluse puhul kasuta AINULT bank_data infot. Kui infot pole: "Seda infot mul kogutud andmetes pole." Ära väljamõtle numbreid. Maini panganimi ja fetchedAt. Mitte finants- ega õigusnõu.
 
 Iga panga andmetes on lisaks intressidele tootekataloog (catalog.sections: hoiused, paketid, laenud, kaardid jm) — kasuta seda toodete ja teenuste küsimustele. Kontekst on filtreeritud päringu järgi; kui vajalik info puudub, ütle seda.
 
 bank_data:
-${context}`;
+${context}${personalSection}`;
 }
 
 /**

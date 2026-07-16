@@ -12,6 +12,7 @@ import {
   loadBankKnowledge,
   parseAdvisorMessages
 } from './banks/_shared/advisor.js';
+import { buildLhvContext } from './banks/_shared/lhv.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATIC_ROOT = join(__dirname, '..', 'static');
@@ -91,7 +92,9 @@ async function handleAdvisor(req, res) {
     const body = await readJsonBody(req);
     const messages = parseAdvisorMessages(body);
     const knowledge = await getAdvisorKnowledge();
-    const systemPrompt = buildAdvisorSystemPrompt(knowledge, messages);
+    // Isiklik LHV-kontekst (kui seadistatud); ei tohi avalikku nõustajat katki teha.
+    const lhvContext = await buildLhvContext().catch(() => '');
+    const systemPrompt = buildAdvisorSystemPrompt(knowledge, messages, lhvContext);
     const result = await chatWithAdvisor(messages, systemPrompt);
 
     sendJson(res, 200, {
