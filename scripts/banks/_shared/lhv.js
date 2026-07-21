@@ -27,6 +27,9 @@ let refreshInFlight = null;
 /** @type {{ text: string, at: number } | null} */
 let contextCache = null;
 const CONTEXT_TTL_MS = Number(process.env.LHV_CONTEXT_TTL_MS || 5 * 60_000);
+// Vaikeaken ~1 aasta: kaardiostud (CCRD/POSD) on harvad, 60-päeva aknasse jäid vaid
+// igakuised püsimaksed. /statement talub pikki aknaid; konto-kohta 60-kirje cap hoiab prompti mõistlikuna.
+const CONTEXT_DAYS = Number(process.env.LHV_CONTEXT_DAYS || 365);
 
 /**
  * @returns {Promise<null | { client_id: string, refresh_token: string, resource?: string, scope?: string, obtained_at?: string }>}
@@ -215,10 +218,10 @@ function isoToday() {
 /**
  * Ehitab kompaktse isikliku LHV-konteksti nõustaja süsteemi-prompti jaoks.
  * Tagastab '' kui pole seadistatud või päring ebaõnnestub (avalik nõustaja ei tohi katki minna).
- * @param {number} [days] mitu päeva tehinguid (vaikimisi 60)
+ * @param {number} [days] mitu päeva tehinguid (vaikimisi CONTEXT_DAYS ≈ 1 aasta)
  * @returns {Promise<string>}
  */
-export async function buildLhvContext(days = 60) {
+export async function buildLhvContext(days = CONTEXT_DAYS) {
   if (contextCache && Date.now() - contextCache.at < CONTEXT_TTL_MS) {
     return contextCache.text;
   }
