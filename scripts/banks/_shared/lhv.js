@@ -162,14 +162,41 @@ export async function fetchAccounts() {
 }
 
 /**
+ * Normaliseerib LHV /statement tehingu stabiilseks kujuks.
+ * Uus API (2026-07): `amount` on JUBA märgiga (DEBIT negatiivne, CREDIT positiivne) — ära signeeri uuesti.
+ * Vastaspool: CREDIT (raha sisse) → debtor, DEBIT (raha välja) → creditor.
+ * @param {any} t
+ */
+function normalizeTransaction(t) {
+  const dir = t.direction; // 'CREDIT' | 'DEBIT'
+  const pd = t.paymentData || {};
+  const counterparty = dir === 'CREDIT' ? pd.debtor : pd.creditor;
+  const tt = t.transactionType || {};
+  return {
+    transactionId: t.bankReference != null ? String(t.bankReference) : undefined,
+    bookingDate: typeof t.settlementDtime === 'string' ? t.settlementDtime.slice(0, 10) : '',
+    amount: Number(t.amount) || 0,
+    currency: t.currency,
+    counterpartyName: counterparty?.name || '',
+    description: t.description || '',
+    direction: dir,
+    transactionFamily: tt.family || tt.domain || '',
+    transactionSubFamily: tt.subfamily || ''
+  };
+}
+
+/**
+ * Konto tehingud perioodil. Endpoint = /statement (LHV nimetas /transactions ümber, 2026-07).
+ * /statement EI jõusta 31-päeva limiiti — üks päring katab kogu akna.
  * @param {string} iban
  * @param {string} dateFrom yyyy-MM-dd
- * @param {string} dateTo yyyy-MM-dd (max 31 päeva vahe)
+ * @param {string} dateTo yyyy-MM-dd
  */
 export async function fetchTransactions(iban, dateFrom, dateTo) {
   const qs = new URLSearchParams({ dateFrom, dateTo });
-  const data = await apiGet(`/accounts/${encodeURIComponent(iban)}/transactions?${qs}`);
-  return Array.isArray(data?.transactions) ? data.transactions : [];
+  const data = await apiGet(`/accounts/${encodeURIComponent(iban)}/statement?${qs}`);
+  const txs = Array.isArray(data?.transactions) ? data.transactions : [];
+  return txs.map(normalizeTransaction);
 }
 
 /**
@@ -200,14 +227,7 @@ export async function buildLhvContext(days = 60) {
   try {
     const accounts = await fetchAccounts();
     const today = isoToday();
-
-    // Tehingud kuni `days` päeva: LHV limiit 31 päeva/päring, seega tükelda.
-    const windows = [];
-    for (let start = days; start > 0; start -= 31) {
-      const from = isoDaysAgo(Math.min(start, days));
-      const to = start === days ? today : isoDaysAgo(start - 30);
-      windows.push([from, to]);
-    }
+    const from = isoDaysAgo(days);
 
     const lines = [];
     lines.push(`minu_lhv_andmed (allikas: LHV pank, päritud ${today}):`);
@@ -219,18 +239,15 @@ export async function buildLhvContext(days = 60) {
     lines.push(`Tehingud (viimased ~${days} päeva):`);
     let any = false;
     for (const a of accounts) {
-      const seen = new Set();
+      // Tehingute päringu viga EI tohi nullida kontode/saldode konteksti.
       /** @type {any[]} */
-      const txs = [];
-      for (const [from, to] of windows) {
-        const part = await fetchTransactions(a.iban, from, to);
-        for (const t of part) {
-          const key = t.transactionId || `${t.bookingDate}|${t.amount}|${t.description}`;
-          if (!seen.has(key)) {
-            seen.add(key);
-            txs.push(t);
-          }
-        }
+      let txs = [];
+      try {
+        txs = await fetchTransactions(a.iban, from, today);
+      } catch (err) {
+        console.error(`[lhv] tehingute päring ${a.iban} ebaõnnestus:`, err instanceof Error ? err.message : err);
+        lines.push(`  ${a.iban}: (tehingute päring ebaõnnestus)`);
+        continue;
       }
       if (txs.length === 0) continue;
       any = true;
