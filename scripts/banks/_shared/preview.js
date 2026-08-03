@@ -119,20 +119,21 @@ export function buildBankPreviewHtml(data, catalog = null) {
     :root {
       --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
       --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --page-bg:#F4F8F5;
       --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); line-height:1.5; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
     .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
     a { color:var(--teal); }
     .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
     .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
     .brand { display:inline-flex; align-items:center; gap:.55rem; }
     .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
-    .nav-actions { margin-left:auto; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
     .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
     .back-link:hover { border-color:var(--green); color:var(--green); }
-    .hero { background:linear-gradient(180deg,var(--soft) 0%,#fff 75%); padding:2.5rem 0 1.75rem; }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:2.5rem 0 1.75rem; }
     .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
     .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
     .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
@@ -262,10 +263,10 @@ export function buildBanksIndexHtml(all) {
     :root {
       --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime:#DDFDC4;
       --lime-soft:#EAFEDB; --maroon:#581824; --ink:#14241F; --muted:#51625C;
-      --bg:#FFFFFF; --soft:#F4F8F4; --line:#E3EAE5;
+      --bg:#FFFFFF; --soft:#F4F8F4; --page-bg:#F4F8F5; --line:#E3EAE5;
     }
     * { box-sizing:border-box; }
-    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); }
     .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
     a { color:var(--teal); text-decoration:none; }
 
@@ -273,11 +274,11 @@ export function buildBanksIndexHtml(all) {
     .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
     .brand { display:inline-flex; align-items:center; gap:.55rem; }
     .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
-    .nav-actions { margin-left:auto; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
     .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s, color .14s; }
     .back-link:hover { border-color:var(--green); color:var(--green); }
 
-    .hero { background:linear-gradient(180deg,var(--soft) 0%,#fff 75%); padding:3.5rem 0 2.5rem; }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:3.5rem 0 2.5rem; }
     .eyebrow { display:inline-flex; align-items:center; gap:.5rem; background:var(--lime-soft); color:var(--teal); font-weight:600; font-size:.82rem; padding:.4rem .9rem; border-radius:999px; }
     .eyebrow .dot { width:7px; height:7px; border-radius:50%; background:var(--green); }
     .hero h1 { font-weight:700; font-size:2.4rem; line-height:1.12; letter-spacing:-.02em; color:var(--maroon); margin:1rem 0 .6rem; }
@@ -303,6 +304,7 @@ export function buildBanksIndexHtml(all) {
         <span class="brand-name">Finovo</span>
       </a>
       <div class="nav-actions">
+        <a href="/banks/upload/" class="back-link">&#128228; Laadi fail üles</a>
         <a href="https://genofin.ee/" class="back-link">&#8592; Tagasi genofin.ee</a>
       </div>
     </div>

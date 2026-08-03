@@ -3,67 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bigbank — avaliku info kogumine</title>
+  <title>Bigbank — avalik pangainfo | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --card: #fff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --accent: #1e494d;
-      --accent-soft: #eaf6ec;
-      --border: #d8e0e8;
-      --positive: #1b7f4a;
-      --warn-bg: #fff8e6;
-      --warn-border: #e8c96a;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      background: var(--bg);
+      --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
+      --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --page-bg:#F4F8F5;
+      --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 1.5rem; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.35rem; }
-    .lead { color: var(--muted); margin: 0 0 1rem; }
-    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
-    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
-    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { color: var(--muted); font-size: 0.85rem; }
-    .rate { color: var(--positive); font-weight: 700; }
-    a { color: var(--accent); }
-    .back { display: inline-block; margin-bottom: 1rem; }
-    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
-    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
+    .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.55rem; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:2.5rem 0 1.75rem; }
+    .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); font-size:1.02rem; margin:.6rem 0 0; max-width:60ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pill { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.85rem; font-weight:600; }
+    .section { padding:1.75rem 0 3.5rem; }
+    section.card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    section.warn { background:var(--warn-bg); border-color:var(--warn-border); box-shadow:none; }
+    h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:.55rem .45rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.82rem; font-weight:600; }
+    .rate { color:var(--positive); font-weight:700; }
+    ul { margin:0; padding-left:1.2rem; }
+    .cat-lead { font-weight:700; font-size:1.25rem; color:var(--maroon); margin:1.5rem 0 .75rem; letter-spacing:-.01em; }
+    .cat-item { padding:.6rem 0; border-bottom:1px solid var(--line); }
+    .cat-item:last-child { border-bottom:0; }
+    .cat-item h3 { margin:0 0 .25rem; font-size:.98rem; }
+    .cat-summary { margin:0 0 .4rem; color:var(--muted); font-size:.92rem; }
+    .cat-rates, .cat-details { margin:.2rem 0 .4rem; }
+    .cat-rates li { font-size:.9rem; }
+    .cat-details li { font-size:.88rem; color:var(--muted); }
+    .cat-src { text-decoration:none; font-size:.9rem; }
+    @media (max-width:560px){ .hero h1 { font-size:1.6rem; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/banks/">← kõik pangad</a>
-    <div class="bank-header">
-      <img class="bank-logo" src="/banks/logos/bigbank.png" alt="Bigbank" width="160" height="40" />
-      <h1>Bigbank</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://genofin.ee/">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#76FB8D"/><path d="M9 22V17M16 22V10M23 22V14" stroke="#0D2022" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <span class="brand-name">Finovo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/banks/" class="back-link">&#8592; Kõik pangad</a>
+      </div>
     </div>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
-    <div class="meta">
-      <span class="pill">Kogutud: 30.6.2026, 03:35:20</span>
-      <span class="pill">5 rida</span>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-head">
+        <img class="hero-logo" src="/banks/logos/bigbank.png" alt="Bigbank" />
+        <h1>Bigbank</h1>
+      </div>
+      <p class="lead">Avalikult kogutud tooteinfo, intressid ja hinnakirjad.</p>
+      <div class="meta"><span class="pill">Uuendatud: 3.8.2026, 16:47:45</span></div>
     </div>
-    
-    <section>
-      <h2>Allikad</h2>
-      <ul><li><strong>primary</strong>: <a href="https://www.bigbank.ee/hoiused/">https://www.bigbank.ee/hoiused/</a> — tähtajaline hoius</li>
+  </section>
+  <div class="section">
+    <div class="container">
+      
+      <section class="card"><h2>Allikad</h2><ul><li><strong>primary</strong>: <a href="https://www.bigbank.ee/hoiused/">https://www.bigbank.ee/hoiused/</a> — tähtajaline hoius</li>
 <li><strong>primary</strong>: <a href="https://www.bigbank.ee/saastuhoius/">https://www.bigbank.ee/saastuhoius/</a> — säästuhoius</li>
 <li><strong>fallback</strong>: <a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter</a> — FI baromeeter</li>
-<li><strong>reference</strong>: <a href="https://www.bigbank.ee/dokumendid/?main=549&amp;sec&amp;doc">https://www.bigbank.ee/dokumendid/?main=549&amp;sec&amp;doc</a> — hinnakiri / dokumendid</li></ul>
-    </section>
-    <section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+<li><strong>reference</strong>: <a href="https://www.bigbank.ee/dokumendid/?main=549&amp;sec&amp;doc">https://www.bigbank.ee/dokumendid/?main=549&amp;sec&amp;doc</a> — hinnakiri / dokumendid</li></ul></section>
+      <section class="card"><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Tähtajaline hoius (kuni, veebileht)</td>
           <td class="rate">2,75%</td>
           <td>—</td>
@@ -77,22 +96,29 @@
         </tr>
 <tr>
           <td>Tähtajaline hoius 12 kuu (baromeeter), min 500 €</td>
-          <td class="rate">2,55%</td>
+          <td class="rate">2,60%</td>
           <td>—</td>
           <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
         </tr></tbody></table></section>
-    <section><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+      <section class="card"><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Arvelduskonto (baromeeter), min 1 €</td>
           <td class="rate">2,00%</td>
           <td>—</td>
           <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
         </tr></tbody></table></section>
-    <section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+      <section class="card"><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Teenuste hinnakiri / dokumendid</td>
           <td class="rate">—</td>
           <td>—</td>
           <td><a href="https://www.bigbank.ee/dokumendid/?main=549&amp;sec&amp;doc">allikas</a></td>
         </tr></tbody></table></section>
+      <p class="cat-lead">Tootekataloog</p>
+<section class="card"><h2>Hoiused</h2><div class="cat-item"><h3>Tähtajaline hoius <a class="cat-src" href="https://www.bigbank.ee/hoiused/" title="allikas">↗</a></h3><p class="cat-summary">Fikseeritud intressiga tähtajaline hoius. Minimaalne summa 500 €. Tagatud Tagatisfondi poolt kuni 100 000 €. Periood 1 kuu kuni 10 aastat (120 kuud). Tehingu- ja haldustasud puuduvad.</p><ul class="cat-rates"><li>1–2 kuud: 2,15% aastas (bigbank.ee/hoiused)</li><li>3–5 kuud: 2,20% aastas (bigbank.ee/hoiused)</li><li>6 kuud: 2,30% aastas (bigbank.ee/hoiused)</li><li>7–11 kuud: 2,50% aastas (bigbank.ee/hoiused)</li><li>12–47 kuud: 2,60% aastas (bigbank.ee/hoiused)</li><li>48–119 kuud: 2,70% aastas (bigbank.ee/hoiused)</li><li>120 kuud: 2,75% aastas (bigbank.ee/hoiused)</li><li>12 kuu baromeeter: 2,55% (min 500 €, minuraha.ee, seisuga 06.02.2026)</li><li>Tähtajaline hoius (kuni, veebileht): 2.75% (https://www.bigbank.ee/hoiused/)</li><li>Säästuhoius (aastane intress, veebileht): 2.2% (https://www.bigbank.ee/saastuhoius/)</li><li>Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2.6% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li><li>Teenuste hinnakiri / dokumendid: vaata allikat (https://www.bigbank.ee/dokumendid/?main=549&amp;sec&amp;doc)</li></ul><ul class="cat-details"><li>Minimaalne summa 500 € (bigbank.ee/hoiused)</li><li>Intressi väljamakse: perioodi lõpus (1–120 kuud), igakuiselt (1–60 kuud) või kord aastas (2–10 aastat)</li><li>Tagatisfondi kaitse kuni 100 000 €</li><li>Tehingu- ja haldustasusid ei ole</li><li>Avamine internetipangas</li><li>NB! Alates 1. märtsist 2026 muutusid tähtajalise hoiuse ja säästuhoiuse lepingu tingimused</li></ul></div><div class="cat-item"><h3>Säästuhoius (kogumishoius) <a class="cat-src" href="https://www.bigbank.ee/saastuhoius/" title="allikas">↗</a></h3><p class="cat-summary">Paindlik kogumishoius vaba sissemakse ja väljavõtmisega. Intress arvestatakse igapäevaselt kontojäägilt ja makstakse kord kuus.</p><ul class="cat-rates"><li>2,20% aastane intress (bigbank.ee/saastuhoius, muutuv, kontrollitud 2026-06-27)</li><li>Säästuhoius (aastane intress, veebileht): 2.2% (https://www.bigbank.ee/saastuhoius/)</li></ul><ul class="cat-details"><li>Miinimumsummat sissemaksele ei ole (bigbank.ee/saastuhoius)</li><li>Minimaalne väljavõtt 10 €</li><li>Intress arvestatakse igapäevaselt, makstakse kord kalendrikuus kuu viimasel päeval</li><li>Väljamakse laekub kuni 3 tööpäeva jooksul</li><li>Intressi teenib kontojääk kuni 100 000 €</li><li>Haldus- ja lepingutasud puuduvad</li><li>Muutuv intress (mitte fikseeritud)</li></ul></div><div class="cat-item"><h3>Tähtajaline hoius ettevõtjale <a class="cat-src" href="https://www.bigbank.ee/ettevotja-hoius/" title="allikas">↗</a></h3><p class="cat-summary">Fikseeritud tootlusega tähtajaline hoius ettevõttele.</p><ul class="cat-rates"><li>Tähtajaline hoius (kuni, veebileht): 2.75% (https://www.bigbank.ee/hoiused/)</li><li>Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2.6% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Tingimused sarnased eraisiku tähtajalisele hoiusele</li><li>Vt bigbank.ee/ettevotja-hoius</li></ul></div><div class="cat-item"><h3>Kogumishoius ettevõtjale <a class="cat-src" href="https://www.bigbank.ee/kogumishoius/" title="allikas">↗</a></h3><p class="cat-summary">Paindlik kogumishoius ettevõttele.</p><ul class="cat-details"><li>Vaba sissemakse ja väljavõtt</li><li>Vt bigbank.ee/kogumishoius</li></ul></div></section>
+<section class="card"><h2>Laenud (eraklient)</h2><div class="cat-item"><h3>Kodulaen <a class="cat-src" href="https://www.bigbank.ee/kodulaen/" title="allikas">↗</a></h3><p class="cat-summary">Kinnisvara ostmine, ehitus, renoveerimine. Laenusumma alates 30 000 € (kalkulaatoris kuni 500 000 €), tähtaeg kuni 30 aastat.</p><ul class="cat-rates"><li>Personaalne intress alates 1,95% + Euribor (annuiteetgraafik, bigbank.ee/kodulaen)</li><li>Alates 1,98% + Euribor (eripärane graafik, bigbank.ee/kodulaen)</li></ul><ul class="cat-details"><li>Laenusumma alates 30 000 € (bigbank.ee/kodulaen)</li><li>Tähtaeg kuni 30 aastat</li><li>Omafinantseering tavaliselt vähemalt 15%; EIS (endine KredEx) käendusega 10%; lisatagatisega võimalik 0%</li><li>Lepingutasu näidiskalkulatsioonis 400 €</li><li>Näidis: 100 000 € laen, koguintress 4,60% (marginaal + 6 kuu Euribor), kuumakse ~770,32 €</li><li>Kiire eelotsus internetis</li></ul></div><div class="cat-item"><h3>Laen kinnisvara tagatisel <a class="cat-src" href="https://www.bigbank.ee/kinnisvaralaen/" title="allikas">↗</a></h3><p class="cat-summary">Suurem laen kinnisvara tagatisel vabaks kasutuseks. Summa 30 000 – 250 000 €, tähtaeg kuni 360 kuud (30 aastat).</p><ul class="cat-rates"><li>Alates 3,5% + Euribor (bigbank.ee/kinnisvaralaen)</li><li>Välismaa kinnisvara ostuks alates 2,5% + Euribor</li></ul><ul class="cat-details"><li>Laenusumma 30 000 – 250 000 € (bigbank.ee/kinnisvaralaen)</li><li>Tähtaeg kuni 360 kuud (30 aastat)</li><li>Näidis KKM: 52 500 € laen 263 kuuks, fikseeritud 7,808%, lepingutasu 525 € → krediidi kulukuse määr 8,35%</li></ul></div><div class="cat-item"><h3>Väikelaen <a class="cat-src" href="https://www.bigbank.ee/vaikelaen/" title="allikas">↗</a></h3><p class="cat-summary">Tagatiseta isiklik laen 500 – 30 000 €, periood 6–120 kuud.</p><ul class="cat-rates"><li>Intress alates 7,9% aastas laenujäägilt (bigbank.ee/vaikelaen)</li></ul><ul class="cat-details"><li>Laenusumma 500 – 30 000 € (bigbank.ee/vaikelaen)</li><li>Periood 6–120 kuud</li><li>Lepingutasu 2% krediidisummast (min 45 €); kampaaniakoodiga &quot;lepingutasuta&quot; 0 € kuni 31.07.2026</li><li>Halduskulu ~3,99 €/kuus (näidiskalkulatsioonist)</li><li>Näidis KKM: 6 000 € laen 78 kuuks, fikseeritud 14,90% → krediidi kulukuse määr 18,45%</li><li>Fikseeritud kuumakse, taotlus veebis</li></ul></div><div class="cat-item"><h3>Autolaen <a class="cat-src" href="https://www.bigbank.ee/autolaen/" title="allikas">↗</a></h3><p class="cat-summary">Sõiduki soetamiseks. Summa 500 – 30 000 €, periood 6–120 kuud.</p><ul class="cat-rates"><li>Intress alates 6,9% aastas laenujäägilt (bigbank.ee/autolaen)</li></ul><ul class="cat-details"><li>Laenusumma 500 – 30 000 € (bigbank.ee/autolaen)</li><li>Periood 6–120 kuud</li><li>Lepingutasu 2% krediidisummast (min 45 €)</li><li>Halduskulu ~3,99 €/kuus (näidiskalkulatsioonist)</li><li>Näidis KKM: 12 800 € laen 86 kuuks, fikseeritud 11% → krediidi kulukuse määr 13,12%</li><li>Uus ja kasutatud auto; liising alternatiivina</li></ul></div><div class="cat-item"><h3>Liising <a class="cat-src" href="https://www.bigbank.ee/liising/" title="allikas">↗</a></h3><p class="cat-summary">Finants- ja operatiivliising sõidukitele.</p><ul class="cat-details"><li>Kapitaliliising</li><li>Sissemakse võimalik</li></ul></div><div class="cat-item"><h3>Refinantseerimine <a class="cat-src" href="https://www.bigbank.ee/refinantseerimine/" title="allikas">↗</a></h3><p class="cat-summary">Olemasolevate laenude ühendamine ühe kuumaksega. Summa 500 – 30 000 €, periood 6–120 kuud.</p><ul class="cat-rates"><li>Intress alates 7,9% aastas laenujäägilt (bigbank.ee/refinantseerimine)</li></ul><ul class="cat-details"><li>Laenusumma 500 – 30 000 € (bigbank.ee/refinantseerimine)</li><li>Periood 6–120 kuud</li><li>Halduskulu ~3,99 €/kuus (näidiskalkulatsioonist)</li><li>Näidis: 13 800 € laen 90 kuuks, fikseeritud 15,60%, lepingutasu 276 € → kuumakse 266,94 €</li><li>Vähendab kogukulu, üks kuumakse</li></ul></div><div class="cat-item"><h3>Remondilaen <a class="cat-src" href="https://www.bigbank.ee/remondilaen/" title="allikas">↗</a></h3><p class="cat-summary">Kodu remondiks ja parendusteks.</p><ul class="cat-details"><li>Tagatiseta või tagatisel</li><li>Tingimused sarnased väikelaenuga</li></ul></div></section>
+<section class="card"><h2>Igapäevapangandus</h2><div class="cat-item"><h3>Pangakonto (arvelduskonto) <a class="cat-src" href="https://www.bigbank.ee/arvelduskonto/" title="allikas">↗</a></h3><p class="cat-summary">Tasuta arvelduskonto internetipangaga. Eesti esimene pank, mis maksab 2% tootlust kogu kontojäägilt ilma miinimumjäägi nõudeta.</p><ul class="cat-rates"><li>2% tootlus aastas kogu kontojäägilt, miinimumjäägi nõuet ei ole (bigbank.ee/arvelduskonto)</li><li>Arvelduskonto (baromeeter), min 1 €: 2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Kuu- ja haldustasu puudub (bigbank.ee/arvelduskonto)</li><li>SEPA ülekanded tasuta</li><li>Tasuta esmane deebetkaart konto avamisel</li><li>Tervitusboonus 10 € konto avamisel</li><li>Soovitusboonus 5 €, kui sõber avab konto sinu koodiga</li></ul></div><div class="cat-item"><h3>Deebetkaart <a class="cat-src" href="https://www.bigbank.ee/arvelduskonto/" title="allikas">↗</a></h3><p class="cat-summary">Deebetkaart igapäevasteks ostudeks. Esmane kaart tasuta.</p><ul class="cat-details"><li>Esmase deebetkaardiga lisatasusid ei kaasne (bigbank.ee/arvelduskonto)</li><li>Apple Pay, Google Pay</li></ul></div><div class="cat-item"><h3>Internetipank <a class="cat-src" href="https://www.bigbank.ee/" title="allikas">↗</a></h3><p class="cat-summary">Bigbank internetipank ja mobiililahendus.</p><ul class="cat-details"><li>Smart-ID, Mobile-ID</li></ul></div></section>
+<section class="card"><h2>Äriklient</h2><div class="cat-item"><h3>Ärilaen <a class="cat-src" href="https://www.bigbank.ee/arilaen/" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte finantseerimine.</p><ul class="cat-details"><li>Investeerimislaen</li><li>Käibekapital</li></ul></div><div class="cat-item"><h3>Krediidiliin <a class="cat-src" href="https://www.bigbank.ee/krediidiliin/" title="allikas">↗</a></h3><p class="cat-summary">Paindlik krediidiliin ettevõttele — intress arvestatakse ainult kasutatud summalt.</p><ul class="cat-rates"><li>Säästuhoius (aastane intress, veebileht): 2.2% (https://www.bigbank.ee/saastuhoius/)</li></ul><ul class="cat-details"><li>Intress ainult kasutatud summalt (bigbank.ee/krediidiliin)</li><li>Laenatud summa saab igal ajal tasuta tagasi maksta</li></ul></div><div class="cat-item"><h3>Äriliising <a class="cat-src" href="https://www.bigbank.ee/ariliising/" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte liising sõidukitele ja seadmetele.</p><ul class="cat-details"><li>Finantsliising</li><li>Operatiivliising</li></ul></div><div class="cat-item"><h3>Ärikliendi arvelduskonto <a class="cat-src" href="https://www.bigbank.ee/arikliendi-arvelduskonto/" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte arvelduskonto.</p><ul class="cat-rates"><li>Arvelduskonto (baromeeter), min 1 €: 2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>SEPA maksed</li></ul></div></section>
+<section class="card"><h2>Tingimused ja info</h2><div class="cat-item"><h3>Dokumendid ja hinnakiri <a class="cat-src" href="https://www.bigbank.ee/dokumendid/" title="allikas">↗</a></h3><p class="cat-summary">Teenuste tingimused, hinnakirjad ja infolehed.</p><ul class="cat-rates"><li>Teenuste hinnakiri / dokumendid: vaata allikat (https://www.bigbank.ee/dokumendid/?main=549&amp;sec&amp;doc)</li></ul><ul class="cat-details"><li>PDF dokumendid</li><li>Kehtivad tingimused</li></ul></div><div class="cat-item"><h3>Korduma kippuvad küsimused <a class="cat-src" href="https://www.bigbank.ee/kkk/" title="allikas">↗</a></h3><p class="cat-summary">Vastused sagedasematele küsimustele.</p></div><div class="cat-item"><h3>Kontakt <a class="cat-src" href="https://www.bigbank.ee/kontakt/" title="allikas">↗</a></h3><p class="cat-summary">Kontaktinfo ja klienditugi.</p><ul class="cat-details"><li>Telefon ja e-post</li><li>Kontorid Eestis ja Baltikumis</li></ul></div><div class="cat-item"><h3>Meist <a class="cat-src" href="https://www.bigbank.ee/meist/" title="allikas">↗</a></h3><p class="cat-summary">Bigbank AS — Baltikumi finantsettevõte, spetsialiseerunud laenudele ja hoiustele.</p></div></section>
+    </div>
   </div>
 </body>
 </html>

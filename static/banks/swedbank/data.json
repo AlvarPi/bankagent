@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "swedbank",
   "name": "Swedbank",
-  "fetchedAt": "2026-06-30T00:35:15.926Z",
-  "generatedAt": "2026-06-30T00:35:20.941Z",
+  "fetchedAt": "2026-08-03T13:47:41.820Z",
+  "generatedAt": "2026-08-03T13:47:46.468Z",
   "sources": [
     {
       "kind": "primary",
@@ -66,10 +66,10 @@
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 12 kuu (baromeeter), min 190 €",
-      "rate_percent": 2.05,
+      "rate_percent": 2.2,
       "fee_cents": null,
       "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 16.03.2026"
+      "raw_text": "minuraha: uuendatud 21.07.2026"
     },
     {
       "product_type": "account",
@@ -99,7 +99,7 @@
               "Minimaalne hoiusumma 190 € (allikas: swedbank.ee/business/invest/deposits/interests)",
               "Täpsed perioodipõhised määrad: swedbank.ee depositrates / interests leht",
               "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 190 €: 2.05% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius 12 kuu (baromeeter), min 190 €: 2.2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Minimaalne summa 190 € (swedbank.ee)",

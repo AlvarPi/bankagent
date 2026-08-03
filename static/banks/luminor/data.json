@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "luminor",
   "name": "Luminor",
-  "fetchedAt": "2026-06-30T00:35:15.926Z",
-  "generatedAt": "2026-06-30T00:35:20.945Z",
+  "fetchedAt": "2026-08-03T13:47:41.820Z",
+  "generatedAt": "2026-08-03T13:47:46.472Z",
   "sources": [
     {
       "kind": "fallback",
@@ -28,10 +28,10 @@
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 12 kuu (baromeeter), min 100 €",
-      "rate_percent": 2,
+      "rate_percent": 2.2,
       "fee_cents": null,
       "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 06.03.2026"
+      "raw_text": "minuraha: uuendatud 01.07.2026"
     },
     {
       "product_type": "account",
@@ -69,7 +69,7 @@
               "Min summa 100 € (Minuraha intressibaromeeter)",
               "Hoiuse avamine ja sularaha sissemakse avamiseks: tasuta (hinnakiri 30.11.2020)",
               "Täpsed jooksvad määrad: luminor.ee/intressi-ja-viivisemaarad (JS-leht, scrape ebausaldusväärne)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2.2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Intress fikseeritud kogu hoiuperioodiks",

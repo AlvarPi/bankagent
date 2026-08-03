@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "bigbank",
   "name": "Bigbank",
-  "fetchedAt": "2026-06-30T00:35:20.251Z",
-  "generatedAt": "2026-06-30T00:35:20.956Z",
+  "fetchedAt": "2026-08-03T13:47:45.838Z",
+  "generatedAt": "2026-08-03T13:47:46.483Z",
   "sources": [
     {
       "kind": "primary",
@@ -47,10 +47,10 @@
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 12 kuu (baromeeter), min 500 €",
-      "rate_percent": 2.55,
+      "rate_percent": 2.6,
       "fee_cents": null,
       "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 06.02.2026"
+      "raw_text": "minuraha: uuendatud 20.07.2026"
     },
     {
       "product_type": "account",
@@ -94,7 +94,7 @@
               "12 kuu baromeeter: 2,55% (min 500 €, minuraha.ee, seisuga 06.02.2026)",
               "Tähtajaline hoius (kuni, veebileht): 2.75% (https://www.bigbank.ee/hoiused/)",
               "Säästuhoius (aastane intress, veebileht): 2.2% (https://www.bigbank.ee/saastuhoius/)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2.55% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)",
+              "Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2.6% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)",
               "Teenuste hinnakiri / dokumendid: vaata allikat (https://www.bigbank.ee/dokumendid/?main=549&sec&doc)"
             ],
             "details": [
@@ -134,7 +134,7 @@
             ],
             "rates": [
               "Tähtajaline hoius (kuni, veebileht): 2.75% (https://www.bigbank.ee/hoiused/)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2.55% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2.6% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           },
           {

@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="et">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Failide üleslaadimine | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal:#1F4C50; --green:#76FB8D; --lime-soft:#EAFEDB; --maroon:#581824;
+      --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --page-bg:#F4F8F5;
+      --line:#E3EAE5; --warn-bg:#fff8e6; --warn-border:#e8c96a;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
+    .container { max-width:820px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; }
+    .nav-actions { margin-left:auto; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; text-decoration:none; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+
+    .hero { padding:2.5rem 0 1.25rem; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); margin:.6rem 0 0; max-width:62ch; }
+
+    .section { padding:.5rem 0 3.5rem; }
+    .card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    .card h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+
+    label.field { display:block; font-size:.85rem; font-weight:600; color:var(--muted); margin-bottom:.35rem; }
+    .key-row { display:flex; gap:.5rem; flex-wrap:wrap; }
+    .key-row input { flex:1; min-width:12rem; border:1px solid var(--line); border-radius:8px; padding:.55rem .7rem; font:inherit; font-size:.92rem; }
+    .key-row input:focus { outline:2px solid var(--teal); outline-offset:1px; }
+    button { background:var(--teal); color:#fff; border:none; border-radius:8px; padding:.55rem .95rem; font:inherit; font-weight:600; cursor:pointer; }
+    button:hover { background:#173a3d; }
+    button:disabled { opacity:.55; cursor:not-allowed; }
+    button.ghost { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); }
+    button.ghost:hover { background:#dcefdf; }
+
+    .drop {
+      border:2px dashed #b9cfc0; border-radius:14px; background:#fbfdfa;
+      padding:2.25rem 1.25rem; text-align:center; cursor:pointer; transition:border-color .14s, background .14s;
+    }
+    .drop:hover, .drop.over { border-color:var(--teal); background:var(--lime-soft); }
+    .drop strong { display:block; font-size:1.05rem; color:var(--teal); }
+    .drop span { color:var(--muted); font-size:.9rem; }
+
+    ul.files { list-style:none; margin:0; padding:0; }
+    ul.files li { display:flex; align-items:center; gap:.6rem; padding:.5rem 0; border-bottom:1px solid var(--line); font-size:.92rem; }
+    ul.files li:last-child { border-bottom:none; }
+    .fname { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:500; }
+    .fmeta { color:var(--muted); font-size:.82rem; flex:0 0 auto; }
+    .bar { flex:0 0 8rem; height:6px; border-radius:999px; background:#e8eee9; overflow:hidden; }
+    .bar > i { display:block; height:100%; width:0; background:var(--teal); transition:width .12s linear; }
+    .ok { color:#1b7f4a; font-weight:600; }
+    .fail { color:#8a5a00; font-weight:600; }
+    .empty { color:var(--muted); font-size:.9rem; margin:0; }
+
+    .note { background:var(--warn-bg); border:1px solid var(--warn-border); border-radius:12px; padding:.85rem 1rem; font-size:.88rem; color:#5c4a12; }
+    .note code { background:rgba(0,0,0,.06); padding:.1rem .3rem; border-radius:4px; }
+    .status { margin:.75rem 0 0; font-size:.9rem; color:var(--muted); min-height:1.25rem; }
+    .status.err { color:#8a5a00; }
+    .visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <span class="brand-name">Finovo</span>
+      <div class="nav-actions"><a class="back-link" href="../">&#8592; Pangad</a></div>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <h1>Failide üleslaadimine</h1>
+      <p class="lead">
+        Siit laetud failid salvestatakse serveris kausta <code>upload/</code>. Neid ei avaldata veebis —
+        need on kettal, et agent (Claude) saaks neid oma töös kasutada.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <section class="card">
+        <h2>Võti</h2>
+        <label class="field" for="key">Üleslaadimise võti (UPLOAD_KEY)</label>
+        <div class="key-row">
+          <input type="password" id="key" autocomplete="current-password" placeholder="Kleebi võti siia" />
+          <button type="button" class="ghost" id="key-save">Jäta meelde</button>
+        </div>
+        <p class="status" id="key-status"></p>
+      </section>
+
+      <section class="card">
+        <h2>Lisa failid</h2>
+        <div class="drop" id="drop" role="button" tabindex="0" aria-label="Vali või lohista failid">
+          <strong>Lohista failid siia</strong>
+          <span>või klõpsa ja vali arvutist &middot; kuni 25 MB fail &middot; iga failitüüp sobib</span>
+        </div>
+        <input type="file" id="picker" class="visually-hidden" multiple />
+        <ul class="files" id="queue"></ul>
+        <p class="status" id="status"></p>
+      </section>
+
+      <section class="card">
+        <h2>Serveris olemas <button type="button" class="ghost" id="refresh" style="float:right">Värskenda</button></h2>
+        <ul class="files" id="listing"></ul>
+        <p class="empty" id="listing-empty" hidden>Ühtegi faili pole veel üles laetud.</p>
+      </section>
+
+      <p class="note">
+        Leht on kaitstud võtmega, sest <code>/bankagent/</code> on avalik (ilma paroolita).
+        Ilma õige võtmeta server faili vastu ei võta.
+      </p>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var keyInput = document.getElementById('key');
+    var keySave = document.getElementById('key-save');
+    var keyStatus = document.getElementById('key-status');
+    var drop = document.getElementById('drop');
+    var picker = document.getElementById('picker');
+    var queueEl = document.getElementById('queue');
+    var statusEl = document.getElementById('status');
+    var listingEl = document.getElementById('listing');
+    var listingEmpty = document.getElementById('listing-empty');
+    var refreshBtn = document.getElementById('refresh');
+
+    var STORAGE_KEY = 'finovo-upload-key';
+    var MAX_BYTES = 25 * 1024 * 1024;
+
+    function hashKey() {
+      try {
+        var m = /[#&]a=([^&]+)/.exec(window.location.hash || '');
+        return m ? decodeURIComponent(m[1]) : '';
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function storedKey() {
+      try { return window.localStorage.getItem(STORAGE_KEY) || ''; } catch (e) { return ''; }
+    }
+
+    keyInput.value = hashKey() || storedKey();
+
+    keySave.addEventListener('click', function () {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, keyInput.value.trim());
+        keyStatus.className = 'status';
+        keyStatus.textContent = 'Võti salvestatud sellesse brauserisse.';
+      } catch (e) {
+        keyStatus.className = 'status err';
+        keyStatus.textContent = 'Brauser ei lubanud võtit salvestada.';
+      }
+      loadListing();
+    });
+
+    function humanSize(n) {
+      if (n < 1024) return n + ' B';
+      if (n < 1048576) return Math.round(n / 1024) + ' KB';
+      return (n / 1048576).toFixed(1) + ' MB';
+    }
+
+    function setStatus(text, isError) {
+      statusEl.className = isError ? 'status err' : 'status';
+      statusEl.textContent = text || '';
+    }
+
+    /* ---- Nimekiri serverist ---- */
+    function loadListing() {
+      var key = keyInput.value.trim();
+      if (!key) {
+        listingEl.textContent = '';
+        listingEmpty.hidden = false;
+        listingEmpty.textContent = 'Sisesta võti, et näha serveris olevaid faile.';
+        return;
+      }
+
+      fetch('../api/upload/list', { headers: { 'x-upload-key': key } })
+        .then(function (res) { return res.json().then(function (d) { return { ok: res.ok, d: d }; }); })
+        .then(function (r) {
+          listingEl.textContent = '';
+          if (!r.ok) {
+            listingEmpty.hidden = false;
+            listingEmpty.textContent = (r.d && r.d.error) || 'Nimekirja ei saanud laadida.';
+            return;
+          }
+          var files = (r.d && r.d.files) || [];
+          listingEmpty.hidden = files.length > 0;
+          listingEmpty.textContent = 'Ühtegi faili pole veel üles laetud.';
+          files.forEach(function (f) {
+            var li = document.createElement('li');
+            var name = document.createElement('span');
+            name.className = 'fname';
+            name.textContent = f.name;
+            var meta = document.createElement('span');
+            meta.className = 'fmeta';
+            meta.textContent = humanSize(f.size) + ' · ' + f.modifiedAt.replace('T', ' ').slice(0, 16);
+            li.appendChild(name);
+            li.appendChild(meta);
+            listingEl.appendChild(li);
+          });
+        })
+        .catch(function () {
+          listingEmpty.hidden = false;
+          listingEmpty.textContent = 'Ühendus serveriga ebaõnnestus.';
+        });
+    }
+
+    refreshBtn.addEventListener('click', loadListing);
+
+    /* ---- Üleslaadimine ---- */
+    function uploadOne(file) {
+      var key = keyInput.value.trim();
+
+      var li = document.createElement('li');
+      var name = document.createElement('span');
+      name.className = 'fname';
+      name.textContent = file.name;
+      var bar = document.createElement('span');
+      bar.className = 'bar';
+      var fill = document.createElement('i');
+      bar.appendChild(fill);
+      var meta = document.createElement('span');
+      meta.className = 'fmeta';
+      meta.textContent = humanSize(file.size);
+      li.appendChild(name);
+      li.appendChild(bar);
+      li.appendChild(meta);
+      queueEl.appendChild(li);
+
+      return new Promise(function (resolve) {
+        if (file.size > MAX_BYTES) {
+          bar.remove();
+          meta.className = 'fmeta fail';
+          meta.textContent = 'liiga suur (' + humanSize(file.size) + ')';
+          resolve(false);
+          return;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '../api/upload');
+        xhr.setRequestHeader('Content-Type', 'application/octet-stream');
+        xhr.setRequestHeader('x-upload-key', key);
+        xhr.setRequestHeader('x-filename', encodeURIComponent(file.name));
+
+        xhr.upload.addEventListener('progress', function (ev) {
+          if (!ev.lengthComputable) return;
+          fill.style.width = Math.round((ev.loaded / ev.total) * 100) + '%';
+        });
+
+        xhr.addEventListener('load', function () {
+          bar.remove();
+          var data = {};
+          try { data = JSON.parse(xhr.responseText || '{}'); } catch (e) {}
+          if (xhr.status >= 200 && xhr.status < 300) {
+            meta.className = 'fmeta ok';
+            meta.textContent = humanSize(file.size) + ' · salvestatud kui ' + (data.name || file.name);
+            resolve(true);
+          } else {
+            meta.className = 'fmeta fail';
+            meta.textContent = data.error || ('viga ' + xhr.status);
+            resolve(false);
+          }
+        });
+
+        xhr.addEventListener('error', function () {
+          bar.remove();
+          meta.className = 'fmeta fail';
+          meta.textContent = 'ühendus katkes';
+          resolve(false);
+        });
+
+        xhr.send(file);
+      });
+    }
+
+    function handleFiles(list) {
+      var files = Array.prototype.slice.call(list || []);
+      if (!files.length) return;
+
+      if (!keyInput.value.trim()) {
+        setStatus('Sisesta esmalt üleslaadimise võti.', true);
+        keyInput.focus();
+        return;
+      }
+
+      setStatus('Laen üles…');
+      var done = 0;
+      var okCount = 0;
+
+      files.reduce(function (chain, file) {
+        return chain.then(function () {
+          return uploadOne(file).then(function (ok) {
+            done += 1;
+            if (ok) okCount += 1;
+            setStatus('Laen üles… ' + done + '/' + files.length);
+          });
+        });
+      }, Promise.resolve()).then(function () {
+        setStatus(okCount + '/' + files.length + ' fail(i) serveris kaustas upload/.', okCount !== files.length);
+        loadListing();
+      });
+    }
+
+    drop.addEventListener('click', function () { picker.click(); });
+    drop.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); picker.click(); }
+    });
+    picker.addEventListener('change', function () {
+      handleFiles(picker.files);
+      picker.value = '';
+    });
+
+    ['dragenter', 'dragover'].forEach(function (type) {
+      drop.addEventListener(type, function (ev) { ev.preventDefault(); drop.classList.add('over'); });
+    });
+    ['dragleave', 'dragend'].forEach(function (type) {
+      drop.addEventListener(type, function () { drop.classList.remove('over'); });
+    });
+    drop.addEventListener('drop', function (ev) {
+      ev.preventDefault();
+      drop.classList.remove('over');
+      handleFiles(ev.dataTransfer && ev.dataTransfer.files);
+    });
+
+    // Lehe kõrvale kukutamine ei tohi brauserit failile navigeerida
+    ['dragover', 'drop'].forEach(function (type) {
+      document.addEventListener(type, function (ev) {
+        if (drop.contains(ev.target)) return;
+        ev.preventDefault();
+      });
+    });
+
+    loadListing();
+  })();
+  </script>
+</body>
+</html>

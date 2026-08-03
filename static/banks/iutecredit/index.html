@@ -3,72 +3,97 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IuteCredit — avaliku info kogumine</title>
+  <title>IuteCredit — avalik pangainfo | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --card: #fff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --accent: #1e494d;
-      --accent-soft: #eaf6ec;
-      --border: #d8e0e8;
-      --positive: #1b7f4a;
-      --warn-bg: #fff8e6;
-      --warn-border: #e8c96a;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      background: var(--bg);
+      --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
+      --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --page-bg:#F4F8F5;
+      --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 1.5rem; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.35rem; }
-    .lead { color: var(--muted); margin: 0 0 1rem; }
-    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
-    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
-    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { color: var(--muted); font-size: 0.85rem; }
-    .rate { color: var(--positive); font-weight: 700; }
-    a { color: var(--accent); }
-    .back { display: inline-block; margin-bottom: 1rem; }
-    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
-    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
+    .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.55rem; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:2.5rem 0 1.75rem; }
+    .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); font-size:1.02rem; margin:.6rem 0 0; max-width:60ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pill { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.85rem; font-weight:600; }
+    .section { padding:1.75rem 0 3.5rem; }
+    section.card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    section.warn { background:var(--warn-bg); border-color:var(--warn-border); box-shadow:none; }
+    h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:.55rem .45rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.82rem; font-weight:600; }
+    .rate { color:var(--positive); font-weight:700; }
+    ul { margin:0; padding-left:1.2rem; }
+    .cat-lead { font-weight:700; font-size:1.25rem; color:var(--maroon); margin:1.5rem 0 .75rem; letter-spacing:-.01em; }
+    .cat-item { padding:.6rem 0; border-bottom:1px solid var(--line); }
+    .cat-item:last-child { border-bottom:0; }
+    .cat-item h3 { margin:0 0 .25rem; font-size:.98rem; }
+    .cat-summary { margin:0 0 .4rem; color:var(--muted); font-size:.92rem; }
+    .cat-rates, .cat-details { margin:.2rem 0 .4rem; }
+    .cat-rates li { font-size:.9rem; }
+    .cat-details li { font-size:.88rem; color:var(--muted); }
+    .cat-src { text-decoration:none; font-size:.9rem; }
+    @media (max-width:560px){ .hero h1 { font-size:1.6rem; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/banks/">← kõik pangad</a>
-    <div class="bank-header">
-      <img class="bank-logo" src="/banks/logos/iutecredit.png" alt="IuteCredit" width="160" height="40" />
-      <h1>IuteCredit</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://genofin.ee/">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#76FB8D"/><path d="M9 22V17M16 22V10M23 22V14" stroke="#0D2022" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <span class="brand-name">Finovo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/banks/" class="back-link">&#8592; Kõik pangad</a>
+      </div>
     </div>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
-    <div class="meta">
-      <span class="pill">Kogutud: 30.6.2026, 03:35:20</span>
-      <span class="pill">1 rida</span>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-head">
+        <img class="hero-logo" src="/banks/logos/iutecredit.png" alt="IuteCredit" />
+        <h1>IuteCredit</h1>
+      </div>
+      <p class="lead">Avalikult kogutud tooteinfo, intressid ja hinnakirjad.</p>
+      <div class="meta"><span class="pill">Uuendatud: 3.8.2026, 16:47:46</span></div>
     </div>
-    <section class="warn"><h2>Märkused</h2><ul><li>IuteCredit ei ole traditsiooniline hoiuspank — kogutud andmed on võlakirja intress, mitte hoiuse määr</li><li>Ei ole minuraha.ee baromeetris</li></ul></section>
-    <section>
-      <h2>Allikad</h2>
-      <ul><li><strong>primary</strong>: <a href="https://iute.com/et/volakiri/">https://iute.com/et/volakiri/</a> — võlakirja avalik info</li>
-<li><strong>reference</strong>: <a href="https://iute.com/et/">https://iute.com/et/</a> — IuteCredit koduleht</li></ul>
-    </section>
-    
-    <section><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+  </section>
+  <div class="section">
+    <div class="container">
+      <section class="card warn"><h2>Märkused</h2><ul><li>IuteCredit ei ole traditsiooniline hoiuspank — kogutud andmed on võlakirja intress, mitte hoiuse määr</li><li>Ei ole minuraha.ee baromeetris</li></ul></section>
+      <section class="card"><h2>Allikad</h2><ul><li><strong>primary</strong>: <a href="https://iute.com/et/volakiri/">https://iute.com/et/volakiri/</a> — võlakirja avalik info</li>
+<li><strong>reference</strong>: <a href="https://iute.com/et/">https://iute.com/et/</a> — IuteCredit koduleht</li></ul></section>
+      
+      <section class="card"><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Võlakiri (12% aastas)</td>
           <td class="rate">12,00%</td>
           <td>—</td>
           <td><a href="https://iute.com/et/volakiri/">allikas</a></td>
         </tr></tbody></table></section>
-    
+      
+      <p class="cat-lead">Tootekataloog</p>
+<section class="card"><h2>Võlakirjad ja investeerimine</h2><div class="cat-item"><h3>Iute 12% tagatud eelisvõlakiri 2025/2030 <a class="cat-src" href="https://iute.com/et/volakiri" title="allikas">↗</a></h3><p class="cat-summary">Avalikult kaubeldav tagatud eelisvõlakiri (senior secured bond). Ei ole pangahoius — intress on võlakirja kupong, mitte hoiuseintress. Veebileht www.iute.ee suunab ümber sellele võlakirjalehele.</p><ul class="cat-rates"><li>Kupong (intress) 12% aastas (allikas: Iute prospekti kokkuvõte, juuni 2026)</li><li>Nimiväärtus EUR 100.00 võlakirja kohta (allikas: prospekti kokkuvõte)</li><li>Võlakiri (12% aastas): 12% (https://iute.com/et/volakiri/)</li></ul><ul class="cat-details"><li>Liik: 12% tagatud eelisvõlakirjad (senior secured bonds), ISIN XS3047514446 (allikas: prospekti kokkuvõte)</li><li>Lunastustähtaeg 6. detsember 2030 (allikas: prospekti kokkuvõte)</li><li>Emitent: IuteCredit Finance S.à r.l. (Luksemburg); emaettevõte ja garantii: Iute Group AS (Eesti) (allikas: prospekti kokkuvõte)</li><li>Uute võlakirjade emissioon EUR 140 000 000, konsolideeritakse olemasoleva EUR 160 000 000 seeriaga 2025/2030 (allikas: prospekti kokkuvõte)</li><li>Intressi makstakse esimese 48 kuu jooksul poolaastati (6. juuni ja 6. detsember), seejärel kvartalite kaupa (allikas: prospekti kokkuvõte)</li><li>Noteerimine Nasdaq Tallinna börsi Balti reguleeritud turul ja Frankfurdi börsil (General Standard); eeldatav noteerimine ~4. juuni 2026 (allikas: prospekti kokkuvõte)</li><li>Valuuta: EUR (allikas: prospekti kokkuvõte)</li><li>Miinimuminvesteering: ei õnnestunud lehelt täpselt tuvastada — vaata iute.com/et/volakiri ja prospekti</li></ul></div><div class="cat-item"><h3>Võlakirja tagatis ja riskid <a class="cat-src" href="https://iute.com/et/volakiri" title="allikas">↗</a></h3><p class="cat-summary">Tähtis: võlakiri EI OLE kaetud Tagatisfondi hoiusekaitsega. See on tagatud Grupi ettevõtete garantiide ja tehingutagatistega; investor võib investeeritud kapitali täielikult või osaliselt kaotada.</p><ul class="cat-rates"><li>Võlakiri (12% aastas): 12% (https://iute.com/et/volakiri/)</li></ul><ul class="cat-details"><li>Tingimusteta ja tagasivõtmatult solidaarselt tagatud Grupi garantiiandjate poolt, lisaks kohaliku õiguse alusel antud tehingutagatised (allikas: prospekti kokkuvõte)</li><li>Pari passu teiste tagatud kohustustega, kõrgemal allutatud võlast (allikas: prospekti kokkuvõte)</li><li>Riskid: krediidirisk, kõrge võlakohustiste tase, likviidsusrisk, valuutarisk (Grupp tegutseb BGN, MDL, ALL, UAH, MKD valuutades) (allikas: prospekti kokkuvõte)</li><li>Prospekti kinnitas Luksemburgi finantsjärelevalve CSSF (1. juuni 2026) (allikas: prospekti kokkuvõte)</li><li>PARANDUS varasemale kirjele: väide &quot;Tagatud Tagatisfondi poolt kuni 100 000 €&quot; oli VÄÄR — võlakiri ei ole hoius ega kuulu hoiusekaitse alla</li></ul></div></section>
+<section class="card"><h2>Laenud (eraklient)</h2><div class="cat-item"><h3>Tarbimislaenud — ei pakuta Eestis <a class="cat-src" href="https://iute.com/et/volakiri" title="allikas">↗</a></h3><p class="cat-summary">IuteCredit on tarbimisfinantseerimise grupp, kuid laenutooteid (väikelaen, järelmaks) EI pakuta Eesti turul. Laenutegevus toimub Moldovas, Albaanias, Bulgaarias ja Põhja-Makedoonias.</p><ul class="cat-details"><li>Grupi laenuettevõtted: IuteCredit S.R.L. (Moldova), IuteCredit Albania SH.A (Albaania), IuteCredit Bulgaria EOOD (Bulgaaria), IuteCredit Macedonia DOOEL Skopje (Põhja-Makedoonia) (allikas: prospekti kokkuvõte)</li><li>Eesti laenulehed iute.com/et/laenud, /autolaen, /kodulaen jne ei eksisteeri — leht /et/laenud/ tagastab HTTP 404 (kontrollitud 06/2026)</li><li>www.iute.ee suunab ümber võlakirjalehele iute.com/et/volakiri (kontrollitud 06/2026)</li><li>Konkreetsed laenusummad, intressimäärad ja krediidi kulukuse määr (KKM) Eesti kohta: ei leitud, sest toodet Eestis ei turustata</li><li>MÄRKUS: varasemas kataloogis loetletud Autolaen, Kodulaen, Refinantseerimine ja &quot;Laen kinnisvara tagatisel&quot; olid spekulatiivsed — vastavad URL-id ei tööta</li></ul></div></section>
+<section class="card"><h2>Makseviisid ja kaardid</h2><div class="cat-item"><h3>Järelmaks ja kaardid — ei pakuta Eestis <a class="cat-src" href="https://iute.com/et/volakiri" title="allikas">↗</a></h3><p class="cat-summary">Järelmaks, krediitkaart ja mobiilirakendus on Grupi tooted välisturgudel (Moldova, Albaania, Bulgaaria, Põhja-Makedoonia), mitte Eesti tarbijatele.</p><ul class="cat-details"><li>Järelmaksu konkreetsed tingimused (summad, intress, KKM): ei leitud Eesti kohta</li><li>Eesti-spetsiifilisi makse- ja kaarditooteid avalikust veebist ei tuvastatud (06/2026)</li></ul></div></section>
+<section class="card"><h2>Ettevõte ja info</h2><div class="cat-item"><h3>Iute Group AS <a class="cat-src" href="https://iute.com/et/" title="allikas">↗</a></h3><p class="cat-summary">Eestis registreeritud emaettevõte (aktsiaselts), tarbimisfinantseerimise grupp Kagu-Euroopas. Tegevus laenude alal toimub välisriikides; Eestis on avalik fookus võlakirjadel.</p><ul class="cat-details"><li>Tegutsemisriigid laenude alal: Moldova, Albaania, Bulgaaria, Põhja-Makedoonia (allikas: prospekti kokkuvõte)</li><li>Emitent võlakirjade alal: IuteCredit Finance S.à r.l. (Luksemburg) (allikas: prospekti kokkuvõte)</li></ul></div><div class="cat-item"><h3>Märkused võlakirja kohta <a class="cat-src" href="https://iute.com/et/volakiri" title="allikas">↗</a></h3><p class="cat-summary">Ei ole minuraha.ee hoiuste baromeetris. Võlakirja intress (kupong) ≠ hoiuse intress. Kapital ei ole hoiusekaitsega tagatud.</p><ul class="cat-details"><li>IuteCredit ei ole hoiuseid kaasav universaalpank</li><li>Võlakiri on võlakohustus, mitte hoius — investeeritud raha võib täielikult või osaliselt kaduda (allikas: prospekti kokkuvõte)</li></ul></div></section>
+    </div>
   </div>
 </body>
 </html>

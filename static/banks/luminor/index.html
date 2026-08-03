@@ -3,83 +3,112 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Luminor — avaliku info kogumine</title>
+  <title>Luminor — avalik pangainfo | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --card: #fff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --accent: #1e494d;
-      --accent-soft: #eaf6ec;
-      --border: #d8e0e8;
-      --positive: #1b7f4a;
-      --warn-bg: #fff8e6;
-      --warn-border: #e8c96a;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      background: var(--bg);
+      --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
+      --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --page-bg:#F4F8F5;
+      --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 1.5rem; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.35rem; }
-    .lead { color: var(--muted); margin: 0 0 1rem; }
-    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
-    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
-    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { color: var(--muted); font-size: 0.85rem; }
-    .rate { color: var(--positive); font-weight: 700; }
-    a { color: var(--accent); }
-    .back { display: inline-block; margin-bottom: 1rem; }
-    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
-    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
+    .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.55rem; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:2.5rem 0 1.75rem; }
+    .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); font-size:1.02rem; margin:.6rem 0 0; max-width:60ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pill { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.85rem; font-weight:600; }
+    .section { padding:1.75rem 0 3.5rem; }
+    section.card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    section.warn { background:var(--warn-bg); border-color:var(--warn-border); box-shadow:none; }
+    h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:.55rem .45rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.82rem; font-weight:600; }
+    .rate { color:var(--positive); font-weight:700; }
+    ul { margin:0; padding-left:1.2rem; }
+    .cat-lead { font-weight:700; font-size:1.25rem; color:var(--maroon); margin:1.5rem 0 .75rem; letter-spacing:-.01em; }
+    .cat-item { padding:.6rem 0; border-bottom:1px solid var(--line); }
+    .cat-item:last-child { border-bottom:0; }
+    .cat-item h3 { margin:0 0 .25rem; font-size:.98rem; }
+    .cat-summary { margin:0 0 .4rem; color:var(--muted); font-size:.92rem; }
+    .cat-rates, .cat-details { margin:.2rem 0 .4rem; }
+    .cat-rates li { font-size:.9rem; }
+    .cat-details li { font-size:.88rem; color:var(--muted); }
+    .cat-src { text-decoration:none; font-size:.9rem; }
+    @media (max-width:560px){ .hero h1 { font-size:1.6rem; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/banks/">← kõik pangad</a>
-    <div class="bank-header">
-      <img class="bank-logo" src="/banks/logos/luminor.svg" alt="Luminor" width="160" height="40" />
-      <h1>Luminor</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://genofin.ee/">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#76FB8D"/><path d="M9 22V17M16 22V10M23 22V14" stroke="#0D2022" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <span class="brand-name">Finovo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/banks/" class="back-link">&#8592; Kõik pangad</a>
+      </div>
     </div>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
-    <div class="meta">
-      <span class="pill">Kogutud: 30.6.2026, 03:35:15</span>
-      <span class="pill">3 rida</span>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-head">
+        <img class="hero-logo" src="/banks/logos/luminor.svg" alt="Luminor" />
+        <h1>Luminor</h1>
+      </div>
+      <p class="lead">Avalikult kogutud tooteinfo, intressid ja hinnakirjad.</p>
+      <div class="meta"><span class="pill">Uuendatud: 3.8.2026, 16:47:41</span></div>
     </div>
-    <section class="warn"><h2>Märkused</h2><ul><li>Luminor leht on SPA (andmed laaditakse JS-iga) — kasutatud minuraha.ee baromeetrit</li></ul></section>
-    <section>
-      <h2>Allikad</h2>
-      <ul><li><strong>fallback</strong>: <a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter</a> — FI baromeeter</li>
+  </section>
+  <div class="section">
+    <div class="container">
+      <section class="card warn"><h2>Märkused</h2><ul><li>Luminor leht on SPA (andmed laaditakse JS-iga) — kasutatud minuraha.ee baromeetrit</li></ul></section>
+      <section class="card"><h2>Allikad</h2><ul><li><strong>fallback</strong>: <a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter</a> — FI baromeeter</li>
 <li><strong>reference</strong>: <a href="https://luminor.ee/intressi-ja-viivisemaarad#hoiused">https://luminor.ee/intressi-ja-viivisemaarad#hoiused</a> — intressimäärad (JS leht)</li>
-<li><strong>reference</strong>: <a href="https://luminor.ee/hinnakiri">https://luminor.ee/hinnakiri</a> — hinnakiri</li></ul>
-    </section>
-    <section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+<li><strong>reference</strong>: <a href="https://luminor.ee/hinnakiri">https://luminor.ee/hinnakiri</a> — hinnakiri</li></ul></section>
+      <section class="card"><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Tähtajaline hoius 12 kuu (baromeeter), min 100 €</td>
-          <td class="rate">2,00%</td>
+          <td class="rate">2,20%</td>
           <td>—</td>
           <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
         </tr></tbody></table></section>
-    <section><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+      <section class="card"><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Arvelduskonto (baromeeter), min 18000 €</td>
           <td class="rate">0,01%</td>
           <td>—</td>
           <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
         </tr></tbody></table></section>
-    <section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+      <section class="card"><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Hinnakiri</td>
           <td class="rate">—</td>
           <td>—</td>
           <td><a href="https://luminor.ee/hinnakiri">allikas</a></td>
         </tr></tbody></table></section>
+      <p class="cat-lead">Tootekataloog</p>
+<section class="card"><h2>Hoiused ja säästmine</h2><div class="cat-item"><h3>Tähtajaline hoius <a class="cat-src" href="https://luminor.ee/era/tahtajaline-hoius" title="allikas">↗</a></h3><p class="cat-summary">Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta.</p><ul class="cat-rates"><li>12 kuud: ~2,0% aastas (Minuraha intressibaromeeter, jooksev 2026)</li><li>Min summa 100 € (Minuraha intressibaromeeter)</li><li>Hoiuse avamine ja sularaha sissemakse avamiseks: tasuta (hinnakiri 30.11.2020)</li><li>Täpsed jooksvad määrad: luminor.ee/intressi-ja-viivisemaarad (JS-leht, scrape ebausaldusväärne)</li><li>Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2.2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Intress fikseeritud kogu hoiuperioodiks</li><li>Ülekanne hoiusekontolt arvelduskontole: 1. kord kuus tasuta, järgmised 0,30% summast, min 1,60 € (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Reservhoius (kogumishoius) <a class="cat-src" href="https://luminor.ee/era/reservhoius" title="allikas">↗</a></h3><p class="cat-summary">Paindlik kogumishoius, kuhu saab raha lisada ja sealt välja võtta.</p><ul class="cat-rates"><li>Intress ~1,65% aastas (360-päevase aasta baasil, allikas: 2026 võrdlus/otsingutulemus)</li></ul><ul class="cat-details"><li>Sularaha sissemakse oma reservhoiuse kontole kontoris: tasuta (hinnakiri 30.11.2020)</li><li>Esimene väljamakse kuus tasuta, järgmised 0,30% summast, min 1,60 € (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Kogumishoius (vana toode) <a class="cat-src" href="https://luminor.ee/era/kogumishoius" title="allikas">↗</a></h3><p class="cat-summary">Igakuise sissemaksega kogumishoius.</p><ul class="cat-details"><li>Uusi lepinguid ei sõlmita alates 01.03.2020 (otsingutulemus 2026)</li><li>Olemasolevad lepingud kehtivad edasi</li></ul></div><div class="cat-item"><h3>Säästmine ja lapsele säästmine <a class="cat-src" href="https://luminor.ee/era/saastmine" title="allikas">↗</a></h3><p class="cat-summary">Säästmislahendused, sh lapse tuleviku jaoks (Lastehoius).</p><ul class="cat-details"><li>Sularaha sissemakse Lastehoiuse kontole kontoris: tasuta (hinnakiri 30.11.2020)</li><li>Tagatud Tagatisfondi poolt kuni 100 000 €</li></ul></div><div class="cat-item"><h3>Investeerimine (Luminor Investor) <a class="cat-src" href="https://luminor.ee/era/investor" title="allikas">↗</a></h3><p class="cat-summary">Aktsiad, ETF-id, fondid ja võlakirjad Luminor Investori platvormil.</p><ul class="cat-rates"><li>Eesti aktsiatehingud: 0,20%, min 3,20 € (hinnakiri 30.11.2020)</li><li>Lääne-Euroopa/USA aktsiad: 0,20%, min 20 € (hinnakiri 30.11.2020)</li><li>Investeerimine fondidesse: vahendustasu 1% investeeritud summalt (hinnakiri 30.11.2020)</li><li>Investeerimine võlakirjadesse: 0,20% tehingu summalt, min 15 € (hinnakiri 30.11.2020)</li><li>Väärtpaberite hoidmistasu: 0,01% summast, min 0,50 €/kuu (hinnakiri 30.11.2020)</li></ul><ul class="cat-details"><li>Luminor Bank väärtpaberikonto avamine: tasuta; Nasdaq CSD konto avamine: 4 € (hinnakiri 30.11.2020)</li><li>Väärtpaberite ülekanne teise panka: 30 € ISIN kohta (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Pension (II ja III sammas) <a class="cat-src" href="https://luminor.ee/era/pension" title="allikas">↗</a></h3><p class="cat-summary">II samba kohustuslik kogumispension ja III samba vabatahtlik pension.</p><ul class="cat-rates"><li>III sammas: osakute müük 3,20 €, osakute vahetamine 3,20 € (hinnakiri 30.11.2020)</li><li>II sammas: ühekordse väljamakse avaldus 4 €, fondipensioni avaldus 6 € (hinnakiri 30.11.2020)</li><li>II sammas: valikuavaldus ja osakute vahetamise avaldus tasuta (hinnakiri 30.11.2020)</li></ul><ul class="cat-details"><li>Fonditehingutele lisanduvad fondiprospektis kehtestatud väljalaske- ja tagasivõtmistasud</li></ul></div></section>
+<section class="card"><h2>Igapäevapangandus – arvelduspaketid</h2><div class="cat-item"><h3>Arvelduspakett <a class="cat-src" href="https://luminor.ee/era/erakliendi-arvelduspakett" title="allikas">↗</a></h3><p class="cat-summary">Põhipakett igapäevaseks pangateenuseks koos Visa Debit kaardiga.</p><ul class="cat-rates"><li>Kuutasu: 2,20 € (hinnakiri 30.11.2020)</li><li>Seenioridele (alates 60. eluaastast): tasuta (hinnakiri 30.11.2020)</li><li>Noortele (kuni 21. eluaastani): tasuta (hinnakiri 30.11.2020)</li><li>Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li><li>Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)</li></ul><ul class="cat-details"><li>Sisaldab: 1 Visa Debit kaart, internetipank (tasuta), piiramatu arv makseid internetipangas</li><li>Sularaha väljamakse Luminori automaadist: kuni 600 € kuus tasuta, üle selle 0,20% (min 3,50 €) (hinnakiri 30.11.2020)</li><li>Sularaha väljamakse teiste automaatidest Baltikumis/välismaal: 2% (min 3,50 €) (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Arvelduspakett Black <a class="cat-src" href="https://luminor.ee/era/erakliendi-arvelduspakett" title="allikas">↗</a></h3><p class="cat-summary">Laiendatud pakett koos Luminor Black krediitkaardiga.</p><ul class="cat-rates"><li>Kuutasu: 5,50 € (sisaldab Luminor Black kaardi ja arvelduspaketi standardse kuutasu) (hinnakiri 30.11.2020)</li><li>Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li><li>Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)</li></ul><ul class="cat-details"><li>Sisaldab: 1 Visa Debit kaart + 1 Luminor Black kaart, internetipank</li><li>Luminor Black sularaha väljamakse: kuni 400 € kuus tasuta Baltikumis/välismaal, üle selle 2% (min 3,50 €) (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Arvelduspakett Gold (vana, ei väljastata) <a class="cat-src" href="https://luminor.ee/era/erakliendi-arvelduspakett" title="allikas">↗</a></h3><p class="cat-summary">Visa Debit + Visa Gold krediitkaart.</p><ul class="cat-rates"><li>Kuutasu: 6,50 € (hinnakiri 30.11.2020)</li><li>Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li><li>Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)</li></ul><ul class="cat-details"><li>Uusi pakette ei väljastata (hinnakiri 30.11.2020)</li><li>Sisaldab 1 Visa Debit ja 1 Visa Gold kaart</li></ul></div><div class="cat-item"><h3>Arvelduskonto avamine ja sulgemine <a class="cat-src" href="https://luminor.ee/era/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Konto avamine ja sulgemine.</p><ul class="cat-rates"><li>Konto avamine EMP residentidele: tasuta (hinnakiri 30.11.2020)</li><li>Väljaspoolt EMP riike taotluse/dokumentide kontroll: 250 € (hinnakiri 30.11.2020)</li><li>Konto sulgemine kliendi soovil: tasuta; panga algatusel kuni 100 € (hinnakiri 30.11.2020)</li><li>Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Internetipank: igakuine haldustasu tasuta; alla 20-aastastele tasuta (hinnakiri 30.11.2020)</li></ul></div></section>
+<section class="card"><h2>Kaardid ja maksed</h2><div class="cat-item"><h3>Mastercard / Visa Debit (deebetkaart) <a class="cat-src" href="https://luminor.ee/era/kaardid" title="allikas">↗</a></h3><p class="cat-summary">Deebetkaart koos nutimaksetega (Apple Pay, Google Pay).</p><ul class="cat-rates"><li>Kuutasu: 1,50 € (hinnakiri 30.11.2020)</li><li>Tasuta alla 20-aastasele ja üle 60-aastasele (põhikaart) (hinnakiri 30.11.2020)</li><li>Kuutasu ei võeta, kui kaardiga ostud vähemalt 600 €/kuus (hinnakiri 30.11.2020)</li><li>Konverteerimistasu välisvaluuta tehingult: 2% summast (hinnakiri 30.11.2020)</li><li>Kaardi asendamistasu: 4 €; kiirkorras tellimine: 35 € (hinnakiri 30.11.2020)</li></ul><ul class="cat-details"><li>Sularaha väljavõtt teiste pankade automaatidest Eestis: 1,30 € (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Mastercard Gold (krediitkaart) <a class="cat-src" href="https://luminor.ee/era/kaardid" title="allikas">↗</a></h3><p class="cat-summary">Krediitkaart koos reisikindlustusega.</p><ul class="cat-rates"><li>Kuutasu: 5 € (hinnakiri 30.11.2020)</li><li>Konverteerimistasu välisvaluutas: 2% (hinnakiri 30.11.2020)</li></ul><ul class="cat-details"><li>Mastercardi abiteenus välismaal (ajutine kaart): tegelikud kulud, max 129 € (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Mastercard Platinum <a class="cat-src" href="https://luminor.ee/era/kaardid" title="allikas">↗</a></h3><p class="cat-summary">Tippkrediitkaart lisahüvedega (Priority Pass).</p><ul class="cat-rates"><li>Aastatasu: 150 € (hinnakiri 30.11.2020)</li><li>Priority Pass salongikülastus alates 5. korrast aastas: 27 € (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Mastercard Credit (krediitkaart) <a class="cat-src" href="https://luminor.ee/era/kaardid" title="allikas">↗</a></h3><p class="cat-summary">Tavakrediitkaart.</p><ul class="cat-rates"><li>Kuutasu: 1,40 € (hinnakiri 30.11.2020)</li><li>Kuutasu ei võeta, kui krediitkaardiga ostud vähemalt 400 €/kuus (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Maksed <a class="cat-src" href="https://luminor.ee/era/maksed" title="allikas">↗</a></h3><p class="cat-summary">SEPA euromaksed, kiirmaksed, välismaksed, püsikorraldused.</p><ul class="cat-rates"><li>Euromakse Eestisse/EU-EEA internetipangas: 0,38 €; kontoris/telefonipangas: 3 € (hinnakiri 30.11.2020)</li><li>Euromakse kiirmaksena teise panka Eestis: 10 € (internetipank) / 20 € (kontor) (hinnakiri 30.11.2020)</li><li>Pangasisene makse Luminori kontode vahel: tasuta (internetipank) / 2 € (kontor) (hinnakiri 30.11.2020)</li><li>Välismakse (väljapoole EU-EEA / välisvaluutas): 5 € internetipangas, 11,50 € kontoris (hinnakiri 30.11.2020)</li><li>Välismakse kiirmaksena: 11 € internetipangas, 17,50 € kontoris (hinnakiri 30.11.2020)</li><li>Laekuv euromakse Eestist/EU-EEA-st: tasuta; muu välismakse laekumine: 5,75 € (hinnakiri 30.11.2020)</li><li>Euromakse püsikorralduse alusel: 0,38 € (hinnakiri 30.11.2020)</li></ul><ul class="cat-details"><li>SWIFT/XML koopia ja maksejuhise kinnitus: 10 € (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Nutimaksed <a class="cat-src" href="https://luminor.ee/era/kaardid" title="allikas">↗</a></h3><p class="cat-summary">Apple Pay, Google Pay, Garmin Pay.</p></div></section>
+<section class="card"><h2>Laenud (eraklient)</h2><div class="cat-item"><h3>Kodulaen (eluasemelaen) <a class="cat-src" href="https://luminor.ee/era/kodulaen" title="allikas">↗</a></h3><p class="cat-summary">Kinnisvara ostmine, ehitus, renoveerimine. Ujuv intress (Euribor + marginaal).</p><ul class="cat-rates"><li>Lepingutasu: 1% laenusummast (või täiendavast summast), min 300 € (hinnakiri 30.11.2020)</li><li>Laenulepingu tingimuste muutmine: 200 € (hinnakiri 30.11.2020)</li><li>Marginaal: individuaalne, sõltub kliendiprofiilist (täpne määr leidmata — JS-leht)</li></ul><ul class="cat-details"><li>Omafinantseering tavaliselt min 15% (Eesti Panga nõue)</li><li>EIS (KredEx) käendusega noortele peredele/spetsialistidele alates 10% (otsingutulemus)</li><li>Paljulapselistele peredele võib omafinantseering olla kuni 5% (otsingutulemus)</li><li>Ennetähtaegne tagastamine: vähemalt 3-kuulise etteteatamise korral tasuta (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Väikelaen (tarbimislaen) <a class="cat-src" href="https://luminor.ee/era/vaikelaen" title="allikas">↗</a></h3><p class="cat-summary">Tagatiseta isiklik laen fikseeritud kuumaksega.</p><ul class="cat-rates"><li>Lepingutasu: 1,50% laenusummast, min 60 € (hinnakiri 30.11.2020)</li></ul><ul class="cat-details"><li>Igakuise maksetähtpäeva või seotud konto muutmine: 50 € (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Autolaen <a class="cat-src" href="https://luminor.ee/era/autolaen" title="allikas">↗</a></h3><p class="cat-summary">Uue ja kasutatud sõiduki soetamiseks.</p><ul class="cat-rates"><li>Lepingutasu: 1,50% laenusummast, min 60 € (hinnakiri 30.11.2020)</li></ul></div><div class="cat-item"><h3>Liising <a class="cat-src" href="https://luminor.ee/era/liising" title="allikas">↗</a></h3><p class="cat-summary">Sõiduki finants- (kapitalirent) ja kasutusrent (operatiivliising).</p><ul class="cat-rates"><li>Summa 8 000 – 100 000 € (maksetingimused.ee)</li><li>Intress alates 6,2% (maksetingimused.ee)</li><li>Periood kuni 84 kuud (maksetingimused.ee)</li><li>Lepingu sõlmimise tasu: 1% soetamishinnast, min 200 € (hinnakiri 30.11.2020 / maksetingimused.ee)</li><li>Omafinantseering (sissemakse): 10% (maksetingimused.ee)</li></ul><ul class="cat-details"><li>Sõiduki vanus kuni 13 aastat liisinguperioodi lõpuks; kindlustus kohustuslik (maksetingimused.ee)</li></ul></div><div class="cat-item"><h3>Õppelaen (vana, ei väljastata) <a class="cat-src" href="https://luminor.ee/era/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Vana õppelaen (uusi lepinguid ei sõlmita).</p><ul class="cat-rates"><li>Intressimäär 5% aastas (hinnakiri 30.11.2020)</li><li>Lepingu tingimuste muutmine: 5 € (hinnakiri 30.11.2020)</li></ul></div></section>
+<section class="card"><h2>Kindlustus</h2><div class="cat-item"><h3>Kodukindlustus <a class="cat-src" href="https://luminor.ee/era/kindlustus" title="allikas">↗</a></h3><p class="cat-summary">Kodu ja koduvara kindlustus erinevate kaitsetasemetega.</p></div><div class="cat-item"><h3>Reisikindlustus <a class="cat-src" href="https://luminor.ee/era/kindlustus" title="allikas">↗</a></h3><p class="cat-summary">Reisi- ja tervisekindlustus; sisaldub osades kaardipakettides (nt Mastercard Gold).</p><ul class="cat-rates"><li>Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)</li></ul></div><div class="cat-item"><h3>Liiklus- ja kaskokindlustus <a class="cat-src" href="https://luminor.ee/era/kindlustus" title="allikas">↗</a></h3><p class="cat-summary">Sõiduki kindlustuslahendused.</p></div><div class="cat-item"><h3>Õnnetusjuhtumi- ja elukindlustus <a class="cat-src" href="https://luminor.ee/era/kindlustus" title="allikas">↗</a></h3><p class="cat-summary">Õnnetusjuhtumi- ja elukindlustuse lahendused.</p></div></section>
+<section class="card"><h2>Kampaaniad ja pakkumised</h2><div class="cat-item"><h3>Luminor pakkumised <a class="cat-src" href="https://luminor.ee/era" title="allikas">↗</a></h3><p class="cat-summary">Partnerite soodustused ja muutuvad kampaaniad (täpsed tingimused JS-lehel).</p><ul class="cat-rates"><li>Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)</li></ul></div></section>
+<section class="card"><h2>Äriklient</h2><div class="cat-item"><h3>Ärikonto ja äripaketid <a class="cat-src" href="https://luminor.ee/ari" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte arveldus, mitme kasutaja ligipääs, SEPA maksed.</p><ul class="cat-rates"><li>Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Ärikliendi hinnakiri avaldatakse eraldi PDF-ina (pricelist_*_business_et-ee.pdf)</li><li>Täpsed paketi kuutasud sõltuvad mahust (JS-leht / hinnakirja PDF)</li></ul></div><div class="cat-item"><h3>Ärilaen ja liising <a class="cat-src" href="https://luminor.ee/ari" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte finantseerimine: investeerimislaen, käibekapital, liising, faktooring.</p></div><div class="cat-item"><h3>Kaardimaksed (kaupmehele) <a class="cat-src" href="https://luminor.ee/ari" title="allikas">↗</a></h3><p class="cat-summary">POS-terminalid ja e-kaubanduse kaardimaksed (Visa/Mastercard).</p></div></section>
+<section class="card"><h2>Tingimused ja info</h2><div class="cat-item"><h3>Hinnakiri <a class="cat-src" href="https://luminor.ee/era/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Erakliendi ja ärikliendi teenuste hinnakiri.</p><ul class="cat-rates"><li>Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)</li></ul><ul class="cat-details"><li>Avalik erakliendi hinnakiri PDF (kehtib alates 30.11.2020): luminor.ee/s3fs-public/documents/pricelist_22_private_et-ee_0.pdf</li><li>Jooksvad tasud luminor.ee dünaamilisel lehel (SPA/JS — automaatne scrape ebausaldusväärne)</li></ul></div><div class="cat-item"><h3>Intressi- ja viivistemäärad <a class="cat-src" href="https://luminor.ee/intressi-ja-viivisemaarad" title="allikas">↗</a></h3><p class="cat-summary">Hoiuste ja laenude jooksvad intressimäärad (SPA/JS leht).</p><ul class="cat-rates"><li>Viivise määr: 0,20% päevas (hinnakiri 30.11.2020)</li><li>Hoiuste määrad jooksvalt: Minuraha intressibaromeeter</li></ul><ul class="cat-details"><li>Dünaamiline leht — sisu ei renderdu automaatsele scrape-le</li></ul></div><div class="cat-item"><h3>Pangakontorid ja klienditugi <a class="cat-src" href="https://luminor.ee/era/kontakt" title="allikas">↗</a></h3><p class="cat-summary">Kontorite asukohad ja klienditugi. Telefon +372 628 3300.</p></div></section>
+    </div>
   </div>
 </body>
 </html>

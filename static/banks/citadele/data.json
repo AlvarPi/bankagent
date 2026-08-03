@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "citadele",
   "name": "Citadele",
-  "fetchedAt": "2026-06-30T00:35:17.608Z",
-  "generatedAt": "2026-06-30T00:35:20.948Z",
+  "fetchedAt": "2026-08-03T13:47:43.416Z",
+  "generatedAt": "2026-08-03T13:47:46.474Z",
   "sources": [
     {
       "kind": "primary",
@@ -25,7 +25,7 @@
   "rates": [
     {
       "product_type": "deposit",
-      "label": "Tähtajaline hoius (kalkulaator)",
+      "label": "Hoius (kalkulaator)",
       "rate_percent": 1.5,
       "fee_cents": null,
       "source_url": "https://www.citadele.ee/et/private/savings/",
@@ -86,7 +86,6 @@
               "EUR 2 aastat: 2,20% (min 100 €) — citadele.ee rates",
               "EUR 5 aastat: 2,50% (min 100 €) — citadele.ee rates",
               "USD 6 kuud: 1,75%; USD 1 aasta+: 2,50% (min 200 USD) — citadele.ee rates",
-              "Tähtajaline hoius (kalkulaator): 1.5% (https://www.citadele.ee/et/private/savings/)",
               "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [

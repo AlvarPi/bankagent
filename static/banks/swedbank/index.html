@@ -3,72 +3,91 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swedbank — avaliku info kogumine</title>
+  <title>Swedbank — avalik pangainfo | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --card: #fff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --accent: #1e494d;
-      --accent-soft: #eaf6ec;
-      --border: #d8e0e8;
-      --positive: #1b7f4a;
-      --warn-bg: #fff8e6;
-      --warn-border: #e8c96a;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      background: var(--bg);
+      --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
+      --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --page-bg:#F4F8F5;
+      --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 1.5rem; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.35rem; }
-    .lead { color: var(--muted); margin: 0 0 1rem; }
-    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
-    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
-    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { color: var(--muted); font-size: 0.85rem; }
-    .rate { color: var(--positive); font-weight: 700; }
-    a { color: var(--accent); }
-    .back { display: inline-block; margin-bottom: 1rem; }
-    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
-    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
+    .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.55rem; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:2.5rem 0 1.75rem; }
+    .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); font-size:1.02rem; margin:.6rem 0 0; max-width:60ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pill { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.85rem; font-weight:600; }
+    .section { padding:1.75rem 0 3.5rem; }
+    section.card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    section.warn { background:var(--warn-bg); border-color:var(--warn-border); box-shadow:none; }
+    h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:.55rem .45rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.82rem; font-weight:600; }
+    .rate { color:var(--positive); font-weight:700; }
+    ul { margin:0; padding-left:1.2rem; }
+    .cat-lead { font-weight:700; font-size:1.25rem; color:var(--maroon); margin:1.5rem 0 .75rem; letter-spacing:-.01em; }
+    .cat-item { padding:.6rem 0; border-bottom:1px solid var(--line); }
+    .cat-item:last-child { border-bottom:0; }
+    .cat-item h3 { margin:0 0 .25rem; font-size:.98rem; }
+    .cat-summary { margin:0 0 .4rem; color:var(--muted); font-size:.92rem; }
+    .cat-rates, .cat-details { margin:.2rem 0 .4rem; }
+    .cat-rates li { font-size:.9rem; }
+    .cat-details li { font-size:.88rem; color:var(--muted); }
+    .cat-src { text-decoration:none; font-size:.9rem; }
+    @media (max-width:560px){ .hero h1 { font-size:1.6rem; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/banks/">← kõik pangad</a>
-    <div class="bank-header">
-      <img class="bank-logo" src="/banks/logos/swedbank.svg" alt="Swedbank" width="160" height="40" />
-      <h1>Swedbank</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://genofin.ee/">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#76FB8D"/><path d="M9 22V17M16 22V10M23 22V14" stroke="#0D2022" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <span class="brand-name">Finovo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/banks/" class="back-link">&#8592; Kõik pangad</a>
+      </div>
     </div>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
-    <div class="meta">
-      <span class="pill">Kogutud: 30.6.2026, 03:35:15</span>
-      <span class="pill">7 rida</span>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-head">
+        <img class="hero-logo" src="/banks/logos/swedbank.svg" alt="Swedbank" />
+        <h1>Swedbank</h1>
+      </div>
+      <p class="lead">Avalikult kogutud tooteinfo, intressid ja hinnakirjad.</p>
+      <div class="meta"><span class="pill">Uuendatud: 3.8.2026, 16:47:41</span></div>
     </div>
-    
-    <section>
-      <h2>Allikad</h2>
-      <ul><li><strong>primary</strong>: <a href="https://www.swedbank.ee/private/home/more/pricesrates/depositrates">https://www.swedbank.ee/private/home/more/pricesrates/depositrates</a> — deposits &amp; paketid</li>
+  </section>
+  <div class="section">
+    <div class="container">
+      
+      <section class="card"><h2>Allikad</h2><ul><li><strong>primary</strong>: <a href="https://www.swedbank.ee/private/home/more/pricesrates/depositrates">https://www.swedbank.ee/private/home/more/pricesrates/depositrates</a> — deposits &amp; paketid</li>
 <li><strong>reference</strong>: <a href="https://www.swedbank.ee/private/home/more/pricesrates/interests">https://www.swedbank.ee/private/home/more/pricesrates/interests</a> — intressimäärad (JS leht)</li>
-<li><strong>fallback</strong>: <a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter</a> — FI baromeeter</li></ul>
-    </section>
-    <section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+<li><strong>fallback</strong>: <a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter</a> — FI baromeeter</li></ul></section>
+      <section class="card"><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Tähtajaline hoius 12 kuu (baromeeter), min 190 €</td>
-          <td class="rate">2,05%</td>
+          <td class="rate">2,20%</td>
           <td>—</td>
           <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
         </tr></tbody></table></section>
-    <section><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+      <section class="card"><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Arvelduskonto EUR</td>
           <td class="rate">0,01%</td>
           <td>—</td>
@@ -80,7 +99,7 @@
           <td>—</td>
           <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
         </tr></tbody></table></section>
-    <section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+      <section class="card"><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Põhipaketi kuutasu (täishind)</td>
           <td class="rate">—</td>
           <td>1,00 €</td>
@@ -104,6 +123,16 @@
           <td>1,00 €</td>
           <td><a href="https://www.swedbank.ee/private/home/more/pricesrates/depositrates">allikas</a></td>
         </tr></tbody></table></section>
+      <p class="cat-lead">Tootekataloog</p>
+<section class="card"><h2>Hoiused ja säästmine</h2><div class="cat-item"><h3>Tähtajaline hoius <a class="cat-src" href="https://www.swedbank.ee/private/investor/deposits/term" title="allikas">↗</a></h3><p class="cat-summary">Fikseeritud intressiga tähtajaline hoius. Intressimäär on fikseeritud kogu hoiuperioodi vältel. Tagatud Tagatisfondi poolt kuni 100 000 €.</p><ul class="cat-rates"><li>12 kuud: 2,05% (min 190 €; allikas: minuraha.ee intressibaromeeter, seisuga 16.03.2026)</li><li>Minimaalne hoiusumma 190 € (allikas: swedbank.ee/business/invest/deposits/interests)</li><li>Täpsed perioodipõhised määrad: swedbank.ee depositrates / interests leht</li><li>Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Tähtajaline hoius 12 kuu (baromeeter), min 190 €: 2.2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Minimaalne summa 190 € (swedbank.ee)</li><li>Intressimäär fikseeritud kogu perioodiks</li><li>Tagatud Tagatisfondi poolt kuni 100 000 €</li></ul></div><div class="cat-item"><h3>Kogumishoius <a class="cat-src" href="https://www.swedbank.ee/private/savings/savings-account" title="allikas">↗</a></h3><p class="cat-summary">Paindlik kogumiskonto igapäevaseks säästmiseks.</p><ul class="cat-details"><li>Igakuine sissemakse</li><li>Väljavõtt võimalik</li><li>Intress koguneb</li></ul></div><div class="cat-item"><h3>Investeerimishoius <a class="cat-src" href="https://www.swedbank.ee/?pageId=hanzanet.private.investor.deposits.investment" title="allikas">↗</a></h3><p class="cat-summary">Hoius, mille tootlus on seotud alusvara (nt indeksi) liikumisega; põhiosa kaitsega.</p><ul class="cat-details"><li>Tootlus seotud alusvaraga</li><li>Tähtajaline</li></ul></div><div class="cat-item"><h3>Arvelduskonto intress <a class="cat-src" href="https://www.swedbank.ee/private/home/more/pricesrates/depositrates" title="allikas">↗</a></h3><p class="cat-summary">Intress EUR arvelduskonto jäägilt.</p><ul class="cat-rates"><li>EUR arvelduskonto: 0,01% (allikas: swedbank.ee depositrates, seisuga 27.06.2026)</li><li>Baromeeter: 0,01% (min 1 €; allikas: minuraha.ee, seisuga 22.10.2024)</li><li>Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Intress arvutatakse päevasaldolt, kantakse kontole järgmise kuu 3. kuupäevaks</li></ul></div><div class="cat-item"><h3>Investeerimine <a class="cat-src" href="https://www.swedbank.ee/private/savings/invest" title="allikas">↗</a></h3><p class="cat-summary">Fondid, aktsiad, pension. Swedbank investeerimisplatvorm.</p><ul class="cat-details"><li>Swedbank fondid</li><li>Robo-nõustamine</li><li>Väärtpaberikonto</li></ul></div><div class="cat-item"><h3>Pension (II ja III sammas) <a class="cat-src" href="https://www.swedbank.ee/private/savings/pension" title="allikas">↗</a></h3><p class="cat-summary">II samba pensionifondid ja III samba vabatahtlik pension. Swedbank loobus III samba fondidelt kõikidest lisatasudest.</p><ul class="cat-rates"><li>II sammas Indeks: valitsemistasu 0,27% aastas</li><li>II sammas elutsüklifondid: 0,31–0,75% aastas (nooremad sünniaastad kõrgem)</li><li>II sammas Konservatiivne: 0,47% aastas</li><li>III sammas indeksfondid (V30/V60/V100): jooksvad tasud ~0,29% aastas</li><li>III sammas aktiivsed fondid: 0,95–1,15% aastas</li><li>(Allikas: swedbank.ee/private/pensions/pillar2/description; blog.swedbank.ee III sammas)</li></ul><ul class="cat-details"><li>II samba elutsükli- ja indeksfondid</li><li>III samba maksusoodustus</li><li>Swedbanki sõnul turu soodsaimad tasud</li></ul></div></section>
+<section class="card"><h2>Igapäevapangandus – paketid</h2><div class="cat-item"><h3>Põhipakett <a class="cat-src" href="https://www.swedbank.ee/private/dailybanking/packages" title="allikas">↗</a></h3><p class="cat-summary">Põhiline pangapakett igapäevaseks arvelduseks: deebetkaart ja piiramatud ülekanded Swedbanki äpis ja internetipangas.</p><ul class="cat-rates"><li>Kuutasu 1,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)</li><li>Kuni 25 a. (k.a): tasuta</li><li>Alates 65 a.: 0,32 €/kuus</li><li>Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Deebetkaart</li><li>Piiramatud ülekanded äpis ja internetipangas</li><li>Arvelduskonto, internetipank, mobiilipank</li></ul></div><div class="cat-item"><h3>Ostupakett <a class="cat-src" href="https://www.swedbank.ee/private/dailybanking/packages" title="allikas">↗</a></h3><p class="cat-summary">Pakett ostuhüvede ja -kindlustusega (saadaval alates 6. eluaastast).</p><ul class="cat-rates"><li>Kuutasu 2,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)</li><li>Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li></ul><ul class="cat-details"><li>Sisaldab põhipaketi teenuseid</li><li>Ostukindlustus (sh piletikaitse)</li><li>E-poe tarnekaitse (kahjustatud/kaduma läinud kaubad)</li></ul></div><div class="cat-item"><h3>Reisipakett <a class="cat-src" href="https://www.swedbank.ee/private/dailybanking/packages" title="allikas">↗</a></h3><p class="cat-summary">Kõrgeima taseme pakett: ostupaketi hüved + ulatuslik reisikindlustus (saadaval alates 6. eluaastast).</p><ul class="cat-rates"><li>Kuutasu 6,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)</li><li>Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li></ul><ul class="cat-details"><li>Kõik ostupaketi hüved</li><li>Ulatuslik reisikindlustus (ootamatud meditsiinikulud, pagas, reisi tühistamine)</li></ul></div><div class="cat-item"><h3>Noored (kuni 25 a.) <a class="cat-src" href="https://www.swedbank.ee/private/dailybanking/for-young-people" title="allikas">↗</a></h3><p class="cat-summary">Eritingimused noortele.</p><ul class="cat-rates"><li>Põhipakett kuni 25 a. (k.a): tasuta</li><li>Deebetkaart kuni 19 a.: tasuta; 20–25 a.: 0,32 €/kuus</li></ul><ul class="cat-details"><li>ISIC Mastercard tudengikaart (alates 16 a., kõrgkooliõpe)</li><li>Tudengikaart toimib ühistranspordikaardina Tallinnas ja Harjumaal</li></ul></div><div class="cat-item"><h3>Pensionäride soodustused <a class="cat-src" href="https://www.swedbank.ee/private/dailybanking/packages" title="allikas">↗</a></h3><p class="cat-summary">Soodustingimused pensioniealistele.</p><ul class="cat-rates"><li>Põhipakett alates 65 a.: 0,32 €/kuus</li><li>Deebetkaart alates 65 a.: 0,32 €/kuus</li></ul></div></section>
+<section class="card"><h2>Kaardid ja maksed</h2><div class="cat-item"><h3>Deebetkaart Pluss <a class="cat-src" href="https://www.swedbank.ee/private/dailybanking/cards" title="allikas">↗</a></h3><p class="cat-summary">Visa/Mastercard deebetkaart (100% taaskasutatud plastikust, alates 6 a.). Apple Pay, Google Pay.</p><ul class="cat-rates"><li>Kuutasu 1,00 € (kuni 19 a.: tasuta; 20–25 a. ja 65+: 0,32 €)</li><li>Esimese deebetkaardi avamine: tasuta</li><li>Kaardi uuendamine: tasuta; kaardi asendamine: 7 €</li><li>Ekspresstarne: 30 €; ajutine ATM-kaart (1 kuu): 10 €</li><li>Valuutavahetuse tasu: 1% tehingust (v.a Platinum)</li><li>(Allikas: swedbank.ee/private/cards, kehtiv alates 01.11.2024)</li></ul><ul class="cat-details"><li>Ostukaitse</li><li>Pettusekaitse</li><li>Viipemakse</li></ul></div><div class="cat-item"><h3>Sularaha väljavõtt (ATM) <a class="cat-src" href="https://www.swedbank.ee/private/home/more/pricesrates" title="allikas">↗</a></h3><p class="cat-summary">Sularaha väljavõtmise tasud sularahaautomaatidest.</p><ul class="cat-rates"><li>Swedbanki ATM kuni 2 000 €/kuus: tasuta</li><li>Swedbanki ATM üle 2 000 €/kuus: 0,5% ületavast summast</li><li>Teiste pankade ATM: 2 € + 2,5%</li><li>Maksimaalne väljavõtt: 7 500 €/kuus</li><li>(Allikas: swedbank.ee/private/cards)</li></ul></div><div class="cat-item"><h3>Krediitkaart <a class="cat-src" href="https://www.swedbank.ee/private/cards/cards/credit" title="allikas">↗</a></h3><p class="cat-summary">Krediitkaardid ostukindlustuse ja reisikindlustusega; vaba tagasimaksega.</p><ul class="cat-rates"><li>Vaba tagasimaksega: 2 €/kuus (kuni 25 a.: tasuta), intress 19–22% aastas, intressivaba kalendrikuu lõpuni</li><li>Gold vaba tagasimaksega: 7 €/kuus, intress 17–20% aastas, intressivaba järgmise kuu 10. kuupäevani</li><li>Platinum: 17 €/kuus (lisapakett 160 €/aastas), intress 14–17% aastas, intressivaba kuni 40 päeva</li><li>Lisakaart: 2–15 €/kuus</li><li>(Allikas: swedbank.ee/private/cards/cards/credit)</li></ul><ul class="cat-details"><li>Krediidilimiit sõltub sissetulekust</li><li>Intressivaba periood (grace period)</li></ul></div><div class="cat-item"><h3>Maksed <a class="cat-src" href="https://www.swedbank.ee/private/dailybanking/payments" title="allikas">↗</a></h3><p class="cat-summary">SEPA maksed, kiirmaksed, välismaksed.</p><ul class="cat-rates"><li>SEPA EUR makse: paketiga klientidele tasuta, muidu kuni 0,38 €</li><li>Välismakse SHA (jagatud kulud): 6 €</li><li>Välismakse OUR (kõik kulud maksja kanda): 25 €</li><li>(Allikas: wise.com/ee Swedbanki välismakse ülevaade 2026)</li></ul><ul class="cat-details"><li>SEPA Instant</li><li>Püsikorraldused</li><li>Valuutavahetuse kulu sisaldub vahetuskursis</li></ul></div><div class="cat-item"><h3>Nutimaksed <a class="cat-src" href="https://www.swedbank.ee/private/dailybanking/cards" title="allikas">↗</a></h3><p class="cat-summary">Apple Pay, Google Pay, Garmin Pay.</p></div></section>
+<section class="card"><h2>Laenud (eraklient)</h2><div class="cat-item"><h3>Kodulaen <a class="cat-src" href="https://www.swedbank.ee/private/loans/home-loan" title="allikas">↗</a></h3><p class="cat-summary">Kinnisvara ostmine, ehitus, renoveerimine. Intress = panga marginaal + 6 kuu Euribor.</p><ul class="cat-rates"><li>Summa 10 000–500 000 €</li><li>Intress alates 2% (allikas: taotle.ee/pakkuja/swedbank)</li><li>Suurpankade marginaal tüüpiliselt ~1,2–1,5% (turuülevaade, hüpoteek.ee)</li><li>Periood kuni 360 kuud (30 aastat)</li><li>6 kuu Euribor ~2,14% (veebr 2026, turuviide)</li></ul><ul class="cat-details"><li>Marginaal sõltub kliendiprofiilist, fikseeritud kogu laenuperioodiks</li><li>Euribor muutub iga 6 kuu järel</li><li>Eelotsus internetis, KredEx toetused</li></ul></div><div class="cat-item"><h3>Väikelaen <a class="cat-src" href="https://www.swedbank.ee/private/credit/loans/newSmall" title="allikas">↗</a></h3><p class="cat-summary">Tagatiseta isiklik laen, ilma igakuise haldustasuta.</p><ul class="cat-rates"><li>Summa 300–20 000 €</li><li>Intress alates 8,9% aastas</li><li>Periood 6–60 kuud</li><li>Sihtotstarbeline (nt kodu energiatõhusus) alates 4,9%</li><li>(Allikas: taotle.ee/pakkuja/swedbank; swedbank.ee väikelaen)</li></ul><ul class="cat-details"><li>Fikseeritud kuumakse</li><li>Taotlus internetipangas</li><li>Ilma tagatiseta</li></ul></div><div class="cat-item"><h3>Kodu väikelaen <a class="cat-src" href="https://www.swedbank.ee/private/credit/loans/homeSmall" title="allikas">↗</a></h3><p class="cat-summary">Tagatiseta väikelaen kodu remondiks/parendamiseks.</p><ul class="cat-rates"><li>Summa 5 000–30 000 € (allikas: otsingu snippet, swedbank.ee)</li></ul><ul class="cat-details"><li>Ilma tagatiseta ja sissemakseta</li></ul></div><div class="cat-item"><h3>Autolaen <a class="cat-src" href="https://www.swedbank.ee/private/loans/car-loan" title="allikas">↗</a></h3><p class="cat-summary">Sõiduki soetamiseks.</p><ul class="cat-rates"><li>Summa 2 000–50 000 €</li><li>Intress alates 1,49%</li><li>Periood 12–84 kuud</li><li>(Allikas: taotle.ee/pakkuja/swedbank)</li></ul><ul class="cat-details"><li>Uus ja kasutatud auto</li><li>Liising alternatiivina</li></ul></div><div class="cat-item"><h3>Liising <a class="cat-src" href="https://www.swedbank.ee/private/loans/leasing" title="allikas">↗</a></h3><p class="cat-summary">Finants- ja operatiivliising.</p><ul class="cat-rates"><li>Sõidukiliising: 2 000–200 000 €, alates 4,5%</li><li>Üldine liising: 5 000–2 000 000 €, 12–84 kuud, alates 4,5%</li><li>Seadmeliising: 5 000–1 000 000 €, 12–84 kuud, alates 4,5%</li><li>(Allikas: taotle.ee/pakkuja/swedbank)</li></ul><ul class="cat-details"><li>Kapitaliliising</li><li>Operatiivliising</li></ul></div><div class="cat-item"><h3>Krediidikonto <a class="cat-src" href="https://www.swedbank.ee/private/loans/credit-line" title="allikas">↗</a></h3><p class="cat-summary">Paindlik krediidikonto.</p><ul class="cat-details"><li>Intress kasutatud summalt</li><li>Limiit sõltub sissetulekust</li></ul></div><div class="cat-item"><h3>Õppelaen <a class="cat-src" href="https://www.swedbank.ee/private/loans" title="allikas">↗</a></h3><p class="cat-summary">Õpingute finantseerimine.</p></div></section>
+<section class="card"><h2>Kindlustus</h2><div class="cat-item"><h3>Kodukindlustus <a class="cat-src" href="https://www.swedbank.ee/private/insurance/home" title="allikas">↗</a></h3><p class="cat-summary">Kodu ja koduvara kindlustus.</p><ul class="cat-details"><li>Erinevad kaitsetasemed</li><li>Kodulaenu puhul nõutav</li></ul></div><div class="cat-item"><h3>Reisikindlustus <a class="cat-src" href="https://www.swedbank.ee/private/insurance/travel" title="allikas">↗</a></h3><p class="cat-summary">Reisi- ja tervisekindlustus.</p><ul class="cat-details"><li>Reisipaketis kaasas</li><li>Ühekordne või aastapoliis</li></ul></div><div class="cat-item"><h3>Liiklus- ja kaskokindlustus <a class="cat-src" href="https://www.swedbank.ee/private/insurance" title="allikas">↗</a></h3><p class="cat-summary">Sõiduki kindlustuslahendused.</p><ul class="cat-details"><li>Võrdle pakkumisi</li><li>Liisingu puhul kasko</li></ul></div><div class="cat-item"><h3>Õnnetusjuhtumi kindlustus <a class="cat-src" href="https://www.swedbank.ee/private/insurance" title="allikas">↗</a></h3><p class="cat-summary">Õnnetusjuhtumikindlustus.</p></div><div class="cat-item"><h3>Elukindlustus <a class="cat-src" href="https://www.swedbank.ee/private/insurance" title="allikas">↗</a></h3><p class="cat-summary">Elukindlustus pere kaitsmiseks.</p></div></section>
+<section class="card"><h2>Kampaaniad ja pakkumised</h2><div class="cat-item"><h3>Swedbank pakkumised <a class="cat-src" href="https://www.swedbank.ee/private/offers" title="allikas">↗</a></h3><p class="cat-summary">Partnerite soodustused ja kampaaniad.</p><ul class="cat-details"><li>Muutuvad pakkumised</li><li>Ostu- ja reisipaketi hüved</li></ul></div><div class="cat-item"><h3>Uue kliendi kampaaniad <a class="cat-src" href="https://www.swedbank.ee/private" title="allikas">↗</a></h3><p class="cat-summary">Aeg-ajalt kampaaniad uutele klientidele.</p></div></section>
+<section class="card"><h2>Äriklient</h2><div class="cat-item"><h3>Ärikonto <a class="cat-src" href="https://www.swedbank.ee/business/d2d/accounts/open" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte arveldus ja teenused. Uutele äriklientidele alustamise hüved.</p><ul class="cat-rates"><li>Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>SEPA maksed</li><li>Mitme kasutaja ligipääs</li><li>Konto avamisel dokumendi menetlustasu (ei kohaldu EL/EMP elamisloaga isikutele)</li></ul></div><div class="cat-item"><h3>Äripaketid <a class="cat-src" href="https://www.swedbank.ee/business/daily-banking" title="allikas">↗</a></h3><p class="cat-summary">Erineva mahuga äripaketid; kuutasu sõltub mahust.</p><ul class="cat-details"><li>Täpsed kuutasud: swedbank.ee/business hinnakiri (lehel ei õnnestunud konkreetseid numbreid kätte saada)</li></ul></div><div class="cat-item"><h3>Ärilaen <a class="cat-src" href="https://www.swedbank.ee/business/financing" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte finantseerimine.</p><ul class="cat-details"><li>Investeerimislaen</li><li>Käibekapital</li><li>Liising 5 000–2 000 000 €, alates 4,5%</li></ul></div><div class="cat-item"><h3>Kaardimaksed <a class="cat-src" href="https://www.swedbank.ee/business/card-payments" title="allikas">↗</a></h3><p class="cat-summary">POS, e-kaubandus, arvemaksed.</p><ul class="cat-details"><li>Visa/Mastercard kaupmehele</li><li>Click to Pay</li></ul></div><div class="cat-item"><h3>Faktooring <a class="cat-src" href="https://www.swedbank.ee/business/financing" title="allikas">↗</a></h3><p class="cat-summary">Arvete faktooring ja käibekapital.</p></div></section>
+<section class="card"><h2>Tingimused ja info</h2><div class="cat-item"><h3>Hinnakiri ja intressid (depositsrates) <a class="cat-src" href="https://www.swedbank.ee/private/home/more/pricesrates/depositrates" title="allikas">↗</a></h3><p class="cat-summary">Hoiuste intressid, pakettide tasud, arvelduskonto intress.</p><ul class="cat-rates"><li>Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)</li><li>Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Pakettide kuutasud (kehtivad alates 01.11.2025): Põhi 1 €, Ostu 2 €, Reisi 6 €</li><li>EUR arvelduskonto intress 0,01%</li></ul></div><div class="cat-item"><h3>Intressimäärad (interests) <a class="cat-src" href="https://www.swedbank.ee/private/home/more/pricesrates/interests" title="allikas">↗</a></h3><p class="cat-summary">Laenu- ja hoiuseintresside detailid (JS leht).</p><ul class="cat-details"><li>Dünaamiline leht</li><li>Tähtajalise hoiuse min summa 190 €</li></ul></div><div class="cat-item"><h3>Hinnakirja muudatused <a class="cat-src" href="https://www.swedbank.ee/private/home/more/pricesrates/changes" title="allikas">↗</a></h3><p class="cat-summary">Eelseisvad hinnakirja ja tingimuste muudatused.</p><ul class="cat-details"><li>Tingimused/hinnakiri muutuvad 31.08.2026 (otsingu snippet)</li></ul></div><div class="cat-item"><h3>Teenuste tingimused <a class="cat-src" href="https://www.swedbank.ee/private/home/more/terms" title="allikas">↗</a></h3><p class="cat-summary">Üldtingimused ja infolehed.</p></div><div class="cat-item"><h3>Pangakontorid <a class="cat-src" href="https://www.swedbank.ee/private/home/contact" title="allikas">↗</a></h3><p class="cat-summary">Kontorite asukohad ja klienditugi.</p></div></section>
+    </div>
   </div>
 </body>
 </html>

@@ -3,67 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nordea — avaliku info kogumine</title>
+  <title>Nordea — avalik pangainfo | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --card: #fff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --accent: #1e494d;
-      --accent-soft: #eaf6ec;
-      --border: #d8e0e8;
-      --positive: #1b7f4a;
-      --warn-bg: #fff8e6;
-      --warn-border: #e8c96a;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      background: var(--bg);
+      --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
+      --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --page-bg:#F4F8F5;
+      --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 1.5rem; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.35rem; }
-    .lead { color: var(--muted); margin: 0 0 1rem; }
-    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
-    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
-    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { color: var(--muted); font-size: 0.85rem; }
-    .rate { color: var(--positive); font-weight: 700; }
-    a { color: var(--accent); }
-    .back { display: inline-block; margin-bottom: 1rem; }
-    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
-    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
+    .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.55rem; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:2.5rem 0 1.75rem; }
+    .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); font-size:1.02rem; margin:.6rem 0 0; max-width:60ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pill { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.85rem; font-weight:600; }
+    .section { padding:1.75rem 0 3.5rem; }
+    section.card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    section.warn { background:var(--warn-bg); border-color:var(--warn-border); box-shadow:none; }
+    h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:.55rem .45rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.82rem; font-weight:600; }
+    .rate { color:var(--positive); font-weight:700; }
+    ul { margin:0; padding-left:1.2rem; }
+    .cat-lead { font-weight:700; font-size:1.25rem; color:var(--maroon); margin:1.5rem 0 .75rem; letter-spacing:-.01em; }
+    .cat-item { padding:.6rem 0; border-bottom:1px solid var(--line); }
+    .cat-item:last-child { border-bottom:0; }
+    .cat-item h3 { margin:0 0 .25rem; font-size:.98rem; }
+    .cat-summary { margin:0 0 .4rem; color:var(--muted); font-size:.92rem; }
+    .cat-rates, .cat-details { margin:.2rem 0 .4rem; }
+    .cat-rates li { font-size:.9rem; }
+    .cat-details li { font-size:.88rem; color:var(--muted); }
+    .cat-src { text-decoration:none; font-size:.9rem; }
+    @media (max-width:560px){ .hero h1 { font-size:1.6rem; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/banks/">← kõik pangad</a>
-    <div class="bank-header">
-      <img class="bank-logo" src="/banks/logos/nordea.svg" alt="Nordea" width="160" height="40" />
-      <h1>Nordea</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://genofin.ee/">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#76FB8D"/><path d="M9 22V17M16 22V10M23 22V14" stroke="#0D2022" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <span class="brand-name">Finovo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/banks/" class="back-link">&#8592; Kõik pangad</a>
+      </div>
     </div>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
-    <div class="meta">
-      <span class="pill">Kogutud: 30.6.2026, 03:35:20</span>
-      <span class="pill">8 rida</span>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-head">
+        <img class="hero-logo" src="/banks/logos/nordea.svg" alt="Nordea" />
+        <h1>Nordea</h1>
+      </div>
+      <p class="lead">Avalikult kogutud tooteinfo, intressid ja hinnakirjad.</p>
+      <div class="meta"><span class="pill">Uuendatud: 3.8.2026, 16:47:46</span></div>
     </div>
-    <section class="warn"><h2>Märkused</h2><ul><li>Nordea.com/en ei avalda ühtseid intressimäärasid — kogutud riiklikud näited (FI, SE)</li><li>Ei ole Eesti pank ega minuraha.ee baromeetris</li></ul></section>
-    <section>
-      <h2>Allikad</h2>
-      <ul><li><strong>primary</strong>: <a href="https://www.nordea.com/en">https://www.nordea.com/en</a> — Nordea grupi koduleht</li>
+  </section>
+  <div class="section">
+    <div class="container">
+      <section class="card warn"><h2>Märkused</h2><ul><li>Nordea.com/en ei avalda ühtseid intressimäärasid — kogutud riiklikud näited (FI, SE)</li><li>Ei ole Eesti pank ega minuraha.ee baromeetris</li></ul></section>
+      <section class="card"><h2>Allikad</h2><ul><li><strong>primary</strong>: <a href="https://www.nordea.com/en">https://www.nordea.com/en</a> — Nordea grupi koduleht</li>
 <li><strong>primary</strong>: <a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html">https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html</a> — Suomi JoustoTalletus</li>
 <li><strong>primary</strong>: <a href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/">https://www.nordea.se/privat/produkter/spara-investera/sparkonton/</a> — Ruotsi sparkonton</li>
-<li><strong>reference</strong>: <a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/">https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/</a> — Suomi säästötilid</li></ul>
-    </section>
-    <section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+<li><strong>reference</strong>: <a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/">https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/</a> — Suomi säästötilid</li></ul></section>
+      <section class="card"><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>FI JoustoTalletus: Vuotuinen korko 1 kk talletusjaksolle</td>
           <td class="rate">1,45%</td>
           <td>—</td>
@@ -95,12 +114,12 @@
         </tr>
 <tr>
           <td>SE Fasträntekonto (max)</td>
-          <td class="rate">2,00%</td>
+          <td class="rate">2,30%</td>
           <td>—</td>
           <td><a href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/">allikas</a></td>
         </tr></tbody></table></section>
-    
-    <section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+      
+      <section class="card"><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Nordea.com (grupi koduleht)</td>
           <td class="rate">—</td>
           <td>—</td>
@@ -112,6 +131,16 @@
           <td>—</td>
           <td><a href="https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/">allikas</a></td>
         </tr></tbody></table></section>
+      <p class="cat-lead">Tootekataloog</p>
+<section class="card"><h2>Nordea grupp</h2><div class="cat-item"><h3>Nordea — Põhjamaade suurim pank <a class="cat-src" href="https://www.nordea.com/en" title="allikas">↗</a></h3><p class="cat-summary">Nordea Bank Abp on Põhjamaade suurim finantsteenuste grupp. Tegutseb Soomes, Rootsis, Taanis ja Norras. Eestis jaepangandust ei paku — siinsed teenused läksid üle Luminorile (vt allpool).</p><ul class="cat-rates"><li>Nordea.com (grupi koduleht): vaata allikat (https://www.nordea.com/en)</li></ul><ul class="cat-details"><li>Peakontor Helsingis (peakontor viidi Stockholmist Helsingisse 2018)</li><li>Ligikaudu 9,3 miljonit erakliendi ja u 530 000 ärikliendi suhet</li><li>Tegutseb peamiselt neljas Põhjamaa riigis: Soome, Rootsi, Taani, Norra</li><li>Allikas: nordea.com, Wikipedia (Nordea)</li></ul></div><div class="cat-item"><h3>Ärisuunad (Business Areas) <a class="cat-src" href="https://www.nordea.com/en/our-services/personal-customers" title="allikas">↗</a></h3><p class="cat-summary">Nordea grupp jaguneb nelja peamise ärisuuna vahel.</p><ul class="cat-details"><li>Personal Banking (erakliendid)</li><li>Business Banking (väikese ja keskmise suurusega ettevõtted)</li><li>Large Corporates &amp; Institutions (suurkliendid ja institutsioonid)</li><li>Asset &amp; Wealth Management (vara- ja varahaldus)</li><li>Allikas: nordea.com</li></ul></div><div class="cat-item"><h3>Private Banking <a class="cat-src" href="https://www.nordea.com/en/our-services/personal-customers" title="allikas">↗</a></h3><p class="cat-summary">Private banking ja varahaldus jõukamatele klientidele Põhjamaades.</p><ul class="cat-details"><li>Investeerimisnõustamine</li><li>Varahaldus</li><li>Pakutakse Põhjamaade turgudel, mitte Eestis</li></ul></div></section>
+<section class="card"><h2>Ajalugu</h2><div class="cat-item"><h3>Nordea teke (1990. aastate ühinemised) <a class="cat-src" href="https://en.wikipedia.org/wiki/Nordea" title="allikas">↗</a></h3><p class="cat-summary">Nordea sündis 1990. aastate lõpu ja 2000. aasta Põhjamaade pankade ühinemiste ahelast.</p><ul class="cat-rates"><li>Nordea.com (grupi koduleht): vaata allikat (https://www.nordea.com/en)</li></ul><ul class="cat-details"><li>1997: Soome Merita ja Rootsi Nordbanken moodustasid MeritaNordbankeni</li><li>2000: omandati Taani Unidanmark ja ühineti Norra Christiania Bankiga; sündis nimi Nordea</li><li>2018: peakontor viidi Stockholmist Helsingisse</li><li>Allikas: Wikipedia (Nordea)</li></ul></div></section>
+<section class="card"><h2>Soome (FI) — säästmine ja hoiused</h2><div class="cat-item"><h3>PerkAccount (Säästötili) <a class="cat-src" href="https://www.nordea.fi/en/personal/our-services/savings-investments/savings-accounts/" title="allikas">↗</a></h3><p class="cat-summary">Paindlik säästukonto puhvri kogumiseks või lühiajaliseks säästmiseks. Vaba sissemakse ja väljavõtt.</p><ul class="cat-details"><li>Fikseeritud, astmeline (tiered) aastaintress</li><li>Miinimumsissemakset ei ole</li><li>Allikas: nordea.fi</li></ul></div><div class="cat-item"><h3>FlexiDeposit Account (JoustoTalletus) <a class="cat-src" href="https://www.nordea.fi/en/personal/our-services/savings-investments/savings-accounts/flexideposit-account.html" title="allikas">↗</a></h3><p class="cat-summary">Automaatselt uuenev säästukonto. Intress sõltub talletusperioodi pikkusest ja uueneb perioodi lõppedes.</p><ul class="cat-details"><li>Sissemakse vahemik 500–500 000 €</li><li>Väljavõtt võimalik</li><li>Intress muutub perioodi järgi — täpne määr nordea.fi lehel</li><li>Allikas: nordea.fi</li></ul></div><div class="cat-item"><h3>Time Deposit Account (Määräaikaistalletus) <a class="cat-src" href="https://www.nordea.fi/en/personal/our-services/savings-investments/savings-accounts/" title="allikas">↗</a></h3><p class="cat-summary">Fikseeritud intressiga tähtajaline hoius distsiplineeritud säästjale.</p><ul class="cat-details"><li>Miinimumsumma 500 €</li><li>Tähtaeg 1–36 kuud</li><li>Intress lepitakse kokku konto avamisel</li><li>Allikas: nordea.fi</li></ul></div><div class="cat-item"><h3>ASP-konto (kodusäästukonto, esmaostja) <a class="cat-src" href="https://www.nordea.fi/en/personal/our-services/savings-investments/savings-accounts/" title="allikas">↗</a></h3><p class="cat-summary">Riiklikult toetatud kodusäästuskeem esmakordsele kodu ostjale (Soome ASP-süsteem).</p><ul class="cat-rates"><li>1% sissemakseintress + boonusintress tagantjärele tingimuste täitmisel (nordea.fi)</li></ul><ul class="cat-details"><li>Suunatud noortele esmaostjatele (alates 15. eluaastast)</li><li>Igakuine sissemakse vahemikus 50–1500 €</li><li>Säästuperioode vähemalt ~20 kuud</li><li>Allikas: nordea.fi</li></ul></div><div class="cat-item"><h3>Equity savings account (Osakesäästötili) <a class="cat-src" href="https://www.nordea.fi/en/personal/our-services/savings-investments/investments/equity-savings-account.html" title="allikas">↗</a></h3><p class="cat-summary">Soome aktsiasäästukonto investeerimiseks maksusoodustusega.</p><ul class="cat-details"><li>Aktsiatesse investeerimine</li><li>Soome maksuraamistik</li><li>Allikas: nordea.fi</li></ul></div></section>
+<section class="card"><h2>Rootsi (SE) — säästmine (sparkonton)</h2><div class="cat-item"><h3>Sparkonto med fria uttag (endine Förmånskonto) <a class="cat-src" href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/formanskonto.html" title="allikas">↗</a></h3><p class="cat-summary">Vabade väljavõtetega säästukonto Rootsis.</p><ul class="cat-rates"><li>Kuni ~0,10% (sõltub summast) — vaata nordea.se aktuaalseid määrasid</li><li>SE Sparkonto Extra: 0.5% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)</li></ul><ul class="cat-details"><li>Vabad väljavõtted</li><li>Muutuv intress</li><li>Allikas: nordea.se</li></ul></div><div class="cat-item"><h3>Sparkonto Extra <a class="cat-src" href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/" title="allikas">↗</a></h3><p class="cat-summary">Kõrgema intressiga säästukonto, väljavõtul väike viivitus.</p><ul class="cat-rates"><li>~0,50% (kogutud nordea.se ülevaatest, võib muutuda)</li><li>SE Sparkonto Extra: 0.5% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)</li></ul><ul class="cat-details"><li>Vabad väljavõtted 3-päevase viivitusega</li><li>Allikas: nordea.se</li></ul></div><div class="cat-item"><h3>Fasträntekonto (tähtajaline hoius) <a class="cat-src" href="https://www.nordea.se/privat/produkter/spara-investera/sparkonton/" title="allikas">↗</a></h3><p class="cat-summary">Fikseeritud intressiga tähtajaline hoius (3 kk, 6 kk, 1 a, 2 a).</p><ul class="cat-rates"><li>Intressivahemik ~1,75–2,05% sõltuvalt tähtajast (kogutud nordea.se, kontrolli aktuaalset)</li><li>SE Fasträntekonto (min): 1.75% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)</li><li>SE Fasträntekonto (max): 2.3% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)</li></ul><ul class="cat-details"><li>Vahendid lukus seotusperioodiks</li><li>Kindel intress kogu perioodiks</li><li>Allikas: nordea.se</li></ul></div></section>
+<section class="card"><h2>Laenud ja igapäevapangandus (Põhjamaad)</h2><div class="cat-item"><h3>Soome laenud <a class="cat-src" href="https://www.nordea.fi/en/personal/our-services/loans/" title="allikas">↗</a></h3><p class="cat-summary">Asuntolaina (kodulaen), kulutusluotto (tarbimislaen), autolaina Soomes.</p><ul class="cat-details"><li>Kodulaen</li><li>Tarbimislaen</li><li>Autolaen</li><li>Allikas: nordea.fi</li></ul></div><div class="cat-item"><h3>Rootsi laenud (bolån) <a class="cat-src" href="https://www.nordea.se/privat/produkter/lan/" title="allikas">↗</a></h3><p class="cat-summary">Bolån (kodulaen), privatlån, billån Rootsis.</p><ul class="cat-details"><li>Kodulaen kuni 85% kinnisvara väärtusest</li><li>Tagasimakse tähtaeg ~5–50 aastat</li><li>Allikas: nordea.se</li></ul></div><div class="cat-item"><h3>Kontod, kaardid ja kliendiprogrammid <a class="cat-src" href="https://www.nordea.se/privat/produkter/kundprogram/premium.html" title="allikas">↗</a></h3><p class="cat-summary">Pangakontod, deebet- ja krediitkaardid ning kliendiprogrammid (nt Nordea Premium) Põhjamaades.</p><ul class="cat-details"><li>Visa/Mastercard kaardid</li><li>Kliendiprogrammid jõukamatele klientidele</li><li>Allikas: nordea.se, nordea.fi</li></ul></div></section>
+<section class="card"><h2>Hoiuste tagamine</h2><div class="cat-item"><h3>Hoiuste tagatisskeem <a class="cat-src" href="https://www.nordea.fi/en/personal/prices/prices.html" title="allikas">↗</a></h3><p class="cat-summary">Nordea Bank Abp hoiused on kaitstud Soome hoiuste tagatisskeemiga kuni 100 000 € hoiustaja kohta.</p><ul class="cat-details"><li>Soome tagatisskeem kuni 100 000 € hoiustaja kohta</li><li>Rootsi säästukontode puhul nimetatakse nii Rootsi kui Soome hoiusekaitset</li><li>Allikas: nordea.fi, nordea.se</li></ul></div></section>
+<section class="card"><h2>Äriklient (Põhjamaad)</h2><div class="cat-item"><h3>Soome äriklient <a class="cat-src" href="https://www.nordea.fi/en/business/" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte pangateenused Soomes.</p><ul class="cat-details"><li>Ärikonto</li><li>Ärilaen</li><li>Makseteenused</li><li>Allikas: nordea.fi</li></ul></div><div class="cat-item"><h3>Rootsi äriklient <a class="cat-src" href="https://www.nordea.se/foretag/" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte pangateenused Rootsis.</p><ul class="cat-details"><li>Ärikonto</li><li>Faktooring</li><li>Kaardimaksed</li><li>Allikas: nordea.se</li></ul></div></section>
+<section class="card"><h2>Märkused Eesti kontekstis</h2><div class="cat-item"><h3>Eesti = Luminor, mitte Nordea <a class="cat-src" href="https://en.wikipedia.org/wiki/Luminor_Bank" title="allikas">↗</a></h3><p class="cat-summary">Nordea ei ole Eesti erakliendi pank. 2017. aastal ühines Nordea Baltikumi äri DNB Baltikumi äriga ja moodustus Luminor — Eesti kliendid teenindatakse nüüd Luminoris.</p><ul class="cat-rates"><li>Nordea.com (grupi koduleht): vaata allikat (https://www.nordea.com/en)</li></ul><ul class="cat-details"><li>Ühinemine teatati augustis 2016, Luminor alustas tegevust 1. oktoobril 2017</li><li>Ühendati Nordea ja DNB tegevus Eestis, Lätis ja Leedus</li><li>Nordea omas algselt enamust majanduslikest õigustest; Nordea väljus täielikult 2019 (osalus müüdi Blackstone juhitud konsortsiumile)</li><li>Eesti klient ei saa avada Nordea EE kontot — pöörduda tuleb Luminori poole</li><li>Allikas: news.err.ee/611090, Wikipedia (Luminor Bank)</li></ul></div><div class="cat-item"><h3>Andmete kasutus</h3><p class="cat-summary">Selles kataloogis olevad tooted ja intressid kehtivad Põhjamaade turgudel (FI/SE) ning on toodud viiteks ja võrdluseks. Need EI OLE Eestis kättesaadavad.</p><ul class="cat-details"><li>Ei kuulu minuraha.ee Eesti baromeetrisse</li><li>Intressid ja tingimused erinevad riigiti (FI vs SE)</li><li>Aktuaalseid määrasid kontrolli vastava riigi Nordea lehel</li><li>Eesti pangateenuste jaoks vaata Luminor</li></ul></div></section>
+    </div>
   </div>
 </body>
 </html>

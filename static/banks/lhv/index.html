@@ -3,83 +3,97 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LHV — avaliku info kogumine</title>
+  <title>LHV — avalik pangainfo | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --card: #fff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --accent: #1e494d;
-      --accent-soft: #eaf6ec;
-      --border: #d8e0e8;
-      --positive: #1b7f4a;
-      --warn-bg: #fff8e6;
-      --warn-border: #e8c96a;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      background: var(--bg);
+      --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
+      --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --page-bg:#F4F8F5;
+      --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 1.5rem; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.35rem; }
-    .lead { color: var(--muted); margin: 0 0 1rem; }
-    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
-    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
-    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { color: var(--muted); font-size: 0.85rem; }
-    .rate { color: var(--positive); font-weight: 700; }
-    a { color: var(--accent); }
-    .back { display: inline-block; margin-bottom: 1rem; }
-    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
-    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
+    .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.55rem; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:2.5rem 0 1.75rem; }
+    .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); font-size:1.02rem; margin:.6rem 0 0; max-width:60ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pill { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.85rem; font-weight:600; }
+    .section { padding:1.75rem 0 3.5rem; }
+    section.card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    section.warn { background:var(--warn-bg); border-color:var(--warn-border); box-shadow:none; }
+    h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:.55rem .45rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.82rem; font-weight:600; }
+    .rate { color:var(--positive); font-weight:700; }
+    ul { margin:0; padding-left:1.2rem; }
+    .cat-lead { font-weight:700; font-size:1.25rem; color:var(--maroon); margin:1.5rem 0 .75rem; letter-spacing:-.01em; }
+    .cat-item { padding:.6rem 0; border-bottom:1px solid var(--line); }
+    .cat-item:last-child { border-bottom:0; }
+    .cat-item h3 { margin:0 0 .25rem; font-size:.98rem; }
+    .cat-summary { margin:0 0 .4rem; color:var(--muted); font-size:.92rem; }
+    .cat-rates, .cat-details { margin:.2rem 0 .4rem; }
+    .cat-rates li { font-size:.9rem; }
+    .cat-details li { font-size:.88rem; color:var(--muted); }
+    .cat-src { text-decoration:none; font-size:.9rem; }
+    @media (max-width:560px){ .hero h1 { font-size:1.6rem; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/banks/">← kõik pangad</a>
-    <div class="bank-header">
-      <img class="bank-logo" src="/banks/logos/lhv.svg" alt="LHV" width="160" height="40" />
-      <h1>LHV</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://genofin.ee/">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#76FB8D"/><path d="M9 22V17M16 22V10M23 22V14" stroke="#0D2022" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <span class="brand-name">Finovo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/banks/" class="back-link">&#8592; Kõik pangad</a>
+      </div>
     </div>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
-    <div class="meta">
-      <span class="pill">Kogutud: 30.6.2026, 03:35:14</span>
-      <span class="pill">3 rida</span>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-head">
+        <img class="hero-logo" src="/banks/logos/lhv.svg" alt="LHV" />
+        <h1>LHV</h1>
+      </div>
+      <p class="lead">Avalikult kogutud tooteinfo, intressid ja hinnakirjad.</p>
+      <div class="meta"><span class="pill">Uuendatud: 3.8.2026, 16:47:40</span></div>
     </div>
-    <section class="warn"><h2>Märkused</h2><ul><li>LHV veebileht blokeerib automaatse päringu (403) — kasutatud minuraha.ee baromeetrit</li></ul></section>
-    <section>
-      <h2>Allikad</h2>
-      <ul><li><strong>fallback</strong>: <a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter</a> — FI baromeeter</li>
-<li><strong>reference</strong>: <a href="https://www.lhv.ee/et/hoiused">https://www.lhv.ee/et/hoiused</a> — panga hoiuste leht</li>
-<li><strong>reference</strong>: <a href="https://www.lhv.ee/et/era/pangateenuste-hinnakiri">https://www.lhv.ee/et/era/pangateenuste-hinnakiri</a> — hinnakiri</li></ul>
-    </section>
-    <section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
-          <td>Tähtajaline hoius 12 kuu (baromeeter), min 100 €</td>
-          <td class="rate">2,10%</td>
-          <td>—</td>
-          <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
-        </tr></tbody></table></section>
-    <section><h2>Arvelduskontod</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
-          <td>Arvelduskonto (baromeeter), min 18000 €</td>
-          <td class="rate">0,01%</td>
-          <td>—</td>
-          <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
-        </tr></tbody></table></section>
-    <section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
-          <td>Pangateenuste hinnakiri</td>
-          <td class="rate">—</td>
-          <td>—</td>
-          <td><a href="https://www.lhv.ee/et/era/pangateenuste-hinnakiri">allikas</a></td>
-        </tr></tbody></table></section>
+  </section>
+  <div class="section">
+    <div class="container">
+      
+      <section class="card"><h2>Allikad</h2><ul><li><strong>reference</strong>: <a href="https://www.lhv.ee/et/tahtajaline-hoius">https://www.lhv.ee/et/tahtajaline-hoius</a> — tähtajaline hoius</li>
+<li><strong>reference</strong>: <a href="https://www.lhv.ee/et/kogumiskonto">https://www.lhv.ee/et/kogumiskonto</a> — kogumiskonto</li>
+<li><strong>reference</strong>: <a href="https://www.lhv.ee/et/hinnakiri">https://www.lhv.ee/et/hinnakiri</a> — hinnakiri</li></ul></section>
+      
+      
+      
+      <p class="cat-lead">Tootekataloog</p>
+<section class="card"><h2>Hoiused ja säästmine</h2><div class="cat-item"><h3>Tähtajaline hoius <a class="cat-src" href="https://www.lhv.ee/et/tahtajaline-hoius" title="allikas">↗</a></h3><p class="cat-summary">Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta.</p><ul class="cat-rates"><li>EUR 1 kuu 1,80% (lhv.ee/tahtajaline-hoius)</li><li>EUR 3 kuud 2,05% (lhv.ee/tahtajaline-hoius)</li><li>EUR 6 kuud 2,15% (lhv.ee/tahtajaline-hoius)</li><li>EUR 9 kuud 2,15% (lhv.ee/tahtajaline-hoius)</li><li>EUR 12 kuud 2,20% (lhv.ee/tahtajaline-hoius)</li><li>EUR 15 kuud 2,20% (lhv.ee/tahtajaline-hoius)</li><li>EUR 18 kuud 2,20% (lhv.ee/tahtajaline-hoius)</li><li>EUR 24 kuud 2,20% (lhv.ee/tahtajaline-hoius)</li><li>USD 12 kuud 1,50% (lhv.ee/tahtajaline-hoius)</li></ul><ul class="cat-details"><li>Min summa EUR 100 €, USD 500 $ (lhv.ee/tahtajaline-hoius)</li><li>Intress makstakse tähtaja lõpus või igakuiselt</li><li>Pikemad perioodid (36/60 kuud) ei olnud lehel kuvatud — täpne määr: lhv.ee/tahtajaline-hoius</li></ul></div><div class="cat-item"><h3>Kogumiskonto <a class="cat-src" href="https://www.lhv.ee/et/kogumiskonto" title="allikas">↗</a></h3><p class="cat-summary">Paindlik kogumiskonto eesmärgipõhiseks säästmiseks, väljavõtt igal ajal ilma teenustasuta.</p><ul class="cat-rates"><li>Intress 1,65% aastas (lhv.ee/kogumiskonto)</li></ul><ul class="cat-details"><li>Intressi teenitakse alates 109,10 € jäägist (lhv.ee/kogumiskonto)</li><li>Intress arvestatakse päevapõhiselt, makstakse igakuiselt</li><li>Ühekordsed sissemaksed, püsikorraldused või mikrosäästmine</li><li>Väljavõtt igal ajal ilma teenustasuta</li></ul></div><div class="cat-item"><h3>Nõudmiseni hoius / arvelduskonto intress <a class="cat-src" href="https://www.lhv.ee/et/noudmiseni-hoius" title="allikas">↗</a></h3><p class="cat-summary">Intress arvelduskonto jäägilt nõudmiseni hoiuse tingimustel.</p><ul class="cat-rates"><li>Eraisik 0,01% aastas (lhv.ee/noudmiseni-hoius)</li><li>Juriidiline isik 0,8% aastas summalt üle 20 000 € (lhv.ee/noudmiseni-hoius)</li></ul><ul class="cat-details"><li>Eraisikul intress alates 18 000 € jäägilt arvelduskontol (lhv.ee/noudmiseni-hoius)</li><li>Ettevõttel intress jäägilt üle 20 000 €</li><li>Intress makstakse järgmise kuu 5. kuupäeval</li><li>Premium-kliendil arvelduskonto intress 1% kuni 100 000 € jäägilt (lhv.ee/premium)</li></ul></div><div class="cat-item"><h3>Investeerimine <a class="cat-src" href="https://www.lhv.ee/et/vaartpaberikonto" title="allikas">↗</a></h3><p class="cat-summary">Aktsiad, ETF-id, fondid, obligatsioonid. LHV Trader platvorm.</p><ul class="cat-rates"><li>Balti väärtpaberid: kuni 100 tehingut kuus tasuta, edasi 0,2% tehingu summast (lhv.ee/hinnakiri)</li><li>Välisaktsiad (nt USA, Saksa): teenustasu 0,14% tehingu summast, min 9 € (lhv.ee/hinnakiri)</li><li>Balti väärtpaberite hoidmine tasuta</li></ul><ul class="cat-details"><li>LHV Trader veeb ja mobiil</li><li>LHV pensionifondid ja kolmandate osapoolte fondid</li><li>Väärtpaberikonto ja investeerimiskonto</li><li>USA aktsiate dividend maksustatakse 15% (lubatud madalam määr)</li><li>Mõnel turul lisandub tehingumaks (nt Prantsusmaa 0,4%, UK 0,5%)</li></ul></div><div class="cat-item"><h3>Pension (II ja III sammas) <a class="cat-src" href="https://www.lhv.ee/et/pension" title="allikas">↗</a></h3><p class="cat-summary">II samba pensionifondid ja III samba vabatahtlik pension.</p><ul class="cat-details"><li>LHV pensionifondide valik</li><li>III samba maksusoodustus</li><li>Pensionikalkulaator veebis</li></ul></div><div class="cat-item"><h3>Lapsele konto ja säästmine <a class="cat-src" href="https://www.lhv.ee/et/era/lapsele-konto" title="allikas">↗</a></h3><p class="cat-summary">Lapsele arvelduskonto ja säästmislahendused.</p><ul class="cat-details"><li>Vanemate kontroll</li><li>Säästmine lapse tulevikuks</li></ul></div></section>
+<section class="card"><h2>Igapäevapangandus – paketid</h2><div class="cat-item"><h3>Tavakliendi konto <a class="cat-src" href="https://www.lhv.ee/et/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Põhipakett igapäevaseks panganduseks. Konto avamine ja haldamine tasuta.</p><ul class="cat-rates"><li>Konto avamine ja haldamine tasuta (lhv.ee/hinnakiri)</li><li>Deebet- või krediitkaart 1 €/kuu (lhv.ee/hinnakiri)</li><li>SEPA makse internetis tasuta</li></ul><ul class="cat-details"><li>Deebetkaart</li><li>Internetipank ja mobiilipank</li></ul></div><div class="cat-item"><h3>Premium <a class="cat-src" href="https://www.lhv.ee/et/premium" title="allikas">↗</a></h3><p class="cat-summary">Laiendatud teenuste pakett reisikindlustuse ja lisahüvedega.</p><ul class="cat-rates"><li>Kuutasu 20 €/kuu (lhv.ee/premium)</li><li>Üks Premium deebet- või krediitkaart tasuta</li><li>Kindlustustooted 20% soodsamalt (kodu, kasko, reis)</li><li>Arvelduskonto intress 1% kuni 100 000 € jäägilt</li><li>Säästukonto määr 0,5% kõrgem standardhinnast</li></ul><ul class="cat-details"><li>Pere reisikindlustus</li><li>Priority Pass lennujaama ootesaal (kaaslane 35 €/in)</li><li>Fast Track turvakontroll (kaardiomanikule tasuta)</li><li>Rendiauto kindlustus</li><li>Kodulaen ja liising lepingutasuta</li><li>Balti väärtpaberite hoidmine tasuta</li></ul></div><div class="cat-item"><h3>Privaatpangandus <a class="cat-src" href="https://www.lhv.ee/et/privaatpangandus" title="allikas">↗</a></h3><p class="cat-summary">Personaalne privaatpanganduse teenus kõrgeima teenustaseme jaoks.</p><ul class="cat-rates"><li>Kuutasu 100 €/kuu (lhv.ee/hinnakiri)</li></ul><ul class="cat-details"><li>Eeldab vähemalt 100 000 € likviidseid varasid (lhv.ee/hinnakiri)</li><li>Personaalne kliendihaldur</li><li>Premium-paketi hüved</li></ul></div><div class="cat-item"><h3>Noorte pakett <a class="cat-src" href="https://www.lhv.ee/et/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Eritingimused noortele (kuni 26 a.).</p><ul class="cat-rates"><li>Deebetkaart alla 26-aastasele tasuta (lhv.ee/hinnakiri)</li><li>Alates 65-aastasel deebetkaart tasuta</li></ul><ul class="cat-details"><li>Tasuta arveldus</li><li>LHV noortepakett</li></ul></div><div class="cat-item"><h3>Lapse konto <a class="cat-src" href="https://www.lhv.ee/et/lapse-konto" title="allikas">↗</a></h3><p class="cat-summary">Lapsele arvelduskonto taskuraha ja säästmiseks.</p><ul class="cat-details"><li>Vanem saab jälgida tehinguid</li><li>Kaart lapsele võimalik</li><li>(täpsed tasud: lhv.ee/hinnakiri — leht andis 403)</li></ul></div></section>
+<section class="card"><h2>Kaardid ja maksed</h2><div class="cat-item"><h3>Deebetkaart <a class="cat-src" href="https://www.lhv.ee/et/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Visa deebetkaart, Apple Pay, Google Pay, Garmin Pay.</p><ul class="cat-rates"><li>Standardne deebetkaart 1 €/kuu (lhv.ee/hinnakiri)</li><li>Kuldkaart 7 €/kuu</li><li>Premium-kaart 15 €/kuu (Premium-lepinguga tasuta)</li><li>Alla 26-a ja alates 65-a tasuta</li></ul><ul class="cat-details"><li>Virtuaalkaart võimalik</li><li>Ostukaitse</li><li>Pettusekaitse 24/7</li></ul></div><div class="cat-item"><h3>Krediitkaart <a class="cat-src" href="https://www.lhv.ee/et/era-krediitkaart" title="allikas">↗</a></h3><p class="cat-summary">Visa krediitkaart koos ostukindlustuse ja reisikindlustusega.</p><ul class="cat-rates"><li>Intress 18% aastas (lhv.ee/era-krediitkaart)</li><li>Krediidi kulukuse määr (KKM) 19,15% aastas (lhv.ee/era-krediitkaart)</li><li>Erakliendi krediitkaart 1 €/kuu, kuldkaart 7 €/kuu</li><li>Intressivaba periood: erakliendi kaart 22 päeva, kuld-/partnerkaart kuni 40 päeva</li></ul><ul class="cat-details"><li>Krediidilimiit sõltub sissetulekust (kuni ~2 kuu palk)</li><li>Intressivaba periood</li></ul></div><div class="cat-item"><h3>Maksed <a class="cat-src" href="https://www.lhv.ee/et/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">SEPA maksed, kiirmaksed, püsikorraldused, välismaa maksed.</p><ul class="cat-rates"><li>SEPA makse internetis tasuta (väljuv ja laekuv) (lhv.ee/hinnakiri)</li><li>Pangasisene makse tasuta</li><li>Välismaksed (SWIFT) ~7–32 € sõltuvalt kulutüübist</li><li>Sularaha LHV automaadist tasuta, üle 2000 €/kuus 0,3%</li><li>Teise panga automaadist (Eesti) 1 € + 0,3% üle 2000 €/kuus</li><li>Sularaha välismaal 2 € + 2,5%</li></ul><ul class="cat-details"><li>SEPA Instant</li><li>Püsikorraldused</li><li>Välismaa maksed SWIFT</li></ul></div><div class="cat-item"><h3>Nutimaksed <a class="cat-src" href="https://www.lhv.ee/et/era/kaardid" title="allikas">↗</a></h3><p class="cat-summary">Apple Pay, Google Pay, Garmin Pay, Fitbit Pay.</p></div></section>
+<section class="card"><h2>Laenud (eraklient)</h2><div class="cat-item"><h3>Kodulaen <a class="cat-src" href="https://www.lhv.ee/et/kodulaen" title="allikas">↗</a></h3><p class="cat-summary">Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine.</p><ul class="cat-rates"><li>Intress = individuaalne marginaal + 6 kuu euribor (lhv.ee/kodulaen)</li><li>Uue A-/B-energiaklassi kodu (rohelaen) alates 1,49% + 6 kuu euribor (lhv.ee/kodulaen)</li><li>Üürikodu (üürikinnisvara) laen alates 1,89% + 6 kuu euribor (lhv.ee/kodulaen)</li><li>Lepingutasu 0,5–0,9% laenusummast, min 300 € (lhv.ee/kodulaen)</li></ul><ul class="cat-details"><li>Laenusumma alates 20 000 €, kuni 85% vara turuväärtusest (lhv.ee/kodulaen)</li><li>Periood kuni 30 aastat</li><li>Omafinantseering vähemalt 15% (KredEx käendusega alates 10%)</li><li>Lasterikkale perele (3+ last alla 19 a) omafinantseering alates 5% KredEx käendusega (2% tasu)</li><li>Esimene pakkumine 24 tunni jooksul</li><li>Maksepuhkus kuni 12 kuud, ennetähtaegne tagastus tasuta</li></ul></div><div class="cat-item"><h3>Väikelaen <a class="cat-src" href="https://www.lhv.ee/et/vaikelaen" title="allikas">↗</a></h3><p class="cat-summary">Tagatiseta isiklik laen.</p><ul class="cat-rates"><li>Laenusumma 200–15 000 € (lhv.ee/vaikelaen)</li><li>Intress personaalne (lhv.ee/vaikelaen)</li><li>Krediidi kulukuse määr (KKM) näidis ~19,67% aastas (lhv.ee/vaikelaen)</li><li>Lepingutasu 2% laenusummast, min 29,90 €</li><li>Haldustasu 3,99 €/kuus</li></ul><ul class="cat-details"><li>Periood: kuni 7500 € puhul 6 kuud – 6 aastat; 7500–15 000 € kuni 10 aastat (lhv.ee/vaikelaen)</li><li>Fikseeritud kuumakse</li><li>Taotlus internetipangas</li></ul></div><div class="cat-item"><h3>Autolaen <a class="cat-src" href="https://www.lhv.ee/et/autolaen" title="allikas">↗</a></h3><p class="cat-summary">Sõiduki soetamiseks uuele või kasutatud autole.</p><ul class="cat-rates"><li>Laenusumma 200–25 000 € (lhv.ee/autolaen)</li><li>Intress personaalne</li><li>Lepingutasu 2% laenusummast, min 29,90 €</li><li>Haldustasu 3,99 €/kuus</li></ul><ul class="cat-details"><li>Sissemakse ei ole kohustuslik</li><li>Periood 6 kuud – 10 aastat</li><li>Liising alternatiivina</li></ul></div><div class="cat-item"><h3>Liising <a class="cat-src" href="https://www.lhv.ee/et/autolaen" title="allikas">↗</a></h3><p class="cat-summary">Finants- ja kapitaliliising sõidukitele.</p><ul class="cat-rates"><li>Liisingusumma alates 5000 € (lhv.ee/autolaen)</li><li>Intress = personaalne marginaal + 6 kuu euribor</li><li>Sissemakse vähemalt 10% vara hinnast</li><li>Lepingutasu 1% vara hinnast, min 150 €</li></ul><ul class="cat-details"><li>Periood 6 kuud – 7 aastat</li><li>Kapitali- ja operatiivliising</li></ul></div><div class="cat-item"><h3>Krediidikonto / krediitkaardi limiit <a class="cat-src" href="https://www.lhv.ee/et/era-krediitkaart" title="allikas">↗</a></h3><p class="cat-summary">Paindlik krediit igapäevaseks kasutuseks.</p><ul class="cat-rates"><li>Intress 18% aastas (lhv.ee/hinnakiri, otsingutulemus)</li><li>Limiit kuni ~2 kuu palk</li></ul><ul class="cat-details"><li>Intress ainult kasutatud summalt</li><li>Intressivaba periood 22–40 päeva</li></ul></div><div class="cat-item"><h3>Õppelaen <a class="cat-src" href="https://www.lhv.ee/et/laenud" title="allikas">↗</a></h3><p class="cat-summary">Õpingute finantseerimine.</p><ul class="cat-details"><li>(täpsed tingimused: lhv.ee — leht/info piiratud)</li></ul></div></section>
+<section class="card"><h2>Kindlustus</h2><div class="cat-item"><h3>Reisikindlustus <a class="cat-src" href="https://www.lhv.ee/et/kindlustus/reisikindlustus" title="allikas">↗</a></h3><p class="cat-summary">Reisikindlustus Premium-paketis või eraldi.</p><ul class="cat-rates"><li>Premium-kliendile kindlustustooted 20% soodsamalt (lhv.ee/premium)</li></ul><ul class="cat-details"><li>Meditsiin, pagas, reisi tühistamine</li><li>Premium-paketis pere reisikindlustus</li></ul></div><div class="cat-item"><h3>Kodukindlustus <a class="cat-src" href="https://www.lhv.ee/et/kindlustus/kodukindlustus" title="allikas">↗</a></h3><p class="cat-summary">Kodu, koduvara ja vastutuskindlustus.</p><ul class="cat-details"><li>Erinevad kaitsetasemed</li><li>Kodulaenu puhul nõutav</li></ul></div><div class="cat-item"><h3>Liiklus- ja kaskokindlustus <a class="cat-src" href="https://www.lhv.ee/et/kindlustus" title="allikas">↗</a></h3><p class="cat-summary">Sõiduki kindlustuslahendused LHV keskkonnas.</p><ul class="cat-details"><li>Võrdle pakkumisi</li><li>Liisingu puhul kasko</li></ul></div><div class="cat-item"><h3>Õnnetusjuhtumi kindlustus <a class="cat-src" href="https://www.lhv.ee/et/kindlustus" title="allikas">↗</a></h3><p class="cat-summary">Trahvide ja invaliidsuse kaitse.</p></div><div class="cat-item"><h3>Elukindlustus <a class="cat-src" href="https://www.lhv.ee/et/kindlustus" title="allikas">↗</a></h3><p class="cat-summary">Elukindlustus pere kaitsmiseks.</p></div></section>
+<section class="card"><h2>Kampaaniad ja pakkumised</h2><div class="cat-item"><h3>LHV pakkumised <a class="cat-src" href="https://www.lhv.ee/et/era/pakkumised" title="allikas">↗</a></h3><p class="cat-summary">Aeg-ajalt kampaaniad uutele ja olemasolevatele klientidele.</p><ul class="cat-details"><li>Muutuvad tingimused</li><li>Jälgi lhv.ee pakkumiste lehte</li></ul></div><div class="cat-item"><h3>Investeerimiskampaaniad <a class="cat-src" href="https://www.lhv.ee/et/investeerimine" title="allikas">↗</a></h3><p class="cat-summary">Soodustused tehingutasudel või uutele investoritele.</p><ul class="cat-details"><li>LHV Trader kampaaniad</li></ul></div></section>
+<section class="card"><h2>Äriklient</h2><div class="cat-item"><h3>Ärikonto <a class="cat-src" href="https://www.lhv.ee/et/ariklient" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte arveldus ja igapäevapangandus.</p><ul class="cat-details"><li>SEPA maksed</li><li>Mitme kasutaja ligipääs</li><li>API integratsioonid</li></ul></div><div class="cat-item"><h3>Äripaketid <a class="cat-src" href="https://www.lhv.ee/et/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Erineva mahuga äripaketid.</p><ul class="cat-rates"><li>Juriidilise isiku arvelduskonto intress 0,8% aastas summalt üle 20 000 € (lhv.ee/noudmiseni-hoius)</li><li>(täpsed kuutasud: lhv.ee/hinnakiri — ärikliendi paketihinnad ei olnud automaatpäringule kättesaadavad)</li></ul><ul class="cat-details"><li>Kuutasu sõltub mahust</li><li>Tasuta maksed teatud mahus</li></ul></div><div class="cat-item"><h3>Ärilaen ja liising <a class="cat-src" href="https://www.lhv.ee/et/ariklient/laenud" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte finantseerimine, käibekapital, investeeringud.</p><ul class="cat-details"><li>MES kaasfinantseerimine</li><li>Kinnisvara tagatisel laenud</li></ul></div><div class="cat-item"><h3>Makseteenused <a class="cat-src" href="https://www.lhv.ee/et/ariklient/makseteenused" title="allikas">↗</a></h3><p class="cat-summary">Kaardimaksed, e-kaubandus, POS terminalid.</p><ul class="cat-details"><li>Visa/Mastercard kaupmehele</li><li>E-arved ja arvemaksed</li></ul></div><div class="cat-item"><h3>Investeerimispangandus <a class="cat-src" href="https://www.lhv.ee/et/ariklient" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte väärtpaberite haldus ja finantseerimine.</p><ul class="cat-details"><li>IPO ja võlakirjad</li><li>Suuremate ettevõtete nõustamine</li></ul></div><div class="cat-item"><h3>Fintech ja startup <a class="cat-src" href="https://www.lhv.ee/et/ariklient" title="allikas">↗</a></h3><p class="cat-summary">LHV on tuntud fintech- ja startup-kliendid.</p><ul class="cat-details"><li>Kiire konto avamine</li><li>API ja Open Banking</li></ul></div></section>
+<section class="card"><h2>Tingimused ja info</h2><div class="cat-item"><h3>Pangateenuste hinnakiri <a class="cat-src" href="https://www.lhv.ee/et/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Erakliendi teenuste hinnakiri.</p><ul class="cat-details"><li>Pakettide kuutasud</li><li>Kaartide tasud</li><li>Maksete hinnad</li></ul></div><div class="cat-item"><h3>Tingimused <a class="cat-src" href="https://www.lhv.ee/et/tingimused" title="allikas">↗</a></h3><p class="cat-summary">Üldtingimused ja infolehed.</p><ul class="cat-details"><li>Privaatsuspoliitika</li><li>Teenuse tingimused</li></ul></div><div class="cat-item"><h3>Pangakontorid <a class="cat-src" href="https://www.lhv.ee/et/kontakt" title="allikas">↗</a></h3><p class="cat-summary">Kontorite asukohad ja lahtiolekuajad.</p><ul class="cat-details"><li>Tallinn, Tartu</li><li>Videokohtumine võimalik</li></ul></div><div class="cat-item"><h3>Open Banking <a class="cat-src" href="https://developers.lhv.ee" title="allikas">↗</a></h3><p class="cat-summary">LHV avatud panganduse (PSD2) API arendajatele — Berliini grupi standard, nõuab litsentseeritud TPP-d ja eIDAS QWAC serte.</p></div><div class="cat-item"><h3>LHV.ai — pangaandmed AI-assistendis <a class="cat-src" href="https://lhv.ai" title="allikas">↗</a></h3><p class="cat-summary">Ühenda oma LHV konto AI-assistendiga (MCP või REST API) — kontod, saldod ja tehingud loetavad otse tehisintellekti tööriistas.</p><ul class="cat-details"><li>Read-only: assistent EI saa makseid teha ega andmeid muuta</li><li>Autentimine OAuth2 + Smart-ID; õigused valid ise (accounts:read ja/või transactions:read)</li><li>REST API https://api.lhv.ai/api/v1 (GET /accounts, /accounts/{iban}/transactions); MCP https://mcp.lhv.ai/mcp</li><li>Ligipääs kehtib 30 päeva; saab igal ajal tühistada internetipangas (Seaded → Aktiivsed sessioonid)</li><li>Tokenid saab https://api.lhv.ai/api-access (Smart-ID login)</li></ul></div></section>
+    </div>
   </div>
 </body>
 </html>

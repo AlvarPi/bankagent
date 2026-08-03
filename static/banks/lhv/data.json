@@ -2,54 +2,27 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "lhv",
   "name": "LHV",
-  "fetchedAt": "2026-06-30T00:35:14.801Z",
-  "generatedAt": "2026-06-30T00:35:20.936Z",
+  "fetchedAt": "2026-08-03T13:47:40.462Z",
+  "generatedAt": "2026-08-03T13:47:46.463Z",
   "sources": [
     {
-      "kind": "fallback",
-      "url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "note": "FI baromeeter"
+      "kind": "reference",
+      "url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "note": "tähtajaline hoius"
     },
     {
       "kind": "reference",
-      "url": "https://www.lhv.ee/et/hoiused",
-      "note": "panga hoiuste leht"
+      "url": "https://www.lhv.ee/et/kogumiskonto",
+      "note": "kogumiskonto"
     },
     {
       "kind": "reference",
-      "url": "https://www.lhv.ee/et/era/pangateenuste-hinnakiri",
+      "url": "https://www.lhv.ee/et/hinnakiri",
       "note": "hinnakiri"
     }
   ],
-  "warnings": [
-    "LHV veebileht blokeerib automaatse päringu (403) — kasutatud minuraha.ee baromeetrit"
-  ],
-  "rates": [
-    {
-      "product_type": "deposit",
-      "label": "Tähtajaline hoius 12 kuu (baromeeter), min 100 €",
-      "rate_percent": 2.1,
-      "fee_cents": null,
-      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 25.05.2026"
-    },
-    {
-      "product_type": "account",
-      "label": "Arvelduskonto (baromeeter), min 18000 €",
-      "rate_percent": 0.01,
-      "fee_cents": null,
-      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 28.07.2023"
-    },
-    {
-      "product_type": "fee",
-      "label": "Pangateenuste hinnakiri",
-      "rate_percent": null,
-      "fee_cents": null,
-      "source_url": "https://www.lhv.ee/et/era/pangateenuste-hinnakiri",
-      "raw_text": "lhv-collect: hinnakiri link"
-    }
-  ],
+  "warnings": [],
+  "rates": [],
   "links": {
     "html": "/banks/lhv/",
     "json": "/banks/lhv/data.json"
@@ -65,14 +38,15 @@
             "url": "https://www.lhv.ee/et/tahtajaline-hoius",
             "summary": "Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta.",
             "rates": [
-              "EUR 1 kuu 1,70% (lhv.ee/tahtajaline-hoius)",
+              "EUR 1 kuu 1,80% (lhv.ee/tahtajaline-hoius)",
               "EUR 3 kuud 2,05% (lhv.ee/tahtajaline-hoius)",
-              "EUR 6 kuud 2,10% (lhv.ee/tahtajaline-hoius)",
-              "EUR 9 kuud 2,10% (lhv.ee/tahtajaline-hoius)",
-              "EUR 12 kuud 2,10% (lhv.ee/tahtajaline-hoius)",
-              "EUR 15–24 kuud 2,10% (lhv.ee/tahtajaline-hoius)",
-              "USD 12 kuud 1,50% (lhv.ee/tahtajaline-hoius)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2.1% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "EUR 6 kuud 2,15% (lhv.ee/tahtajaline-hoius)",
+              "EUR 9 kuud 2,15% (lhv.ee/tahtajaline-hoius)",
+              "EUR 12 kuud 2,20% (lhv.ee/tahtajaline-hoius)",
+              "EUR 15 kuud 2,20% (lhv.ee/tahtajaline-hoius)",
+              "EUR 18 kuud 2,20% (lhv.ee/tahtajaline-hoius)",
+              "EUR 24 kuud 2,20% (lhv.ee/tahtajaline-hoius)",
+              "USD 12 kuud 1,50% (lhv.ee/tahtajaline-hoius)"
             ],
             "details": [
               "Min summa EUR 100 €, USD 500 $ (lhv.ee/tahtajaline-hoius)",
@@ -100,8 +74,7 @@
             "summary": "Intress arvelduskonto jäägilt nõudmiseni hoiuse tingimustel.",
             "rates": [
               "Eraisik 0,01% aastas (lhv.ee/noudmiseni-hoius)",
-              "Juriidiline isik 0,8% aastas summalt üle 20 000 € (lhv.ee/noudmiseni-hoius)",
-              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Juriidiline isik 0,8% aastas summalt üle 20 000 € (lhv.ee/noudmiseni-hoius)"
             ],
             "details": [
               "Eraisikul intress alates 18 000 € jäägilt arvelduskontol (lhv.ee/noudmiseni-hoius)",
@@ -144,9 +117,6 @@
             "details": [
               "Vanemate kontroll",
               "Säästmine lapse tulevikuks"
-            ],
-            "rates": [
-              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           }
         ]
@@ -161,8 +131,7 @@
             "rates": [
               "Konto avamine ja haldamine tasuta (lhv.ee/hinnakiri)",
               "Deebet- või krediitkaart 1 €/kuu (lhv.ee/hinnakiri)",
-              "SEPA makse internetis tasuta",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.lhv.ee/et/era/pangateenuste-hinnakiri)"
+              "SEPA makse internetis tasuta"
             ],
             "details": [
               "Deebetkaart",
@@ -178,8 +147,7 @@
               "Üks Premium deebet- või krediitkaart tasuta",
               "Kindlustustooted 20% soodsamalt (kodu, kasko, reis)",
               "Arvelduskonto intress 1% kuni 100 000 € jäägilt",
-              "Säästukonto määr 0,5% kõrgem standardhinnast",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.lhv.ee/et/era/pangateenuste-hinnakiri)"
+              "Säästukonto määr 0,5% kõrgem standardhinnast"
             ],
             "details": [
               "Pere reisikindlustus",
@@ -209,8 +177,7 @@
             "summary": "Eritingimused noortele (kuni 26 a.).",
             "rates": [
               "Deebetkaart alla 26-aastasele tasuta (lhv.ee/hinnakiri)",
-              "Alates 65-aastasel deebetkaart tasuta",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.lhv.ee/et/era/pangateenuste-hinnakiri)"
+              "Alates 65-aastasel deebetkaart tasuta"
             ],
             "details": [
               "Tasuta arveldus",
@@ -225,9 +192,6 @@
               "Vanem saab jälgida tehinguid",
               "Kaart lapsele võimalik",
               "(täpsed tasud: lhv.ee/hinnakiri — leht andis 403)"
-            ],
-            "rates": [
-              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           }
         ]
@@ -256,7 +220,8 @@
             "url": "https://www.lhv.ee/et/era-krediitkaart",
             "summary": "Visa krediitkaart koos ostukindlustuse ja reisikindlustusega.",
             "rates": [
-              "Intress 18% aastas (lhv.ee/hinnakiri, otsingutulemus)",
+              "Intress 18% aastas (lhv.ee/era-krediitkaart)",
+              "Krediidi kulukuse määr (KKM) 19,15% aastas (lhv.ee/era-krediitkaart)",
               "Erakliendi krediitkaart 1 €/kuu, kuldkaart 7 €/kuu",
               "Intressivaba periood: erakliendi kaart 22 päeva, kuld-/partnerkaart kuni 40 päeva"
             ],
@@ -300,6 +265,7 @@
             "rates": [
               "Intress = individuaalne marginaal + 6 kuu euribor (lhv.ee/kodulaen)",
               "Uue A-/B-energiaklassi kodu (rohelaen) alates 1,49% + 6 kuu euribor (lhv.ee/kodulaen)",
+              "Üürikodu (üürikinnisvara) laen alates 1,89% + 6 kuu euribor (lhv.ee/kodulaen)",
               "Lepingutasu 0,5–0,9% laenusummast, min 300 € (lhv.ee/kodulaen)"
             ],
             "details": [
@@ -317,7 +283,8 @@
             "summary": "Tagatiseta isiklik laen.",
             "rates": [
               "Laenusumma 200–15 000 € (lhv.ee/vaikelaen)",
-              "Intress personaalne, näidis alates ~5,9% (lhv.ee/vaikelaen)",
+              "Intress personaalne (lhv.ee/vaikelaen)",
+              "Krediidi kulukuse määr (KKM) näidis ~19,67% aastas (lhv.ee/vaikelaen)",
               "Lepingutasu 2% laenusummast, min 29,90 €",
               "Haldustasu 3,99 €/kuus"
             ],
@@ -389,8 +356,7 @@
             "url": "https://www.lhv.ee/et/kindlustus/reisikindlustus",
             "summary": "Reisikindlustus Premium-paketis või eraldi.",
             "rates": [
-              "Premium-kliendile kindlustustooted 20% soodsamalt (lhv.ee/premium)",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.lhv.ee/et/era/pangateenuste-hinnakiri)"
+              "Premium-kliendile kindlustustooted 20% soodsamalt (lhv.ee/premium)"
             ],
             "details": [
               "Meditsiin, pagas, reisi tühistamine",
@@ -445,9 +411,6 @@
             "summary": "Soodustused tehingutasudel või uutele investoritele.",
             "details": [
               "LHV Trader kampaaniad"
-            ],
-            "rates": [
-              "Pangateenuste hinnakiri: vaata allikat (https://www.lhv.ee/et/era/pangateenuste-hinnakiri)"
             ]
           }
         ]
@@ -463,9 +426,6 @@
               "SEPA maksed",
               "Mitme kasutaja ligipääs",
               "API integratsioonid"
-            ],
-            "rates": [
-              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           },
           {
@@ -524,15 +484,12 @@
         "items": [
           {
             "name": "Pangateenuste hinnakiri",
-            "url": "https://www.lhv.ee/et/era/pangateenuste-hinnakiri",
-            "summary": "Erakliendi teenuste hinnakiri (PDF).",
+            "url": "https://www.lhv.ee/et/hinnakiri",
+            "summary": "Erakliendi teenuste hinnakiri.",
             "details": [
               "Pakettide kuutasud",
               "Kaartide tasud",
               "Maksete hinnad"
-            ],
-            "rates": [
-              "Pangateenuste hinnakiri: vaata allikat (https://www.lhv.ee/et/era/pangateenuste-hinnakiri)"
             ]
           },
           {
@@ -542,9 +499,6 @@
             "details": [
               "Privaatsuspoliitika",
               "Teenuse tingimused"
-            ],
-            "rates": [
-              "Pangateenuste hinnakiri: vaata allikat (https://www.lhv.ee/et/era/pangateenuste-hinnakiri)"
             ]
           },
           {
@@ -559,7 +513,19 @@
           {
             "name": "Open Banking",
             "url": "https://developers.lhv.ee",
-            "summary": "LHV avatud panganduse API arendajatele."
+            "summary": "LHV avatud panganduse (PSD2) API arendajatele — Berliini grupi standard, nõuab litsentseeritud TPP-d ja eIDAS QWAC serte."
+          },
+          {
+            "name": "LHV.ai — pangaandmed AI-assistendis",
+            "url": "https://lhv.ai",
+            "summary": "Ühenda oma LHV konto AI-assistendiga (MCP või REST API) — kontod, saldod ja tehingud loetavad otse tehisintellekti tööriistas.",
+            "details": [
+              "Read-only: assistent EI saa makseid teha ega andmeid muuta",
+              "Autentimine OAuth2 + Smart-ID; õigused valid ise (accounts:read ja/või transactions:read)",
+              "REST API https://api.lhv.ai/api/v1 (GET /accounts, /accounts/{iban}/transactions); MCP https://mcp.lhv.ai/mcp",
+              "Ligipääs kehtib 30 päeva; saab igal ajal tühistada internetipangas (Seaded → Aktiivsed sessioonid)",
+              "Tokenid saab https://api.lhv.ai/api-access (Smart-ID login)"
+            ]
           }
         ]
       }

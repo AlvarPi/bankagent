@@ -6,7 +6,6 @@ import { collectAll } from './banks/index.js';
 import { buildBankPreviewHtml, buildBanksIndexHtml } from './banks/_shared/preview.js';
 import { writeKnowledgeFile, saveKnowledgeSnapshots } from './banks/_shared/knowledge-store.js';
 import { buildBankKnowledge, buildKnowledgeIndex } from './banks/knowledge.js';
-import { buildCoopPreviewHtml } from './banks/coop/overview.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATIC_BANKS = join(__dirname, '..', 'static', 'banks');
@@ -23,10 +22,9 @@ async function main() {
     const bankDir = join(STATIC_BANKS, data.slug);
     await mkdir(bankDir, { recursive: true });
     const knowledge = buildBankKnowledge(data);
-    const html =
-      data.slug === 'coop'
-        ? buildCoopPreviewHtml(data)
-        : buildBankPreviewHtml(data, /** @type {any} */ (knowledge).catalog);
+    // Kõik pangad sama Finovo-šablooniga. Coopil oli varem oma buildCoopPreviewHtml,
+    // mis jättis lehe vanasse stiili — kataloogi kuju on ühine, eritingimust ei vaja.
+    const html = buildBankPreviewHtml(data, /** @type {any} */ (knowledge).catalog);
     await writeFile(join(bankDir, 'index.html'), html, 'utf8');
 
     await writeKnowledgeFile(bankDir, knowledge);

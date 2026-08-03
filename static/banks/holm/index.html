@@ -3,67 +3,86 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Holm Bank — avaliku info kogumine</title>
+  <title>Holm Bank — avalik pangainfo | Finovo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
-      --bg: #f4f6f8;
-      --card: #fff;
-      --text: #1a2332;
-      --muted: #5c6b7a;
-      --accent: #1e494d;
-      --accent-soft: #eaf6ec;
-      --border: #d8e0e8;
-      --positive: #1b7f4a;
-      --warn-bg: #fff8e6;
-      --warn-border: #e8c96a;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.5;
-      color: var(--text);
-      background: var(--bg);
+      --teal:#1F4C50; --teal-dark:#0D2022; --green:#76FB8D; --lime-soft:#EAFEDB;
+      --maroon:#581824; --ink:#14241F; --muted:#51625C; --bg:#FFFFFF; --soft:#F4F8F4;
+      --page-bg:#F4F8F5;
+      --line:#E3EAE5; --positive:#1b7f4a; --warn-bg:#fff8e6; --warn-border:#e8c96a;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 1.5rem; }
-    .wrap { max-width: 960px; margin: 0 auto; }
-    h1 { margin: 0 0 0.35rem; }
-    .lead { color: var(--muted); margin: 0 0 1rem; }
-    .meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .pill { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 0.9rem; }
-    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem; margin-bottom: 1rem; }
-    section.warn { background: var(--warn-bg); border-color: var(--warn-border); }
-    h2 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { text-align: left; padding: 0.55rem 0.45rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    th { color: var(--muted); font-size: 0.85rem; }
-    .rate { color: var(--positive); font-weight: 700; }
-    a { color: var(--accent); }
-    .back { display: inline-block; margin-bottom: 1rem; }
-    .bank-header { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.35rem; }
-    .bank-logo { max-height: 40px; max-width: 180px; object-fit: contain; }
-    ul { margin: 0; padding-left: 1.2rem; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--page-bg); line-height:1.5; }
+    .container { max-width:1080px; margin:0 auto; padding:0 1.5rem; }
+    a { color:var(--teal); }
+    .site-header { position:sticky; top:0; z-index:70; background:rgba(31,76,80,.96); backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,.08); }
+    .nav { display:flex; align-items:center; gap:1.5rem; padding:.85rem 0; }
+    .brand { display:inline-flex; align-items:center; gap:.55rem; }
+    .brand-name { font-weight:800; color:#fff; font-size:1.3rem; letter-spacing:-.02em; line-height:1; }
+    .nav-actions { margin-left:auto; display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .back-link { display:inline-flex; align-items:center; gap:.45rem; padding:.5rem 1.1rem; border:1px solid rgba(255,255,255,.3); border-radius:999px; color:#dff3e6; font-weight:600; font-size:.92rem; transition:border-color .14s,color .14s; }
+    .back-link:hover { border-color:var(--green); color:var(--green); }
+    .hero { background:linear-gradient(180deg,var(--soft) 0%,var(--page-bg) 75%); padding:2.5rem 0 1.75rem; }
+    .hero-head { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+    .hero-logo { max-height:52px; max-width:200px; object-fit:contain; }
+    .hero h1 { font-weight:700; font-size:2rem; letter-spacing:-.02em; color:var(--maroon); margin:0; }
+    .hero .lead { color:var(--muted); font-size:1.02rem; margin:.6rem 0 0; max-width:60ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.9rem; }
+    .pill { background:var(--lime-soft); color:var(--teal); border:1px solid var(--line); border-radius:999px; padding:.3rem .85rem; font-size:.85rem; font-weight:600; }
+    .section { padding:1.75rem 0 3.5rem; }
+    section.card { background:var(--bg); border:1px solid var(--line); border-radius:16px; padding:1.2rem 1.35rem; margin-bottom:1.1rem; box-shadow:0 4px 18px rgba(20,36,31,.05); }
+    section.warn { background:var(--warn-bg); border-color:var(--warn-border); box-shadow:none; }
+    h2 { margin:0 0 .8rem; font-size:1.08rem; color:var(--teal); }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:.55rem .45rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--muted); font-size:.82rem; font-weight:600; }
+    .rate { color:var(--positive); font-weight:700; }
+    ul { margin:0; padding-left:1.2rem; }
+    .cat-lead { font-weight:700; font-size:1.25rem; color:var(--maroon); margin:1.5rem 0 .75rem; letter-spacing:-.01em; }
+    .cat-item { padding:.6rem 0; border-bottom:1px solid var(--line); }
+    .cat-item:last-child { border-bottom:0; }
+    .cat-item h3 { margin:0 0 .25rem; font-size:.98rem; }
+    .cat-summary { margin:0 0 .4rem; color:var(--muted); font-size:.92rem; }
+    .cat-rates, .cat-details { margin:.2rem 0 .4rem; }
+    .cat-rates li { font-size:.9rem; }
+    .cat-details li { font-size:.88rem; color:var(--muted); }
+    .cat-src { text-decoration:none; font-size:.9rem; }
+    @media (max-width:560px){ .hero h1 { font-size:1.6rem; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <a class="back" href="/banks/">← kõik pangad</a>
-    <div class="bank-header">
-      <img class="bank-logo" src="/banks/logos/holm.svg" alt="Holm Bank" width="160" height="40" />
-      <h1>Holm Bank</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="https://genofin.ee/">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#76FB8D"/><path d="M9 22V17M16 22V10M23 22V14" stroke="#0D2022" stroke-width="3.2" stroke-linecap="round"/></svg>
+        <span class="brand-name">Finovo</span>
+      </a>
+      <div class="nav-actions">
+        <a href="/banks/" class="back-link">&#8592; Kõik pangad</a>
+      </div>
     </div>
-    <p class="lead">Avalikult kogutud intressid ja viited hinnakirjadele.</p>
-    <div class="meta">
-      <span class="pill">Kogutud: 30.6.2026, 03:35:18</span>
-      <span class="pill">4 rida</span>
+  </header>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-head">
+        <img class="hero-logo" src="/banks/logos/holm.svg" alt="Holm Bank" />
+        <h1>Holm Bank</h1>
+      </div>
+      <p class="lead">Avalikult kogutud tooteinfo, intressid ja hinnakirjad.</p>
+      <div class="meta"><span class="pill">Uuendatud: 3.8.2026, 16:47:44</span></div>
     </div>
-    
-    <section>
-      <h2>Allikad</h2>
-      <ul><li><strong>primary</strong>: <a href="https://www.holmbank.ee/et/eraklient/hoius">https://www.holmbank.ee/et/eraklient/hoius</a> — hoius leht</li>
+  </section>
+  <div class="section">
+    <div class="container">
+      
+      <section class="card"><h2>Allikad</h2><ul><li><strong>primary</strong>: <a href="https://www.holmbank.ee/et/eraklient/hoius">https://www.holmbank.ee/et/eraklient/hoius</a> — hoius leht</li>
 <li><strong>fallback</strong>: <a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter</a> — FI baromeeter</li>
 <li><strong>reference</strong>: <a href="https://www.holmbank.ee/et/eraklient/hinnakiri">https://www.holmbank.ee/et/eraklient/hinnakiri</a> — hinnakiri</li>
-<li><strong>reference</strong>: <a href="https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf">https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf</a> — hoiustaja teabeleht</li></ul>
-    </section>
-    <section><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+<li><strong>reference</strong>: <a href="https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf">https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf</a> — hoiustaja teabeleht</li></ul></section>
+      <section class="card"><h2>Hoiused</h2><table><thead><tr><th>Toode</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Tähtajaline hoius (kuni, veebileht)</td>
           <td class="rate">3,00%</td>
           <td>—</td>
@@ -75,8 +94,8 @@
           <td>—</td>
           <td><a href="https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter">allikas</a></td>
         </tr></tbody></table></section>
-    
-    <section><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
+      
+      <section class="card"><h2>Tasud / hinnakirjad</h2><table><thead><tr><th>Kirje</th><th>Intress</th><th>Tasu</th><th>Allikas</th></tr></thead><tbody><tr>
           <td>Hinnakiri</td>
           <td class="rate">—</td>
           <td>—</td>
@@ -88,6 +107,13 @@
           <td>—</td>
           <td><a href="https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf">allikas</a></td>
         </tr></tbody></table></section>
+      <p class="cat-lead">Tootekataloog</p>
+<section class="card"><h2>Hoiused</h2><div class="cat-item"><h3>Tähtajaline hoius <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/hoius" title="allikas">↗</a></h3><p class="cat-summary">Fikseeritud intressiga tähtajaline hoius. Minimaalne summa 100 €, periood 1–60 kuud. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta (koos kogunenud intressiga). Allikas: https://www.holmbank.ee/hoiused</p><ul class="cat-rates"><li>Intressitabel (kehtiv alates 08.06.2026, allikas: https://www.holmbank.ee/hoiused):</li><li>1–2 kuud: 2,30% aastas</li><li>3–5 kuud: 2,40% aastas</li><li>6–8 kuud: 2,50% aastas</li><li>9–11 kuud: 2,60% aastas</li><li>12–17 kuud: 2,70% aastas</li><li>18–23 kuud: 2,70% aastas</li><li>24–35 kuud: 2,80% aastas</li><li>36–47 kuud: 2,80% aastas</li><li>48–59 kuud: 2,90% aastas</li><li>60 kuud: 3,00% aastas</li><li>Tähtajaline hoius (kuni, veebileht): 3% (https://www.holmbank.ee/et/eraklient/hoius)</li><li>Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2.7% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)</li></ul><ul class="cat-details"><li>Minimaalne hoiusumma: 100 € (allikas: https://www.holmbank.ee/hoiused)</li><li>Periood: 1–60 kuud (allikas: https://www.holmbank.ee/hoiused)</li><li>Intress makstakse tähtaja lõpus või iga-aastaselt (iga-aastane makse vaid 12+ kuu perioodide puhul) (allikas: https://www.holmbank.ee/hoiused)</li><li>Intressiarvestus: 365-päevane aasta, tegelike päevade alusel (allikas: https://www.holmbank.ee/hoiused)</li><li>Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta (allikas: https://www.holmbank.ee/hoiused)</li><li>Avamine internetipangas või kontoris</li></ul></div><div class="cat-item"><h3>Hoiustaja teabeleht <a class="cat-src" href="https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf" title="allikas">↗</a></h3><p class="cat-summary">Hoiustaja infoleht tingimuste, riskide ja intresside kohta (PDF).</p><ul class="cat-rates"><li>Hoiustaja teabeleht (PDF): vaata allikat (https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf)</li></ul><ul class="cat-details"><li>Kehtivad tingimused ja riskid</li><li>Tagatisfondi info</li></ul></div></section>
+<section class="card"><h2>Laenud (eraklient)</h2><div class="cat-item"><h3>Väikelaen <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen" title="allikas">↗</a></h3><p class="cat-summary">Tagatiseta isiklik väikelaen kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen</p><ul class="cat-rates"><li>Fikseeritud intress: alates 7,9% aastas (kampaania kuni 13.07.2026) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)</li><li>Krediidi kulukuse määr (näide): 19,79% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)</li></ul><ul class="cat-details"><li>Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)</li><li>Periood: 6–120 kuud (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)</li><li>Lepingutasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)</li><li>Kuine haldustasu: 0,99 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)</li><li>Näidisarvutus: laen 4 500 €, lepingutasu 67,50 €, haldustasu 0,99 €/kuu, periood 48 kuud, fikseeritud intress 9,40% aastas, tagasimakstav kokku 6 289,64 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)</li></ul></div><div class="cat-item"><h3>Kodulaen <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen" title="allikas">↗</a></h3><p class="cat-summary">Kinnisvara ostmine, ehitus, renoveerimine. Laenusumma alates 25 000 €, kuni 30 aastat. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen</p><ul class="cat-rates"><li>Intress: 6 kuu EURIBOR + personaalne intressimarginaal (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li><li>Krediidi kulukuse määr (näide): 6,63% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li></ul><ul class="cat-details"><li>Minimaalne laenusumma: 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li><li>Maksimaalne summa: kuni 85% kinnisvara väärtusest, KredEx/EIS tagatisega kuni 90% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li><li>Maksimaalne periood: 30 aastat (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li><li>Lepingutasu: 1% laenusummast, min. 150 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li><li>Haldustasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li><li>Omafinantseering: min 15% (10% EIS tagatisega, 0% lisatagatisega) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li><li>Näide: laen 70 000 €, periood 25 aastat, lepingutasu 700 €, marginaal 4% + 6 kuu EURIBOR 2,244% (11.04.2025 seisuga), KKM 6,63% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)</li><li>Kodukindlustus nõutav</li></ul></div><div class="cat-item"><h3>Autolaen <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen" title="allikas">↗</a></h3><p class="cat-summary">Tagatiseta laen sõiduki soetamiseks, kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen</p><ul class="cat-rates"><li>Fikseeritud intress: alates 5,99% aastas (kampaania kuni 31.07.2026) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)</li><li>Krediidi kulukuse määr (näide): 15,74% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)</li></ul><ul class="cat-details"><li>Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)</li><li>Periood: 6–120 kuud (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)</li><li>Lepingutasu: 2% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)</li><li>Haldustasu: 0,15% kuus, min 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)</li><li>Näidisarvutus: laen 4 500 €, lepingutasu 90 €, haldustasu 6,75 €, periood 48 kuud, tagasimakstav kokku 5 998,56 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)</li><li>Tagatiseta laen; kindlustus If P&amp;C Insurance AS kaudu</li></ul></div><div class="cat-item"><h3>Refinantseerimislaen <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen" title="allikas">↗</a></h3><p class="cat-summary">Olemasolevate laenude ühendamine, kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen</p><ul class="cat-rates"><li>Intress: alates 5,99% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)</li><li>Krediidi kulukuse määr (näide): 19,79% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)</li></ul><ul class="cat-details"><li>Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)</li><li>Periood: 6–120 kuud (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)</li><li>Lepingutasu: alates 50 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)</li><li>Haldustasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)</li><li>Näidisarvutus: laen 4 500 €, lepingutasu 67,50 €, haldustasu 0,99 €, periood 48 kuud, fikseeritud intress 9,40% aastas, tagasimakstav kokku 6 289,64 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)</li></ul></div><div class="cat-item"><h3>Järelmaks (Liisi) <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/jarelmaks" title="allikas">↗</a></h3><p class="cat-summary">Järelmaks partnerite poodides ja e-poodides üle Eesti, summa kuni 25 000 €, periood kuni 10 aastat. Allikas: https://www.holmbank.ee/et/eraklient/jarelmaks</p><ul class="cat-details"><li>Maksimaalne summa: 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks)</li><li>Maksimaalne periood: kuni 10 aastat (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks)</li><li>Liisi järelmaks: partnerite kampaaniad, nt 0% intress 3 osamaksega (lepingutasu 9,90 €), 0% intress 6 kuuks (min 12-kuuline leping) (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks)</li><li>Liisi Pluss: kasutatav ükskõik kus, ükskõik millise toote/teenuse eest; raha kantakse kliendi kontole; otsus minutitega (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks/liisipluss)</li><li>Tavatingimuste intressi/tasusid lehel ei avaldata — vt leping</li></ul></div><div class="cat-item"><h3>Krediidikonto <a class="cat-src" href="https://www.holmbank.ee/et/eraklient" title="allikas">↗</a></h3><p class="cat-summary">Paindlik krediidikonto igapäevaseks kasutuseks. Konkreetsed tingimused vt holmbank.ee.</p><ul class="cat-rates"><li>Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)</li></ul><ul class="cat-details"><li>Intress ainult kasutatud summalt</li></ul></div></section>
+<section class="card"><h2>Igapäevapangandus</h2><div class="cat-item"><h3>Krediitkaart <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/krediitkaart" title="allikas">↗</a></h3><p class="cat-summary">Krediitkaart krediidilimiidiga kuni 5 000 €, lepingu- ja kuutasu 0 €, 15 päeva intressivaba periood. Allikas: https://www.holmbank.ee/et/eraklient/krediitkaart</p><ul class="cat-rates"><li>Intress: alates 1,2% kuus (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)</li><li>Krediidi kulukuse määr (näide): 36,89% aastas (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)</li></ul><ul class="cat-details"><li>Krediidilimiit: kuni 5 000 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)</li><li>Lepingu- ja kuutasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)</li><li>Intressivaba periood: 15 päeva (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)</li><li>KKM näide: limiit 2 000 €, fikseeritud intress 30% aastas, tagasimakse 12 kuuga, makstav kokku 2 605,19 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)</li><li>Kaardi tasud hinnakirjas: uuendamine/sulgemine tasuta, asendamine 10 €, sularaha väljavõtt Eestis/Euroopas 2 €, valuutatehing 1% tehingu summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)</li></ul></div><div class="cat-item"><h3>Arvelduskonto <a class="cat-src" href="https://www.holmbank.ee/et/eraklient" title="allikas">↗</a></h3><p class="cat-summary">Põhiarvelduskonto interneti- ja mobiilipangaga.</p><ul class="cat-details"><li>SEPA maksed</li><li>Püsikorraldused</li><li>Kuutasu: vt hinnakiri https://www.holmbank.ee/et/eraklient/hinnakiri</li></ul></div><div class="cat-item"><h3>Internetipank ja mobiilipank <a class="cat-src" href="https://www.holmbank.ee/et/eraklient" title="allikas">↗</a></h3><p class="cat-summary">Holm Bank internetipank ja mobiilipank.</p><ul class="cat-details"><li>Smart-ID, Mobile-ID</li><li>Tehingute ajalugu</li><li>SEPA maksed ja ülekanded</li></ul></div></section>
+<section class="card"><h2>Äriklient</h2><div class="cat-item"><h3>Investeerimislaen <a class="cat-src" href="https://www.holmbank.ee/et/ariklient/laenud/investeerimislaen" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte investeeringute finantseerimine. Konkreetsed tingimused vt holmbank.ee.</p><ul class="cat-rates"><li>Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)</li></ul></div><div class="cat-item"><h3>Limiidilaen <a class="cat-src" href="https://www.holmbank.ee/et/ariklient/laenud/limiidilaen" title="allikas">↗</a></h3><p class="cat-summary">Käibekapitali finantseerimine krediidilimiidina. Konkreetsed tingimused vt holmbank.ee.</p><ul class="cat-rates"><li>Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)</li></ul></div><div class="cat-item"><h3>Laen põllumaa tagatisel <a class="cat-src" href="https://www.holmbank.ee/et/ariklient/laen-pollumaa-tagatisel" title="allikas">↗</a></h3><p class="cat-summary">Laen põllumajandusmaa tagatisel. Konkreetsed tingimused vt holmbank.ee.</p><ul class="cat-rates"><li>Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)</li></ul></div><div class="cat-item"><h3>Äriliising <a class="cat-src" href="https://www.holmbank.ee/et/ariklient/liising" title="allikas">↗</a></h3><p class="cat-summary">Ettevõtte liising sõidukitele ja seadmetele.</p><ul class="cat-details"><li>Finantsliising</li><li>Operatiivliising</li></ul></div></section>
+<section class="card"><h2>Tingimused ja info</h2><div class="cat-item"><h3>Hinnakiri <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/hinnakiri" title="allikas">↗</a></h3><p class="cat-summary">Erakliendi ja ärikliendi teenuste hinnakiri.</p><ul class="cat-rates"><li>Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)</li></ul><ul class="cat-details"><li>Krediitkaart: kuu-/uuendamis-/sulgemistasu tasuta, asendamine 10 € (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)</li><li>Sularaha väljavõtt Eestis/Euroopas: 2 €; väljaspool Euroopat 2 € + 2,6% summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)</li><li>Valuutatehing: 1% tehingu summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)</li><li>Saldopäring/muu sularahaautomaadi tehing: 0,47 € (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)</li></ul></div><div class="cat-item"><h3>Korduma kippuvad küsimused <a class="cat-src" href="https://www.holmbank.ee/et/eraklient/kkk" title="allikas">↗</a></h3><p class="cat-summary">Korduma kippuvad küsimused toodete ja teenuste kohta.</p></div><div class="cat-item"><h3>Kontakt ja pangakontorid <a class="cat-src" href="https://www.holmbank.ee/et/kontakt" title="allikas">↗</a></h3><p class="cat-summary">Kontaktinfo ja pangakontorid.</p><ul class="cat-details"><li>Tallinn, Tartu</li><li>Klienditugi</li></ul></div><div class="cat-item"><h3>Meist <a class="cat-src" href="https://www.holmbank.ee/et/meist" title="allikas">↗</a></h3><p class="cat-summary">Holm Bank AS ülevaade — Eesti kapitalil põhinev pank.</p></div></section>
+    </div>
   </div>
 </body>
 </html>

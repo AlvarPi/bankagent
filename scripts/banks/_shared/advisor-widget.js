@@ -22,11 +22,20 @@ export function buildAdvisorWidgetHtml() {
       </header>
       <div class="advisor-messages" id="advisor-messages" role="log" aria-relevant="additions"></div>
       <form class="advisor-form" id="advisor-form">
-        <label class="visually-hidden" for="advisor-input">Küsimus</label>
-        <textarea id="advisor-input" rows="2" placeholder="Küsi pangade intresside või teenuste kohta…" required></textarea>
-        <button type="submit" id="advisor-send">Saada</button>
+        <div class="advisor-files" id="advisor-files" hidden></div>
+        <div class="advisor-form-row">
+          <label class="visually-hidden" for="advisor-input">Küsimus</label>
+          <textarea id="advisor-input" rows="2" placeholder="Küsi pangade kohta… või lisa fail (📎 / lohista siia)"></textarea>
+          <div class="advisor-form-btns">
+            <button type="button" class="advisor-attach" id="advisor-attach" title="Lisa fail (CSV, TXT, JSON, MD…)" aria-label="Lisa fail">&#128206;</button>
+            <button type="submit" id="advisor-send">Saada</button>
+          </div>
+        </div>
+        <input type="file" id="advisor-file" class="visually-hidden" multiple
+          accept=".csv,.tsv,.txt,.json,.md,.xml,.html,.log,.ofx,.qif,.yml,.yaml,.ini,.conf,text/*,application/json,application/xml" />
       </form>
       <p class="advisor-status" id="advisor-status" hidden></p>
+      <div class="advisor-drop" id="advisor-drop" hidden><span>Lase fail siia</span></div>
       <div class="advisor-resize" id="advisor-resize" title="Venita akna suurust" aria-hidden="true"></div>
     </div>
   </div>
@@ -80,7 +89,9 @@ export function buildAdvisorWidgetHtml() {
     .advisor-msg.user { align-self: flex-end; background: #1e494d; color: #fff; border-bottom-right-radius: 3px; }
     .advisor-msg.assistant { align-self: flex-start; background: #f4f6f8; color: #1a2332; border: 1px solid #d8e0e8; border-bottom-left-radius: 3px; }
     .advisor-msg.error { align-self: stretch; background: #fff8e6; color: #8a5a00; border: 1px solid #e8c96a; }
-    .advisor-form { display: flex; gap: 0.5rem; padding: 0.65rem; border-top: 1px solid #d8e0e8; background: #fff; }
+    .advisor-form { display: flex; flex-direction: column; gap: 0.45rem; padding: 0.65rem; border-top: 1px solid #d8e0e8; background: #fff; }
+    .advisor-form-row { display: flex; gap: 0.5rem; }
+    .advisor-form-btns { display: flex; flex-direction: column; justify-content: flex-end; gap: 0.3rem; }
     .advisor-form textarea {
       flex: 1; resize: none; border: 1px solid #d8e0e8; border-radius: 8px;
       padding: 0.5rem 0.6rem; font: inherit; font-size: 0.9rem;
@@ -91,6 +102,32 @@ export function buildAdvisorWidgetHtml() {
       border-radius: 8px; padding: 0.5rem 0.85rem; font: inherit; cursor: pointer;
     }
     .advisor-form button:disabled { opacity: 0.55; cursor: not-allowed; }
+    .advisor-attach {
+      background: #eaf6ec !important; color: #1e494d !important; border: 1px solid #d8e0e8 !important;
+      padding: 0.35rem 0.55rem !important; font-size: 1rem; line-height: 1;
+    }
+    .advisor-attach:hover { background: #dcefdf !important; }
+    .advisor-files { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .advisor-files[hidden] { display: none; }
+    .advisor-chip {
+      display: inline-flex; align-items: center; gap: 0.35rem; max-width: 100%;
+      background: #eaf6ec; border: 1px solid #cfe3d3; border-radius: 999px;
+      padding: 0.2rem 0.3rem 0.2rem 0.6rem; font-size: 0.78rem; color: #1a2332;
+    }
+    .advisor-chip .advisor-chip-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 15rem; }
+    .advisor-chip .advisor-chip-size { color: #5c6b7a; flex: 0 0 auto; }
+    .advisor-chip button {
+      all: unset; cursor: pointer; width: 1.15rem; height: 1.15rem; border-radius: 50%;
+      display: grid; place-items: center; color: #5c6b7a; font-size: 0.95rem; line-height: 1; flex: 0 0 auto;
+    }
+    .advisor-chip button:hover { background: rgba(0,0,0,0.09); color: #1a2332; }
+    .advisor-msg .advisor-msg-files { display: block; margin-top: 0.35rem; font-size: 0.78rem; opacity: 0.85; }
+    .advisor-drop {
+      position: absolute; inset: 0; z-index: 10; display: grid; place-items: center;
+      background: rgba(234, 246, 236, 0.94); border: 2px dashed #1e494d; border-radius: 12px;
+      color: #1e494d; font-weight: 600; pointer-events: none;
+    }
+    .advisor-drop[hidden] { display: none; }
     .advisor-status { margin: 0; padding: 0 0.75rem 0.65rem; font-size: 0.8rem; color: #5c6b7a; }
     .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
   </style>
@@ -110,6 +147,10 @@ export function buildAdvisorWidgetHtml() {
     var input = document.getElementById('advisor-input');
     var sendBtn = document.getElementById('advisor-send');
     var statusEl = document.getElementById('advisor-status');
+    var attachBtn = document.getElementById('advisor-attach');
+    var fileInput = document.getElementById('advisor-file');
+    var filesEl = document.getElementById('advisor-files');
+    var dropEl = document.getElementById('advisor-drop');
 
     // Isiklik LHV-võti URL-i hash'ist (#a=...). Ainult omanik teab; avalikul lehel puudub.
     var ADVISOR_KEY = (function () {
@@ -165,13 +206,176 @@ export function buildAdvisorWidgetHtml() {
       statusEl.textContent = text;
     }
 
-    function appendMessage(role, content, extraClass) {
+    function appendMessage(role, content, extraClass, fileNames) {
       var div = document.createElement('div');
       div.className = 'advisor-msg ' + role + (extraClass ? ' ' + extraClass : '');
       div.textContent = content;
+      if (fileNames && fileNames.length) {
+        var note = document.createElement('span');
+        note.className = 'advisor-msg-files';
+        note.textContent = '📎 ' + fileNames.join(', ');
+        div.appendChild(note);
+      }
       messagesEl.appendChild(div);
       messagesEl.scrollTop = messagesEl.scrollHeight;
     }
+
+    /* ---- Failide lisamine: loetakse brauseris tekstiks ja saadetakse sõnumi sees ---- */
+    var MAX_FILES = 5;
+    var MAX_FILE_BYTES = 512 * 1024;
+    var MAX_TEXT_CHARS = 60000;
+    var TEXT_EXT = /\\.(csv|tsv|txt|json|md|markdown|xml|html?|log|ofx|qif|ya?ml|ini|conf)$/i;
+
+    /** @type {{ name: string, size: number, text: string, truncated: boolean }[]} */
+    var attachments = [];
+
+    function humanSize(n) {
+      if (n < 1024) return n + ' B';
+      if (n < 1024 * 1024) return Math.round(n / 1024) + ' KB';
+      return (n / 1048576).toFixed(1) + ' MB';
+    }
+
+    function looksTextual(file) {
+      if (TEXT_EXT.test(file.name)) return true;
+      var t = (file.type || '').toLowerCase();
+      return t.indexOf('text/') === 0 || t === 'application/json' || t === 'application/xml';
+    }
+
+    function renderFiles() {
+      filesEl.textContent = '';
+      filesEl.hidden = attachments.length === 0;
+      attachments.forEach(function (att, i) {
+        var chip = document.createElement('span');
+        chip.className = 'advisor-chip';
+
+        var name = document.createElement('span');
+        name.className = 'advisor-chip-name';
+        name.textContent = att.name;
+
+        var size = document.createElement('span');
+        size.className = 'advisor-chip-size';
+        size.textContent = humanSize(att.size) + (att.truncated ? ' · lühendatud' : '');
+
+        var rm = document.createElement('button');
+        rm.type = 'button';
+        rm.title = 'Eemalda';
+        rm.setAttribute('aria-label', 'Eemalda ' + att.name);
+        rm.textContent = '×';
+        rm.addEventListener('click', function () {
+          attachments.splice(i, 1);
+          renderFiles();
+        });
+
+        chip.appendChild(name);
+        chip.appendChild(size);
+        chip.appendChild(rm);
+        filesEl.appendChild(chip);
+      });
+    }
+
+    function readAsText(file) {
+      return new Promise(function (resolve, reject) {
+        var fr = new FileReader();
+        fr.onload = function () { resolve(String(fr.result || '')); };
+        fr.onerror = function () { reject(fr.error || new Error('lugemine ebaõnnestus')); };
+        fr.readAsText(file, 'utf-8');
+      });
+    }
+
+    function addFiles(list) {
+      var incoming = Array.prototype.slice.call(list || []);
+      if (!incoming.length) return;
+
+      var errors = [];
+      var queue = [];
+
+      incoming.forEach(function (file) {
+        if (attachments.length + queue.length >= MAX_FILES) {
+          errors.push(file.name + ' — korraga saab lisada kuni ' + MAX_FILES + ' faili.');
+        } else if (!looksTextual(file)) {
+          errors.push(file.name + ' — ainult tekstifailid (CSV, TXT, JSON, MD, XML…). PDF/Excel ekspordi enne CSV-ks.');
+        } else if (file.size > MAX_FILE_BYTES) {
+          errors.push(file.name + ' — liiga suur (' + humanSize(file.size) + '), piir on ' + humanSize(MAX_FILE_BYTES) + '.');
+        } else {
+          queue.push(file);
+        }
+      });
+
+      if (errors.length) appendMessage('error', errors.join('\\n'), 'error');
+      if (!queue.length) return;
+
+      setStatus('Loen faile…');
+      Promise.all(
+        queue.map(function (file) {
+          return readAsText(file).then(
+            function (text) {
+              var truncated = text.length > MAX_TEXT_CHARS;
+              return {
+                name: file.name,
+                size: file.size,
+                text: truncated ? text.slice(0, MAX_TEXT_CHARS) : text,
+                truncated: truncated
+              };
+            },
+            function (err) {
+              appendMessage('error', file.name + ' — ' + (err && err.message ? err.message : 'lugemine ebaõnnestus'), 'error');
+              return null;
+            }
+          );
+        })
+      ).then(function (read) {
+        read.forEach(function (att) { if (att) attachments.push(att); });
+        renderFiles();
+        setStatus('');
+        input.focus();
+      });
+    }
+
+    attachBtn.addEventListener('click', function () { fileInput.click(); });
+    fileInput.addEventListener('change', function () {
+      addFiles(fileInput.files);
+      fileInput.value = '';
+    });
+
+    /* ---- Lohista fail aknasse ---- */
+    var dragDepth = 0;
+
+    function hasFiles(ev) {
+      var dt = ev.dataTransfer;
+      if (!dt || !dt.types) return false;
+      return Array.prototype.indexOf.call(dt.types, 'Files') !== -1;
+    }
+
+    panel.addEventListener('dragenter', function (ev) {
+      if (!hasFiles(ev)) return;
+      ev.preventDefault();
+      dragDepth++;
+      dropEl.hidden = false;
+    });
+    panel.addEventListener('dragover', function (ev) {
+      if (!hasFiles(ev)) return;
+      ev.preventDefault();
+      ev.dataTransfer.dropEffect = 'copy';
+    });
+    panel.addEventListener('dragleave', function () {
+      dragDepth = Math.max(0, dragDepth - 1);
+      if (dragDepth === 0) dropEl.hidden = true;
+    });
+    panel.addEventListener('drop', function (ev) {
+      if (!hasFiles(ev)) return;
+      ev.preventDefault();
+      dragDepth = 0;
+      dropEl.hidden = true;
+      addFiles(ev.dataTransfer.files);
+    });
+
+    // Avatud akna kõrvale kukutamine ei tohi brauserit failile navigeerida
+    ['dragover', 'drop'].forEach(function (type) {
+      document.addEventListener(type, function (ev) {
+        if (panel.hidden || panel.contains(ev.target)) return;
+        ev.preventDefault();
+      });
+    });
 
     toggle.addEventListener('click', function () {
       setOpen(panel.hidden);
@@ -286,14 +490,27 @@ export function buildAdvisorWidgetHtml() {
       if (busy) return;
 
       var text = input.value.trim();
-      if (!text) return;
+      if (!text && !attachments.length) return;
+
+      var sent = attachments.slice();
+      var payload = text;
+      sent.forEach(function (att) {
+        if (!payload) payload = 'Vaata lisatud fail(id) üle ja tee kokkuvõte.';
+        payload +=
+          '\\n\\n--- fail: ' + att.name + ' (' + humanSize(att.size) +
+          (att.truncated ? ', lühendatud esimese ' + MAX_TEXT_CHARS + ' märgini' : '') +
+          ') ---\\n' + att.text + '\\n--- fail lõpp: ' + att.name + ' ---';
+      });
 
       input.value = '';
-      history.push({ role: 'user', content: text });
-      appendMessage('user', text);
+      attachments = [];
+      renderFiles();
+      history.push({ role: 'user', content: payload });
+      appendMessage('user', text || '(fail lisatud)', '', sent.map(function (a) { return a.name; }));
 
       busy = true;
       sendBtn.disabled = true;
+      attachBtn.disabled = true;
       var startedAt = Date.now();
       setStatus('Laen vastust… 0 s');
       var elapsedTimer = setInterval(function () {
@@ -362,6 +579,7 @@ export function buildAdvisorWidgetHtml() {
           clearInterval(elapsedTimer);
           busy = false;
           sendBtn.disabled = false;
+          attachBtn.disabled = false;
           input.focus();
         });
     });
