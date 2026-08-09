@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "wise",
   "name": "Wise",
-  "fetchedAt": "2026-08-03T13:47:43.925Z",
-  "generatedAt": "2026-08-03T13:47:46.478Z",
+  "fetchedAt": "2026-08-09T00:30:32.506Z",
+  "generatedAt": "2026-08-09T00:30:35.082Z",
   "sources": [
     {
       "kind": "primary",
@@ -24,7 +24,7 @@
     {
       "product_type": "account",
       "label": "Wise Interest EUR (muutuv määr)",
-      "rate_percent": 1.98,
+      "rate_percent": 2.02,
       "fee_cents": null,
       "source_url": "https://wise.com/ee/interest/",
       "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
@@ -75,7 +75,7 @@
             "rates": [
               "EUR: 1,98% aastas (peale 0,26% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)",
               "EUR aastatasu: alates 0,26% (wise.com/ee/pricing)",
-              "Wise Interest EUR (muutuv määr): 1.98% (https://wise.com/ee/interest/)",
+              "Wise Interest EUR (muutuv määr): 2.02% (https://wise.com/ee/interest/)",
               "Wise Interest aastatasu (ligikaudu): 0.26% (https://wise.com/ee/interest/)"
             ],
             "details": [
@@ -92,7 +92,7 @@
             "rates": [
               "GBP: 3,25% aastas (peale 0,55% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)",
               "USD: 3,39% aastas (peale 0,28% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)",
-              "Wise Interest EUR (muutuv määr): 1.98% (https://wise.com/ee/interest/)",
+              "Wise Interest EUR (muutuv määr): 2.02% (https://wise.com/ee/interest/)",
               "Wise Interest aastatasu (ligikaudu): 0.26% (https://wise.com/ee/interest/)"
             ],
             "details": [
