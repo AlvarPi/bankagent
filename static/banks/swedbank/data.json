@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "swedbank",
   "name": "Swedbank",
-  "fetchedAt": "2026-08-09T00:30:30.297Z",
-  "generatedAt": "2026-08-09T00:30:35.073Z",
+  "fetchedAt": "2026-08-19T00:40:19.132Z",
+  "generatedAt": "2026-08-19T00:40:25.553Z",
   "sources": [
     {
       "kind": "primary",
