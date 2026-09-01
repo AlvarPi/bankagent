@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "nordea",
   "name": "Nordea",
-  "fetchedAt": "2026-08-31T00:39:24.870Z",
-  "generatedAt": "2026-08-31T00:39:26.194Z",
+  "fetchedAt": "2026-09-01T00:42:24.376Z",
+  "generatedAt": "2026-09-01T00:42:24.622Z",
   "sources": [
     {
       "kind": "primary",
@@ -50,7 +50,7 @@
     {
       "product_type": "deposit",
       "label": "FI JoustoTalletus: Vuotuinen korko 12 kk talletusjaksolle",
-      "rate_percent": 2,
+      "rate_percent": 2.1,
       "fee_cents": null,
       "source_url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html",
       "raw_text": "nordea-collect: Suomi JoustoTalletus"
