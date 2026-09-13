@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "nordea",
   "name": "Nordea",
-  "fetchedAt": "2026-09-12T00:49:21.074Z",
-  "generatedAt": "2026-09-12T00:49:21.234Z",
+  "fetchedAt": "2026-09-13T00:30:32.721Z",
+  "generatedAt": "2026-09-13T00:30:32.872Z",
   "sources": [
     {
       "kind": "primary",
@@ -31,54 +31,6 @@
     "Ei ole Eesti pank ega minuraha.ee baromeetris"
   ],
   "rates": [
-    {
-      "product_type": "deposit",
-      "label": "FI JoustoTalletus: Vuotuinen korko 1 kk talletusjaksolle",
-      "rate_percent": 1.45,
-      "fee_cents": null,
-      "source_url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html",
-      "raw_text": "nordea-collect: Suomi JoustoTalletus"
-    },
-    {
-      "product_type": "deposit",
-      "label": "FI JoustoTalletus: Vuotuinen korko 3 kk talletusjaksolle",
-      "rate_percent": 1.65,
-      "fee_cents": null,
-      "source_url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html",
-      "raw_text": "nordea-collect: Suomi JoustoTalletus"
-    },
-    {
-      "product_type": "deposit",
-      "label": "FI JoustoTalletus: Vuotuinen korko 12 kk talletusjaksolle",
-      "rate_percent": 2.1,
-      "fee_cents": null,
-      "source_url": "https://www.nordea.fi/henkiloasiakkaat/palvelumme/saastaminen-sijoittaminen/saastamisen-tilit/joustotalletus.html",
-      "raw_text": "nordea-collect: Suomi JoustoTalletus"
-    },
-    {
-      "product_type": "deposit",
-      "label": "SE Sparkonto Extra",
-      "rate_percent": 0.5,
-      "fee_cents": null,
-      "source_url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
-      "raw_text": "nordea-collect: Ruotsi sparkonton"
-    },
-    {
-      "product_type": "deposit",
-      "label": "SE Fasträntekonto (min)",
-      "rate_percent": 1.75,
-      "fee_cents": null,
-      "source_url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
-      "raw_text": "nordea-collect: Ruotsi sparkonton"
-    },
-    {
-      "product_type": "deposit",
-      "label": "SE Fasträntekonto (max)",
-      "rate_percent": 2.3,
-      "fee_cents": null,
-      "source_url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
-      "raw_text": "nordea-collect: Ruotsi sparkonton"
-    },
     {
       "product_type": "fee",
       "label": "Nordea.com (grupi koduleht)",
@@ -232,8 +184,7 @@
             "url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/formanskonto.html",
             "summary": "Vabade väljavõtetega säästukonto Rootsis.",
             "rates": [
-              "Kuni ~0,10% (sõltub summast) — vaata nordea.se aktuaalseid määrasid",
-              "SE Sparkonto Extra: 0.5% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
+              "Kuni ~0,10% (sõltub summast) — vaata nordea.se aktuaalseid määrasid"
             ],
             "details": [
               "Vabad väljavõtted",
@@ -246,8 +197,7 @@
             "url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
             "summary": "Kõrgema intressiga säästukonto, väljavõtul väike viivitus.",
             "rates": [
-              "~0,50% (kogutud nordea.se ülevaatest, võib muutuda)",
-              "SE Sparkonto Extra: 0.5% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
+              "~0,50% (kogutud nordea.se ülevaatest, võib muutuda)"
             ],
             "details": [
               "Vabad väljavõtted 3-päevase viivitusega",
@@ -259,9 +209,7 @@
             "url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
             "summary": "Fikseeritud intressiga tähtajaline hoius (3 kk, 6 kk, 1 a, 2 a).",
             "rates": [
-              "Intressivahemik ~1,75–2,05% sõltuvalt tähtajast (kogutud nordea.se, kontrolli aktuaalset)",
-              "SE Fasträntekonto (min): 1.75% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)",
-              "SE Fasträntekonto (max): 2.3% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
+              "Intressivahemik ~1,75–2,05% sõltuvalt tähtajast (kogutud nordea.se, kontrolli aktuaalset)"
             ],
             "details": [
               "Vahendid lukus seotusperioodiks",
