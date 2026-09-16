@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "coop",
   "name": "Coop Pank",
-  "fetchedAt": "2026-09-15T00:43:50.776Z",
-  "generatedAt": "2026-09-15T00:43:57.137Z",
+  "fetchedAt": "2026-09-16T00:36:27.281Z",
+  "generatedAt": "2026-09-16T00:36:32.562Z",
   "sources": [
     {
       "kind": "primary",
@@ -21,74 +21,74 @@
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 1-2 kuud",
-      "rate_percent": 1.8,
+      "rate_percent": 2,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 3-5 kuud",
-      "rate_percent": 2.1,
+      "rate_percent": 2.2,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 6-8 kuud",
-      "rate_percent": 2.2,
+      "rate_percent": 2.4,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 9-11 kuud",
-      "rate_percent": 2.2,
+      "rate_percent": 2.4,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 12-17 kuud",
-      "rate_percent": 2.25,
+      "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 18-23 kuud",
-      "rate_percent": 2.25,
+      "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 24-35 kuud",
-      "rate_percent": 2.3,
+      "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 36-47 kuud",
-      "rate_percent": 2.35,
+      "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 48-59 kuud",
-      "rate_percent": 2.35,
+      "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
@@ -96,7 +96,7 @@
       "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
@@ -104,7 +104,7 @@
       "rate_percent": 2,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "deposit",
@@ -112,7 +112,7 @@
       "rate_percent": 2.25,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 09.07.2026"
+      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
     },
     {
       "product_type": "fee",
@@ -145,15 +145,15 @@
               "12+ kuud (12–120 kuud): 2,15%",
               "Igakuise intressimakse korral on intressimäärad −0,05% võrra väiksemad",
               "Hoiuseintressid on eraisikule tulumaksuga maksustatavad (alates 01.01.2018)",
-              "Tähtajaline hoius 1-2 kuud: 1.8% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
-              "Tähtajaline hoius 3-5 kuud: 2.1% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
-              "Tähtajaline hoius 6-8 kuud: 2.2% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
-              "Tähtajaline hoius 9-11 kuud: 2.2% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
-              "Tähtajaline hoius 12-17 kuud: 2.25% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
-              "Tähtajaline hoius 18-23 kuud: 2.25% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
-              "Tähtajaline hoius 24-35 kuud: 2.3% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
-              "Tähtajaline hoius 36-47 kuud: 2.35% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
-              "Tähtajaline hoius 48-59 kuud: 2.35% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 1-2 kuud: 2% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 3-5 kuud: 2.2% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 6-8 kuud: 2.4% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 9-11 kuud: 2.4% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 12-17 kuud: 2.5% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 18-23 kuud: 2.5% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 24-35 kuud: 2.5% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 36-47 kuud: 2.5% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
+              "Tähtajaline hoius 48-59 kuud: 2.5% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)",
               "Tähtajaline hoius 60- kuud: 2.5% (https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid)"
             ]
           },
