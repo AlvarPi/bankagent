@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "lhv",
   "name": "LHV",
-  "fetchedAt": "2026-09-21T00:43:59.495Z",
-  "generatedAt": "2026-09-21T00:44:07.104Z",
+  "fetchedAt": "2026-09-22T00:33:15.066Z",
+  "generatedAt": "2026-09-22T00:33:20.824Z",
   "sources": [
     {
       "kind": "reference",
@@ -38,14 +38,14 @@
             "url": "https://www.lhv.ee/et/tahtajaline-hoius",
             "summary": "Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta.",
             "rates": [
-              "EUR 1 kuu 1,80% (lhv.ee/tahtajaline-hoius)",
-              "EUR 3 kuud 2,05% (lhv.ee/tahtajaline-hoius)",
-              "EUR 6 kuud 2,15% (lhv.ee/tahtajaline-hoius)",
-              "EUR 9 kuud 2,15% (lhv.ee/tahtajaline-hoius)",
-              "EUR 12 kuud 2,20% (lhv.ee/tahtajaline-hoius)",
-              "EUR 15 kuud 2,20% (lhv.ee/tahtajaline-hoius)",
-              "EUR 18 kuud 2,20% (lhv.ee/tahtajaline-hoius)",
-              "EUR 24 kuud 2,20% (lhv.ee/tahtajaline-hoius)",
+              "EUR 1 kuu 1,90% (lhv.ee/tahtajaline-hoius)",
+              "EUR 3 kuud 2,15% (lhv.ee/tahtajaline-hoius)",
+              "EUR 6 kuud 2,35% (lhv.ee/tahtajaline-hoius)",
+              "EUR 9 kuud 2,35% (lhv.ee/tahtajaline-hoius)",
+              "EUR 12 kuud 2,45% (lhv.ee/tahtajaline-hoius)",
+              "EUR 15 kuud 2,45% (lhv.ee/tahtajaline-hoius)",
+              "EUR 18 kuud 2,45% (lhv.ee/tahtajaline-hoius)",
+              "EUR 24 kuud 2,45% (lhv.ee/tahtajaline-hoius)",
               "USD 12 kuud 1,50% (lhv.ee/tahtajaline-hoius)"
             ],
             "details": [
@@ -59,7 +59,7 @@
             "url": "https://www.lhv.ee/et/kogumiskonto",
             "summary": "Paindlik kogumiskonto eesmärgipõhiseks säästmiseks, väljavõtt igal ajal ilma teenustasuta.",
             "rates": [
-              "Intress 1,65% aastas (lhv.ee/kogumiskonto)"
+              "Intress 1,75% aastas (lhv.ee/kogumiskonto)"
             ],
             "details": [
               "Intressi teenitakse alates 109,10 € jäägist (lhv.ee/kogumiskonto)",
