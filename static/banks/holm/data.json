@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "holm",
   "name": "Holm Bank",
-  "fetchedAt": "2026-09-22T00:33:18.349Z",
-  "generatedAt": "2026-09-22T00:33:20.841Z",
+  "fetchedAt": "2026-09-23T00:44:18.323Z",
+  "generatedAt": "2026-09-23T00:44:22.394Z",
   "sources": [
     {
       "kind": "primary",
@@ -31,7 +31,7 @@
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius (kuni, veebileht)",
-      "rate_percent": 3,
+      "rate_percent": 3.2,
       "fee_cents": null,
       "source_url": "https://www.holmbank.ee/et/eraklient/hoius",
       "raw_text": "holm-collect: hoius leht (Next.js SSR)"
@@ -39,10 +39,10 @@
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 12 kuu (baromeeter), min 100 €",
-      "rate_percent": 2.7,
+      "rate_percent": 2.9,
       "fee_cents": null,
       "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 09.06.2026"
+      "raw_text": "minuraha: uuendatud 22.09.2026"
     },
     {
       "product_type": "fee",
@@ -87,8 +87,8 @@
               "36–47 kuud: 2,80% aastas",
               "48–59 kuud: 2,90% aastas",
               "60 kuud: 3,00% aastas",
-              "Tähtajaline hoius (kuni, veebileht): 3% (https://www.holmbank.ee/et/eraklient/hoius)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2.7% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius (kuni, veebileht): 3.2% (https://www.holmbank.ee/et/eraklient/hoius)",
+              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2.9% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Minimaalne hoiusumma: 100 € (allikas: https://www.holmbank.ee/hoiused)",
