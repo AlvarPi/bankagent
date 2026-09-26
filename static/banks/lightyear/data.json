@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "lightyear",
   "name": "Lightyear",
-  "fetchedAt": "2026-09-25T00:35:12.936Z",
-  "generatedAt": "2026-09-25T00:35:12.992Z",
+  "fetchedAt": "2026-09-26T00:32:08.230Z",
+  "generatedAt": "2026-09-26T00:32:08.292Z",
   "sources": [
     {
       "kind": "primary",
@@ -31,7 +31,7 @@
     {
       "product_type": "account",
       "label": "Kasvukonto EUR (APY)",
-      "rate_percent": 2.4,
+      "rate_percent": 2.42,
       "fee_cents": null,
       "source_url": "https://lightyear.com/et-ee/vaults",
       "raw_text": "lightyear-collect: Kasvukonto intress (rahaturufondi kaudu, mitte pangahoius)"
@@ -39,7 +39,7 @@
     {
       "product_type": "account",
       "label": "Kasvukonto GBP (APY)",
-      "rate_percent": 3.84,
+      "rate_percent": 3.85,
       "fee_cents": null,
       "source_url": "https://lightyear.com/et-ee/vaults",
       "raw_text": "lightyear-collect: Kasvukonto intress (rahaturufondi kaudu, mitte pangahoius)"
@@ -47,7 +47,7 @@
     {
       "product_type": "account",
       "label": "Kasvukonto USD (APY)",
-      "rate_percent": 3.87,
+      "rate_percent": 3.88,
       "fee_cents": null,
       "source_url": "https://lightyear.com/et-ee/vaults",
       "raw_text": "lightyear-collect: Kasvukonto intress (rahaturufondi kaudu, mitte pangahoius)"
@@ -79,9 +79,9 @@
               "EUR: 2,16% APY — seisuga 01.07.2026 (lightyear.com/et-ee/vaults)",
               "GBP: 3,83% APY — seisuga 01.07.2026",
               "USD: 3,68% APY — seisuga 01.07.2026",
-              "Kasvukonto EUR (APY): 2.4% (https://lightyear.com/et-ee/vaults)",
-              "Kasvukonto GBP (APY): 3.84% (https://lightyear.com/et-ee/vaults)",
-              "Kasvukonto USD (APY): 3.87% (https://lightyear.com/et-ee/vaults)"
+              "Kasvukonto EUR (APY): 2.42% (https://lightyear.com/et-ee/vaults)",
+              "Kasvukonto GBP (APY): 3.85% (https://lightyear.com/et-ee/vaults)",
+              "Kasvukonto USD (APY): 3.88% (https://lightyear.com/et-ee/vaults)"
             ],
             "details": [
               "Tootlus tuleb rahaturufondi (AAA) kaudu, mitte pangahoiusena",
