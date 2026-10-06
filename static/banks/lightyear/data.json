@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "lightyear",
   "name": "Lightyear",
-  "fetchedAt": "2026-10-05T00:43:23.091Z",
-  "generatedAt": "2026-10-05T00:43:23.141Z",
+  "fetchedAt": "2026-10-06T00:41:27.860Z",
+  "generatedAt": "2026-10-06T00:41:27.912Z",
   "sources": [
     {
       "kind": "primary",
@@ -39,7 +39,7 @@
     {
       "product_type": "account",
       "label": "Kasvukonto GBP (APY)",
-      "rate_percent": 3.85,
+      "rate_percent": 3.84,
       "fee_cents": null,
       "source_url": "https://lightyear.com/et-ee/vaults",
       "raw_text": "lightyear-collect: Kasvukonto intress (rahaturufondi kaudu, mitte pangahoius)"
@@ -47,7 +47,7 @@
     {
       "product_type": "account",
       "label": "Kasvukonto USD (APY)",
-      "rate_percent": 3.87,
+      "rate_percent": 3.88,
       "fee_cents": null,
       "source_url": "https://lightyear.com/et-ee/vaults",
       "raw_text": "lightyear-collect: Kasvukonto intress (rahaturufondi kaudu, mitte pangahoius)"
@@ -80,8 +80,8 @@
               "GBP: 3,83% APY — seisuga 01.07.2026",
               "USD: 3,68% APY — seisuga 01.07.2026",
               "Kasvukonto EUR (APY): 2.43% (https://lightyear.com/et-ee/vaults)",
-              "Kasvukonto GBP (APY): 3.85% (https://lightyear.com/et-ee/vaults)",
-              "Kasvukonto USD (APY): 3.87% (https://lightyear.com/et-ee/vaults)"
+              "Kasvukonto GBP (APY): 3.84% (https://lightyear.com/et-ee/vaults)",
+              "Kasvukonto USD (APY): 3.88% (https://lightyear.com/et-ee/vaults)"
             ],
             "details": [
               "Tootlus tuleb rahaturufondi (AAA) kaudu, mitte pangahoiusena",
