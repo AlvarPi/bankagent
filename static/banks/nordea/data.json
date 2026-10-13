@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "nordea",
   "name": "Nordea",
-  "fetchedAt": "2026-10-12T00:43:43.112Z",
-  "generatedAt": "2026-10-12T00:43:43.220Z",
+  "fetchedAt": "2026-10-13T00:43:40.696Z",
+  "generatedAt": "2026-10-13T00:43:40.802Z",
   "sources": [
     {
       "kind": "primary",
@@ -66,7 +66,7 @@
     {
       "product_type": "deposit",
       "label": "SE Fasträntekonto (min)",
-      "rate_percent": 1.75,
+      "rate_percent": 1.7,
       "fee_cents": null,
       "source_url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
       "raw_text": "nordea-collect: Ruotsi sparkonton"
@@ -260,7 +260,7 @@
             "summary": "Fikseeritud intressiga tähtajaline hoius (3 kk, 6 kk, 1 a, 2 a).",
             "rates": [
               "Intressivahemik ~1,75–2,05% sõltuvalt tähtajast (kogutud nordea.se, kontrolli aktuaalset)",
-              "SE Fasträntekonto (min): 1.75% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)",
+              "SE Fasträntekonto (min): 1.7% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)",
               "SE Fasträntekonto (max): 2.6% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
             ],
             "details": [
