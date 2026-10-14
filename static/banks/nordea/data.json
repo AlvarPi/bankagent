@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "nordea",
   "name": "Nordea",
-  "fetchedAt": "2026-10-13T00:43:40.696Z",
-  "generatedAt": "2026-10-13T00:43:40.802Z",
+  "fetchedAt": "2026-10-14T00:49:49.840Z",
+  "generatedAt": "2026-10-14T00:49:49.937Z",
   "sources": [
     {
       "kind": "primary",
