@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "citadele",
   "name": "Citadele",
-  "fetchedAt": "2026-10-16T00:40:24.645Z",
-  "generatedAt": "2026-10-16T00:40:27.436Z",
+  "fetchedAt": "2026-10-17T00:30:03.946Z",
+  "generatedAt": "2026-10-17T00:30:08.979Z",
   "sources": [
     {
       "kind": "primary",
@@ -34,7 +34,7 @@
     {
       "product_type": "deposit",
       "label": "Hoius (kalkulaator)",
-      "rate_percent": 2.2,
+      "rate_percent": 2.6,
       "fee_cents": null,
       "source_url": "https://www.citadele.ee/et/private/savings/",
       "raw_text": "citadele-collect: savings lehe kalkulaator"
