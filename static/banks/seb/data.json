@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "seb",
   "name": "SEB",
-  "fetchedAt": "2026-10-18T00:32:02.037Z",
-  "generatedAt": "2026-10-18T00:32:08.447Z",
+  "fetchedAt": "2026-10-19T00:44:46.999Z",
+  "generatedAt": "2026-10-19T00:44:51.091Z",
   "sources": [
     {
       "kind": "primary",
