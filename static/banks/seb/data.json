@@ -2,68 +2,13 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "seb",
   "name": "SEB",
-  "fetchedAt": "2026-10-21T00:30:27.639Z",
-  "generatedAt": "2026-10-21T00:30:31.503Z",
-  "sources": [
-    {
-      "kind": "primary",
-      "url": "https://www.seb.ee/intressimaarad",
-      "note": "hoiuste intressimäärad"
-    },
-    {
-      "kind": "fallback",
-      "url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "note": "FI baromeeter"
-    },
-    {
-      "kind": "reference",
-      "url": "https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri",
-      "note": "hinnakiri"
-    }
+  "fetchedAt": "2026-10-22T00:47:38.429Z",
+  "generatedAt": "2026-10-22T00:47:44.046Z",
+  "sources": [],
+  "warnings": [
+    "Kogumine ebaõnnestus: Failed to fetch https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter"
   ],
-  "warnings": [],
-  "rates": [
-    {
-      "product_type": "deposit",
-      "label": "Kogumishoius (sh Digikassa)",
-      "rate_percent": 1.65,
-      "fee_cents": null,
-      "source_url": "https://www.seb.ee/intressimaarad",
-      "raw_text": "seb-collect: intressimaarad leht"
-    },
-    {
-      "product_type": "account",
-      "label": "Arvelduskonto",
-      "rate_percent": 0.01,
-      "fee_cents": null,
-      "source_url": "https://www.seb.ee/intressimaarad",
-      "raw_text": "seb-collect: intressimaarad leht"
-    },
-    {
-      "product_type": "deposit",
-      "label": "Tähtajaline hoius 12 kuu (baromeeter), min 500 €",
-      "rate_percent": 2,
-      "fee_cents": null,
-      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 20.07.2026"
-    },
-    {
-      "product_type": "account",
-      "label": "Arvelduskonto (baromeeter), min 1 €",
-      "rate_percent": 0.01,
-      "fee_cents": null,
-      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 20.07.2026"
-    },
-    {
-      "product_type": "fee",
-      "label": "Pangateenuste hinnakiri",
-      "rate_percent": null,
-      "fee_cents": null,
-      "source_url": "https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri",
-      "raw_text": "seb-collect: hinnakiri link"
-    }
-  ],
+  "rates": [],
   "links": {
     "html": "/banks/seb/",
     "json": "/banks/seb/data.json"
@@ -81,8 +26,7 @@
             "rates": [
               "Kuni 2,00% aastas (seb.ee tähtajalise hoiuse intressimäärade leht, 06.2026)",
               "12 kuu baromeeter: 2,30%, min 500 € (minuraha.ee intressibaromeeter)",
-              "Avalikes otsingusnippetides nähtud perioodimäärad (mitte ametlikult kinnitatud lehel): ~3 kuud 3,5%, 6 kuud 3,25%, 9 kuud 3,5%, 12 kuud 4,0%, 24 kuud 3,25%, 36 kuud 3,0% — täpne määr sõltub kampaaniast ja lepingust",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Avalikes otsingusnippetides nähtud perioodimäärad (mitte ametlikult kinnitatud lehel): ~3 kuud 3,5%, 6 kuud 3,25%, 9 kuud 3,5%, 12 kuud 4,0%, 24 kuud 3,25%, 36 kuud 3,0% — täpne määr sõltub kampaaniast ja lepingust"
             ],
             "details": [
               "Intressimäärad lehel on informatiivsed; lepingu sõlmimisel kehtivad määrad võivad erineda (seb.ee)",
@@ -95,8 +39,7 @@
             "url": "https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine",
             "summary": "Paindlik kogumishoius (sh Digikassa) vabade vahendite kasvatamiseks igakuise sissemaksega.",
             "rates": [
-              "1,65% aastas (seb.ee hoiuste intressimäärade leht, 06.2026; varem 1,55%)",
-              "Kogumishoius (sh Digikassa): 1.65% (https://www.seb.ee/intressimaarad)"
+              "1,65% aastas (seb.ee hoiuste intressimäärade leht, 06.2026; varem 1,55%)"
             ],
             "details": [
               "Paindlik sissemakse",
@@ -109,9 +52,7 @@
             "summary": "Intress EUR arvelduskonto vabalt jäägilt.",
             "rates": [
               "0,01% aastas (seb.ee hoiuste intressimäärade leht, 06.2026)",
-              "Baromeeter: 0,20% summalt 1–5000 €; üle 5000 € 0,01% (minuraha.ee intressibaromeeter)",
-              "Arvelduskonto: 0.01% (https://www.seb.ee/intressimaarad)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Baromeeter: 0,20% summalt 1–5000 €; üle 5000 € 0,01% (minuraha.ee intressibaromeeter)"
             ],
             "details": [
               "Intress arvutatakse vabalt jäägilt",
@@ -125,9 +66,6 @@
             "details": [
               "Ostudest kogumishoiusesse kogumine",
               "Mobiilirakendus"
-            ],
-            "rates": [
-              "Kogumishoius (sh Digikassa): 1.65% (https://www.seb.ee/intressimaarad)"
             ]
           },
           {
@@ -151,10 +89,7 @@
           {
             "name": "Lapsele kogumine",
             "url": "https://www.seb.ee/eraklient/kogumine-ja-investeerimine",
-            "summary": "Lapse tuleviku jaoks säästmine kogumishoiuse või investeerimise kaudu.",
-            "rates": [
-              "Kogumishoius (sh Digikassa): 1.65% (https://www.seb.ee/intressimaarad)"
-            ]
+            "summary": "Lapse tuleviku jaoks säästmine kogumishoiuse või investeerimise kaudu."
           }
         ]
       },
@@ -166,8 +101,7 @@
             "url": "https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid",
             "summary": "Tasuta pakett lastele ja noortele kuni 26. eluaastani.",
             "rates": [
-              "Kuutasu: 0 € (seb.ee hinnakiri, 06.2026)",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
+              "Kuutasu: 0 € (seb.ee hinnakiri, 06.2026)"
             ],
             "details": [
               "1 tasuta deebetkaart",
@@ -182,10 +116,7 @@
             "summary": "Põhiline igapäevapangandus arvelduseks.",
             "rates": [
               "Kuutasu: 1,45 €/kuus (seb.ee hinnakiri, 06.2026)",
-              "18–25-aastastele tasuta; 65+ klientidele 0,32 €/kuus",
-              "Arvelduskonto: 0.01% (https://www.seb.ee/intressimaarad)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
+              "18–25-aastastele tasuta; 65+ klientidele 0,32 €/kuus"
             ],
             "details": [
               "1 tasuta deebetkaart",
@@ -200,8 +131,7 @@
             "url": "https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid",
             "summary": "Laiendatud pakett lisahüvede ja kindlustusega, kuni 2 lisaliiget.",
             "rates": [
-              "Kuutasu: 2,95 €/kuus (seb.ee hinnakiri, 06.2026)",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
+              "Kuutasu: 2,95 €/kuus (seb.ee hinnakiri, 06.2026)"
             ],
             "details": [
               "1 tasuta Mastercard Gold deebetkaart",
@@ -216,8 +146,7 @@
             "url": "https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid",
             "summary": "Kõrgema taseme pakett laiema kindlustuskaitse ja lisahüvedega, kuni 4 lisaliiget.",
             "rates": [
-              "Kuutasu: 10 €/kuus (seb.ee hinnakiri, 06.2026)",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
+              "Kuutasu: 10 €/kuus (seb.ee hinnakiri, 06.2026)"
             ],
             "details": [
               "1 tasuta Mastercard Gold deebetkaart",
@@ -232,8 +161,7 @@
             "url": "https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid",
             "summary": "Kõrgeima taseme premium-pakett, Premium Mastercard ja personaalsed hüved, kuni 4 lisaliiget.",
             "rates": [
-              "Kuutasu: 33 €/kuus (seb.ee hinnakiri, 06.2026)",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
+              "Kuutasu: 33 €/kuus (seb.ee hinnakiri, 06.2026)"
             ],
             "details": [
               "Premium Mastercard",
@@ -327,9 +255,6 @@
             "details": [
               "KredEx/EIS käendusega omafinantseering alla 15%",
               "Tingimused sõltuvad käenduse reeglitest"
-            ],
-            "rates": [
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
             ]
           },
           {
@@ -409,9 +334,6 @@
             "summary": "Reisi tühistamine, meditsiin, pagas. Traumakindlustus kaasas pakettides (50–200 € sõltuvalt pakettist).",
             "details": [
               "Ühekordne reis või aastapoliis"
-            ],
-            "rates": [
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
             ]
           },
           {
@@ -470,10 +392,7 @@
               "Standard: 2 €/kuus",
               "Standard+: 4 €/kuus",
               "Premium: 6 €/kuus",
-              "Premium+: 15 €/kuus",
-              "Arvelduskonto: 0.01% (https://www.seb.ee/intressimaarad)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)",
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
+              "Premium+: 15 €/kuus"
             ],
             "details": [
               "SEPA maksed",
@@ -497,9 +416,6 @@
             "details": [
               "Intressimäärad ärikliendi lehel",
               "Sobib inflatsiooniga võitlemiseks (SEB pressiteated)"
-            ],
-            "rates": [
-              "Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           },
           {
@@ -521,10 +437,6 @@
             "details": [
               "Arvete ost",
               "Arvelduskrediidi limiit"
-            ],
-            "rates": [
-              "Arvelduskonto: 0.01% (https://www.seb.ee/intressimaarad)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           },
           {
@@ -545,9 +457,6 @@
               "Pakettide kuutasud",
               "Kaartide tasud",
               "Maksete hinnad"
-            ],
-            "rates": [
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
             ]
           },
           {
@@ -557,21 +466,12 @@
             "details": [
               "Uuendatakse regulaarselt",
               "Lehel toodud määrad on informatiivsed"
-            ],
-            "rates": [
-              "Kogumishoius (sh Digikassa): 1.65% (https://www.seb.ee/intressimaarad)",
-              "Arvelduskonto: 0.01% (https://www.seb.ee/intressimaarad)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 500 €: 2% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           },
           {
             "name": "Tingimused ja infolehed",
             "url": "https://www.seb.ee/et/tingimused",
-            "summary": "Üldtingimused, infolehed ja privaatsuspoliitika.",
-            "rates": [
-              "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
-            ]
+            "summary": "Üldtingimused, infolehed ja privaatsuspoliitika."
           },
           {
             "name": "Pangakontorid ja klienditugi",
