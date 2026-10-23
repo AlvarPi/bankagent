@@ -2,13 +2,84 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "swedbank",
   "name": "Swedbank",
-  "fetchedAt": "2026-10-22T00:47:38.639Z",
-  "generatedAt": "2026-10-22T00:47:44.046Z",
-  "sources": [],
-  "warnings": [
-    "Kogumine ebaõnnestus: Failed to fetch https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter"
+  "fetchedAt": "2026-10-23T00:32:46.086Z",
+  "generatedAt": "2026-10-23T00:32:50.814Z",
+  "sources": [
+    {
+      "kind": "primary",
+      "url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
+      "note": "deposits & paketid"
+    },
+    {
+      "kind": "reference",
+      "url": "https://www.swedbank.ee/private/home/more/pricesrates/interests",
+      "note": "intressimäärad (JS leht)"
+    },
+    {
+      "kind": "fallback",
+      "url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "note": "FI baromeeter"
+    }
   ],
-  "rates": [],
+  "warnings": [],
+  "rates": [
+    {
+      "product_type": "account",
+      "label": "Arvelduskonto EUR",
+      "rate_percent": 0.01,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
+      "raw_text": "swedbank-collect: depositrates leht"
+    },
+    {
+      "product_type": "fee",
+      "label": "Põhipaketi kuutasu (täishind)",
+      "rate_percent": null,
+      "fee_cents": 100,
+      "source_url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
+      "raw_text": "swedbank-collect: depositrates leht"
+    },
+    {
+      "product_type": "fee",
+      "label": "Põhipakett kuni 25 a.",
+      "rate_percent": null,
+      "fee_cents": 0,
+      "source_url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
+      "raw_text": "swedbank-collect: depositrates leht"
+    },
+    {
+      "product_type": "fee",
+      "label": "Põhipakett alates 65 a.",
+      "rate_percent": null,
+      "fee_cents": 32,
+      "source_url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
+      "raw_text": "swedbank-collect: depositrates leht"
+    },
+    {
+      "product_type": "fee",
+      "label": "Premium paketi kuutasu",
+      "rate_percent": null,
+      "fee_cents": 100,
+      "source_url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
+      "raw_text": "swedbank-collect: depositrates leht"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius 12 kuu (baromeeter), min 190 €",
+      "rate_percent": 2.5,
+      "fee_cents": null,
+      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "raw_text": "minuraha: uuendatud 15.09.2026"
+    },
+    {
+      "product_type": "account",
+      "label": "Arvelduskonto (baromeeter), min 1 €",
+      "rate_percent": 0.01,
+      "fee_cents": null,
+      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "raw_text": "minuraha: uuendatud 22.10.2024"
+    }
+  ],
   "links": {
     "html": "/banks/swedbank/",
     "json": "/banks/swedbank/data.json"
@@ -26,7 +97,9 @@
             "rates": [
               "12 kuud: 2,05% (min 190 €; allikas: minuraha.ee intressibaromeeter, seisuga 16.03.2026)",
               "Minimaalne hoiusumma 190 € (allikas: swedbank.ee/business/invest/deposits/interests)",
-              "Täpsed perioodipõhised määrad: swedbank.ee depositrates / interests leht"
+              "Täpsed perioodipõhised määrad: swedbank.ee depositrates / interests leht",
+              "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Tähtajaline hoius 12 kuu (baromeeter), min 190 €: 2.5% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Minimaalne summa 190 € (swedbank.ee)",
@@ -59,7 +132,9 @@
             "summary": "Intress EUR arvelduskonto jäägilt.",
             "rates": [
               "EUR arvelduskonto: 0,01% (allikas: swedbank.ee depositrates, seisuga 27.06.2026)",
-              "Baromeeter: 0,01% (min 1 €; allikas: minuraha.ee, seisuga 22.10.2024)"
+              "Baromeeter: 0,01% (min 1 €; allikas: minuraha.ee, seisuga 22.10.2024)",
+              "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Intress arvutatakse päevasaldolt, kantakse kontole järgmise kuu 3. kuupäevaks"
@@ -105,7 +180,13 @@
             "rates": [
               "Kuutasu 1,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)",
               "Kuni 25 a. (k.a): tasuta",
-              "Alates 65 a.: 0,32 €/kuus"
+              "Alates 65 a.: 0,32 €/kuus",
+              "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Deebetkaart",
@@ -118,7 +199,11 @@
             "url": "https://www.swedbank.ee/private/dailybanking/packages",
             "summary": "Pakett ostuhüvede ja -kindlustusega (saadaval alates 6. eluaastast).",
             "rates": [
-              "Kuutasu 2,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)"
+              "Kuutasu 2,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)",
+              "Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)"
             ],
             "details": [
               "Sisaldab põhipaketi teenuseid",
@@ -131,7 +216,11 @@
             "url": "https://www.swedbank.ee/private/dailybanking/packages",
             "summary": "Kõrgeima taseme pakett: ostupaketi hüved + ulatuslik reisikindlustus (saadaval alates 6. eluaastast).",
             "rates": [
-              "Kuutasu 6,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)"
+              "Kuutasu 6,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)",
+              "Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)"
             ],
             "details": [
               "Kõik ostupaketi hüved",
@@ -402,6 +491,10 @@
               "SEPA maksed",
               "Mitme kasutaja ligipääs",
               "Konto avamisel dokumendi menetlustasu (ei kohaldu EL/EMP elamisloaga isikutele)"
+            ],
+            "rates": [
+              "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           },
           {
@@ -448,6 +541,14 @@
             "details": [
               "Pakettide kuutasud (kehtivad alates 01.11.2025): Põhi 1 €, Ostu 2 €, Reisi 6 €",
               "EUR arvelduskonto intress 0,01%"
+            ],
+            "rates": [
+              "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipaketi kuutasu (täishind): tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
+              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           },
           {

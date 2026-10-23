@@ -2,13 +2,54 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "luminor",
   "name": "Luminor",
-  "fetchedAt": "2026-10-22T00:47:38.701Z",
-  "generatedAt": "2026-10-22T00:47:44.048Z",
-  "sources": [],
-  "warnings": [
-    "Kogumine ebaõnnestus: Failed to fetch https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter"
+  "fetchedAt": "2026-10-23T00:32:46.086Z",
+  "generatedAt": "2026-10-23T00:32:50.819Z",
+  "sources": [
+    {
+      "kind": "fallback",
+      "url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "note": "FI baromeeter"
+    },
+    {
+      "kind": "reference",
+      "url": "https://luminor.ee/intressi-ja-viivisemaarad#hoiused",
+      "note": "intressimäärad (JS leht)"
+    },
+    {
+      "kind": "reference",
+      "url": "https://luminor.ee/hinnakiri",
+      "note": "hinnakiri"
+    }
   ],
-  "rates": [],
+  "warnings": [
+    "Luminor leht on SPA (andmed laaditakse JS-iga) — kasutatud minuraha.ee baromeetrit"
+  ],
+  "rates": [
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius 12 kuu (baromeeter), min 100 €",
+      "rate_percent": 3,
+      "fee_cents": null,
+      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "raw_text": "minuraha: uuendatud 13.10.2026"
+    },
+    {
+      "product_type": "account",
+      "label": "Arvelduskonto (baromeeter), min 18000 €",
+      "rate_percent": 0.01,
+      "fee_cents": null,
+      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
+      "raw_text": "minuraha: uuendatud 06.11.2024"
+    },
+    {
+      "product_type": "fee",
+      "label": "Hinnakiri",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://luminor.ee/hinnakiri",
+      "raw_text": "luminor-collect: hinnakiri link"
+    }
+  ],
   "links": {
     "html": "/banks/luminor/",
     "json": "/banks/luminor/data.json"
@@ -27,7 +68,8 @@
               "12 kuud: ~2,0% aastas (Minuraha intressibaromeeter, jooksev 2026)",
               "Min summa 100 € (Minuraha intressibaromeeter)",
               "Hoiuse avamine ja sularaha sissemakse avamiseks: tasuta (hinnakiri 30.11.2020)",
-              "Täpsed jooksvad määrad: luminor.ee/intressi-ja-viivisemaarad (JS-leht, scrape ebausaldusväärne)"
+              "Täpsed jooksvad määrad: luminor.ee/intressi-ja-viivisemaarad (JS-leht, scrape ebausaldusväärne)",
+              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 3% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Intress fikseeritud kogu hoiuperioodiks",
@@ -105,7 +147,9 @@
             "rates": [
               "Kuutasu: 2,20 € (hinnakiri 30.11.2020)",
               "Seenioridele (alates 60. eluaastast): tasuta (hinnakiri 30.11.2020)",
-              "Noortele (kuni 21. eluaastani): tasuta (hinnakiri 30.11.2020)"
+              "Noortele (kuni 21. eluaastani): tasuta (hinnakiri 30.11.2020)",
+              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)",
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
             ],
             "details": [
               "Sisaldab: 1 Visa Debit kaart, internetipank (tasuta), piiramatu arv makseid internetipangas",
@@ -118,7 +162,9 @@
             "url": "https://luminor.ee/era/erakliendi-arvelduspakett",
             "summary": "Laiendatud pakett koos Luminor Black krediitkaardiga.",
             "rates": [
-              "Kuutasu: 5,50 € (sisaldab Luminor Black kaardi ja arvelduspaketi standardse kuutasu) (hinnakiri 30.11.2020)"
+              "Kuutasu: 5,50 € (sisaldab Luminor Black kaardi ja arvelduspaketi standardse kuutasu) (hinnakiri 30.11.2020)",
+              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)",
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
             ],
             "details": [
               "Sisaldab: 1 Visa Debit kaart + 1 Luminor Black kaart, internetipank",
@@ -130,7 +176,9 @@
             "url": "https://luminor.ee/era/erakliendi-arvelduspakett",
             "summary": "Visa Debit + Visa Gold krediitkaart.",
             "rates": [
-              "Kuutasu: 6,50 € (hinnakiri 30.11.2020)"
+              "Kuutasu: 6,50 € (hinnakiri 30.11.2020)",
+              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)",
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
             ],
             "details": [
               "Uusi pakette ei väljastata (hinnakiri 30.11.2020)",
@@ -144,7 +192,8 @@
             "rates": [
               "Konto avamine EMP residentidele: tasuta (hinnakiri 30.11.2020)",
               "Väljaspoolt EMP riike taotluse/dokumentide kontroll: 250 € (hinnakiri 30.11.2020)",
-              "Konto sulgemine kliendi soovil: tasuta; panga algatusel kuni 100 € (hinnakiri 30.11.2020)"
+              "Konto sulgemine kliendi soovil: tasuta; panga algatusel kuni 100 € (hinnakiri 30.11.2020)",
+              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Internetipank: igakuine haldustasu tasuta; alla 20-aastastele tasuta (hinnakiri 30.11.2020)"
@@ -299,7 +348,10 @@
           {
             "name": "Reisikindlustus",
             "url": "https://luminor.ee/era/kindlustus",
-            "summary": "Reisi- ja tervisekindlustus; sisaldub osades kaardipakettides (nt Mastercard Gold)."
+            "summary": "Reisi- ja tervisekindlustus; sisaldub osades kaardipakettides (nt Mastercard Gold).",
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ]
           },
           {
             "name": "Liiklus- ja kaskokindlustus",
@@ -319,7 +371,10 @@
           {
             "name": "Luminor pakkumised",
             "url": "https://luminor.ee/era",
-            "summary": "Partnerite soodustused ja muutuvad kampaaniad (täpsed tingimused JS-lehel)."
+            "summary": "Partnerite soodustused ja muutuvad kampaaniad (täpsed tingimused JS-lehel).",
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
+            ]
           }
         ]
       },
@@ -333,6 +388,9 @@
             "details": [
               "Ärikliendi hinnakiri avaldatakse eraldi PDF-ina (pricelist_*_business_et-ee.pdf)",
               "Täpsed paketi kuutasud sõltuvad mahust (JS-leht / hinnakirja PDF)"
+            ],
+            "rates": [
+              "Arvelduskonto (baromeeter), min 18000 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ]
           },
           {
@@ -357,6 +415,9 @@
             "details": [
               "Avalik erakliendi hinnakiri PDF (kehtib alates 30.11.2020): luminor.ee/s3fs-public/documents/pricelist_22_private_et-ee_0.pdf",
               "Jooksvad tasud luminor.ee dünaamilisel lehel (SPA/JS — automaatne scrape ebausaldusväärne)"
+            ],
+            "rates": [
+              "Hinnakiri: vaata allikat (https://luminor.ee/hinnakiri)"
             ]
           },
           {
