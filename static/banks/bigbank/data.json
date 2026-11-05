@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "bigbank",
   "name": "Bigbank",
-  "fetchedAt": "2026-11-04T01:30:32.016Z",
-  "generatedAt": "2026-11-04T01:30:35.629Z",
+  "fetchedAt": "2026-11-05T01:30:32.601Z",
+  "generatedAt": "2026-11-05T01:30:33.525Z",
   "sources": [
     {
       "kind": "primary",
