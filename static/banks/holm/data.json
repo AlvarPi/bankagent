@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "holm",
   "name": "Holm Bank",
-  "fetchedAt": "2026-11-06T01:33:48.992Z",
-  "generatedAt": "2026-11-06T01:33:50.694Z",
+  "fetchedAt": "2026-11-07T01:47:48.814Z",
+  "generatedAt": "2026-11-07T01:47:52.084Z",
   "sources": [
     {
       "kind": "primary",
@@ -39,10 +39,10 @@
     {
       "product_type": "deposit",
       "label": "Tähtajaline hoius 12 kuu (baromeeter), min 100 €",
-      "rate_percent": 3,
+      "rate_percent": 3.5,
       "fee_cents": null,
       "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 20.10.2026"
+      "raw_text": "minuraha: uuendatud 07.11.2026"
     },
     {
       "product_type": "fee",
@@ -88,7 +88,7 @@
               "48–59 kuud: 2,90% aastas",
               "60 kuud: 3,00% aastas",
               "Tähtajaline hoius (kuni, veebileht): 3.5% (https://www.holmbank.ee/et/eraklient/hoius)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 3% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 3.5% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
             ],
             "details": [
               "Minimaalne hoiusumma: 100 € (allikas: https://www.holmbank.ee/hoiused)",

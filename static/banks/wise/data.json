@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "wise",
   "name": "Wise",
-  "fetchedAt": "2026-11-06T01:33:48.722Z",
-  "generatedAt": "2026-11-06T01:33:50.692Z",
+  "fetchedAt": "2026-11-07T01:47:48.653Z",
+  "generatedAt": "2026-11-07T01:47:52.081Z",
   "sources": [
     {
       "kind": "primary",
