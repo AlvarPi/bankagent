@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "nordea",
   "name": "Nordea",
-  "fetchedAt": "2026-11-10T01:34:53.575Z",
-  "generatedAt": "2026-11-10T01:34:53.684Z",
+  "fetchedAt": "2026-11-11T01:48:55.093Z",
+  "generatedAt": "2026-11-11T01:48:55.218Z",
   "sources": [
     {
       "kind": "primary",
@@ -58,7 +58,7 @@
     {
       "product_type": "deposit",
       "label": "SE Sparkonto Extra",
-      "rate_percent": 0.5,
+      "rate_percent": 0.65,
       "fee_cents": null,
       "source_url": "https://www.nordea.se/privat/produkter/spara-investera/sparkonton/",
       "raw_text": "nordea-collect: Ruotsi sparkonton"
@@ -233,7 +233,7 @@
             "summary": "Vabade väljavõtetega säästukonto Rootsis.",
             "rates": [
               "Kuni ~0,10% (sõltub summast) — vaata nordea.se aktuaalseid määrasid",
-              "SE Sparkonto Extra: 0.5% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
+              "SE Sparkonto Extra: 0.65% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
             ],
             "details": [
               "Vabad väljavõtted",
@@ -247,7 +247,7 @@
             "summary": "Kõrgema intressiga säästukonto, väljavõtul väike viivitus.",
             "rates": [
               "~0,50% (kogutud nordea.se ülevaatest, võib muutuda)",
-              "SE Sparkonto Extra: 0.5% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
+              "SE Sparkonto Extra: 0.65% (https://www.nordea.se/privat/produkter/spara-investera/sparkonton/)"
             ],
             "details": [
               "Vabad väljavõtted 3-päevase viivitusega",
