@@ -1,6 +1,16 @@
 import Anthropic from '@anthropic-ai/sdk';
 
-const DEFAULT_MODEL = 'claude-opus-4-8';
+const DEFAULT_MODEL = 'claude-opus-5-5';
+
+/**
+ * Opus 5.5: mõtlemine on alati sees (thinking-parameetrit ei saadeta) ja selle tokenid
+ * lähevad max_tokens-i sisse — seepärast suur vaikimisi max_tokens. Sügavust juhib effort
+ * (Opus 5.5 vaikimisi 'medium', paneme selgelt kirja). temperature'it Opus 5.5 ei luba.
+ * fallbacks: 'default' — kui ohutusklassifikaator keeldub, vastab server ise varumudeliga.
+ */
+const EFFORT = () => process.env.ANTHROPIC_EFFORT || 'medium';
+const MAX_TOKENS = () => Number(process.env.ANTHROPIC_MAX_TOKENS || 16000);
+const FALLBACK = { betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default' };
 
 /**
  * @returns {string}
@@ -51,9 +61,11 @@ export async function chatWithAnthropic({ messages, systemPrompt, model, maxToke
 
   let response;
   try {
-    response = await client.messages.create({
+    response = await client.beta.messages.create({
       model: modelName,
-      max_tokens: maxTokens ?? Number(process.env.ANTHROPIC_MAX_TOKENS || 1024),
+      max_tokens: maxTokens ?? MAX_TOKENS(),
+      output_config: { effort: EFFORT() },
+      ...FALLBACK,
       ...(systemPrompt ? { system: systemPrompt } : {}),
       messages: requestMessages
     });
@@ -105,9 +117,11 @@ export async function chatWithAnthropicTools({ messages, systemPrompt, tools, ru
   for (let iter = 0; iter <= maxIters; iter++) {
     let response;
     try {
-      response = await client.messages.create({
+      response = await client.beta.messages.create({
         model: modelName,
-        max_tokens: maxTokens ?? Number(process.env.ANTHROPIC_MAX_TOKENS || 1400),
+        max_tokens: maxTokens ?? MAX_TOKENS(),
+        output_config: { effort: EFFORT() },
+        ...FALLBACK,
         ...(systemPrompt ? { system: systemPrompt } : {}),
         tools,
         messages: convo
