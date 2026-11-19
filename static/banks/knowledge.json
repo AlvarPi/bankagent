@@ -1,6 +1,6 @@
 {
   "schema": "pankade-teenused/knowledge-index/1",
-  "generatedAt": "2026-11-18T01:46:19.510Z",
+  "generatedAt": "2026-11-19T01:46:03.315Z",
   "agent": {
     "usage": "Lae /banks/knowledge.json, seejärel iga panga /banks/{slug}/data.json. Igal pangal on tootekataloog (catalog.sections) koos intressidega.",
     "indexUrl": "/banks/knowledge.json",
@@ -10,7 +10,7 @@
     {
       "slug": "coop",
       "name": "Coop Pank",
-      "fetchedAt": "2026-11-18T01:46:12.177Z",
+      "fetchedAt": "2026-11-19T01:45:56.668Z",
       "json": "/banks/coop/data.json",
       "html": "/banks/coop/",
       "hasCatalog": true,
@@ -19,7 +19,7 @@
     {
       "slug": "lhv",
       "name": "LHV",
-      "fetchedAt": "2026-11-18T01:46:12.185Z",
+      "fetchedAt": "2026-11-19T01:45:56.670Z",
       "json": "/banks/lhv/data.json",
       "html": "/banks/lhv/",
       "hasCatalog": true,
@@ -28,7 +28,7 @@
     {
       "slug": "seb",
       "name": "SEB",
-      "fetchedAt": "2026-11-18T01:46:13.219Z",
+      "fetchedAt": "2026-11-19T01:45:57.620Z",
       "json": "/banks/seb/data.json",
       "html": "/banks/seb/",
       "hasCatalog": true,
@@ -37,7 +37,7 @@
     {
       "slug": "swedbank",
       "name": "Swedbank",
-      "fetchedAt": "2026-11-18T01:46:13.487Z",
+      "fetchedAt": "2026-11-19T01:45:58.396Z",
       "json": "/banks/swedbank/data.json",
       "html": "/banks/swedbank/",
       "hasCatalog": true,
@@ -46,7 +46,7 @@
     {
       "slug": "luminor",
       "name": "Luminor",
-      "fetchedAt": "2026-11-18T01:46:13.487Z",
+      "fetchedAt": "2026-11-19T01:45:58.396Z",
       "json": "/banks/luminor/data.json",
       "html": "/banks/luminor/",
       "hasCatalog": true,
@@ -55,7 +55,7 @@
     {
       "slug": "citadele",
       "name": "Citadele",
-      "fetchedAt": "2026-11-18T01:46:14.291Z",
+      "fetchedAt": "2026-11-19T01:45:59.148Z",
       "json": "/banks/citadele/data.json",
       "html": "/banks/citadele/",
       "hasCatalog": true,
@@ -64,16 +64,16 @@
     {
       "slug": "wise",
       "name": "Wise",
-      "fetchedAt": "2026-11-18T01:46:15.155Z",
+      "fetchedAt": "2026-11-19T01:45:59.477Z",
       "json": "/banks/wise/data.json",
       "html": "/banks/wise/",
       "hasCatalog": true,
-      "rateCount": 3
+      "rateCount": 2
     },
     {
       "slug": "holm",
       "name": "Holm Bank",
-      "fetchedAt": "2026-11-18T01:46:15.432Z",
+      "fetchedAt": "2026-11-19T01:45:59.733Z",
       "json": "/banks/holm/data.json",
       "html": "/banks/holm/",
       "hasCatalog": true,
@@ -82,7 +82,7 @@
     {
       "slug": "bigbank",
       "name": "Bigbank",
-      "fetchedAt": "2026-11-18T01:46:17.203Z",
+      "fetchedAt": "2026-11-19T01:46:01.486Z",
       "json": "/banks/bigbank/data.json",
       "html": "/banks/bigbank/",
       "hasCatalog": true,
@@ -91,7 +91,7 @@
     {
       "slug": "iutecredit",
       "name": "IuteCredit",
-      "fetchedAt": "2026-11-18T01:46:18.560Z",
+      "fetchedAt": "2026-11-19T01:46:03.021Z",
       "json": "/banks/iutecredit/data.json",
       "html": "/banks/iutecredit/",
       "hasCatalog": true,
@@ -100,7 +100,7 @@
     {
       "slug": "nordea",
       "name": "Nordea",
-      "fetchedAt": "2026-11-18T01:46:19.366Z",
+      "fetchedAt": "2026-11-19T01:46:03.188Z",
       "json": "/banks/nordea/data.json",
       "html": "/banks/nordea/",
       "hasCatalog": true,
@@ -109,7 +109,7 @@
     {
       "slug": "lightyear",
       "name": "Lightyear",
-      "fetchedAt": "2026-11-18T01:46:19.436Z",
+      "fetchedAt": "2026-11-19T01:46:03.254Z",
       "json": "/banks/lightyear/data.json",
       "html": "/banks/lightyear/",
       "hasCatalog": true,
