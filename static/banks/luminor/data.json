@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "luminor",
   "name": "Luminor",
-  "fetchedAt": "2026-11-20T01:38:20.878Z",
-  "generatedAt": "2026-11-20T01:38:23.797Z",
+  "fetchedAt": "2026-11-21T01:46:24.815Z",
+  "generatedAt": "2026-11-21T01:46:27.879Z",
   "sources": [
     {
       "kind": "fallback",

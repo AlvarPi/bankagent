@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "coop",
   "name": "Coop Pank",
-  "fetchedAt": "2026-11-20T01:38:19.767Z",
-  "generatedAt": "2026-11-20T01:38:23.754Z",
+  "fetchedAt": "2026-11-21T01:46:23.323Z",
+  "generatedAt": "2026-11-21T01:46:27.855Z",
   "sources": [
     {
       "kind": "primary",
@@ -16,7 +16,9 @@
       "note": "hinnakirja lingid"
     }
   ],
-  "warnings": [],
+  "warnings": [
+    "Kehtivuse kuupäeva ei leitud"
+  ],
   "rates": [
     {
       "product_type": "deposit",
@@ -24,7 +26,7 @@
       "rate_percent": 2,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -32,7 +34,7 @@
       "rate_percent": 2.25,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -40,7 +42,7 @@
       "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -48,7 +50,7 @@
       "rate_percent": 2.6,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -56,7 +58,7 @@
       "rate_percent": 2.7,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -64,7 +66,7 @@
       "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -72,7 +74,7 @@
       "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -80,7 +82,7 @@
       "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -88,7 +90,7 @@
       "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -96,7 +98,7 @@
       "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -104,7 +106,7 @@
       "rate_percent": 2,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "deposit",
@@ -112,7 +114,7 @@
       "rate_percent": 2.25,
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/raha-kasvatamine/hoiuste-intressid",
-      "raw_text": "coop-collect: kehtivad alates 16.09.2026"
+      "raw_text": "coop-collect: parsed from public page"
     },
     {
       "product_type": "fee",
