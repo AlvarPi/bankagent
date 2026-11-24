@@ -1,6 +1,9 @@
 // LHV avaliku info koguja. Hoiuseintressid tõmmatakse OTSE lhv.ee-lt (mitte
 // minuraha baromeetrist) → uuenevad igapäevaselt öise regeni käigus.
 // Kui lhv.ee päring ebaõnnestub, kasutatakse catalog.js staatilisi määrasid (fallback).
+// Kodulaenu tingimused: _shared/mortgage.js (lhv.ee/et/kodulaen tekst).
+
+import { collectMortgageTerms, MORTGAGE_SOURCES } from '../_shared/mortgage.js';
 
 export const LHV_DEPOSIT_URL = 'https://www.lhv.ee/et/tahtajaline-hoius';
 export const LHV_SAVINGS_URL = 'https://www.lhv.ee/et/kogumiskonto';
@@ -68,6 +71,7 @@ export function parseSavings(text) {
  * @returns {Promise<import('../_shared/util.js').CollectResult & { lhvRates?: object }>}
  */
 export async function collect() {
+  const mortgage = await collectMortgageTerms('lhv');
   const fetchedAt = new Date().toISOString();
   /** @type {string[]} */
   const warnings = [];
@@ -95,14 +99,15 @@ export async function collect() {
   return {
     slug: 'lhv',
     bankName: 'LHV',
-    rows: [],
+    rows: mortgage.rows,
     sources: [
       { kind: 'reference', url: LHV_DEPOSIT_URL, note: 'tähtajaline hoius' },
       { kind: 'reference', url: LHV_SAVINGS_URL, note: 'kogumiskonto' },
-      { kind: 'reference', url: LHV_FEES_URL, note: 'hinnakiri' }
+      { kind: 'reference', url: LHV_FEES_URL, note: 'hinnakiri' },
+      { kind: 'primary', url: MORTGAGE_SOURCES.lhv.url, note: 'kodulaenu tingimused (lehe tekst)' }
     ],
     fetchedAt,
-    warnings,
+    warnings: [...warnings, ...mortgage.warnings],
     lhvRates
   };
 }

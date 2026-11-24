@@ -76,6 +76,7 @@ export function buildBankPreviewHtml(data, catalog = null) {
   const deposits = data.rows.filter((row) => row.product_type === 'deposit');
   const accounts = data.rows.filter((row) => row.product_type === 'account');
   const fees = data.rows.filter((row) => row.product_type === 'fee');
+  const loans = data.rows.filter((row) => row.product_type === 'loan');
   const catalogHtml = buildCatalogHtml(catalog);
 
   const rowHtml = (rows) =>
@@ -189,6 +190,7 @@ export function buildBankPreviewHtml(data, catalog = null) {
       <section class="card"><h2>Allikad</h2><ul>${sourcesHtml}</ul></section>
       ${tableSection('Hoiused', deposits, 'Toode')}
       ${tableSection('Arvelduskontod', accounts, 'Toode')}
+      ${tableSection('Kodulaen (öine skann panga lehelt)', loans, 'Tingimus')}
       ${tableSection('Tasud / hinnakirjad', fees, 'Kirje')}
       ${catalogHtml}
     </div>

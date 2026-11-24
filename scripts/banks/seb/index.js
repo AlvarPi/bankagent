@@ -1,5 +1,6 @@
 import { collectMinurahaForBank } from '../_shared/minuraha.js';
 import { makeRow } from '../_shared/util.js';
+import { collectMortgageTerms, MORTGAGE_SOURCES } from '../_shared/mortgage.js';
 import { fetchHtml } from '../_shared/util.js';
 import {
   fetchSebDepositRates,
@@ -53,6 +54,10 @@ export async function collect() {
     rows.push(...(await collectMinurahaForBank('seb')));
   }
 
+  const mortgage = await collectMortgageTerms('seb');
+  rows.push(...mortgage.rows);
+  warnings.push(...mortgage.warnings);
+
   rows.push(
     makeRow('seb', {
       product_type: 'fee',
@@ -69,6 +74,7 @@ export async function collect() {
     sources: [
       { kind: 'api', url: `${SEB_DEPOSIT_CSV_BASE}/eur-privi.csv`, note: 'tähtajalise hoiuse kalkulaatori CSV (EUR, USD)' },
       { kind: 'primary', url: SEB_RATES_URL, note: 'kogumishoius, arvelduskonto' },
+      { kind: 'primary', url: MORTGAGE_SOURCES.seb.url, note: 'kodulaenu tingimused (lehe tekst)' },
       { kind: 'fallback', url: 'https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter', note: 'FI baromeeter' },
       { kind: 'reference', url: SEB_FEES_URL, note: 'hinnakiri' }
     ],

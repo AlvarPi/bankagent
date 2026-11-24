@@ -178,12 +178,17 @@ export const COOP_CATALOG = [
         name: 'Kodulaen',
         url: 'https://www.cooppank.ee/eraklient/kodu/kodulaen',
         summary:
-          'Kodu ostmine, ehitus, renoveerimine. Laenusumma alates 10 000 €, periood kuni 30 aastat, omafinantseering vähemalt 15% (EIS/KredEx käendusega kuni 5%-ni). Intress = individuaalne marginaal + 6 kuu EURIBOR. Lisanduvad eksperthinnangu kulu, lepingutasu, hüpoteegi riigilõiv ja notaritasu; ennetähtaegsel tagastamisel kuni 3 kuu intress. (Allikas: cooppank.ee/eraklient/kodu/kodulaen; uudis 26.02.2024)',
+          'Kodulaen maja ehitamiseks, korteri ostmiseks või renoveerimiseks; esmane pakkumine minutiga. Intress = individuaalne marginaal + 6 kuu EURIBOR, soovi korral fikseeritav. Põhinumbrid uuendab öine skann. (Allikas: cooppank.ee/eraklient/kodu/kodulaen, kontrollitud 24.11.2026)',
         rates: [
-          'Marginaal alates 1,6% + 6 kuu EURIBOR (alates 26.02.2024)',
-          'A-energiaklassi intress alates 1,49%',
-          'Omafinantseering vähemalt 15% (EIS käendusega kuni 5%)',
-          'Periood kuni 30 aastat, summa alates 10 000 €'
+          'A-energiaklassiga kodu: intress alates 1,49% + 6 kuu EURIBOR',
+          'Muu kodu: individuaalne marginaal (lehel avaldamata)',
+          'Laenusumma alates 10 000 €, tähtaeg kuni 30 aastat',
+          'Omafinantseering alates 15% (EIS käendusega väiksem)'
+        ],
+        details: [
+          'Kodukaitsja ja õpetaja kodulaen: marginaal alates 1,49%, lepingutasu 0 €',
+          'Min netosissetulek 700 €/kuus, vanus laenu lõpus kuni 75',
+          'Vanad laenud (2008–2012) Coop baasintressiga KPB 4,25%'
         ]
       },
       {

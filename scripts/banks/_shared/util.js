@@ -1,7 +1,7 @@
 /**
  * @typedef {Object} RateRow
  * @property {string} slug
- * @property {'deposit' | 'fee' | 'account'} product_type
+ * @property {'deposit' | 'fee' | 'account' | 'loan'} product_type
  * @property {string} label
  * @property {number | null} [rate_percent]
  * @property {number | null} [fee_cents]

@@ -234,20 +234,21 @@ export const LHV_CATALOG = [
       {
         name: 'Kodulaen',
         url: 'https://www.lhv.ee/et/kodulaen',
-        summary: 'Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine.',
+        summary:
+          'Kodulaen kuni 30 aastat (kuni 30-aastastele 35 aastat ja lepingutasu 0 €); intress = individuaalne marginaal + 6 kuu EURIBOR. Esmane pakkumine 24 h jooksul. Põhinumbrid uuendab öine skann. (Allikas: lhv.ee/et/kodulaen, kontrollitud 24.11.2026)',
         rates: [
-          'Intress = individuaalne marginaal + 6 kuu euribor (lhv.ee/kodulaen)',
-          'Uue A-/B-energiaklassi kodu (rohelaen) alates 1,49% + 6 kuu euribor (lhv.ee/kodulaen)',
-          'Üürikodu (üürikinnisvara) laen alates 1,89% + 6 kuu euribor (lhv.ee/kodulaen)',
-          'Lepingutasu 0,5–0,9% laenusummast, min 300 € (lhv.ee/kodulaen)'
+          'Uus A/B-energiaklassi kodu: alates 1,49% + 6 kuu EURIBOR',
+          'Üürikodu laen: alates 1,89% + 6 kuu EURIBOR',
+          'Laen kinnisvara tagatisel: alates 2,99% + EURIBOR (kuni 70% väärtusest)',
+          'Lepingutasu 0,5–0,9%, min 300 € (kuni 30-a: 0 €); KredExi käendustasu 3%',
+          'Laenusumma alates 20 000 €, kuni 85% tagatisest (KredExiga 90%)'
         ],
         details: [
-          'Laenusumma alates 20 000 €, kuni 85% vara turuväärtusest (lhv.ee/kodulaen)',
-          'Periood kuni 30 aastat',
-          'Omafinantseering vähemalt 15% (KredEx käendusega alates 10%)',
-          'Lasterikkale perele (3+ last alla 19 a) omafinantseering alates 5% KredEx käendusega (2% tasu)',
-          'Esimene pakkumine 24 tunni jooksul',
-          'Maksepuhkus kuni 12 kuud, ennetähtaegne tagastus tasuta'
+          'Min omafinantseering 10 000 €; KredExiga alates 10%, lisatagatisega 0%',
+          'Laenumaksed kokku kuni 50% netosissetulekust',
+          'Ennetähtaegne tagastamine tasuta',
+          'Koduvahetus: maksepuhkus kuni vana kodu müügini',
+          'Lapse sünnist kuni 3 a: maksepuhkus kuni 12 kuud'
         ]
       },
       {

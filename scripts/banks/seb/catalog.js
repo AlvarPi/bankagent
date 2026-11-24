@@ -215,18 +215,19 @@ export const SEB_CATALOG = [
         name: 'Kodulaen',
         url: 'https://www.seb.ee/eraklient/laenud/kodulaen',
         summary:
-          'Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine. Muutuv intress = individuaalne marginaal + Euribor (3, 6 või 12 kuud).',
+          'Kodulaen kuni 30 aastat, baasmäär 3, 6 või 12 kuu EURIBOR + kliendipõhine marginaal (fikseerimine võimalik). Põhinumbrid uuendab öine skann. (Allikas: seb.ee/eraklient/laenud/kodulaen, kontrollitud 24.11.2026)',
         rates: [
-          'Euribor (seb.ee, 25.06.2026): 3 kuud 2,2930%; 6 kuud 2,6060%; 12 kuud 2,7850%',
-          'Näidislepingu KKM ~3,66% (näide: 150 000 €, 26 a, marginaal 1,40% + 6 kuu Euribor 2,114%; seb.ee)',
-          'Lepingu sõlmimise tasu: 0,4% laenusummast, min 190 €',
-          'Lepingu muutmise tasu: kuni 0,4% jääksummast, min 190 €'
+          'Kampaania 01.10–31.12.2026: A/B-energiaklassi kodu alates 1,35% + EURIBOR',
+          'KKM näide 3,66% (150 000 €, 26 a, marginaal 1,40% + 6 kuu EURIBOR 2,114%)',
+          'Lepingutasu 0,4%, min 190 €; muutmine kuni 0,4%, min 190 €',
+          'Laenusumma alates 15 000 €, omafinantseering alates 15%'
         ],
         details: [
-          'Minimaalne laenusumma 15 000 €',
-          'Kuni 30 aastat',
-          'Omafinantseering alates 15% (KredEx/EIS käendusega võimalik vähem)',
-          'Tagatis peab olema kindlustatud vähemalt taastamisväärtuses kogu laenuperioodi vältel'
+          'Refinantseerimine: üle 100 000 € laenul notaritasud pangalt (2026)',
+          'Maksepuhkus kuni 6 kuud',
+          'Ennetähtaegne tagastamine: leppetasu kuni 3 kuu intress (muutuv intress)',
+          'Kui tagatis pole oma kodu: kuni 60% turuväärtusest',
+          'EURIBOR 20.11.2026: 6 k 3,071%, 12 k 3,372% (seb.ee)'
         ]
       },
       {

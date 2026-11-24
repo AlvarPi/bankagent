@@ -1,5 +1,6 @@
 import { collectMinurahaForBank } from '../_shared/minuraha.js';
 import { fetchHtml, makeRow } from '../_shared/util.js';
+import { collectMortgageTerms, MORTGAGE_SOURCES } from '../_shared/mortgage.js';
 import {
   fetchSwedbankDepositRates,
   parseSwedbankRates,
@@ -40,6 +41,10 @@ export async function collect() {
     rows.push(...(await collectMinurahaForBank('swedbank')));
   }
 
+  const mortgage = await collectMortgageTerms('swedbank');
+  rows.push(...mortgage.rows);
+  warnings.push(...mortgage.warnings);
+
   const fetchedAt = new Date().toISOString();
 
   if (!rows.some((row) => row.label === 'Arvelduskonto EUR')) {
@@ -53,6 +58,7 @@ export async function collect() {
     sources: [
       { kind: 'api', url: SWED_DEPOSIT_CALC_URL, note: 'hoiusekalkulaatori JSON (EUR, USD)' },
       { kind: 'primary', url: SWED_DEPOSIT_RATES_URL, note: 'arvelduskonto & paketid' },
+      { kind: 'primary', url: MORTGAGE_SOURCES.swedbank.url, note: 'kodulaenu tingimused (lehe tekst)' },
       { kind: 'reference', url: SWED_INTERESTS_URL, note: 'intressimäärad (JS leht)' },
       { kind: 'fallback', url: 'https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter', note: 'FI baromeeter' }
     ],

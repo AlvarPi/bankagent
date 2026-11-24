@@ -224,18 +224,20 @@ export const SWEDBANK_CATALOG = [
         name: 'Kodulaen',
         url: 'https://www.swedbank.ee/private/credit/loans/home?language=EST',
         summary:
-          'Kinnisvara ostmine, ehitus, renoveerimine. Intress = panga marginaal + 6 kuu Euribor.',
+          'Kodulaen kuni 30 aastat; fikseerimata intress (marginaal + 6 kuu EURIBOR) või 5 aastaks fikseeritud (5 a swap + marginaal). Põhinumbrid uuendab öine skann. (Allikas: swedbank.ee/private/credit/loans/home, kontrollitud 24.11.2026)',
         rates: [
-          'Summa 10 000–500 000 €',
-          'Intress alates 2% (allikas: taotle.ee/pakkuja/swedbank)',
-          'Suurpankade marginaal tüüpiliselt ~1,2–1,5% (turuülevaade, hüpoteek.ee)',
-          'Periood kuni 360 kuud (30 aastat)',
-          '6 kuu Euribor ~2,14% (veebr 2026, turuviide)'
+          'KKM näide 3,671% (145 000 €, marginaal 1,5% + 6 kuu EURIBOR)',
+          'Lepingutasu 0,3%, min 190 € (ehitus min 400 €); kuld- ja noorele kliendile −30%',
+          'Kampaania: laenujääk üle 100 000 € → lepingutasu 0 € ja notarikulud pangalt (taotlused kuni 31.12.2026)',
+          'Laenusumma alates 20 000 €, kuni 85% tagatisest (EIS-iga 90%)',
+          'Omafinantseering 15% (EIS-iga 10%, lisatagatisega 0%)'
         ],
         details: [
-          'Marginaal sõltub kliendiprofiilist, fikseeritud kogu laenuperioodiks',
-          'Euribor muutub iga 6 kuu järel',
-          'Eelotsus internetis, KredEx toetused'
+          'Min netosissetulek 1000 € (kahekesi 1300 €, 2+ ülalpeetavaga 1500 €)',
+          'Kõik laenumaksed kokku kuni 50% sissetulekust',
+          'KredExi tagatistasu 3%',
+          'Laenumaksekindlustus 3% kuumaksest',
+          'EURIBOR 6 k 3,085% (Swedbanki leht, 24.11.2026)'
         ]
       },
       {

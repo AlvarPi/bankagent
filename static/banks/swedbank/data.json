@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "swedbank",
   "name": "Swedbank",
-  "fetchedAt": "2026-11-24T21:28:29.902Z",
-  "generatedAt": "2026-11-24T21:28:33.352Z",
+  "fetchedAt": "2026-11-24T21:34:49.493Z",
+  "generatedAt": "2026-11-24T21:34:51.605Z",
   "sources": [
     {
       "kind": "api",
@@ -14,6 +14,11 @@
       "kind": "primary",
       "url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
       "note": "arvelduskonto & paketid"
+    },
+    {
+      "kind": "primary",
+      "url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "note": "kodulaenu tingimused (lehe tekst)"
     },
     {
       "kind": "reference",
@@ -179,6 +184,70 @@
       "fee_cents": null,
       "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
       "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen KKM näide",
+      "rate_percent": 3.671,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "raw_text": "mortgage-collect: Krediidi kulukuse esialgne määr on 3,671% aastas"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR)",
+      "rate_percent": 1.5,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "raw_text": "mortgage-collect: sh marginaal 1,5 % aastas"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen: lepingutasu: 0,3% laenusummast, vähemalt 190 €",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "raw_text": "mortgage-collect: Lepingutasu 0,3% laenusummast, vähemalt 190 €"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen: laenusumma alates: 20 000 €",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "raw_text": "mortgage-collect: Laenusumma alates 20 000 €"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen: minimaalne omafinantseering",
+      "rate_percent": 15,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "raw_text": "mortgage-collect: Minimaalne omafinantseering on 15%"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen: min netosissetulek: 1000 €",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "raw_text": "mortgage-collect: Regulaarne sissetulek vähemalt 1000 € kuus"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kampaania: laenujääk > 100 000 €: laenujääk on üle 100 000 €, kanname notarikulud Sinu eest ja lepingutasu on 0 €",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "raw_text": "mortgage-collect: laenujääk on üle 100 000 €, kanname notarikulud Sinu eest ja lepingutasu on 0 €"
+    },
+    {
+      "product_type": "loan",
+      "label": "EURIBOR 6 kuud (Swedbanki leht)",
+      "rate_percent": 3.085,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
+      "raw_text": "mortgage-collect: EURIBOR 6 kuud (3.085%)"
     }
   ],
   "links": {
@@ -254,7 +323,9 @@
               "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
-              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "EURIBOR 6 kuud (Swedbanki leht): 3.085% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ],
             "details": [
               "Intress arvutatakse päevasaldolt, kantakse kontole järgmise kuu 3. kuupäevaks"
@@ -318,7 +389,9 @@
               "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
-              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "EURIBOR 6 kuud (Swedbanki leht): 3.085% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ],
             "details": [
               "Deebetkaart",
@@ -468,18 +541,26 @@
           {
             "name": "Kodulaen",
             "url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
-            "summary": "Kinnisvara ostmine, ehitus, renoveerimine. Intress = panga marginaal + 6 kuu Euribor.",
+            "summary": "Kodulaen kuni 30 aastat; fikseerimata intress (marginaal + 6 kuu EURIBOR) või 5 aastaks fikseeritud (5 a swap + marginaal). Põhinumbrid uuendab öine skann. (Allikas: swedbank.ee/private/credit/loans/home, kontrollitud 24.11.2026)",
             "rates": [
-              "Summa 10 000–500 000 €",
-              "Intress alates 2% (allikas: taotle.ee/pakkuja/swedbank)",
-              "Suurpankade marginaal tüüpiliselt ~1,2–1,5% (turuülevaade, hüpoteek.ee)",
-              "Periood kuni 360 kuud (30 aastat)",
-              "6 kuu Euribor ~2,14% (veebr 2026, turuviide)"
+              "KKM näide 3,671% (145 000 €, marginaal 1,5% + 6 kuu EURIBOR)",
+              "Lepingutasu 0,3%, min 190 € (ehitus min 400 €); kuld- ja noorele kliendile −30%",
+              "Kampaania: laenujääk üle 100 000 € → lepingutasu 0 € ja notarikulud pangalt (taotlused kuni 31.12.2026)",
+              "Laenusumma alates 20 000 €, kuni 85% tagatisest (EIS-iga 90%)",
+              "Omafinantseering 15% (EIS-iga 10%, lisatagatisega 0%)",
+              "Kodulaen KKM näide: 3.671% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "Kodulaen: lepingutasu: 0,3% laenusummast, vähemalt 190 €: vaata allikat (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "Kodulaen: laenusumma alates: 20 000 €: vaata allikat (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "Kodulaen: minimaalne omafinantseering: 15% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "Kodulaen: min netosissetulek: 1000 €: vaata allikat (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ],
             "details": [
-              "Marginaal sõltub kliendiprofiilist, fikseeritud kogu laenuperioodiks",
-              "Euribor muutub iga 6 kuu järel",
-              "Eelotsus internetis, KredEx toetused"
+              "Min netosissetulek 1000 € (kahekesi 1300 €, 2+ ülalpeetavaga 1500 €)",
+              "Kõik laenumaksed kokku kuni 50% sissetulekust",
+              "KredExi tagatistasu 3%",
+              "Laenumaksekindlustus 3% kuumaksest",
+              "EURIBOR 6 k 3,085% (Swedbanki leht, 24.11.2026)"
             ]
           },
           {
@@ -555,7 +636,9 @@
               "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
-              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "EURIBOR 6 kuud (Swedbanki leht): 3.085% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ],
             "details": [
               "Kuumakse = limiit / 48",
@@ -672,6 +755,9 @@
             "details": [
               "Muutuvad pakkumised",
               "Ostu- ja reisipaketi hüved"
+            ],
+            "rates": [
+              "EURIBOR 6 kuud (Swedbanki leht): 3.085% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ]
           },
           {
@@ -701,7 +787,9 @@
               "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
-              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "EURIBOR 6 kuud (Swedbanki leht): 3.085% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ]
           },
           {
@@ -761,7 +849,9 @@
               "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
-              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
+              "EURIBOR 6 kuud (Swedbanki leht): 3.085% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ]
           },
           {
