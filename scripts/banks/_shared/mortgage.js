@@ -59,13 +59,18 @@ export const MORTGAGE_SOURCES = {
     url: 'https://www.seb.ee/eraklient/laenud/kodulaen',
     patterns: [
       {
-        label: 'Kodulaen A/B-energiaklass (kampaania): alates (+ EURIBOR)',
+        label: 'Kodulaen A/B-energiaklass (kampaania 01.10–31.12.2026): alates (+ EURIBOR)',
         re: /A ja B-energiaklassi objekti ostmiseks[^.]{0,80}?intress alates (\d+[,.]\d+)\s*%/i,
         optional: true
       },
       { label: 'Kodulaen KKM näide', re: /Kodulaenu krediidi kulukuse esialgne määr on (\d+[,.]\d+)\s*%/i },
       { label: 'Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR)', re: /intressimäär aastas\*?\s*(\d+[,.]\d+)\s*% \+ 6 kuu euribor/i },
       { label: 'Kodulaen: omafinantseering alates', re: /Omafinantseering alates (\d+)\s*%/i },
+      {
+        label: 'Kodulaen: lepingutasu',
+        re: /Kodulaen, hüpoteeklaen\s*-\s*lepingu sõlmimine\s*(0,\d+% laenusummast, min \d+ eurot)/i,
+        kind: 'text'
+      },
       { label: 'Kodulaen: laenusumma', re: /(Alates [\d\s]+ eurot)\./i, kind: 'text' }
     ]
   },

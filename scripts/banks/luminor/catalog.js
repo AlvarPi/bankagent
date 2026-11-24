@@ -210,7 +210,7 @@ export const LUMINOR_CATALOG = [
         ],
         details: [
           'Koduvahetus: vana kodu müügiks 12 kuud, vahepeal ainult intress',
-          'Korteri energiaklass vähemalt C (enne 2019) / B (alates 2019)',
+          'EIS-käendusega „energiatõhusa eluaseme” soodustus: korteri energiaklass vähemalt C (kasutusluba enne 2019) / B (alates 2019) — EI OLE kampaania üldtingimus',
           'Luminor Prime: 3,5% (uusi laene ei väljastata)',
           '+372 628 3300'
         ]

@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "seb",
   "name": "SEB",
-  "fetchedAt": "2026-11-24T21:39:46.376Z",
-  "generatedAt": "2026-11-24T21:39:51.634Z",
+  "fetchedAt": "2026-11-24T21:49:44.118Z",
+  "generatedAt": "2026-11-24T21:50:09.628Z",
   "sources": [
     {
       "kind": "api",
@@ -195,6 +195,14 @@
     },
     {
       "product_type": "loan",
+      "label": "Kodulaen: lepingutasu: 0,4% laenusummast, min 190 eurot",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://www.seb.ee/eraklient/laenud/kodulaen",
+      "raw_text": "mortgage-collect: Kodulaen, hüpoteeklaen - lepingu sõlmimine 0,4% laenusummast, min 190 eurot"
+    },
+    {
+      "product_type": "loan",
       "label": "Kodulaen: laenusumma: Alates 15 000 eurot",
       "rate_percent": null,
       "fee_cents": null,
@@ -278,6 +286,7 @@
               "Tähtajaline hoius EUR 36 kuud (500-100000 EUR): 2% (https://www.seb.ee/eraklient/hoiuste-intressimaarad)",
               "Kodulaen A/B-energiaklass (kampaania): alates (+ EURIBOR): 1.35% (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.4% (https://www.seb.ee/eraklient/laenud/kodulaen)",
+              "Kodulaen: lepingutasu: 0,4% laenusummast, min 190 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen: laenusumma: Alates 15 000 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)"
             ],
             "details": [
@@ -373,6 +382,7 @@
               "Tähtajaline hoius EUR 36 kuud (500-100000 EUR): 2% (https://www.seb.ee/eraklient/hoiuste-intressimaarad)",
               "Kodulaen A/B-energiaklass (kampaania): alates (+ EURIBOR): 1.35% (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.4% (https://www.seb.ee/eraklient/laenud/kodulaen)",
+              "Kodulaen: lepingutasu: 0,4% laenusummast, min 190 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen: laenusumma: Alates 15 000 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
             ],
@@ -510,6 +520,7 @@
               "Kodulaen KKM näide: 3.66% (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.4% (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen: omafinantseering alates: 15% (https://www.seb.ee/eraklient/laenud/kodulaen)",
+              "Kodulaen: lepingutasu: 0,4% laenusummast, min 190 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen: laenusumma: Alates 15 000 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)"
             ],
             "details": [
@@ -533,6 +544,7 @@
               "Kodulaen KKM näide: 3.66% (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.4% (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen: omafinantseering alates: 15% (https://www.seb.ee/eraklient/laenud/kodulaen)",
+              "Kodulaen: lepingutasu: 0,4% laenusummast, min 190 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen: laenusumma: Alates 15 000 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
             ]
@@ -715,6 +727,7 @@
               "Tähtajaline hoius EUR 36 kuud (500-100000 EUR): 2% (https://www.seb.ee/eraklient/hoiuste-intressimaarad)",
               "Kodulaen A/B-energiaklass (kampaania): alates (+ EURIBOR): 1.35% (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.4% (https://www.seb.ee/eraklient/laenud/kodulaen)",
+              "Kodulaen: lepingutasu: 0,4% laenusummast, min 190 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen: laenusumma: Alates 15 000 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Pangateenuste hinnakiri: vaata allikat (https://www.seb.ee/eraklient/igapaevapangandus/pangateenuste-hinnakiri)"
             ],
@@ -795,6 +808,7 @@
               "Tähtajaline hoius EUR 36 kuud (500-100000 EUR): 2% (https://www.seb.ee/eraklient/hoiuste-intressimaarad)",
               "Kodulaen A/B-energiaklass (kampaania): alates (+ EURIBOR): 1.35% (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.4% (https://www.seb.ee/eraklient/laenud/kodulaen)",
+              "Kodulaen: lepingutasu: 0,4% laenusummast, min 190 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)",
               "Kodulaen: laenusumma: Alates 15 000 eurot: vaata allikat (https://www.seb.ee/eraklient/laenud/kodulaen)"
             ]
           },
