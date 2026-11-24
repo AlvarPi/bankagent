@@ -4,6 +4,7 @@
 // Kodulaenu tingimused: _shared/mortgage.js (lhv.ee/et/kodulaen tekst).
 
 import { collectMortgageTerms, MORTGAGE_SOURCES } from '../_shared/mortgage.js';
+import { makeRow, parsePercent } from '../_shared/util.js';
 
 export const LHV_DEPOSIT_URL = 'https://www.lhv.ee/et/tahtajaline-hoius';
 export const LHV_SAVINGS_URL = 'https://www.lhv.ee/et/kogumiskonto';
@@ -96,10 +97,48 @@ export async function collect() {
     );
   }
 
+  // Hoiuseread ka rows-i (nõustaja võrdleb ridu; kataloog jääb samuti alles).
+  /** @type {import('../_shared/util.js').RateRow[]} */
+  const depositRows = [];
+  for (const t of lhvRates?.terms ?? []) {
+    const term = `${t.months} ${t.months === 1 ? 'kuu' : 'kuud'}`;
+    depositRows.push(
+      makeRow('lhv', {
+        product_type: 'deposit',
+        label: `Tähtajaline hoius EUR ${term}`,
+        rate_percent: parsePercent(t.eur),
+        source_url: LHV_DEPOSIT_URL,
+        raw_text: 'lhv-collect: lhv.ee/tahtajaline-hoius'
+      })
+    );
+    if (t.usd) {
+      depositRows.push(
+        makeRow('lhv', {
+          product_type: 'deposit',
+          label: `Tähtajaline hoius USD ${term}`,
+          rate_percent: parsePercent(t.usd),
+          source_url: LHV_DEPOSIT_URL,
+          raw_text: 'lhv-collect: lhv.ee/tahtajaline-hoius'
+        })
+      );
+    }
+  }
+  if (lhvRates?.savings) {
+    depositRows.push(
+      makeRow('lhv', {
+        product_type: 'deposit',
+        label: 'Kogumiskonto',
+        rate_percent: parsePercent(lhvRates.savings),
+        source_url: LHV_SAVINGS_URL,
+        raw_text: 'lhv-collect: lhv.ee/kogumiskonto'
+      })
+    );
+  }
+
   return {
     slug: 'lhv',
     bankName: 'LHV',
-    rows: mortgage.rows,
+    rows: [...depositRows, ...mortgage.rows],
     sources: [
       { kind: 'reference', url: LHV_DEPOSIT_URL, note: 'tähtajaline hoius' },
       { kind: 'reference', url: LHV_SAVINGS_URL, note: 'kogumiskonto' },

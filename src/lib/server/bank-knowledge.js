@@ -1,4 +1,4 @@
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildRetrievedContext } from '../../../scripts/banks/_shared/advisor-retrieval.js';
@@ -6,18 +6,20 @@ import { buildRetrievedContext } from '../../../scripts/banks/_shared/advisor-re
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BANKS_DIR = join(__dirname, '..', '..', '..', 'static', 'banks');
 
-/** @type {{ index: object, banks: Record<string, object>, loadedAt: string } | null} */
+/** @type {{ index: object, banks: Record<string, object>, loadedAt: string, mtimeMs: number } | null} */
 let cache = null;
 
 /**
  * @returns {Promise<{ index: object, banks: Record<string, object> }>}
  */
 async function loadBankKnowledge() {
-  if (cache) {
+  const indexPath = join(BANKS_DIR, 'knowledge.json');
+  // Uuesti lugemine, kui öine skann on knowledge.json üle kirjutanud.
+  const { mtimeMs } = await stat(indexPath);
+  if (cache && cache.mtimeMs === mtimeMs) {
     return { index: cache.index, banks: cache.banks };
   }
 
-  const indexPath = join(BANKS_DIR, 'knowledge.json');
   const indexRaw = await readFile(indexPath, 'utf8');
   /** @type {object} */
   const index = JSON.parse(indexRaw);
@@ -37,7 +39,7 @@ async function loadBankKnowledge() {
     }
   }
 
-  cache = { index, banks, loadedAt: new Date().toISOString() };
+  cache = { index, banks, loadedAt: new Date().toISOString(), mtimeMs };
   return { index, banks };
 }
 

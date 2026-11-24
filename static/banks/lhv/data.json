@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "lhv",
   "name": "LHV",
-  "fetchedAt": "2026-11-24T21:34:46.207Z",
-  "generatedAt": "2026-11-24T21:34:51.581Z",
+  "fetchedAt": "2026-11-24T21:39:45.233Z",
+  "generatedAt": "2026-11-24T21:39:51.626Z",
   "sources": [
     {
       "kind": "reference",
@@ -28,6 +28,142 @@
   ],
   "warnings": [],
   "rates": [
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 1 kuu",
+      "rate_percent": 2,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 1 kuu",
+      "rate_percent": 1,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 3 kuud",
+      "rate_percent": 2.25,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 3 kuud",
+      "rate_percent": 1.5,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 6 kuud",
+      "rate_percent": 2.5,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 6 kuud",
+      "rate_percent": 1.75,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 9 kuud",
+      "rate_percent": 2.55,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 9 kuud",
+      "rate_percent": 2,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 12 kuud",
+      "rate_percent": 2.6,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 12 kuud",
+      "rate_percent": 2.25,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 15 kuud",
+      "rate_percent": 2.6,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 15 kuud",
+      "rate_percent": 2.25,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 18 kuud",
+      "rate_percent": 2.6,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 18 kuud",
+      "rate_percent": 2.25,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 24 kuud",
+      "rate_percent": 2.6,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 24 kuud",
+      "rate_percent": 2.25,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/tahtajaline-hoius",
+      "raw_text": "lhv-collect: lhv.ee/tahtajaline-hoius"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Kogumiskonto",
+      "rate_percent": 2,
+      "fee_cents": null,
+      "source_url": "https://www.lhv.ee/et/kogumiskonto",
+      "raw_text": "lhv-collect: lhv.ee/kogumiskonto"
+    },
     {
       "product_type": "loan",
       "label": "Kodulaen uus A/B-energiaklassi kodu: alates (+ 6 kuu EURIBOR)",
@@ -101,6 +237,22 @@
               "EUR 18 kuud 2,60% (lhv.ee/tahtajaline-hoius)",
               "EUR 24 kuud 2,60% (lhv.ee/tahtajaline-hoius)",
               "USD 12 kuud 2,25% (lhv.ee/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 1 kuu: 2% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius USD 1 kuu: 1% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius USD 3 kuud: 1.5% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius USD 6 kuud: 1.75% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius USD 9 kuud: 2% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius USD 12 kuud: 2.25% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 15 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius USD 15 kuud: 2.25% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius USD 18 kuud: 2.25% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius USD 24 kuud: 2.25% (https://www.lhv.ee/et/tahtajaline-hoius)",
               "Kodulaen: laenusumma: Alates 20 000 eurost, kuni 85% tagatise turuväärtusest: vaata allikat (https://www.lhv.ee/et/kodulaen)"
             ],
             "details": [
@@ -114,7 +266,8 @@
             "url": "https://www.lhv.ee/et/kogumiskonto",
             "summary": "Paindlik kogumiskonto eesmärgipõhiseks säästmiseks, väljavõtt igal ajal ilma teenustasuta.",
             "rates": [
-              "Intress 2,00% aastas (lhv.ee/kogumiskonto)"
+              "Intress 2,00% aastas (lhv.ee/kogumiskonto)",
+              "Kogumiskonto: 2% (https://www.lhv.ee/et/kogumiskonto)"
             ],
             "details": [
               "Intressi teenitakse alates 109,10 € jäägist (lhv.ee/kogumiskonto)",
@@ -130,6 +283,14 @@
             "rates": [
               "Eraisik 0,01% aastas (lhv.ee/noudmiseni-hoius)",
               "Juriidiline isik 0,8% aastas summalt üle 20 000 € (lhv.ee/noudmiseni-hoius)",
+              "Tähtajaline hoius EUR 1 kuu: 2% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 15 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
               "Kodulaen uus A/B-energiaklassi kodu: alates (+ 6 kuu EURIBOR): 1.49% (https://www.lhv.ee/et/kodulaen)",
               "Üürikodu laen: alates (+ 6 kuu EURIBOR): 1.89% (https://www.lhv.ee/et/kodulaen)",
               "Laen kinnisvara tagatisel: alates (+ EURIBOR): 2.99% (https://www.lhv.ee/et/kodulaen)",
@@ -532,6 +693,14 @@
               "Konto kuutasu 0 €",
               "Ärikaart 2,00 €/kuus",
               "Jäägilt üle 20 000 €: 0,8% aastas",
+              "Tähtajaline hoius EUR 1 kuu: 2% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 15 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
               "Kodulaen uus A/B-energiaklassi kodu: alates (+ 6 kuu EURIBOR): 1.49% (https://www.lhv.ee/et/kodulaen)",
               "Üürikodu laen: alates (+ 6 kuu EURIBOR): 1.89% (https://www.lhv.ee/et/kodulaen)",
               "Laen kinnisvara tagatisel: alates (+ EURIBOR): 2.99% (https://www.lhv.ee/et/kodulaen)",
@@ -567,6 +736,14 @@
               "Intressi- ja valuutariski maandamine"
             ],
             "rates": [
+              "Tähtajaline hoius EUR 1 kuu: 2% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 15 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.lhv.ee/et/tahtajaline-hoius)",
               "Kodulaen uus A/B-energiaklassi kodu: alates (+ 6 kuu EURIBOR): 1.49% (https://www.lhv.ee/et/kodulaen)",
               "Üürikodu laen: alates (+ 6 kuu EURIBOR): 1.89% (https://www.lhv.ee/et/kodulaen)",
               "Laen kinnisvara tagatisel: alates (+ EURIBOR): 2.99% (https://www.lhv.ee/et/kodulaen)",
@@ -581,6 +758,9 @@
               "Makseterminal ka hooajaks",
               "Google Pay ja Apple Pay e-poes",
               "Kaardimaksete kogukulu kalkulaator"
+            ],
+            "rates": [
+              "Kogumiskonto: 2% (https://www.lhv.ee/et/kogumiskonto)"
             ]
           },
           {

@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, stat } from 'node:fs/promises';
 import { join } from 'node:path';
 import { buildRetrievedContext, SKIP_CONTEXT_SLUGS } from './advisor-retrieval.js';
 import {
@@ -22,7 +22,11 @@ function runAdvisorTool(name, input) {
   return runAvaandmedTool(name, input);
 }
 
-/** @type {Map<string, { index: object, banks: Record<string, unknown> }>} */
+/**
+ * Vahemälu võti = knowledge.json mtime: öine skann kirjutab faili üle → järgmine päring loeb uuesti.
+ * (Varem laeti andmed teenuse eluajaks üks kord — nõustaja nägi vanu numbreid kuni restardini.)
+ * @type {Map<string, { mtimeMs: number, knowledge: { index: object, banks: Record<string, unknown> } }>}
+ */
 const knowledgeCache = new Map();
 
 /**
@@ -45,10 +49,11 @@ export async function checkAdvisorHealth() {
  * @param {string} staticBanksDir
  */
 export async function loadBankKnowledge(staticBanksDir) {
-  const cached = knowledgeCache.get(staticBanksDir);
-  if (cached) return cached;
-
   const indexPath = join(staticBanksDir, 'knowledge.json');
+  const { mtimeMs } = await stat(indexPath);
+  const cached = knowledgeCache.get(staticBanksDir);
+  if (cached && cached.mtimeMs === mtimeMs) return cached.knowledge;
+
   const indexRaw = await readFile(indexPath, 'utf8');
   /** @type {{ banks: Array<{ slug: string }>, generatedAt?: string }} */
   const index = JSON.parse(indexRaw);
@@ -63,7 +68,7 @@ export async function loadBankKnowledge(staticBanksDir) {
   }
 
   const knowledge = { index, banks };
-  knowledgeCache.set(staticBanksDir, knowledge);
+  knowledgeCache.set(staticBanksDir, { mtimeMs, knowledge });
   return knowledge;
 }
 

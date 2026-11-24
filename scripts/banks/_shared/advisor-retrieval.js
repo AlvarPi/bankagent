@@ -19,6 +19,7 @@ const BANK_ALIASES = {
   bigbank: ['bigbank', 'big bank'],
   iutecredit: ['iutecredit', 'iute credit', 'iute'],
   nordea: ['nordea'],
+  lightyear: ['lightyear'],
   'morgan-stanley': ['morgan stanley', 'morgan']
 };
 
@@ -30,8 +31,13 @@ const TOPIC_KEYWORDS = {
   account: ['konto', 'kontod', 'pakett', 'pangakonto', 'arveldus', 'igapäev'],
   insurance: ['kindlustus', 'kindlust'],
   pension: ['pension', 'iii sammas', 'ii sammas', 'tuleva'],
-  transfer: ['ülekanne', 'valuuta', 'välis', 'swift', 'sepa', 'vahetuskurss'],
-  compare: ['võrdle', 'võrdlus', 'parim', 'odavaim', 'kõrgeim', 'kõik', 'kõiki', 'pangad', 'erinev']
+  transfer: ['ülekanne', 'valuuta', 'välis', 'swift', 'sepa', 'vahetuskurss', 'saata', 'saatmine'],
+  api: ['api', 'mcp', 'open banking', 'psd2', 'liides', 'arendaja', 'developer'],
+  compare: [
+    'võrdle', 'võrdlus', 'parim', 'parima', 'odavaim', 'soodsaim', 'soodsam', 'kõrgeim', 'madalaim',
+    'kõige', 'kõik', 'kõiki', 'kõigi', 'pangad', 'pankade', 'pankades', 'erinev', 'milline pank',
+    'millises pangas', 'mõnel pangal', 'mis pangas'
+  ]
 };
 
 const STOPWORDS = new Set([
@@ -41,10 +47,12 @@ const STOPWORDS = new Set([
 
 const MAX_FULL_BANKS = 3;
 const MAX_CATALOG_ITEMS = 18;
+/** Kõigi pankade võrdlusel (nt kodulaen) — iga panga kohta vähem üksusi, aga kõik pangad. */
+const MAX_CATALOG_ITEMS_COMPARE = 5;
 const MIN_ITEM_SCORE = 1;
 
 /** Teemad, mille puhul tootekataloog on asjakohane (hoiuste intressid on rates massiivis). */
-const CATALOG_TOPICS = new Set(['loan', 'card', 'account', 'insurance', 'pension', 'transfer']);
+const CATALOG_TOPICS = new Set(['loan', 'card', 'account', 'insurance', 'pension', 'transfer', 'api']);
 
 /**
  * @param {number | null | undefined} cents
@@ -76,9 +84,8 @@ export function extractQueryText(messages) {
 export function tokenize(text) {
   return text
     .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .split(/[^a-z0-9äöüõ]+/i)
+    .normalize('NFC')
+    .split(/[^a-z0-9äöüõšž]+/i)
     .map((t) => t.trim())
     .filter((t) => t.length >= 2 && !STOPWORDS.has(t));
 }
@@ -155,6 +162,7 @@ const DEPOSIT_PRODUCT_MARKERS = ['deposit', 'hoius', 'savings'];
  */
 function isDepositRelatedRate(rate) {
   const type = String(rate.product_type ?? '').toLowerCase();
+  if (type === 'loan') return false;
   if (DEPOSIT_PRODUCT_MARKERS.some((m) => type.includes(m))) return true;
   const text = `${rate.label ?? ''} ${rate.raw_text ?? ''}`.toLowerCase();
   for (const kw of TOPIC_KEYWORDS.deposit) {
@@ -174,6 +182,15 @@ function selectRatesForDisplay(rates, depositOnly) {
 }
 
 /**
+ * Lihtne tüvi: lõikab levinud käändelõpu (≥6-täheline sõna jääb ≥5 täheks).
+ * @param {string} token
+ */
+function stemOf(token) {
+  const m = token.match(/^(.{5,}?)(dega|test|tele|sid|ide|ile|iks|ina|ist|sse|ga|le|lt|st|de|te|id|ud|u|e|i|a|d|t)$/);
+  return m ? m[1] : token.slice(0, -1);
+}
+
+/**
  * @param {string} text
  * @param {string[]} tokens
  * @param {Set<string>} topics
@@ -184,6 +201,8 @@ function scoreText(text, tokens, topics) {
 
   for (const token of tokens) {
     if (lower.includes(token)) score += 2;
+    // Eesti käänded: "kodulaenu" ↔ "kodulaen", "lepingutasusid" ↔ "lepingutasu".
+    else if (token.length >= 6 && lower.includes(stemOf(token))) score += 2;
   }
 
   for (const topic of topics) {
@@ -268,7 +287,7 @@ function scoreBank(data, tokens, topics, mentioned) {
  * @param {Set<string>} topics
  * @param {boolean} includeAll
  */
-function formatFilteredCatalog(catalog, tokens, topics, includeAll) {
+function formatFilteredCatalog(catalog, tokens, topics, includeAll, maxItems = MAX_CATALOG_ITEMS) {
   /** @type {Array<{ section: { title: string }, item: { name: string, summary?: string, url?: string, details?: string[], rates?: string[] }, score: number }>} */
   const ranked = [];
 
@@ -282,7 +301,7 @@ function formatFilteredCatalog(catalog, tokens, topics, includeAll) {
   }
 
   ranked.sort((a, b) => b.score - a.score);
-  const selected = includeAll ? ranked : ranked.slice(0, MAX_CATALOG_ITEMS);
+  const selected = includeAll ? ranked : ranked.slice(0, maxItems);
 
   if (!selected.length) return [];
 
@@ -309,7 +328,7 @@ function formatFilteredCatalog(catalog, tokens, topics, includeAll) {
 
 /**
  * @param {Record<string, unknown>} data
- * @param {{ includeCatalog: boolean, depositRatesOnly?: boolean, tokens: string[], topics: Set<string>, catalogAll: boolean }} opts
+ * @param {{ includeCatalog: boolean, depositRatesOnly?: boolean, tokens: string[], topics: Set<string>, catalogAll: boolean, maxCatalogItems?: number }} opts
  */
 export function formatBankBlock(data, opts) {
   const allRates = Array.isArray(data.rates) ? data.rates : [];
@@ -357,7 +376,8 @@ export function formatBankBlock(data, opts) {
         /** @type {Parameters<typeof formatFilteredCatalog>[0]} */ (catalog),
         opts.tokens,
         opts.topics,
-        opts.catalogAll
+        opts.catalogAll,
+        opts.maxCatalogItems
       )
     );
   }
@@ -407,8 +427,9 @@ export function buildRetrievedContext(knowledge, messages) {
     for (const slug of mentioned) fullCatalogSlugs.add(slug);
   }
 
-  if (wantsCompare && wantsCatalogTopic && !mentioned.size) {
-    for (const { bank, score } of bankScores.slice(0, MAX_FULL_BANKS)) {
+  const compareAllBanks = wantsCompare && wantsCatalogTopic && !mentioned.size;
+  if (compareAllBanks) {
+    for (const { bank, score } of bankScores) {
       if (score > 0) fullCatalogSlugs.add(String(bank.slug));
     }
     if (!fullCatalogSlugs.size) {
@@ -490,10 +511,11 @@ export function buildRetrievedContext(knowledge, messages) {
     lines.push(
       formatBankBlock(bank, {
         includeCatalog,
-        depositRatesOnly: singleBankDepositOnly,
+        depositRatesOnly: singleBankDepositOnly || (topics.has('deposit') && !wantsCatalogTopic),
         tokens,
         topics,
-        catalogAll: includeCatalog && catalogAll
+        catalogAll: includeCatalog && catalogAll,
+        maxCatalogItems: compareAllBanks ? MAX_CATALOG_ITEMS_COMPARE : MAX_CATALOG_ITEMS
       })
     );
     lines.push('');

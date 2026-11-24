@@ -32,14 +32,9 @@ const MIME = {
   '.png': 'image/png'
 };
 
-/** @type {Promise<{ index: object, banks: Record<string, unknown> }> | null} */
-let advisorKnowledgePromise = null;
-
+// loadBankKnowledge hoiab ise vahemälu ja loeb uuesti, kui knowledge.json muutub (öine skann).
 function getAdvisorKnowledge() {
-  if (!advisorKnowledgePromise) {
-    advisorKnowledgePromise = loadBankKnowledge(STATIC_BANKS);
-  }
-  return advisorKnowledgePromise;
+  return loadBankKnowledge(STATIC_BANKS);
 }
 
 /**
