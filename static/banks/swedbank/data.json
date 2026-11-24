@@ -2,13 +2,18 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "swedbank",
   "name": "Swedbank",
-  "fetchedAt": "2026-11-24T21:20:27.204Z",
-  "generatedAt": "2026-11-24T21:20:30.912Z",
+  "fetchedAt": "2026-11-24T21:28:29.902Z",
+  "generatedAt": "2026-11-24T21:28:33.352Z",
   "sources": [
+    {
+      "kind": "api",
+      "url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit",
+      "note": "hoiusekalkulaatori JSON (EUR, USD)"
+    },
     {
       "kind": "primary",
       "url": "https://www.swedbank.ee/private/home/more/pricesrates/depositrates",
-      "note": "deposits & paketid"
+      "note": "arvelduskonto & paketid"
     },
     {
       "kind": "reference",
@@ -65,19 +70,115 @@
     },
     {
       "product_type": "deposit",
-      "label": "Tähtajaline hoius 12 kuu (baromeeter), min 190 €",
-      "rate_percent": 2.6,
+      "label": "Tähtajaline hoius EUR 1 kuu",
+      "rate_percent": 2.1,
       "fee_cents": null,
-      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 19.11.2026"
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
     },
     {
-      "product_type": "account",
-      "label": "Arvelduskonto (baromeeter), min 1 €",
-      "rate_percent": 0.01,
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 3 kuud",
+      "rate_percent": 2.25,
       "fee_cents": null,
-      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 22.10.2024"
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 6 kuud",
+      "rate_percent": 2.5,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 9 kuud",
+      "rate_percent": 2.55,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 12 kuud",
+      "rate_percent": 2.6,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 18 kuud",
+      "rate_percent": 2.6,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius EUR 24 kuud",
+      "rate_percent": 2.6,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 1 kuu",
+      "rate_percent": 1,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 3 kuud",
+      "rate_percent": 1.5,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 6 kuud",
+      "rate_percent": 1.75,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 9 kuud",
+      "rate_percent": 2,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 12 kuud",
+      "rate_percent": 2.5,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 18 kuud",
+      "rate_percent": 2.5,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
+    },
+    {
+      "product_type": "deposit",
+      "label": "Tähtajaline hoius USD 24 kuud",
+      "rate_percent": 2.5,
+      "fee_cents": null,
+      "source_url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+      "raw_text": "swedbank-collect: hoiusekalkulaatori JSON (depositType 20, intress perioodi lõpus, 1000)"
     }
   ],
   "links": {
@@ -92,19 +193,31 @@
         "items": [
           {
             "name": "Tähtajaline hoius",
-            "url": "https://www.swedbank.ee/private/investor/deposits/my/interests?language=EST",
-            "summary": "Fikseeritud intressiga tähtajaline hoius. Intressimäär on fikseeritud kogu hoiuperioodi vältel. Tagatud Tagatisfondi poolt kuni 100 000 €.",
+            "url": "https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST",
+            "summary": "Tähtajaline hoius EUR, USD, SEK, GBP, NOK jt; perioodid 1–24 kuud (36/60 kuud kalkulaatoris praegu 0% = ei pakuta). Määrad loeb öine skann Swedbanki hoiusekalkulaatori JSON-päringust. (Allikas: swedbank.ee hoiusekalkulaator, kontrollitud 24.11.2026)",
             "rates": [
-              "12 kuud: 2,05% (min 190 €; allikas: minuraha.ee intressibaromeeter, seisuga 16.03.2026)",
-              "Minimaalne hoiusumma 190 € (allikas: swedbank.ee/business/invest/deposits/interests)",
-              "Täpsed perioodipõhised määrad: swedbank.ee depositrates / interests leht",
+              "EUR: 1 k 2,10% · 3 k 2,25% · 6 k 2,50% · 9 k 2,55% · 12–24 k 2,60%",
+              "USD: 1 k 1,00% · 3 k 1,50% · 6 k 1,75% · 9 k 2,00% · 12–24 k 2,50%",
+              "Sama määr igakuise intressimaksega ja 1000 € / 100 000 € summal",
               "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 190 €: 2.6% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius EUR 1 kuu: 2.1% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius USD 1 kuu: 1% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius USD 3 kuud: 1.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius USD 6 kuud: 1.75% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius USD 9 kuud: 2% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius USD 12 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius USD 18 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius USD 24 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
             ],
             "details": [
-              "Minimaalne summa 190 € (swedbank.ee)",
-              "Intressimäär fikseeritud kogu perioodiks",
-              "Tagatud Tagatisfondi poolt kuni 100 000 €"
+              "Minimaalne summa 190 € (kalkulaator kinnitab)",
+              "Tagatisfond kuni 100 000 €"
             ]
           },
           {
@@ -135,7 +248,13 @@
               "EUR arvelduskonto: 0,01% (allikas: swedbank.ee depositrates, seisuga 27.06.2026)",
               "Baromeeter: 0,01% (min 1 €; allikas: minuraha.ee, seisuga 22.10.2024)",
               "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius EUR 1 kuu: 2.1% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
             ],
             "details": [
               "Intress arvutatakse päevasaldolt, kantakse kontole järgmise kuu 3. kuupäevaks"
@@ -193,7 +312,13 @@
               "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius EUR 1 kuu: 2.1% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
             ],
             "details": [
               "Deebetkaart",
@@ -424,7 +549,13 @@
               "Kohustistasu 1,2% aastas kasutamata summalt",
               "KKM 19,575% (limiit 2000 €, intress 17%, lepingutasu 35 €, 5 a)",
               "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius EUR 1 kuu: 2.1% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
             ],
             "details": [
               "Kuumakse = limiit / 48",
@@ -564,7 +695,13 @@
             ],
             "rates": [
               "Arvelduskonto EUR: 0.01% (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius EUR 1 kuu: 2.1% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
             ]
           },
           {
@@ -618,7 +755,13 @@
               "Põhipakett kuni 25 a.: tasu tasuta (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Põhipakett alates 65 a.: tasu 0.32 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
               "Premium paketi kuutasu: tasu 1.00 € (https://www.swedbank.ee/private/home/more/pricesrates/depositrates)",
-              "Arvelduskonto (baromeeter), min 1 €: 0.01% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "Tähtajaline hoius EUR 1 kuu: 2.1% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 3 kuud: 2.25% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 6 kuud: 2.5% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 9 kuud: 2.55% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 12 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
+              "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)"
             ]
           },
           {
@@ -658,6 +801,8 @@
             "url": "https://developer.swedbank.com",
             "summary": "Swedbank PSD2 API arendajaportaalis developer.swedbank.com (sandbox olemas). Ametlikku MCP serverit ei ole; kolmanda osapoole bank-mcp (github.com/elcukro/bank-mcp) toetab Swedbanki Enable Banking/Tink kaudu. Agregaatorid (nt Enable Banking, Tink, GoCardless) pakuvad ligipääsu sama PSD2 API kaudu ilma oma eIDAS-sertifikaadita (enablebanking.com/docs/markets/ee).",
             "details": [
+              "Tähtajalise hoiuse määrad: avalik kalkulaatori JSON — POST https://www.swedbank.ee/private/home/more/calculator/calc/deposit (pageId, calculate=true, currency, amount, period, periodType=M, depositType=20) → {interest, interestSum, grandTotal}; öine skann kasutab alates 24.11.2026",
+              "Mitteametlik liides — võib muutuda",
               "Valuutakursid: swedbank.ee/private/d2d/payments2/rates/currency (HTML)"
             ]
           }

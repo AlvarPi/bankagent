@@ -8,18 +8,17 @@ export const SEB_CATALOG = [
     items: [
       {
         name: 'Tähtajaline hoius',
-        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine/tahtajalise-hoiuse-intressimaarad',
+        url: 'https://www.seb.ee/eraklient/hoiuste-intressimaarad',
         summary:
-          'Fikseeritud intressiga tähtajaline hoius. Intress fikseeritud kogu hoiuperioodiks. Valuutad EUR, USD, SEK, GBP. Tagatud Tagatisfondi poolt kuni 100 000 €.',
+          'Tähtajaline hoius 500 – 100 000 € (kalkulaatori vahemik; kuni 1 000 000 € kokkuleppel), periood 1 kuu – 3 aastat. Määrad loeb öine skann SEB kalkulaatori CSV-st (seb.ee/sites/default/files/calc/intress/eur-privi.csv). (Allikas: seb.ee/eraklient/hoiuste-intressimaarad, kontrollitud 24.11.2026)',
         rates: [
-          'Kuni 2,00% aastas (seb.ee tähtajalise hoiuse intressimäärade leht, 06.2026)',
-          '12 kuu baromeeter: 2,30%, min 500 € (minuraha.ee intressibaromeeter)',
-          'Avalikes otsingusnippetides nähtud perioodimäärad (mitte ametlikult kinnitatud lehel): ~3 kuud 3,5%, 6 kuud 3,25%, 9 kuud 3,5%, 12 kuud 4,0%, 24 kuud 3,25%, 36 kuud 3,0% — täpne määr sõltub kampaaniast ja lepingust'
+          'EUR: 1 k 2,00% · 3 k 2,20% · 6–9 k 2,40% · 12 k 2,50% · 24 k 2,40% · 36 k 2,00%',
+          'USD: 1 k 1,00% · 3 k 1,50% · 6 k 1,75% · 9 k 2,00% · 12–36 k 2,50%',
+          'Alla 30 päeva: 0%'
         ],
         details: [
-          'Intressimäärad lehel on informatiivsed; lepingu sõlmimisel kehtivad määrad võivad erineda (seb.ee)',
-          'Intress makstakse tähtaja lõpus või kokkuleppel igakuiselt',
-          'Intressikalkulaator saadaval seb.ee lehel'
+          'Investeerimiskontoga saab intressi maksustamise edasi lükata',
+          'Tagatisfond kuni 100 000 €'
         ]
       },
       {
@@ -27,7 +26,7 @@ export const SEB_CATALOG = [
         url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine',
         summary:
           'Paindlik kogumishoius (sh Digikassa) vabade vahendite kasvatamiseks igakuise sissemaksega.',
-        rates: ['1,65% aastas (seb.ee hoiuste intressimäärade leht, 06.2026; varem 1,55%)'],
+        rates: ['1,65% aastas (k.a Digikassa) — seb.ee/eraklient/hoiuste-intressimaarad, 24.11.2026'],
         details: ['Paindlik sissemakse', 'Digikassa raha kogutakse automaatselt kogumishoiusesse']
       },
       {
@@ -447,9 +446,9 @@ export const SEB_CATALOG = [
       },
       {
         name: 'Hoiuste intressimäärad',
-        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine/tahtajalise-hoiuse-intressimaarad',
+        url: 'https://www.seb.ee/eraklient/hoiuste-intressimaarad',
         summary:
-          'Hoiuste, kontode ja laenude intressimäärad. Tähtajaline hoius kuni 2%, kogumishoius 1,65%, arvelduskonto 0,01%.',
+          'Hoiuste intressimäärad + baasintressid (20.11.2026: 6 k EURIBOR 3,071%, 12 k 3,372%, €STR 2,441%, SEB PBI 2,746%). (Allikas: seb.ee/eraklient/hoiuste-intressimaarad)',
         details: ['Uuendatakse regulaarselt', 'Lehel toodud määrad on informatiivsed']
       },
       {
@@ -477,7 +476,11 @@ export const SEB_CATALOG = [
         url: 'https://developer.sebgroup.com',
         summary:
           'SEB PSD2 API arendajaportaalis developer.sebgroup.com (sandbox) ja ärikliendile Baltic Gateway (ka teiste pankade kontoandmed). MCP serverit ei ole (24.11.2026). Agregaatorid (nt Enable Banking, Tink, GoCardless) pakuvad ligipääsu sama PSD2 API kaudu ilma oma eIDAS-sertifikaadita (enablebanking.com/docs/markets/ee).',
-        details: ['Baltic Gateway: seb.ee/en/business/daily-banking/online-services/baltic-gateway']
+        details: [
+          'Tähtajalise hoiuse määrad: avalik CSV https://www.seb.ee/sites/default/files/calc/intress/{eur,usd,gbp}-privi.csv (päevad; määr) — öine skann kasutab seda alates 24.11.2026',
+          'Mitteametlik liides — võib muutuda',
+          'Baltic Gateway: seb.ee/en/business/daily-banking/online-services/baltic-gateway'
+        ]
       }
     ]
   }

@@ -8,19 +8,15 @@ export const SWEDBANK_CATALOG = [
     items: [
       {
         name: 'Tähtajaline hoius',
-        url: 'https://www.swedbank.ee/private/investor/deposits/my/interests?language=EST',
+        url: 'https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST',
         summary:
-          'Fikseeritud intressiga tähtajaline hoius. Intressimäär on fikseeritud kogu hoiuperioodi vältel. Tagatud Tagatisfondi poolt kuni 100 000 €.',
+          'Tähtajaline hoius EUR, USD, SEK, GBP, NOK jt; perioodid 1–24 kuud (36/60 kuud kalkulaatoris praegu 0% = ei pakuta). Määrad loeb öine skann Swedbanki hoiusekalkulaatori JSON-päringust. (Allikas: swedbank.ee hoiusekalkulaator, kontrollitud 24.11.2026)',
         rates: [
-          '12 kuud: 2,05% (min 190 €; allikas: minuraha.ee intressibaromeeter, seisuga 16.03.2026)',
-          'Minimaalne hoiusumma 190 € (allikas: swedbank.ee/business/invest/deposits/interests)',
-          'Täpsed perioodipõhised määrad: swedbank.ee depositrates / interests leht'
+          'EUR: 1 k 2,10% · 3 k 2,25% · 6 k 2,50% · 9 k 2,55% · 12–24 k 2,60%',
+          'USD: 1 k 1,00% · 3 k 1,50% · 6 k 1,75% · 9 k 2,00% · 12–24 k 2,50%',
+          'Sama määr igakuise intressimaksega ja 1000 € / 100 000 € summal'
         ],
-        details: [
-          'Minimaalne summa 190 € (swedbank.ee)',
-          'Intressimäär fikseeritud kogu perioodiks',
-          'Tagatud Tagatisfondi poolt kuni 100 000 €'
-        ]
+        details: ['Minimaalne summa 190 € (kalkulaator kinnitab)', 'Tagatisfond kuni 100 000 €']
       },
       {
         name: 'Rahakoguja',
@@ -491,7 +487,11 @@ export const SWEDBANK_CATALOG = [
         url: 'https://developer.swedbank.com',
         summary:
           'Swedbank PSD2 API arendajaportaalis developer.swedbank.com (sandbox olemas). Ametlikku MCP serverit ei ole; kolmanda osapoole bank-mcp (github.com/elcukro/bank-mcp) toetab Swedbanki Enable Banking/Tink kaudu. Agregaatorid (nt Enable Banking, Tink, GoCardless) pakuvad ligipääsu sama PSD2 API kaudu ilma oma eIDAS-sertifikaadita (enablebanking.com/docs/markets/ee).',
-        details: ['Valuutakursid: swedbank.ee/private/d2d/payments2/rates/currency (HTML)']
+        details: [
+          'Tähtajalise hoiuse määrad: avalik kalkulaatori JSON — POST https://www.swedbank.ee/private/home/more/calculator/calc/deposit (pageId, calculate=true, currency, amount, period, periodType=M, depositType=20) → {interest, interestSum, grandTotal}; öine skann kasutab alates 24.11.2026',
+          'Mitteametlik liides — võib muutuda',
+          'Valuutakursid: swedbank.ee/private/d2d/payments2/rates/currency (HTML)'
+        ]
       }
     ]
   }

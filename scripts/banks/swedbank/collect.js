@@ -1,4 +1,4 @@
-import { fetchHtml, makeRow, parseEuroFeeToCents, parsePercent } from '../_shared/util.js';
+import { fetchHtml, makeRow, parseEuroFeeToCents, parsePercent, USER_AGENT } from '../_shared/util.js';
 
 export const SWED_DEPOSIT_RATES_URL =
   'https://www.swedbank.ee/private/home/more/pricesrates/depositrates';
@@ -71,4 +71,60 @@ export function parseSwedbankRates(html) {
   }
 
   return rows;
+}
+
+/**
+ * Swedbanki hoiusekalkulaatori JSON-päring (avalik, autentimata). Leitud 24.11.2026
+ * brauseri võrguliiklusest: POST vormiga → {"interest":2.6,"interestSum":…,"grandTotal":…}.
+ * depositType 20 = tähtajaline hoius (intress perioodi lõpus). Määr 0 = perioodi ei pakuta.
+ */
+export const SWED_DEPOSIT_CALC_URL = 'https://www.swedbank.ee/private/home/more/calculator/calc/deposit';
+export const SWED_DEPOSIT_PAGE_URL = `${SWED_DEPOSIT_CALC_URL}?language=EST`;
+export const SWED_TERM_MONTHS = [1, 3, 6, 9, 12, 18, 24, 36, 60];
+
+/**
+ * @param {{ currency: string, months: number, amount?: number, depositType?: string }} q
+ * @returns {Promise<number | null>}
+ */
+export async function querySwedbankDepositRate({ currency, months, amount = 1000, depositType = '20' }) {
+  const body = new URLSearchParams({
+    pageId: 'private.home.more.calculator.calc.deposit',
+    language: 'EST',
+    calculate: 'true',
+    currency,
+    amount: String(amount),
+    period: String(months),
+    periodType: 'M',
+    depositType,
+    contributionType: '0',
+    margin: '0.01'
+  });
+  const res = await fetch(SWED_DEPOSIT_CALC_URL, {
+    method: 'POST',
+    headers: {
+      'User-Agent': USER_AGENT,
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    },
+    body,
+    signal: AbortSignal.timeout(30_000)
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${SWED_DEPOSIT_CALC_URL}`);
+  const json = await res.json();
+  if (json.exception || json.error) return null;
+  return typeof json.interest === 'number' ? json.interest : null;
+}
+
+/**
+ * @returns {Promise<Array<{ currency: string, months: number, rate: number }>>}
+ */
+export async function fetchSwedbankDepositRates() {
+  const out = [];
+  for (const currency of ['EUR', 'USD']) {
+    for (const months of SWED_TERM_MONTHS) {
+      const rate = await querySwedbankDepositRate({ currency, months });
+      if (rate) out.push({ currency, months, rate });
+    }
+  }
+  return out;
 }
