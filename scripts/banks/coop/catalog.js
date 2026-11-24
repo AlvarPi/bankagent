@@ -180,8 +180,9 @@ export const COOP_CATALOG = [
         summary:
           'Kodulaen maja ehitamiseks, korteri ostmiseks või renoveerimiseks; esmane pakkumine minutiga. Intress = individuaalne marginaal + 6 kuu EURIBOR, soovi korral fikseeritav. Põhinumbrid uuendab öine skann. (Allikas: cooppank.ee/eraklient/kodu/kodulaen, kontrollitud 24.11.2026)',
         rates: [
+          'KKM näide 4,306% (115 000 €, 30 a, marginaal 1,600% + 6 kuu EURIBOR 2,706% seisuga 01.08.2026)',
+          'Lepingutasu KKM näites 100 € (115 000 € laenul ≈0,09%; hinnakirja üldreeglit pole kontrollitud)',
           'A-energiaklassiga kodu: intress alates 1,49% + 6 kuu EURIBOR',
-          'Muu kodu: individuaalne marginaal (lehel avaldamata)',
           'Laenusumma alates 10 000 €, tähtaeg kuni 30 aastat',
           'Omafinantseering alates 15% (EIS käendusega väiksem)'
         ],

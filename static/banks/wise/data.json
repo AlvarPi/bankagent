@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "wise",
   "name": "Wise",
-  "fetchedAt": "2026-11-24T21:50:07.206Z",
-  "generatedAt": "2026-11-24T21:50:09.660Z",
+  "fetchedAt": "2026-11-24T21:55:51.990Z",
+  "generatedAt": "2026-11-24T21:55:54.350Z",
   "sources": [
     {
       "kind": "primary",
@@ -84,7 +84,7 @@
     },
     {
       "product_type": "fee",
-      "label": "Ülekanne 1000 EUR → USD: tasu 6.21 €, kurss 1.09655, saaja saab 1089.74 USD",
+      "label": "Ülekanne 1000 EUR → USD: tasu 6.21 €, kurss 1.0965, saaja saab 1089.69 USD",
       "rate_percent": null,
       "fee_cents": 621,
       "source_url": "https://api.wise.com/v3/quotes",
@@ -108,7 +108,7 @@
     },
     {
       "product_type": "fee",
-      "label": "Ülekanne 1000 EUR → PLN: tasu 6.2 €, kurss 4.4588, saaja saab 4431.16 PLN",
+      "label": "Ülekanne 1000 EUR → PLN: tasu 6.2 €, kurss 4.45905, saaja saab 4431.4 PLN",
       "rate_percent": null,
       "fee_cents": 620,
       "source_url": "https://api.wise.com/v3/quotes",
@@ -116,7 +116,7 @@
     },
     {
       "product_type": "fee",
-      "label": "Ülekanne 1000 EUR → NOK: tasu 5.82 €, kurss 10.7414, saaja saab 10678.89 NOK",
+      "label": "Ülekanne 1000 EUR → NOK: tasu 5.82 €, kurss 10.7417, saaja saab 10679.18 NOK",
       "rate_percent": null,
       "fee_cents": 582,
       "source_url": "https://api.wise.com/v3/quotes",

@@ -28,6 +28,9 @@ export const MORTGAGE_SOURCES = {
       { label: 'Kodulaen: laenusumma alates', re: /Laenusumma alates ([\d\s]+\s*€)/i, kind: 'text' },
       { label: 'Kodulaen: tagasimakse tähtaeg kuni', re: /Tagasimakse tähtaeg kuni (\d+ aastat)/i, kind: 'text' },
       { label: 'Kodulaen: omafinantseering alates', re: /omafinantseering alates (\d+)\s*%/i },
+      { label: 'Kodulaen KKM näide', re: /Kodulaenu krediidi kulukuse esialgne määr on (\d+[,.]\d+)\s*%/i },
+      { label: 'Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR)', re: /EURIBOR \+ marginaal (\d+[,.]\d+)\s*% aastas/i },
+      { label: 'Kodulaen KKM näite lepingutasu', re: /näidistingimustel:[^.]{0,120}?lepingutasu ([\d\s]+,\d+ €)/i, kind: 'text' },
       {
         label: 'Kodukaitsja kodulaen: marginaal alates (+ 6 kuu EURIBOR)',
         re: /Marginaal alates (\d+[,.]\d+)\s*%/i,

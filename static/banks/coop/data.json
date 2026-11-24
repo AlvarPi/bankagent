@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "coop",
   "name": "Coop Pank",
-  "fetchedAt": "2026-11-24T21:49:42.995Z",
-  "generatedAt": "2026-11-24T21:50:09.540Z",
+  "fetchedAt": "2026-11-24T21:55:26.762Z",
+  "generatedAt": "2026-11-24T21:55:54.292Z",
   "sources": [
     {
       "kind": "primary",
@@ -152,6 +152,30 @@
       "fee_cents": null,
       "source_url": "https://www.cooppank.ee/eraklient/kodu/kodulaen",
       "raw_text": "mortgage-collect: omafinantseering alates 15%"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen KKM näide",
+      "rate_percent": 4.306,
+      "fee_cents": null,
+      "source_url": "https://www.cooppank.ee/eraklient/kodu/kodulaen",
+      "raw_text": "mortgage-collect: Kodulaenu krediidi kulukuse esialgne määr on 4,306%"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR)",
+      "rate_percent": 1.6,
+      "fee_cents": null,
+      "source_url": "https://www.cooppank.ee/eraklient/kodu/kodulaen",
+      "raw_text": "mortgage-collect: EURIBOR + marginaal 1,600% aastas"
+    },
+    {
+      "product_type": "loan",
+      "label": "Kodulaen KKM näite lepingutasu: 100,00 €",
+      "rate_percent": null,
+      "fee_cents": null,
+      "source_url": "https://www.cooppank.ee/eraklient/kodu/kodulaen",
+      "raw_text": "mortgage-collect: näidistingimustel: krediidisumma 115 000 €, tagastamine 30 aasta jooksul 360 igakuise annuiteetmaksena, lepingutasu 100,00 €"
     },
     {
       "product_type": "loan",
@@ -389,14 +413,18 @@
             "url": "https://www.cooppank.ee/eraklient/kodu/kodulaen",
             "summary": "Kodulaen maja ehitamiseks, korteri ostmiseks või renoveerimiseks; esmane pakkumine minutiga. Intress = individuaalne marginaal + 6 kuu EURIBOR, soovi korral fikseeritav. Põhinumbrid uuendab öine skann. (Allikas: cooppank.ee/eraklient/kodu/kodulaen, kontrollitud 24.11.2026)",
             "rates": [
+              "KKM näide 4,306% (115 000 €, 30 a, marginaal 1,600% + 6 kuu EURIBOR 2,706% seisuga 01.08.2026)",
+              "Lepingutasu KKM näites 100 € (115 000 € laenul ≈0,09%; hinnakirja üldreeglit pole kontrollitud)",
               "A-energiaklassiga kodu: intress alates 1,49% + 6 kuu EURIBOR",
-              "Muu kodu: individuaalne marginaal (lehel avaldamata)",
               "Laenusumma alates 10 000 €, tähtaeg kuni 30 aastat",
               "Omafinantseering alates 15% (EIS käendusega väiksem)",
               "Kodulaen A-energiaklass: intress alates: 1.49% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodulaen: laenusumma alates: 10 000€: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodulaen: tagasimakse tähtaeg kuni: 30 aastat: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodulaen: omafinantseering alates: 15% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näide: 4.306% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.6% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näite lepingutasu: 100,00 €: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodukaitsja kodulaen: marginaal alates (+ 6 kuu EURIBOR): 1.49% (https://www.cooppank.ee/eraklient/kodu/kodukaitsja-kodulaen)",
               "Coop Panga baasintress (KPB, vanad laenud): 4.25% (https://www.cooppank.ee/eraklient/kodu/kodulaen)"
             ],
@@ -418,6 +446,9 @@
               "Kodulaen: laenusumma alates: 10 000€: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodulaen: tagasimakse tähtaeg kuni: 30 aastat: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodulaen: omafinantseering alates: 15% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näide: 4.306% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.6% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näite lepingutasu: 100,00 €: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodukaitsja kodulaen: marginaal alates (+ 6 kuu EURIBOR): 1.49% (https://www.cooppank.ee/eraklient/kodu/kodukaitsja-kodulaen)",
               "Erakliendi hinnakiri (PDF lingid): vaata allikat (https://www.cooppank.ee/info/tingimused-ja-hinnakirjad)"
             ]
@@ -436,6 +467,9 @@
               "Kodulaen: laenusumma alates: 10 000€: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodulaen: tagasimakse tähtaeg kuni: 30 aastat: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodulaen: omafinantseering alates: 15% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näide: 4.306% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.6% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näite lepingutasu: 100,00 €: vaata allikat (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodukaitsja kodulaen: marginaal alates (+ 6 kuu EURIBOR): 1.49% (https://www.cooppank.ee/eraklient/kodu/kodukaitsja-kodulaen)",
               "Coop Panga baasintress (KPB, vanad laenud): 4.25% (https://www.cooppank.ee/eraklient/kodu/kodulaen)"
             ],
@@ -592,6 +626,7 @@
             "rates": [
               "Aastane reisikindlustus 8,9 €/kuus (paketikliendile)",
               "Piirideta pakett 6,99 €/kuus sisaldab isiklikku reisikindlustust",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.6% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodukaitsja kodulaen: marginaal alates (+ 6 kuu EURIBOR): 1.49% (https://www.cooppank.ee/eraklient/kodu/kodukaitsja-kodulaen)",
               "Erakliendi hinnakiri (PDF lingid): vaata allikat (https://www.cooppank.ee/info/tingimused-ja-hinnakirjad)"
             ]
@@ -739,6 +774,7 @@
               "Kuutasu 0 €",
               "Sularaha sissemakse Coopis kuni 4000 €/kuus tasuta",
               "Sularaha väljamakse 0,69 €/tehing",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.6% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodukaitsja kodulaen: marginaal alates (+ 6 kuu EURIBOR): 1.49% (https://www.cooppank.ee/eraklient/kodu/kodukaitsja-kodulaen)",
               "Erakliendi hinnakiri (PDF lingid): vaata allikat (https://www.cooppank.ee/info/tingimused-ja-hinnakirjad)"
             ]
@@ -772,6 +808,7 @@
               "Tähtaeg kuni 1 aasta",
               "Intress kasutatud summalt",
               "Kodulaen A-energiaklass: intress alates: 1.49% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.6% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodukaitsja kodulaen: marginaal alates (+ 6 kuu EURIBOR): 1.49% (https://www.cooppank.ee/eraklient/kodu/kodukaitsja-kodulaen)",
               "Coop Panga baasintress (KPB, vanad laenud): 4.25% (https://www.cooppank.ee/eraklient/kodu/kodulaen)"
             ],
@@ -833,6 +870,7 @@
             "url": "https://www.cooppank.ee/info/tingimused-ja-hinnakirjad",
             "summary": "Erakliendi ja ärikliendi hinnakirjad, kaartide ja arvelduse tüüptingimused (uuendused alates 01.08.2026).",
             "rates": [
+              "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.6% (https://www.cooppank.ee/eraklient/kodu/kodulaen)",
               "Kodukaitsja kodulaen: marginaal alates (+ 6 kuu EURIBOR): 1.49% (https://www.cooppank.ee/eraklient/kodu/kodukaitsja-kodulaen)",
               "Erakliendi hinnakiri (PDF lingid): vaata allikat (https://www.cooppank.ee/info/tingimused-ja-hinnakirjad)"
             ]
