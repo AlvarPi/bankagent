@@ -29,7 +29,8 @@ export const LHV_CATALOG = [
       {
         name: 'Kogumiskonto',
         url: 'https://www.lhv.ee/et/kogumiskonto',
-        summary: 'Paindlik kogumiskonto eesmärgipõhiseks säästmiseks, väljavõtt igal ajal ilma teenustasuta.',
+        summary:
+          'Paindlik kogumiskonto eesmärgipõhiseks säästmiseks, väljavõtt igal ajal ilma teenustasuta.',
         rates: ['Intress 1,65% aastas (lhv.ee/kogumiskonto)'],
         details: [
           'Intressi teenitakse alates 109,10 € jäägist (lhv.ee/kogumiskonto)',
@@ -72,15 +73,27 @@ export const LHV_CATALOG = [
       },
       {
         name: 'Pension (II ja III sammas)',
-        url: 'https://www.lhv.ee/et/pension',
-        summary: 'II samba pensionifondid ja III samba vabatahtlik pension.',
-        details: ['LHV pensionifondide valik', 'III samba maksusoodustus', 'Pensionikalkulaator veebis']
+        url: 'https://www.lhv.ee/et/teine-sammas',
+        summary:
+          'LHV pensionifondid II ja III sambas (sh passiivsed indeksfondid) ning pensioni investeerimiskonto. (Allikas: lhv.ee/teine-sammas, lhv.ee/pension, 24.11.2026)',
+        details: [
+          'II sammas: 2%, 4% või 6% brutopalgast + riik 4%',
+          'III sammas: tulumaksuvaba kuni 15% brutotulust, max 6000 €/aastas',
+          'Pensioni investeerimiskonto (oma valitud väärtpaberid)',
+          'Pensionikalkulaator veebis'
+        ]
       },
       {
         name: 'Lapsele konto ja säästmine',
-        url: 'https://www.lhv.ee/et/era/lapsele-konto',
-        summary: 'Lapsele arvelduskonto ja säästmislahendused.',
-        details: ['Vanemate kontroll', 'Säästmine lapse tulevikuks']
+        url: 'https://www.lhv.ee/et/lapsekonto',
+        summary:
+          'Lapsekonto + Kasvukonto lapsele: investeerimine alates 1 €, ostutehingud kuni 26. eluaastani tasuta; väärtpaberite kinkekaart. (Allikas: lhv.ee/lapsekonto, lhv.ee/kasvukonto, 24.11.2026)',
+        rates: ['Kogumiskonto 2,00% aastas', 'Kasvukonto alla 26-a: ostu- ja haldustasu 0 €'],
+        details: [
+          'Pikaaegsete Kasvukonto klientide keskmine tootlus ~8% aastas (ajalooline, ei ole garantii)',
+          'Balti väärtpaberikonto lapsele tasuta',
+          'USA aktsiate jaoks W8 vorm lapse nimel'
+        ]
       }
     ]
   },
@@ -130,20 +143,34 @@ export const LHV_CATALOG = [
         ]
       },
       {
-        name: 'Noorte pakett',
-        url: 'https://www.lhv.ee/et/hinnakiri',
-        summary: 'Eritingimused noortele (kuni 26 a.).',
+        name: 'Noortepank / Noortekaart',
+        url: 'https://www.lhv.ee/et/noortepank',
+        summary:
+          '6–25-aastastele teenustasudeta Noortekaart (taastöödeldud plast), tasuta maksed, Kasvukonto ostu- ja haldustasuta, mikroinvesteerimine, virtuaalne ISIC. (Allikas: lhv.ee/noortepank, 24.11.2026)',
         rates: [
-          'Deebetkaart alla 26-aastasele tasuta (lhv.ee/hinnakiri)',
-          'Alates 65-aastasel deebetkaart tasuta'
+          'Kuutasu alla 26-a 0 €, alates 26 a 1 €',
+          'LHV automaadist sularaha tasuta (+0,3% üle 2000 €/kuus)',
+          'Teise panga automaat EMP-s 1 €; mujal 2 € + 2,5%',
+          'Konverteerimistasu välisvaluutas 1%',
+          'Alates 65 a deebetkaart tasuta'
         ],
-        details: ['Tasuta arveldus', 'LHV noortepakett']
+        details: [
+          'Ostukindlustus 180 päeva, ostud 100–5000 €, omavastutus 30 €, aastas kuni 10 000 €',
+          'Kampaania „Sajaga edasi” 2026: ≥15 kaardimakset kuus → loos 100 € + 100 € Kasvukontole',
+          'Partnersoodustused: Bangbang −20%, kinopiletid 5 €, VLND −15%, MyFitness+ 54 €'
+        ]
       },
       {
         name: 'Lapse konto',
-        url: 'https://www.lhv.ee/et/lapse-konto',
-        summary: 'Lapsele arvelduskonto taskuraha ja säästmiseks.',
-        details: ['Vanem saab jälgida tehinguid', 'Kaart lapsele võimalik', '(täpsed tasud: lhv.ee/hinnakiri — leht andis 403)']
+        url: 'https://www.lhv.ee/et/lapsekonto',
+        summary:
+          'Tasuta lapsekonto kuni 17-aastasele (k.a), avab esindusõigusega vanem. Noortekaart alates 6. eluaastast, tasuta kuni 26. eluaastani. (Allikas: lhv.ee/lapsekonto, 24.11.2026)',
+        rates: ['Konto avamine ja kasutamine tasuta', 'Noortekaart 0 €/kuus (alla 26-a)'],
+        details: [
+          'Alates 7. eluaastast saab vanem lubada lapsel ise makseid teha',
+          'Vanemal ülevaade kuni lapse täisealisuseni',
+          'Kaart saadetakse postiga koju'
+        ]
       }
     ]
   },
@@ -190,8 +217,14 @@ export const LHV_CATALOG = [
       },
       {
         name: 'Nutimaksed',
-        url: 'https://www.lhv.ee/et/era/kaardid',
-        summary: 'Apple Pay, Google Pay, Garmin Pay, Fitbit Pay.'
+        url: 'https://www.lhv.ee/et/apple-pay',
+        summary:
+          'LHV kaardid Apple Pay ja Google Pay rakendustes; LHV tõi esimesena Eestis klientideni Click to Pay. (Allikas: lhv.ee/apple-pay, lhv.ee/google-pay, lhv.ee/click-to-pay)',
+        details: [
+          'Apple Pay alates 13. eluaastast',
+          'Click to Pay e-poodides',
+          'Mikroannetus ja mikroinvesteerimine kaardimaksetega'
+        ]
       }
     ]
   },
@@ -262,17 +295,26 @@ export const LHV_CATALOG = [
         name: 'Krediidikonto / krediitkaardi limiit',
         url: 'https://www.lhv.ee/et/era-krediitkaart',
         summary: 'Paindlik krediit igapäevaseks kasutuseks.',
-        rates: [
-          'Intress 18% aastas (lhv.ee/hinnakiri, otsingutulemus)',
-          'Limiit kuni ~2 kuu palk'
-        ],
+        rates: ['Intress 18% aastas (lhv.ee/hinnakiri, otsingutulemus)', 'Limiit kuni ~2 kuu palk'],
         details: ['Intress ainult kasutatud summalt', 'Intressivaba periood 22–40 päeva']
       },
       {
         name: 'Õppelaen',
-        url: 'https://www.lhv.ee/et/laenud',
-        summary: 'Õpingute finantseerimine.',
-        details: ['(täpsed tingimused: lhv.ee — leht/info piiratud)']
+        url: 'https://www.lhv.ee/et/oppelaen',
+        summary:
+          'Riigi tagatud õppelaen — väljamaksed 15.09–31.05, laenuotsus 3 tööpäevaga. Tingimused muutusid 01.09.2026 (intress soodsam). (Allikas: lhv.ee/oppelaen, 24.11.2026)',
+        rates: [
+          'Intress 1,45% + 6 kuu EURIBOR',
+          'Kuni 6000 € õppeaastas (alla 9 kuu õpe: 3000 €)',
+          'Lepingu sõlmimine ja muutmine tasuta',
+          'KKM näide 5,14% aastas'
+        ],
+        details: [
+          'Põhiosa tagasimaksmine 12–18 kuud pärast lõpetamist',
+          'Õpingute ajal makstakse 1. novembril ainult intressi',
+          'Peatamine lapsehoolduspuhkuse, ajateenistuse, residentuuri ajal',
+          'oppelaen@lhv.ee, 699 9118'
+        ]
       }
     ]
   },
@@ -281,32 +323,48 @@ export const LHV_CATALOG = [
     items: [
       {
         name: 'Reisikindlustus',
-        url: 'https://www.lhv.ee/et/kindlustus/reisikindlustus',
+        url: 'https://www.lhv.ee/et/reisikindlustus',
         summary: 'Reisikindlustus Premium-paketis või eraldi.',
         rates: ['Premium-kliendile kindlustustooted 20% soodsamalt (lhv.ee/premium)'],
         details: ['Meditsiin, pagas, reisi tühistamine', 'Premium-paketis pere reisikindlustus']
       },
       {
         name: 'Kodukindlustus',
-        url: 'https://www.lhv.ee/et/kindlustus/kodukindlustus',
-        summary: 'Kodu, koduvara ja vastutuskindlustus.',
-        details: ['Erinevad kaitsetasemed', 'Kodulaenu puhul nõutav']
+        url: 'https://www.lhv.ee/et/kodukindlustus',
+        summary:
+          'LHV Kindlustuse kodukindlustus — paketid Start Kodu (valitud riskid), Standard Kodu (sh seadmerike) ja Premium Kodu; uued tingimused alates 16.12.2024. (Allikas: lhv.ee/kodukindlustus, 24.11.2026)',
+        rates: ['Premium-kliendile 20% soodsam'],
+        details: [
+          'Kaasaskantav vara vähemalt 3000 € ulatuses kogu maailmas',
+          'Sademevee läbijooks kuni 10 000 € (Premium Kodu)',
+          'Asenduselukoht, kodulaenu maksed, üüritulu kuni 6000/10 000 €',
+          'Ehitustöö kahjul omavastutus 1000 €',
+          'Koduabi ööpäev läbi 680 1122'
+        ]
       },
       {
         name: 'Liiklus- ja kaskokindlustus',
-        url: 'https://www.lhv.ee/et/kindlustus',
-        summary: 'Sõiduki kindlustuslahendused LHV keskkonnas.',
-        details: ['Võrdle pakkumisi', 'Liisingu puhul kasko']
+        url: 'https://www.lhv.ee/et/kaskokindlustus',
+        summary:
+          'LHV Kindlustuse liikluskindlustus (kohustuslik) ja kaskokindlustus. (Allikas: lhv.ee/liikluskindlustus, lhv.ee/kaskokindlustus, 24.11.2026)',
+        details: [
+          'Kasko: tasuta autoabi ja puksiirabi',
+          '2 kahjuvaba aastat → esimese kahju omavastutus 50% soodsam',
+          'Rohelised kaardid ei kehti RU ja BY alates 01.06.2023',
+          'Premium-kliendile kindlustus 20% soodsam'
+        ]
       },
       {
-        name: 'Õnnetusjuhtumi kindlustus',
-        url: 'https://www.lhv.ee/et/kindlustus',
-        summary: 'Trahvide ja invaliidsuse kaitse.'
+        name: 'Tervise- ja õnnetusjuhtumikindlustus',
+        url: 'https://www.lhv.ee/et/tervisekindlustus',
+        summary:
+          'LHV Kindlustuse tervisekindlustus (sh Confido terviselahendus) ning lisaks seadme-, küber- ja laenumaksekindlustus. (Allikas: lhv.ee sitemap: tervisekindlustus, seadmekindlustus, kyberkindlustus, laenumaksekindlustus)'
       },
       {
-        name: 'Elukindlustus',
-        url: 'https://www.lhv.ee/et/kindlustus',
-        summary: 'Elukindlustus pere kaitsmiseks.'
+        name: 'Laenumaksekindlustus',
+        url: 'https://www.lhv.ee/et/laenumaksekindlustus',
+        summary:
+          'Laenumaksekindlustus kodulaenu ja teiste laenude maksete kaitseks (LHV Kindlustus). (Allikas: lhv.ee/laenumaksekindlustus)'
       }
     ]
   },
@@ -315,15 +373,29 @@ export const LHV_CATALOG = [
     items: [
       {
         name: 'LHV pakkumised',
-        url: 'https://www.lhv.ee/et/era/pakkumised',
-        summary: 'Aeg-ajalt kampaaniad uutele ja olemasolevatele klientidele.',
-        details: ['Muutuvad tingimused', 'Jälgi lhv.ee pakkumiste lehte']
+        url: 'https://www.lhv.ee/et/palgakampaania-2026',
+        summary:
+          'Palgakampaania 2026: valitud erakliendid, kelle palk/pension/vanemahüvitis hakkab laekuma LHV-sse 60 päeva jooksul eripakkumise saamisest, saavad auhinna; väljamaksed 05.02.2026–05.01.2027. (Allikas: lhv.ee/palgakampaania-2026)',
+        details: [
+          'Arvesse lähevad palk, pension, vanemahüvitis (selgitusega)',
+          'Auhinna maksud tasub LHV',
+          'Lisaks soovituskampaania (lhv.ee/soovita) ja Noortepanga kampaania'
+        ]
       },
       {
-        name: 'Investeerimiskampaaniad',
-        url: 'https://www.lhv.ee/et/investeerimine',
-        summary: 'Soodustused tehingutasudel või uutele investoritele.',
-        details: ['LHV Trader kampaaniad']
+        name: 'Kasvukonto',
+        url: 'https://www.lhv.ee/et/kasvukonto',
+        summary:
+          'Lihtsaim viis pikaajaliseks investeerimiseks: fondid või üksikaktsiad alates 1 €, LHV teeb tehingud; mikroinvesteerimine ümardab iga kaardimakse. (Allikas: lhv.ee/kasvukonto, 24.11.2026)',
+        rates: [
+          'Ostutehingu tasu 0,5% (LHV fondid tasuta, alla 26-a tasuta)',
+          'Müügitasu 0,14%, min 5 € (kodulaenu sissemakseks 0 €)',
+          'Haldustasu 0,01% kuus + km; 1. aasta tasuta; alla 26-a 0 €'
+        ],
+        details: [
+          'Mikroinvesteerimine: keskmiselt 1,1 €/päevas',
+          'Valik laienes 2026: AI, kaitsetööstus, kosmos'
+        ]
       }
     ]
   },
@@ -333,8 +405,15 @@ export const LHV_CATALOG = [
       {
         name: 'Ärikonto',
         url: 'https://www.lhv.ee/et/ariklient',
-        summary: 'Ettevõtte arveldus ja igapäevapangandus.',
-        details: ['SEPA maksed', 'Mitme kasutaja ligipääs', 'API integratsioonid']
+        summary:
+          'Ettevõtte arvelduskonto: tasuta Euroopa-sisesed ülekanded, LHV Connect (API) tasuta, LinkPay makselingid. Kontojäägilt üle 20 000 € automaatne nõudmiseni hoiuse intress. (Allikas: lhv.ee/ariklient, 24.11.2026)',
+        rates: ['Konto kuutasu 0 €', 'Ärikaart 2,00 €/kuus', 'Jäägilt üle 20 000 €: 0,8% aastas'],
+        details: [
+          'Euroopa maksed tasuta',
+          'LHV Connect ärikliendile tasuta',
+          'Ettevõtluskonto (FIE / ettevõtlik eraisik)',
+          'Mikrolaenul omafinantseering 0%'
+        ]
       },
       {
         name: 'Äripaketid',
@@ -348,15 +427,25 @@ export const LHV_CATALOG = [
       },
       {
         name: 'Ärilaen ja liising',
-        url: 'https://www.lhv.ee/et/ariklient/laenud',
-        summary: 'Ettevõtte finantseerimine, käibekapital, investeeringud.',
-        details: ['MES kaasfinantseerimine', 'Kinnisvara tagatisel laenud']
+        url: 'https://www.lhv.ee/et/arilaen',
+        summary:
+          'Ärilaen, käibekapitalilaen, arvelduslaen, investeerimislaen, mikrolaen, faktooring, garantiid, liising ja ettevõtete omandamise rahastamine; EIS/EIF käendused. (Allikas: lhv.ee sitemap — arilaen, kaibekapitalilaen, arvelduslaen, faktooring, garantiid, mikrolaen)',
+        details: [
+          'Mikrolaen omafinantseeringuta',
+          'Akreditiiv ja dokumentaalinkasso',
+          'Intressi- ja valuutariski maandamine'
+        ]
       },
       {
         name: 'Makseteenused',
-        url: 'https://www.lhv.ee/et/ariklient/makseteenused',
-        summary: 'Kaardimaksed, e-kaubandus, POS terminalid.',
-        details: ['Visa/Mastercard kaupmehele', 'E-arved ja arvemaksed']
+        url: 'https://www.lhv.ee/et/maksekaartide-teenindamise-tasud',
+        summary:
+          'Kaupmehele kaardimaksete vastuvõtt (terminal, e-kaubandus), LinkPay makselingid, pangalink, maksete kogumine, sularahavedu. (Allikas: lhv.ee/maksekaartide-teenindamise-tasud, lhv.ee/maksete-kogumine)',
+        details: [
+          'Makseterminal ka hooajaks',
+          'Google Pay ja Apple Pay e-poes',
+          'Kaardimaksete kogukulu kalkulaator'
+        ]
       },
       {
         name: 'Investeerimispangandus',
@@ -383,31 +472,45 @@ export const LHV_CATALOG = [
       },
       {
         name: 'Tingimused',
-        url: 'https://www.lhv.ee/et/tingimused',
-        summary: 'Üldtingimused ja infolehed.',
+        url: 'https://www.lhv.ee/et/uldtingimused',
+        summary:
+          'LHV üldtingimused ja teenuste tingimused; hinnakirja viimane versioon 05.11.2026. (Allikas: lhv.ee/uldtingimused, lhv.ee/hinnakiri-05-11-2026)',
         details: ['Privaatsuspoliitika', 'Teenuse tingimused']
       },
       {
         name: 'Pangakontorid',
-        url: 'https://www.lhv.ee/et/kontakt',
-        summary: 'Kontorite asukohad ja lahtiolekuajad.',
-        details: ['Tallinn, Tartu', 'Videokohtumine võimalik']
-      },
-      {
-        name: 'Open Banking',
-        url: 'https://developers.lhv.ee',
-        summary: 'LHV avatud panganduse (PSD2) API arendajatele — Berliini grupi standard, nõuab litsentseeritud TPP-d ja eIDAS QWAC serte.'
+        url: 'https://www.lhv.ee/et/kus-asub',
+        summary:
+          'LHV peakontor Tartu mnt 2, Tallinn. Klienditugi 6 800 400, info@lhv.ee; kindlustuse/reisiabi ööpäev läbi 680 1122. (Allikas: lhv.ee/kontakt)',
+        details: ['Kohtumise broneerimine veebis (lhv.ee/broneeri-kohtumine)', 'Õppelaen 699 9118']
       },
       {
         name: 'LHV.ai — pangaandmed AI-assistendis',
         url: 'https://lhv.ai',
-        summary: 'Ühenda oma LHV konto AI-assistendiga (MCP või REST API) — kontod, saldod ja tehingud loetavad otse tehisintellekti tööriistas.',
+        summary:
+          'Ühenda oma LHV konto AI-assistendiga (MCP või REST API) — kontod, saldod ja tehingud loetavad otse tehisintellekti tööriistas.',
         details: [
           'Read-only: assistent EI saa makseid teha ega andmeid muuta',
           'Autentimine OAuth2 + Smart-ID; õigused valid ise (accounts:read ja/või transactions:read)',
           'REST API https://api.lhv.ai/api/v1 (GET /accounts, /accounts/{iban}/transactions); MCP https://mcp.lhv.ai/mcp',
           'Ligipääs kehtib 30 päeva; saab igal ajal tühistada internetipangas (Seaded → Aktiivsed sessioonid)',
           'Tokenid saab https://api.lhv.ai/api-access (Smart-ID login)'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://www.lhv.ee/et/open-banking',
+        summary:
+          'LHV-l on ainsana Eesti pankadest ametlik MCP server (mcp.lhv.ai/mcp, OAuth; list_accounts, get_balances, get_account_statement) ja REST API (lhv.ai) — Claude/Cursori jaoks oma kontoandmetele. Lisaks PSD2 Open Banking API ja LHV Connect ärikliendile. Avalikku hinna-API-t ei ole. (Allikas: lhv.ee/en/news/2026/36, lhv.ee/et/open-banking, 24.11.2026)',
+        details: [
+          'MCP: https://mcp.lhv.ai/mcp (vastab 401 ilma tokenita — töötab)',
+          'Token 1 h, refresh 30 päeva',
+          'Sandbox olemas (Enable Banking)'
         ]
       }
     ]

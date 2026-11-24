@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "wise",
   "name": "Wise",
-  "fetchedAt": "2026-11-24T01:47:15.500Z",
-  "generatedAt": "2026-11-24T01:47:17.057Z",
+  "fetchedAt": "2026-11-24T21:20:28.730Z",
+  "generatedAt": "2026-11-24T21:20:30.928Z",
   "sources": [
     {
       "kind": "primary",
@@ -14,6 +14,11 @@
       "kind": "reference",
       "url": "https://wise.com/ee/pricing/",
       "note": "tasud"
+    },
+    {
+      "kind": "api",
+      "url": "https://api.wise.com/v3/quotes",
+      "note": "avalik hinnapäring (autentimata), 1000 EUR"
     }
   ],
   "warnings": [
@@ -22,9 +27,49 @@
   ],
   "rates": [
     {
+      "product_type": "account",
+      "label": "Wise Interest EUR (muutuv, pärast tasu)",
+      "rate_percent": 2.32,
+      "fee_cents": null,
+      "source_url": "https://wise.com/ee/interest/",
+      "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
+    },
+    {
       "product_type": "fee",
-      "label": "Wise Interest aastatasu (ligikaudu)",
+      "label": "Wise Interest EUR aastatasu",
       "rate_percent": 0.26,
+      "fee_cents": null,
+      "source_url": "https://wise.com/ee/interest/",
+      "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
+    },
+    {
+      "product_type": "account",
+      "label": "Wise Interest USD (muutuv, pärast tasu)",
+      "rate_percent": 3.66,
+      "fee_cents": null,
+      "source_url": "https://wise.com/ee/interest/",
+      "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
+    },
+    {
+      "product_type": "fee",
+      "label": "Wise Interest USD aastatasu",
+      "rate_percent": 0.28,
+      "fee_cents": null,
+      "source_url": "https://wise.com/ee/interest/",
+      "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
+    },
+    {
+      "product_type": "account",
+      "label": "Wise Interest GBP (muutuv, pärast tasu)",
+      "rate_percent": 3.47,
+      "fee_cents": null,
+      "source_url": "https://wise.com/ee/interest/",
+      "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
+    },
+    {
+      "product_type": "fee",
+      "label": "Wise Interest GBP aastatasu",
+      "rate_percent": 0.55,
       "fee_cents": null,
       "source_url": "https://wise.com/ee/interest/",
       "raw_text": "wise-collect: Interest leht (ei ole Eesti pank)"
@@ -36,6 +81,46 @@
       "fee_cents": null,
       "source_url": "https://wise.com/ee/pricing/",
       "raw_text": "wise-collect: pricing leht"
+    },
+    {
+      "product_type": "fee",
+      "label": "Ülekanne 1000 EUR → USD: tasu 6.21 €, kurss 1.09665, saaja saab 1089.84 USD",
+      "rate_percent": null,
+      "fee_cents": 621,
+      "source_url": "https://api.wise.com/v3/quotes",
+      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Wednesday"
+    },
+    {
+      "product_type": "fee",
+      "label": "Ülekanne 1000 EUR → GBP: tasu 5.76 €, kurss 0.8361, saaja saab 831.28 GBP",
+      "rate_percent": null,
+      "fee_cents": 576,
+      "source_url": "https://api.wise.com/v3/quotes",
+      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale in 2 minutes"
+    },
+    {
+      "product_type": "fee",
+      "label": "Ülekanne 1000 EUR → SEK: tasu 6.02 €, kurss 11.2236, saaja saab 11156.03 SEK",
+      "rate_percent": null,
+      "fee_cents": 602,
+      "source_url": "https://api.wise.com/v3/quotes",
+      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Wednesday 08:00"
+    },
+    {
+      "product_type": "fee",
+      "label": "Ülekanne 1000 EUR → PLN: tasu 6.2 €, kurss 4.46025, saaja saab 4432.6 PLN",
+      "rate_percent": null,
+      "fee_cents": 620,
+      "source_url": "https://api.wise.com/v3/quotes",
+      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Thursday"
+    },
+    {
+      "product_type": "fee",
+      "label": "Ülekanne 1000 EUR → NOK: tasu 5.82 €, kurss 10.7393, saaja saab 10676.8 NOK",
+      "rate_percent": null,
+      "fee_cents": 582,
+      "source_url": "https://api.wise.com/v3/quotes",
+      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Thursday"
     }
   ],
   "links": {
@@ -65,9 +150,15 @@
             "url": "https://wise.com/ee/interest/",
             "summary": "Tootlus EUR kontojäägilt valitsuse tagatud varadega fondi kaudu (mitte pangahoiusena). Muutuv määr, jälgib keskpanga intressi; tootlus arvutatakse fondi viimase 7 päeva tootluse põhjal.",
             "rates": [
-              "EUR: 1,98% aastas (peale 0,26% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)",
-              "EUR aastatasu: alates 0,26% (wise.com/ee/pricing)",
-              "Wise Interest aastatasu (ligikaudu): 0.26% (https://wise.com/ee/interest/)"
+              "EUR: 2,32% aastas (pärast 0,26% aastatasu) — seisuga 24.11.2026 (wise.com/ee/interest)",
+              "Fond: BlackRock ICS Euro Government Liquidity, järgib EKP hoiustamise määra",
+              "5 a keskmine tootlus 1,57% (enne Wise tasusid)",
+              "Wise Interest EUR (muutuv, pärast tasu): 2.32% (https://wise.com/ee/interest/)",
+              "Wise Interest EUR aastatasu: 0.26% (https://wise.com/ee/interest/)",
+              "Wise Interest USD (muutuv, pärast tasu): 3.66% (https://wise.com/ee/interest/)",
+              "Wise Interest USD aastatasu: 0.28% (https://wise.com/ee/interest/)",
+              "Wise Interest GBP (muutuv, pärast tasu): 3.47% (https://wise.com/ee/interest/)",
+              "Wise Interest GBP aastatasu: 0.55% (https://wise.com/ee/interest/)"
             ],
             "details": [
               "Raha investeeritakse intressi teenivasse fondi (valitsuse tagatud varad)",
@@ -81,9 +172,14 @@
             "url": "https://wise.com/ee/interest/",
             "summary": "Tootlus ka teistes valuutades, iga valuuta oma muutuva määraga.",
             "rates": [
-              "GBP: 3,25% aastas (peale 0,55% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)",
-              "USD: 3,39% aastas (peale 0,28% aastatasu) — seisuga 24.06.2026 (wise.com/ee/interest)",
-              "Wise Interest aastatasu (ligikaudu): 0.26% (https://wise.com/ee/interest/)"
+              "GBP: 3,47% aastas (pärast 0,55% tasu) — 24.11.2026",
+              "USD: 3,66% aastas (pärast 0,28% tasu) — 24.11.2026",
+              "Wise Interest EUR (muutuv, pärast tasu): 2.32% (https://wise.com/ee/interest/)",
+              "Wise Interest EUR aastatasu: 0.26% (https://wise.com/ee/interest/)",
+              "Wise Interest USD (muutuv, pärast tasu): 3.66% (https://wise.com/ee/interest/)",
+              "Wise Interest USD aastatasu: 0.28% (https://wise.com/ee/interest/)",
+              "Wise Interest GBP (muutuv, pärast tasu): 3.47% (https://wise.com/ee/interest/)",
+              "Wise Interest GBP aastatasu: 0.55% (https://wise.com/ee/interest/)"
             ],
             "details": [
               "Iga valuuta oma määr",
@@ -157,8 +253,12 @@
           },
           {
             "name": "Wise API",
-            "url": "https://wise.com/ee/business/api",
-            "summary": "API integratsioon ettevõtetele.",
+            "url": "https://docs.wise.com/",
+            "summary": "Wise Platform API (docs.wise.com). Avalik ilma võtmeta hinnapäring: POST https://api.wise.com/v3/quotes (näidiskurss ja tasu, ei sobi tehinguks) ning võrdlus GET https://api.wise.com/v4/comparisons/ (teised teenusepakkujad; Eesti panku ei sisalda). Bankagendi öine skann kasutab hinnapäringut. (Allikas: docs.wise.com, kontrollitud 24.11.2026)",
+            "rates": [
+              "Näide 24.11.2026: 1000 EUR → USD pangaülekandega tasu 6,21 €, kurss 1,0965",
+              "1000 EUR → GBP tasu 5,76 €; → SEK 6,02 €; → PLN 6,20 €"
+            ],
             "details": [
               "Automatiseeritud maksed",
               "Webhookid",
@@ -167,10 +267,16 @@
           },
           {
             "name": "Wise Assets / Stocks (investeerimine)",
-            "url": "https://wise.com/ee/invest/",
-            "summary": "Aktsiate ja ETF-ide ostmine Wise rakenduses (valitud turgudel).",
+            "url": "https://wise.com/ee/interest/",
+            "summary": "Wise Assets Europe AS: Interest (rahaturufond) ja Stocks (indeksfond); kapital on riskis, investorikaitse kuni 20 000 €. (Allikas: wise.com/ee/interest, wise.com/ee/pricing)",
             "rates": [
-              "Aktsiate aastatasu: alates 0,59% (wise.com/ee/pricing)"
+              "Aktsiate aastatasu: alates 0,59% (wise.com/ee/pricing)",
+              "Wise Interest EUR (muutuv, pärast tasu): 2.32% (https://wise.com/ee/interest/)",
+              "Wise Interest EUR aastatasu: 0.26% (https://wise.com/ee/interest/)",
+              "Wise Interest USD (muutuv, pärast tasu): 3.66% (https://wise.com/ee/interest/)",
+              "Wise Interest USD aastatasu: 0.28% (https://wise.com/ee/interest/)",
+              "Wise Interest GBP (muutuv, pärast tasu): 3.47% (https://wise.com/ee/interest/)",
+              "Wise Interest GBP aastatasu: 0.55% (https://wise.com/ee/interest/)"
             ],
             "details": [
               "Ei ole kõigis riikides saadaval",
@@ -199,12 +305,14 @@
           },
           {
             "name": "Kaardi tasud",
-            "url": "https://wise.com/ee/pricing/",
+            "url": "https://wise.com/ee/pricing/card-fees",
             "summary": "Deebetkaardi tellimise ja kasutamise tasud.",
             "rates": [
-              "Füüsilise kaardi tellimine: 7 EUR (ühekordne) (wise.com/ee/pricing)",
-              "Sularaha väljavõtt: tasuta kuni 250 EUR/kuu, seejärel 2,69% (wise.com/ee/pricing)",
-              "Kaardimaksed: tasuta (wise.com/ee/pricing)",
+              "Digitaalne kaart tasuta; füüsiline kaart 7 EUR (ühekordne)",
+              "Kuutasu puudub",
+              "Olemasoleva valuutaga maksmine tasuta; konverteerimine alates 0,47%",
+              "Sularaha tasuta kuni 250 EUR/kuus, edasi 2,69% ületavalt summalt",
+              "E-rahakoti/krüpto/kasiino top-up 2%",
               "Wise tasude info: vaata allikat (https://wise.com/ee/pricing/)"
             ],
             "details": [

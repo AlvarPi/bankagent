@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "lightyear",
   "name": "Lightyear",
-  "fetchedAt": "2026-11-24T01:47:17.011Z",
-  "generatedAt": "2026-11-24T01:47:17.064Z",
+  "fetchedAt": "2026-11-24T21:20:30.881Z",
+  "generatedAt": "2026-11-24T21:20:30.935Z",
   "sources": [
     {
       "kind": "primary",
@@ -31,7 +31,7 @@
     {
       "product_type": "account",
       "label": "Kasvukonto EUR (APY)",
-      "rate_percent": 2.49,
+      "rate_percent": 2.5,
       "fee_cents": null,
       "source_url": "https://lightyear.com/et-ee/vaults",
       "raw_text": "lightyear-collect: Kasvukonto intress (rahaturufondi kaudu, mitte pangahoius)"
@@ -47,7 +47,7 @@
     {
       "product_type": "account",
       "label": "Kasvukonto USD (APY)",
-      "rate_percent": 3.97,
+      "rate_percent": 3.98,
       "fee_cents": null,
       "source_url": "https://lightyear.com/et-ee/vaults",
       "raw_text": "lightyear-collect: Kasvukonto intress (rahaturufondi kaudu, mitte pangahoius)"
@@ -76,18 +76,17 @@
             "url": "https://lightyear.com/et-ee/vaults",
             "summary": "Kasutamata raha teenib intressi AAA-reitinguga rahaturufondi kaudu (mitte pangahoiusena). Raha saab igal ajal välja võtta; intress arvestatakse iga päev. Tegemist on investeeringuga fondi, mitte hoiusega — kapital on riskis.",
             "rates": [
-              "EUR: 2,16% APY — seisuga 01.07.2026 (lightyear.com/et-ee/vaults)",
-              "GBP: 3,83% APY — seisuga 01.07.2026",
-              "USD: 3,68% APY — seisuga 01.07.2026",
-              "Kasvukonto EUR (APY): 2.49% (https://lightyear.com/et-ee/vaults)",
+              "EUR Kasvufond: 2,50% APY neto (2,67% − 0,20% tasu) — seisuga 24.11.2026 (lightyear.com/et-ee/vaults)",
+              "GBP / USD: vt lightyear.com/et-ee/vaults (eelmine seis 01.07.2026: GBP 3,83%, USD 3,68%)",
+              "Miinimum 1 €, maksimumi pole",
+              "Kasvukonto EUR (APY): 2.5% (https://lightyear.com/et-ee/vaults)",
               "Kasvukonto GBP (APY): 4.04% (https://lightyear.com/et-ee/vaults)",
-              "Kasvukonto USD (APY): 3.97% (https://lightyear.com/et-ee/vaults)"
+              "Kasvukonto USD (APY): 3.98% (https://lightyear.com/et-ee/vaults)"
             ],
             "details": [
-              "Tootlus tuleb rahaturufondi (AAA) kaudu, mitte pangahoiusena",
-              "Muutuv määr, jälgib keskpankade intresse",
-              "Raha saab igal ajal kulutada/üle kanda",
-              "Kapital on riskis, tootlus ei ole garanteeritud"
+              "Fond: BlackRock ICS Euro Liquidity Fund (Premier), ~66 mld €",
+              "Järgib EKP baasintressi",
+              "Näide: 1000 € → oktoobris tootlus ~67,50 € (kogusumma põhjal)"
             ]
           }
         ]
@@ -130,7 +129,15 @@
           {
             "name": "Tasud",
             "url": "https://lightyear.com/et-ee/pricing",
-            "summary": "Kontotasu puudub; makstakse ainult kasutamise eest.",
+            "summary": "Lightyeari hinnakiri (Allikas: lightyear.com/et-ee/pricing, 24.11.2026). Täpsed tasud sõltuvad turust.",
+            "rates": [
+              "USA aktsiad: 0,1%, max 1 USD tehingu kohta",
+              "Eurodes kaubeldavad aktsiad, võlakirjad, ETN/ETC: 1 EUR",
+              "Muud Euroopa aktsiad: 0,1%",
+              "Valuutavahetus 0,35%",
+              "Konto ja hoiustamine tasuta; Kasvufondi tasud tootlusest juba maha arvatud",
+              "LEI-kood 48 € + km"
+            ],
             "details": [
               "Konto avamine ja haldus: tasuta",
               "ETF-ide kauplemine: tasuta",
@@ -148,6 +155,16 @@
               "USA väärtpaberid: kuni 500 000 $ SIPC (partner Alpaca kaudu)",
               "Kliendivara hoitakse eraldatuna AAA-fondides ja litsentseeritud pankades"
             ]
+          }
+        ]
+      },
+      {
+        "title": "API ja andmeühendused",
+        "items": [
+          {
+            "name": "API, Open Banking ja MCP",
+            "url": "https://lightyear.com/et-ee/help",
+            "summary": "Lightyearil avalikku API-t ega MCP serverit ei ole (24.11.2026); andmed ainult rakenduses / väljavõtetena."
           }
         ]
       }

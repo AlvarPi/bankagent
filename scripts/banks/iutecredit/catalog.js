@@ -16,14 +16,9 @@ export const IUTECREDIT_CATALOG = [
           'Nimiväärtus EUR 100.00 võlakirja kohta (allikas: prospekti kokkuvõte)'
         ],
         details: [
-          'Liik: 12% tagatud eelisvõlakirjad (senior secured bonds), ISIN XS3047514446 (allikas: prospekti kokkuvõte)',
-          'Lunastustähtaeg 6. detsember 2030 (allikas: prospekti kokkuvõte)',
-          'Emitent: IuteCredit Finance S.à r.l. (Luksemburg); emaettevõte ja garantii: Iute Group AS (Eesti) (allikas: prospekti kokkuvõte)',
-          'Uute võlakirjade emissioon EUR 140 000 000, konsolideeritakse olemasoleva EUR 160 000 000 seeriaga 2025/2030 (allikas: prospekti kokkuvõte)',
-          'Intressi makstakse esimese 48 kuu jooksul poolaastati (6. juuni ja 6. detsember), seejärel kvartalite kaupa (allikas: prospekti kokkuvõte)',
-          'Noteerimine Nasdaq Tallinna börsi Balti reguleeritud turul ja Frankfurdi börsil (General Standard); eeldatav noteerimine ~4. juuni 2026 (allikas: prospekti kokkuvõte)',
-          'Valuuta: EUR (allikas: prospekti kokkuvõte)',
-          'Miinimuminvesteering: ei õnnestunud lehelt täpselt tuvastada — vaata iute.com/et/volakiri ja prospekti'
+          'Emissioon kuni 175 000 000 €',
+          'Nimiväärtus 100 €, kupong 12% aastas (iute.com/et/volakiri, 24.11.2026)',
+          'Iute Group: pangandusgrupp Kagu-Euroopas (Moldova, Albaania, Põhja-Makedoonia, Bulgaaria, Ukraina)'
         ]
       },
       {
@@ -96,6 +91,17 @@ export const IUTECREDIT_CATALOG = [
           'IuteCredit ei ole hoiuseid kaasav universaalpank',
           'Võlakiri on võlakohustus, mitte hoius — investeeritud raha võib täielikult või osaliselt kaduda (allikas: prospekti kokkuvõte)'
         ]
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://iute.com/et/volakiri',
+        summary:
+          'Iute: avalikku API-t ei ole; võlakirja hind Nasdaq Tallinna / Frankfurdi börsiandmetest.'
       }
     ]
   }

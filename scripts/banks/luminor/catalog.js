@@ -12,8 +12,9 @@
  *   https://minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter
  * - Liising/laen: https://www.maksetingimused.ee/financers/luminor-liising
  * - Omafinantseeringu reeglid: Eesti Pank / EIS (KredEx) käendus.
- * BLOKEERITUD/LEIDMATA: luminor.ee tootelehed (kodulaen, hoiused jms) renderdavad
- * vaid sõna "Luminor" (JS-leht) -> täpsed jooksvad intressid/marginaalid leidmata.
+ * UUENDATUD 24.11.2026: luminor.ee SPA sisu tuleb avalikust sisu-API-st
+ *   https://luminor.ee/dc/render/v1/ee/page?alias=/<leht>&language=et (autentimata).
+ *   Hinnakirja (30.11.2020) numbrid on asendatud jooksvate andmetega.
  */
 
 /** @type {CatalogSection[]} */
@@ -25,32 +26,35 @@ export const LUMINOR_CATALOG = [
         name: 'Tähtajaline hoius',
         url: 'https://luminor.ee/era/tahtajaline-hoius',
         summary:
-          'Fikseeritud intressiga tähtajaline hoius. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta.',
+          'Tähtajaline hoius 1 kuu – 5 aastat, alates 100 €; avamine tasuta, võimalik automaatne pikendamine. Määrad kehtivad 100 € – 1 000 000 € summadele (360-päevane aasta). (Allikas: luminor.ee sisu-API /intressi-ja-viivisemaarad, 24.11.2026)',
         rates: [
-          '12 kuud: ~2,0% aastas (Minuraha intressibaromeeter, jooksev 2026)',
-          'Min summa 100 € (Minuraha intressibaromeeter)',
-          'Hoiuse avamine ja sularaha sissemakse avamiseks: tasuta (hinnakiri 30.11.2020)',
-          'Täpsed jooksvad määrad: luminor.ee/intressi-ja-viivisemaarad (JS-leht, scrape ebausaldusväärne)'
+          'Kampaania 02.–30.11.2026: 12 kuud 3,5%, 6 kuud 3,0% (EUR)',
+          'Internetipank EUR: 3 k 2,2% · 9 k 2,4% · 24 k 2,25% · 36 k 2,3% · 60 k 2,5%',
+          'USD: 6 k 1,75% · 12 k 2,5% · 24–60 k 2,0%',
+          'Kontoris samad määrad (lühemad perioodid)',
+          'Intress tulumaksuga maksustatav'
         ],
         details: [
-          'Intress fikseeritud kogu hoiuperioodiks',
-          'Ülekanne hoiusekontolt arvelduskontole: 1. kord kuus tasuta, järgmised 0,30% summast, min 1,60 € (hinnakiri 30.11.2020)'
+          'Tagatisfond kuni 100 000 €',
+          'Tasuta nõustamine',
+          'Live-määrad tulevad öise skänniga sisu-API-st'
         ]
       },
       {
         name: 'Reservhoius (kogumishoius)',
         url: 'https://luminor.ee/era/reservhoius',
-        summary: 'Paindlik kogumishoius, kuhu saab raha lisada ja sealt välja võtta.',
-        rates: ['Intress ~1,65% aastas (360-päevase aasta baasil, allikas: 2026 võrdlus/otsingutulemus)'],
-        details: [
-          'Sularaha sissemakse oma reservhoiuse kontole kontoris: tasuta (hinnakiri 30.11.2020)',
-          'Esimene väljamakse kuus tasuta, järgmised 0,30% summast, min 1,60 € (hinnakiri 30.11.2020)'
+        summary:
+          'Reservhoius — peaaegu nagu arvelduskonto, kuid teenib intressi; intress päevalõpu saldolt, makstakse kord kuus. (Allikas: luminor.ee sisu-API /era/reservhoius, 24.11.2026)',
+        rates: [
+          'Intress 1,65% aastas (360-päevane aasta)',
+          '1 väljamakse kuus tasuta (kõik reservhoiused kokku)'
         ]
       },
       {
         name: 'Kogumishoius (vana toode)',
         url: 'https://luminor.ee/era/kogumishoius',
-        summary: 'Igakuise sissemaksega kogumishoius.',
+        summary:
+          'Alates 01.03.2020 uusi kogumishoiuse lepinguid ei sõlmita; olemasolevad teenivad lepingus fikseeritud intressi. (Allikas: luminor.ee sisu-API /era/kogumishoius)',
         details: [
           'Uusi lepinguid ei sõlmita alates 01.03.2020 (otsingutulemus 2026)',
           'Olemasolevad lepingud kehtivad edasi'
@@ -59,38 +63,36 @@ export const LUMINOR_CATALOG = [
       {
         name: 'Säästmine ja lapsele säästmine',
         url: 'https://luminor.ee/era/saastmine',
-        summary: 'Säästmislahendused, sh lapse tuleviku jaoks (Lastehoius).',
-        details: [
-          'Sularaha sissemakse Lastehoiuse kontole kontoris: tasuta (hinnakiri 30.11.2020)',
-          'Tagatud Tagatisfondi poolt kuni 100 000 €'
-        ]
+        summary:
+          'Lastehoius: alates 16.09.2019 uusi lepinguid ei sõlmita; olemasolevate intress 1,65%, makstakse 30.06 ja 31.12. Uus säästukonto Luminor Bloom. (Allikas: luminor.ee sisu-API /intressi-ja-viivisemaarad, /era/lastehoius)',
+        rates: [
+          'Lastehoius (vanad lepingud) 1,65%',
+          'Luminor Bloom säästukonto 1,50% (365-päevane aasta)',
+          'Bloom kampaania: 4% „uuelt rahalt” 02.11–31.12.2026'
+        ],
+        details: ['Tagatud Tagatisfondi poolt kuni 100 000 €']
       },
       {
         name: 'Investeerimine (Luminor Investor)',
-        url: 'https://luminor.ee/era/investor',
-        summary: 'Aktsiad, ETF-id, fondid ja võlakirjad Luminor Investori platvormil.',
+        url: 'https://luminor.ee/era/investeerimine',
+        summary:
+          'Luminor Investor: aktsiad, võlakirjad, fondid (sh Nordea fondid) ja BlackRock iShares ETF-portfellid (konservatiivne/mõõdukas/kasv); investeerimiskonto. (Allikas: luminor.ee sisu-API /era/investeerimine, 24.11.2026)',
         rates: [
-          'Eesti aktsiatehingud: 0,20%, min 3,20 € (hinnakiri 30.11.2020)',
-          'Lääne-Euroopa/USA aktsiad: 0,20%, min 20 € (hinnakiri 30.11.2020)',
-          'Investeerimine fondidesse: vahendustasu 1% investeeritud summalt (hinnakiri 30.11.2020)',
-          'Investeerimine võlakirjadesse: 0,20% tehingu summalt, min 15 € (hinnakiri 30.11.2020)',
-          'Väärtpaberite hoidmistasu: 0,01% summast, min 0,50 €/kuu (hinnakiri 30.11.2020)'
+          'iShares ETF-portfellid märkimistasuta kampaania 01.04–29.05.2026 (lõppenud)',
+          'Tehingutasud: vt luminor.ee/era/hinnakiri'
         ],
-        details: [
-          'Luminor Bank väärtpaberikonto avamine: tasuta; Nasdaq CSD konto avamine: 4 € (hinnakiri 30.11.2020)',
-          'Väärtpaberite ülekanne teise panka: 30 € ISIN kohta (hinnakiri 30.11.2020)'
-        ]
+        details: ['Investeerimiskonto: tulumaksu edasilükkamine', 'Nordea 1/2 SICAV fondid Luminori kaudu']
       },
       {
         name: 'Pension (II ja III sammas)',
         url: 'https://luminor.ee/era/pension',
-        summary: 'II samba kohustuslik kogumispension ja III samba vabatahtlik pension.',
+        summary:
+          'Luminor Pensions Estonia: II ja III samba fondid, sh indeksfondid; >2 mld € varasid ja >330 000 klienti Baltikumis (15.06.2026). (Allikas: luminor.ee sisu-API /era/pension, /era/luminori-indeksifondid)',
         rates: [
-          'III sammas: osakute müük 3,20 €, osakute vahetamine 3,20 € (hinnakiri 30.11.2020)',
-          'II sammas: ühekordse väljamakse avaldus 4 €, fondipensioni avaldus 6 € (hinnakiri 30.11.2020)',
-          'II sammas: valikuavaldus ja osakute vahetamise avaldus tasuta (hinnakiri 30.11.2020)'
+          'Luminor Indeks Pensionifond jooksvad tasud 0,27%',
+          'Luminor Tulevik Indeks Pensionifond 0,38%'
         ],
-        details: ['Fonditehingutele lisanduvad fondiprospektis kehtestatud väljalaske- ja tagasivõtmistasud']
+        details: ['Pensioni investeerimiskonto', 'II samba sissemakse suurendamine 4% / 6%']
       }
     ]
   },
@@ -98,47 +100,54 @@ export const LUMINOR_CATALOG = [
     title: 'Igapäevapangandus – arvelduspaketid',
     items: [
       {
-        name: 'Arvelduspakett',
-        url: 'https://luminor.ee/era/erakliendi-arvelduspakett',
-        summary: 'Põhipakett igapäevaseks pangateenuseks koos Visa Debit kaardiga.',
+        name: 'Arvelduspakett Luminor Debit',
+        url: 'https://luminor.ee/era/hinnakiri',
+        summary:
+          'Põhipakett deebetkaardiga: piiramatud maksed interneti- ja mobiilipangas (pangasisesed, euromaksed). (Allikas: luminor.ee sisu-API /era/hinnakiri, 24.11.2026)',
         rates: [
-          'Kuutasu: 2,20 € (hinnakiri 30.11.2020)',
-          'Seenioridele (alates 60. eluaastast): tasuta (hinnakiri 30.11.2020)',
-          'Noortele (kuni 21. eluaastani): tasuta (hinnakiri 30.11.2020)'
+          'Kuutasu 2,50 €',
+          'Seenior (65+) 1,54 €/kuus',
+          'Sularaha Luminori automaadist tasuta kuni 750 €/kuus, edasi 0,3% (min 3,50 €)',
+          'Teise panga automaadist kuni 400 €/kuus tasuta, edasi 2% (min 3,50 €)',
+          'Sissemakse automaati kuni 2000 €/kuus tasuta, edasi 0,2%'
         ],
         details: [
-          'Sisaldab: 1 Visa Debit kaart, internetipank (tasuta), piiramatu arv makseid internetipangas',
-          'Sularaha väljamakse Luminori automaadist: kuni 600 € kuus tasuta, üle selle 0,20% (min 3,50 €) (hinnakiri 30.11.2020)',
-          'Sularaha väljamakse teiste automaatidest Baltikumis/välismaal: 2% (min 3,50 €) (hinnakiri 30.11.2020)'
+          'Sisaldab: 1 Visa Debit kaart, internetipank (tasuta), piiramatu arv makseid internetipangas'
         ]
       },
       {
         name: 'Arvelduspakett Black',
-        url: 'https://luminor.ee/era/erakliendi-arvelduspakett',
-        summary: 'Laiendatud pakett koos Luminor Black krediitkaardiga.',
-        rates: ['Kuutasu: 5,50 € (sisaldab Luminor Black kaardi ja arvelduspaketi standardse kuutasu) (hinnakiri 30.11.2020)'],
-        details: [
-          'Sisaldab: 1 Visa Debit kaart + 1 Luminor Black kaart, internetipank',
-          'Luminor Black sularaha väljamakse: kuni 400 € kuus tasuta Baltikumis/välismaal, üle selle 2% (min 3,50 €) (hinnakiri 30.11.2020)'
-        ]
+        url: 'https://luminor.ee/era/maksekaart-luminor-black',
+        summary:
+          'Luminor Black — pakett + vaba tagasimaksega krediitkaart (või 0-limiidiga deebetkaardina). Sisaldab reisi-, ostu- (210 päeva) ja luumurdude kindlustust (Seesam). (Allikas: luminor.ee sisu-API /era/maksekaart-luminor-black, /era/vordle-luminori-erakliendi-pangakaarte)',
+        rates: [
+          'Kuutasu 6,90 €, lisakaart 6,90 €',
+          'Krediidilimiit alates 600 €, intress 18%, intressivaba kuni 45 päeva',
+          'Sularaha Luminori automaadist kuni 1200 €/kuus + teistest 400 €/kuus tasuta',
+          'Reisikindlustus: ravikulud kuni 300 000 €, reis kuni 90 päeva, pere (sh lapselapsed, koer/kass)',
+          'Luumurd/mõra hüvitis 100 €; rendiauto omavastutus kuni 500 €'
+        ],
+        details: ['Sisaldab: 1 Visa Debit kaart + 1 Luminor Black kaart, internetipank']
       },
       {
         name: 'Arvelduspakett Gold (vana, ei väljastata)',
         url: 'https://luminor.ee/era/erakliendi-arvelduspakett',
-        summary: 'Visa Debit + Visa Gold krediitkaart.',
-        rates: ['Kuutasu: 6,50 € (hinnakiri 30.11.2020)'],
-        details: ['Uusi pakette ei väljastata (hinnakiri 30.11.2020)', 'Sisaldab 1 Visa Debit ja 1 Visa Gold kaart']
+        summary:
+          'Vana pakett, uusi ei väljastata. Alates 01.10.2024 ei sisalda Black pakett Visa Debit deebetkaarti. (Allikas: luminor.ee sisu-API /era/hinnakiri)',
+        rates: [],
+        details: ['Sisaldab 1 Visa Debit ja 1 Visa Gold kaart']
       },
       {
         name: 'Arvelduskonto avamine ja sulgemine',
         url: 'https://luminor.ee/era/hinnakiri',
         summary: 'Konto avamine ja sulgemine.',
         rates: [
-          'Konto avamine EMP residentidele: tasuta (hinnakiri 30.11.2020)',
-          'Väljaspoolt EMP riike taotluse/dokumentide kontroll: 250 € (hinnakiri 30.11.2020)',
-          'Konto sulgemine kliendi soovil: tasuta; panga algatusel kuni 100 € (hinnakiri 30.11.2020)'
-        ],
-        details: ['Internetipank: igakuine haldustasu tasuta; alla 20-aastastele tasuta (hinnakiri 30.11.2020)']
+          'Konto avamine EMP residendile tasuta',
+          'Mitte-EMP isiku dokumentide kontroll 250 €',
+          'Mitteresidendi lisahooldustasu 15 €/kuus',
+          'Miinimumtasu (aktiivse kaardita klient) 1,30 €/kuus',
+          'EUR arvelduskonto intress 0,01% (jäägilt alates 18 000 €)'
+        ]
       }
     ]
   },
@@ -146,62 +155,41 @@ export const LUMINOR_CATALOG = [
     title: 'Kaardid ja maksed',
     items: [
       {
-        name: 'Mastercard / Visa Debit (deebetkaart)',
-        url: 'https://luminor.ee/era/kaardid',
-        summary: 'Deebetkaart koos nutimaksetega (Apple Pay, Google Pay).',
+        name: 'Luminor Bloom (digitaalne pakett)',
+        url: 'https://luminor.ee/era/hinnakiri',
+        summary:
+          'Luminor Bloom — äpipõhine pakett: EUR konto, piiramatud pangasisesed, välk- ja SEPA-maksed äpis, digitaalne deebetkaart. (Allikas: luminor.ee sisu-API /era/hinnakiri, 24.11.2026)',
         rates: [
-          'Kuutasu: 1,50 € (hinnakiri 30.11.2020)',
-          'Tasuta alla 20-aastasele ja üle 60-aastasele (põhikaart) (hinnakiri 30.11.2020)',
-          'Kuutasu ei võeta, kui kaardiga ostud vähemalt 600 €/kuus (hinnakiri 30.11.2020)',
-          'Konverteerimistasu välisvaluuta tehingult: 2% summast (hinnakiri 30.11.2020)',
-          'Kaardi asendamistasu: 4 €; kiirkorras tellimine: 35 € (hinnakiri 30.11.2020)'
+          'Digitaalne kaart 0 €, füüsiline deebetkaart 2 €/kuus',
+          'Sularaha teistest automaatidest 1,5% (min 1,50 €)',
+          'Krüptobörsi / hasartmängu kaarditehing 0,50 €'
         ],
-        details: ['Sularaha väljavõtt teiste pankade automaatidest Eestis: 1,30 € (hinnakiri 30.11.2020)']
+        details: ['Digikaardiga sularaha ainult Balti viipeautomaatidest']
       },
       {
-        name: 'Mastercard Gold (krediitkaart)',
+        name: 'Krediitkaardid (vanad Mastercard tooted)',
         url: 'https://luminor.ee/era/kaardid',
-        summary: 'Krediitkaart koos reisikindlustusega.',
-        rates: ['Kuutasu: 5 € (hinnakiri 30.11.2020)', 'Konverteerimistasu välisvaluutas: 2% (hinnakiri 30.11.2020)'],
-        details: ['Mastercardi abiteenus välismaal (ajutine kaart): tegelikud kulud, max 129 € (hinnakiri 30.11.2020)']
-      },
-      {
-        name: 'Mastercard Platinum',
-        url: 'https://luminor.ee/era/kaardid',
-        summary: 'Tippkrediitkaart lisahüvedega (Priority Pass).',
-        rates: [
-          'Aastatasu: 150 € (hinnakiri 30.11.2020)',
-          'Priority Pass salongikülastus alates 5. korrast aastas: 27 € (hinnakiri 30.11.2020)'
-        ]
-      },
-      {
-        name: 'Mastercard Credit (krediitkaart)',
-        url: 'https://luminor.ee/era/kaardid',
-        summary: 'Tavakrediitkaart.',
-        rates: [
-          'Kuutasu: 1,40 € (hinnakiri 30.11.2020)',
-          'Kuutasu ei võeta, kui krediitkaardiga ostud vähemalt 400 €/kuus (hinnakiri 30.11.2020)'
-        ]
+        summary:
+          'Varasemad Mastercard Gold/Credit/Platinum kaardid; uutele klientidele pakutakse Luminor Black ja Visa Infinite. (Allikas: luminor.ee sisu-API /era/vordle-luminori-erakliendi-pangakaarte)',
+        rates: []
       },
       {
         name: 'Maksed',
-        url: 'https://luminor.ee/era/maksed',
+        url: 'https://luminor.ee/era/hinnakiri',
         summary: 'SEPA euromaksed, kiirmaksed, välismaksed, püsikorraldused.',
         rates: [
-          'Euromakse Eestisse/EU-EEA internetipangas: 0,38 €; kontoris/telefonipangas: 3 € (hinnakiri 30.11.2020)',
-          'Euromakse kiirmaksena teise panka Eestis: 10 € (internetipank) / 20 € (kontor) (hinnakiri 30.11.2020)',
-          'Pangasisene makse Luminori kontode vahel: tasuta (internetipank) / 2 € (kontor) (hinnakiri 30.11.2020)',
-          'Välismakse (väljapoole EU-EEA / välisvaluutas): 5 € internetipangas, 11,50 € kontoris (hinnakiri 30.11.2020)',
-          'Välismakse kiirmaksena: 11 € internetipangas, 17,50 € kontoris (hinnakiri 30.11.2020)',
-          'Laekuv euromakse Eestist/EU-EEA-st: tasuta; muu välismakse laekumine: 5,75 € (hinnakiri 30.11.2020)',
-          'Euromakse püsikorralduse alusel: 0,38 € (hinnakiri 30.11.2020)'
-        ],
-        details: ['SWIFT/XML koopia ja maksejuhise kinnitus: 10 € (hinnakiri 30.11.2020)']
+          'Pangasisesed ja euromaksed internetipangas paketis tasuta (muidu euromakse 0,38 €)',
+          'Euromakse kiirmaksena 10 €',
+          'Väljapoole SEPA: tavaline SHA 7 €, kiir 14 €, ekspress 35 €; OUR 26/30/55 €',
+          'Laekuv SWIFT SHA/BEN makse 5,75 €',
+          'Makse järelpärimine 20 € (mitte-SEPA 50–100 € + lisatasu)'
+        ]
       },
       {
         name: 'Nutimaksed',
-        url: 'https://luminor.ee/era/kaardid',
-        summary: 'Apple Pay, Google Pay, Garmin Pay.'
+        url: 'https://luminor.ee/era/click-to-pay',
+        summary:
+          'Apple Pay, Google Pay ja Click to Pay (tasuta). Viipemakse ilma PIN-ita kuni 50 €. (Allikas: luminor.ee sisu-API /era/click-to-pay, /era/viipemakse)'
       }
     ]
   },
@@ -211,50 +199,69 @@ export const LUMINOR_CATALOG = [
       {
         name: 'Kodulaen (eluasemelaen)',
         url: 'https://luminor.ee/era/kodulaen',
-        summary: 'Kinnisvara ostmine, ehitus, renoveerimine. Ujuv intress (Euribor + marginaal).',
+        summary:
+          'Kodulaen alates 10 000 €, kuni 30 aastat; EUR baasmäär 3, 6 või 12 kuu EURIBOR (Luminor Prime asendatakse euriboriga). Kampaania 30.10–01.12.2026. (Allikas: luminor.ee sisu-API /era/kodulaen, 24.11.2026)',
         rates: [
-          'Lepingutasu: 1% laenusummast (või täiendavast summast), min 300 € (hinnakiri 30.11.2020)',
-          'Laenulepingu tingimuste muutmine: 200 € (hinnakiri 30.11.2020)',
-          'Marginaal: individuaalne, sõltub kliendiprofiilist (täpne määr leidmata — JS-leht)'
+          'Kampaania: marginaal alates 1,30% + EURIBOR, lepingutasu 0 €',
+          'Koduvahetuslaen: 1,39% + EURIBOR, lepingutasu 0 €',
+          'KKM näide 4,629% (145 000 €, 30 a, marginaal 1,45%)',
+          'Tavaline lepingutasu 1% (min 100 €); muutmine 200 €',
+          'Sissemakse alates 10% (EIS käendusega 5%, lisatagatisega 0%)'
         ],
         details: [
-          'Omafinantseering tavaliselt min 15% (Eesti Panga nõue)',
-          'EIS (KredEx) käendusega noortele peredele/spetsialistidele alates 10% (otsingutulemus)',
-          'Paljulapselistele peredele võib omafinantseering olla kuni 5% (otsingutulemus)',
-          'Ennetähtaegne tagastamine: vähemalt 3-kuulise etteteatamise korral tasuta (hinnakiri 30.11.2020)'
+          'Koduvahetus: vana kodu müügiks 12 kuud, vahepeal ainult intress',
+          'Korteri energiaklass vähemalt C (enne 2019) / B (alates 2019)',
+          'Luminor Prime: 3,5% (uusi laene ei väljastata)',
+          '+372 628 3300'
         ]
       },
       {
         name: 'Väikelaen (tarbimislaen)',
         url: 'https://luminor.ee/era/vaikelaen',
-        summary: 'Tagatiseta isiklik laen fikseeritud kuumaksega.',
-        rates: ['Lepingutasu: 1,50% laenusummast, min 60 € (hinnakiri 30.11.2020)'],
-        details: ['Igakuise maksetähtpäeva või seotud konto muutmine: 50 € (hinnakiri 30.11.2020)']
+        summary:
+          'Väikelaen 500–25 000 €, kuni 84 kuud. Soodsam intress, kui esitad teise Eesti panga kehtiva pakkumise. (Allikas: luminor.ee sisu-API /era/vaikelaen, 24.11.2026)',
+        rates: [
+          'Intress alates 5,9% (kampaania kuni 01.12.2026)',
+          'Lepingutasu 0 € kuni 01.12.2026 (tavaliselt 1,5%, min 60 €)',
+          'Ennetähtaegne tagastamine tasuta'
+        ],
+        details: ['Vähemalt 18-aastane', 'Kõik laenumaksed kuni 40% sissetulekust']
       },
       {
         name: 'Autolaen',
         url: 'https://luminor.ee/era/autolaen',
-        summary: 'Uue ja kasutatud sõiduki soetamiseks.',
-        rates: ['Lepingutasu: 1,50% laenusummast, min 60 € (hinnakiri 30.11.2020)']
+        summary:
+          'Autolaen 2000–25 000 €, kuni 84 kuud; sõiduk registreeritakse Transpordiametis. (Allikas: luminor.ee sisu-API /era/autolaen, 24.11.2026)',
+        rates: [
+          'Tavaliselt alates 7,5%, elektriautod alates 6,5%',
+          'Kampaania kuni 01.12.2026: alates 5,9%, lepingutasu 0 €'
+        ]
       },
       {
         name: 'Liising',
         url: 'https://luminor.ee/era/liising',
-        summary: 'Sõiduki finants- (kapitalirent) ja kasutusrent (operatiivliising).',
+        summary:
+          'Luminor Liising: kapitalirent kuni 7 a, kasutusrent kuni 5 a; sissemakse alates 10%. Kampaania 30.10–01.12.2026. (Allikas: luminor.ee sisu-API /era/liising, 24.11.2026)',
         rates: [
-          'Summa 8 000 – 100 000 € (maksetingimused.ee)',
-          'Intress alates 6,2% (maksetingimused.ee)',
-          'Periood kuni 84 kuud (maksetingimused.ee)',
-          'Lepingu sõlmimise tasu: 1% soetamishinnast, min 200 € (hinnakiri 30.11.2020 / maksetingimused.ee)',
-          'Omafinantseering (sissemakse): 10% (maksetingimused.ee)'
+          'Uued elektriautod 1,45% + 3 kuu EURIBOR',
+          'Uued hübriidid / CO₂ ≤130 g: 1,75% + EURIBOR',
+          'Kasutatud EV/hübriid alates 1,89%, muud kasutatud alates 1,99% + EURIBOR',
+          'Lepingutasu 1% sõiduki hinnast, min 200 €',
+          'KKM näide 4,65% (24 000 €, 60 kuud)'
         ],
-        details: ['Sõiduki vanus kuni 13 aastat liisinguperioodi lõpuks; kindlustus kohustuslik (maksetingimused.ee)']
+        details: [
+          'Liisingusumma alates 8000 €',
+          'Taotleja 21–65 a (lõpus)',
+          'Auto max vanus perioodi lõpus 15 a (EV 11 a)',
+          'Lepingu muudatus 160 €'
+        ]
       },
       {
         name: 'Õppelaen (vana, ei väljastata)',
         url: 'https://luminor.ee/era/hinnakiri',
-        summary: 'Vana õppelaen (uusi lepinguid ei sõlmita).',
-        rates: ['Intressimäär 5% aastas (hinnakiri 30.11.2020)', 'Lepingu tingimuste muutmine: 5 € (hinnakiri 30.11.2020)']
+        summary:
+          'Uusi õppelaenulepinguid ei sõlmita; olemasolevate intress 5% aastas. (Allikas: luminor.ee sisu-API /era/hinnakiri)',
+        rates: ['5% aastas (vanad lepingud)']
       }
     ]
   },
@@ -263,23 +270,33 @@ export const LUMINOR_CATALOG = [
     items: [
       {
         name: 'Kodukindlustus',
-        url: 'https://luminor.ee/era/kindlustus',
-        summary: 'Kodu ja koduvara kindlustus erinevate kaitsetasemetega.'
+        url: 'https://luminor.ee/era/kodukindlustus',
+        summary:
+          'Kodukindlustus PZU kaudu (Luminor on agent), makse kord kuus või korraga. (Allikas: luminor.ee sisu-API /era/kodukindlustus)',
+        details: [
+          'Kaasaskantav vara kogu maailmas kuni 5000 €',
+          'Agenditasu 25% kindlustusmaksest (avalikustatud)'
+        ]
       },
       {
         name: 'Reisikindlustus',
-        url: 'https://luminor.ee/era/kindlustus',
-        summary: 'Reisi- ja tervisekindlustus; sisaldub osades kaardipakettides (nt Mastercard Gold).'
+        url: 'https://luminor.ee/era/info-reisikindlustuse-kohta',
+        summary:
+          'Reisikindlustus kaasneb Luminor Black / Visa Infinite kaardiga (reisi ei pea selle kaardiga tasuma); pereliikmed ja kuni 24-a õppivad lapsed. Seesam (Compensa). (Allikas: luminor.ee sisu-API /era/info-reisikindlustuse-kohta)',
+        rates: ['Ravikulud kuni 300 000 € (Black) / 500 000 € (Infinite)', 'Reis kuni 90 päeva'],
+        details: ['Uued tingimused alates 01.01.2026', 'Abi 24h +372 634 7393, luminor@ops24.eu']
       },
       {
         name: 'Liiklus- ja kaskokindlustus',
-        url: 'https://luminor.ee/era/kindlustus',
-        summary: 'Sõiduki kindlustuslahendused.'
+        url: 'https://luminor.ee/era/liisingukindlustus',
+        summary:
+          'Liisinguvara kasko/liikluskindlustus Luminor Liisingu kaudu (agent BTA): makse jagatakse 12 kuu peale lisakuluta, autoabi tasuta. (Allikas: luminor.ee sisu-API /era/liisingukindlustus)'
       },
       {
         name: 'Õnnetusjuhtumi- ja elukindlustus',
-        url: 'https://luminor.ee/era/kindlustus',
-        summary: 'Õnnetusjuhtumi- ja elukindlustuse lahendused.'
+        url: 'https://luminor.ee/era/laenukindlustus',
+        summary:
+          'Laenukindlustus ERGO Life kaudu: surm, töövõime kaotus (≥12 kuud), 39 rasket haigust (sh vähi algstaadium), haiglapäevaraha. (Allikas: luminor.ee sisu-API /era/laenukindlustus)'
       }
     ]
   },
@@ -288,8 +305,9 @@ export const LUMINOR_CATALOG = [
     items: [
       {
         name: 'Luminor pakkumised',
-        url: 'https://luminor.ee/era',
-        summary: 'Partnerite soodustused ja muutuvad kampaaniad (täpsed tingimused JS-lehel).'
+        url: 'https://luminor.ee/era/kodulaen',
+        summary:
+          'Kehtivad kampaaniad (24.11.2026): hoius 12 k 3,5% / 6 k 3% (02.–30.11), väike-/auto-/remondilaen alates 5,9% ja 0 € lepingutasu (kuni 01.12), kodulaen 1,30% + EURIBOR (30.10–01.12), liising 1,45%+ (kuni 01.12), Bloom 4% uuelt rahalt (kuni 31.12). (Allikas: luminor.ee sisu-API)'
       }
     ]
   },
@@ -298,22 +316,26 @@ export const LUMINOR_CATALOG = [
     items: [
       {
         name: 'Ärikonto ja äripaketid',
-        url: 'https://luminor.ee/ari',
-        summary: 'Ettevõtte arveldus, mitme kasutaja ligipääs, SEPA maksed.',
+        url: 'https://luminor.ee/ari/arikliendi-arvelduspakett',
+        summary:
+          'Ärikliendi arvelduspaketid 10/25/50/150 (tasuta euromaksete arv kuus); pangasisesed maksed, deebetkaart ja kontod kuutasuta. (Allikas: luminor.ee sisu-API /ari/arikliendi-arvelduspakett)',
+        rates: ['Pakett 10: 3 €/kuus', 'Pakett 25: 7 €/kuus', 'Pakett 50: 13 €/kuus', 'Pakett 150: 29 €/kuus'],
         details: [
-          'Ärikliendi hinnakiri avaldatakse eraldi PDF-ina (pricelist_*_business_et-ee.pdf)',
-          'Täpsed paketi kuutasud sõltuvad mahust (JS-leht / hinnakirja PDF)'
+          'Ärikliendi tähtajaline hoius alates 100 €',
+          'Soodustused kuni 1 aasta tegutsenud ettevõtetele'
         ]
       },
       {
         name: 'Ärilaen ja liising',
-        url: 'https://luminor.ee/ari',
-        summary: 'Ettevõtte finantseerimine: investeerimislaen, käibekapital, liising, faktooring.'
+        url: 'https://luminor.ee/ari/laenud',
+        summary:
+          'Ärilaen, arvelduslaen (ka tagatiseta), investeerimislaen (sh põllumajandus), taastuvenergia laen, EIS/MES garantiiga laenud, käibepõhine ja kaubanduse finantseerimine, faktooring, pangagarantii, akreditiiv, liising. (Allikas: luminor.ee sisu-API menüü /ari/*)'
       },
       {
         name: 'Kaardimaksed (kaupmehele)',
-        url: 'https://luminor.ee/ari',
-        summary: 'POS-terminalid ja e-kaubanduse kaardimaksed (Visa/Mastercard).'
+        url: 'https://luminor.ee/ari/maksekaartide-teenindamine',
+        summary:
+          'Makseterminalid (paketid kuni 20 / kuni 100 / üle 100 makse päevas; bluetooth või GSM), e-poe maksed ja pangalink. (Allikas: luminor.ee sisu-API /ari/maksekaartide-teenindamine)'
       }
     ]
   },
@@ -323,7 +345,8 @@ export const LUMINOR_CATALOG = [
       {
         name: 'Hinnakiri',
         url: 'https://luminor.ee/era/hinnakiri',
-        summary: 'Erakliendi ja ärikliendi teenuste hinnakiri.',
+        summary:
+          'Erakliendi hinnakiri on luminor.ee/era/hinnakiri (SPA) — andmed loetavad avalikust sisu-API-st /dc/render/v1/ee/page?alias=/era/hinnakiri. (Allikas: luminor.ee sisu-API, 24.11.2026)',
         details: [
           'Avalik erakliendi hinnakiri PDF (kehtib alates 30.11.2020): luminor.ee/s3fs-public/documents/pricelist_22_private_et-ee_0.pdf',
           'Jooksvad tasud luminor.ee dünaamilisel lehel (SPA/JS — automaatne scrape ebausaldusväärne)'
@@ -334,15 +357,32 @@ export const LUMINOR_CATALOG = [
         url: 'https://luminor.ee/intressi-ja-viivisemaarad',
         summary: 'Hoiuste ja laenude jooksvad intressimäärad (SPA/JS leht).',
         rates: [
-          'Viivise määr: 0,20% päevas (hinnakiri 30.11.2020)',
-          'Hoiuste määrad jooksvalt: Minuraha intressibaromeeter'
+          'Viivis: vt laenuleping',
+          'Luminor Prime 3,5% (asendatakse EURIBORiga)',
+          'Hoiuste määrad: öine skann sisu-API-st'
         ],
         details: ['Dünaamiline leht — sisu ei renderdu automaatsele scrape-le']
       },
       {
         name: 'Pangakontorid ja klienditugi',
         url: 'https://luminor.ee/era/kontakt',
-        summary: 'Kontorite asukohad ja klienditugi. Telefon +372 628 3300.'
+        summary:
+          'Luminor Bank AS, Liivalaia 45, Tallinn. Klienditugi +372 628 3300 (E–R 9–18, L 10–18), info@luminor.ee. (Allikas: luminor.ee sisu-API)'
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://www.luminor.ee/open-banking',
+        summary:
+          'Luminor.ee SPA sisu tuleb AVALIKUST sisu-API-st ilma autentimiseta: GET https://luminor.ee/dc/render/v1/ee/page?alias=/<leht>&language=et (lehed), …/menu?language=et (kõik aliased). Bankagent kasutab seda hoiuseintresside jaoks (alates 24.11.2026). PSD2: luminor.ee/open-banking. MCP serverit ei ole. Agregaatorid (nt Enable Banking, Tink, GoCardless) pakuvad ligipääsu sama PSD2 API kaudu ilma oma eIDAS-sertifikaadita (enablebanking.com/docs/markets/ee).',
+        details: [
+          'Sisu-API annab aeg-ajalt HTTP 500 — korduskatse vajalik',
+          'Mitteametlik liides — võib muutuda ilma etteteatamiseta'
+        ]
       }
     ]
   }

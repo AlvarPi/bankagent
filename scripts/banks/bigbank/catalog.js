@@ -1,7 +1,7 @@
 /** @typedef {{ name: string, summary: string, url?: string, details?: string[], rates?: string[] }} CatalogItem */
 /** @typedef {{ title: string, items: CatalogItem[] }} CatalogSection */
 
-// Andmed kogutud Bigbanki avalikelt lehtedelt 2026-06-27. Intressid on muutuvad —
+// Andmed kogutud Bigbanki avalikelt lehtedelt 2026-06-27, uuendatud 2026-11-24. Intressid on muutuvad —
 // allikaviited iga arvu juures. Kontrollitud: bigbank.ee tooteleheküljed ja minuraha.ee baromeeter.
 
 /** @type {CatalogSection[]} */
@@ -15,7 +15,6 @@ export const BIGBANK_CATALOG = [
         summary:
           'Fikseeritud intressiga tähtajaline hoius. Minimaalne summa 500 €. Tagatud Tagatisfondi poolt kuni 100 000 €. Periood 1 kuu kuni 10 aastat (120 kuud). Tehingu- ja haldustasud puuduvad.',
         rates: [
-          // Allikas: https://www.bigbank.ee/hoiused/ (kontrollitud 2026-06-27), väljamakse perioodi lõpus:
           '1–2 kuud: 2,15% aastas (bigbank.ee/hoiused)',
           '3–5 kuud: 2,20% aastas (bigbank.ee/hoiused)',
           '6 kuud: 2,30% aastas (bigbank.ee/hoiused)',
@@ -38,9 +37,11 @@ export const BIGBANK_CATALOG = [
         name: 'Säästuhoius (kogumishoius)',
         url: 'https://www.bigbank.ee/saastuhoius/',
         summary:
-          'Paindlik kogumishoius vaba sissemakse ja väljavõtmisega. Intress arvestatakse igapäevaselt kontojäägilt ja makstakse kord kuus.',
+          'Paindlik säästuhoius — sissemaksed ja väljavõtted igal ajal. (Allikas: bigbank.ee/saastuhoius, 24.11.2026)',
         rates: [
-          '2,20% aastane intress (bigbank.ee/saastuhoius, muutuv, kontrollitud 2026-06-27)'
+          'Intress 1,75% aastas (muutuv; varasem 2,20% 27.06.2026)',
+          'Hooldus- ja lepingutasud 0 €',
+          'Sissemaksed igal ajal, tasuta väljavõtted'
         ],
         details: [
           'Miinimumsummat sissemaksele ei ole (bigbank.ee/saastuhoius)',
@@ -56,12 +57,18 @@ export const BIGBANK_CATALOG = [
         name: 'Tähtajaline hoius ettevõtjale',
         url: 'https://www.bigbank.ee/ettevotja-hoius/',
         summary: 'Fikseeritud tootlusega tähtajaline hoius ettevõttele.',
-        details: ['Tingimused sarnased eraisiku tähtajalisele hoiusele', 'Vt bigbank.ee/ettevotja-hoius']
+        rates: [
+          'Musta reede kampaania: 3,5% 12–24 kuuks, min 50 000 €, sõlmida enne 30.11.2026',
+          'Summa 500 – 250 000 € (suurem: isiklik pakkumine)',
+          'Tavamäärad ~2,60–3,00%'
+        ],
+        details: ['Intress perioodi lõpus, kord aastas või kord kuus']
       },
       {
         name: 'Kogumishoius ettevõtjale',
         url: 'https://www.bigbank.ee/kogumishoius/',
         summary: 'Paindlik kogumishoius ettevõttele.',
+        rates: ['24–36 kuu intress 3,00% aastas', 'Kampaania: 2,5% 3 kuuks, sõlmida enne 31.12.2026'],
         details: ['Vaba sissemakse ja väljavõtt', 'Vt bigbank.ee/kogumishoius']
       }
     ]
@@ -75,22 +82,24 @@ export const BIGBANK_CATALOG = [
         summary:
           'Kinnisvara ostmine, ehitus, renoveerimine. Laenusumma alates 30 000 € (kalkulaatoris kuni 500 000 €), tähtaeg kuni 30 aastat.',
         rates: [
-          'Personaalne intress alates 1,95% + Euribor (annuiteetgraafik, bigbank.ee/kodulaen)',
-          'Alates 1,98% + Euribor (eripärane graafik, bigbank.ee/kodulaen)'
+          'Personaalne intress alates 1,95% + 6 kuu EURIBOR (erigraafik alates 1,98%)',
+          'Laenusumma 30 000 – 500 000 €',
+          'Lepingutasu 0,4%, min 150 €',
+          'Sissemakse 15% (EIS käendusega 10%, lisatagatisega 0%)',
+          'Kalkulaatori näide: 100 000 €, intress 5,57%, kuumakse 820,86 €'
         ],
         details: [
-          'Laenusumma alates 30 000 € (bigbank.ee/kodulaen)',
-          'Tähtaeg kuni 30 aastat',
-          'Omafinantseering tavaliselt vähemalt 15%; EIS (endine KredEx) käendusega 10%; lisatagatisega võimalik 0%',
-          'Lepingutasu näidiskalkulatsioonis 400 €',
-          'Näidis: 100 000 € laen, koguintress 4,60% (marginaal + 6 kuu Euribor), kuumakse ~770,32 €',
-          'Kiire eelotsus internetis'
+          'Erigraafik: algul ainult intressimaksed',
+          'Tagatis Eestis, väärtus ≥20 000 €',
+          'MES Kaaslaen omafinantseeringuna kuni 50%',
+          'Pindi Kinnisvara hindamine −20%'
         ]
       },
       {
         name: 'Laen kinnisvara tagatisel',
         url: 'https://www.bigbank.ee/kinnisvaralaen/',
-        summary: 'Suurem laen kinnisvara tagatisel vabaks kasutuseks. Summa 30 000 – 250 000 €, tähtaeg kuni 360 kuud (30 aastat).',
+        summary:
+          'Suurem laen kinnisvara tagatisel vabaks kasutuseks. Summa 30 000 – 250 000 €, tähtaeg kuni 360 kuud (30 aastat).',
         rates: [
           'Alates 3,5% + Euribor (bigbank.ee/kinnisvaralaen)',
           'Välismaa kinnisvara ostuks alates 2,5% + Euribor'
@@ -105,7 +114,11 @@ export const BIGBANK_CATALOG = [
         name: 'Väikelaen',
         url: 'https://www.bigbank.ee/vaikelaen/',
         summary: 'Tagatiseta isiklik laen 500 – 30 000 €, periood 6–120 kuud.',
-        rates: ['Intress alates 7,9% aastas laenujäägilt (bigbank.ee/vaikelaen)'],
+        rates: [
+          'Intress alates 7,9% laenujäägilt',
+          'Summa 500 – 30 000 €, periood 6–120 kuud',
+          'Lepingutasu 2% (min 45 €)'
+        ],
         details: [
           'Laenusumma 500 – 30 000 € (bigbank.ee/vaikelaen)',
           'Periood 6–120 kuud',
@@ -119,26 +132,26 @@ export const BIGBANK_CATALOG = [
         name: 'Autolaen',
         url: 'https://www.bigbank.ee/autolaen/',
         summary: 'Sõiduki soetamiseks. Summa 500 – 30 000 €, periood 6–120 kuud.',
-        rates: ['Intress alates 6,9% aastas laenujäägilt (bigbank.ee/autolaen)'],
-        details: [
-          'Laenusumma 500 – 30 000 € (bigbank.ee/autolaen)',
-          'Periood 6–120 kuud',
-          'Lepingutasu 2% krediidisummast (min 45 €)',
-          'Halduskulu ~3,99 €/kuus (näidiskalkulatsioonist)',
-          'Näidis KKM: 12 800 € laen 86 kuuks, fikseeritud 11% → krediidi kulukuse määr 13,12%',
-          'Uus ja kasutatud auto; liising alternatiivina'
-        ]
+        rates: [
+          'Intress alates 6,9% laenujäägilt',
+          'Summa 500 – 30 000 €, periood 6–120 kuud',
+          'Sissemakset ei nõuta'
+        ],
+        details: ['Sobib auto, mootorratta, purjeka ostuks', 'Sõiduk registreeritakse Transpordiametis']
       },
       {
         name: 'Liising',
-        url: 'https://www.bigbank.ee/liising/',
-        summary: 'Finants- ja operatiivliising sõidukitele.',
+        url: 'https://www.bigbank.ee/autoliising/',
+        summary:
+          'Autoliising: sõiduki hind 5000 – 200 000 €, sissemakse alates 10%; lõpus tagastamine või jääkväärtusega omandamine. Ka elektriauto- ja seadmeliising. (Allikas: bigbank.ee/autoliising, 24.11.2026)',
+        rates: ['Omafinantseering alates 10%', 'Kalkulaatori näide: koguintress 6,271%'],
         details: ['Kapitaliliising', 'Sissemakse võimalik']
       },
       {
         name: 'Refinantseerimine',
         url: 'https://www.bigbank.ee/refinantseerimine/',
-        summary: 'Olemasolevate laenude ühendamine ühe kuumaksega. Summa 500 – 30 000 €, periood 6–120 kuud.',
+        summary:
+          'Olemasolevate laenude ühendamine ühe kuumaksega. Summa 500 – 30 000 €, periood 6–120 kuud.',
         rates: ['Intress alates 7,9% aastas laenujäägilt (bigbank.ee/refinantseerimine)'],
         details: [
           'Laenusumma 500 – 30 000 € (bigbank.ee/refinantseerimine)',
@@ -151,7 +164,8 @@ export const BIGBANK_CATALOG = [
       {
         name: 'Remondilaen',
         url: 'https://www.bigbank.ee/remondilaen/',
-        summary: 'Kodu remondiks ja parendusteks.',
+        summary: 'Sisustus- ja remondilaen. (Allikas: bigbank.ee/remondilaen, 24.11.2026)',
+        rates: ['Intress alates 7,9% laenujäägilt', 'Summa 500 – 30 000 €, periood 6–120 kuud'],
         details: ['Tagatiseta või tagatisel', 'Tingimused sarnased väikelaenuga']
       }
     ]
@@ -164,7 +178,13 @@ export const BIGBANK_CATALOG = [
         url: 'https://www.bigbank.ee/arvelduskonto/',
         summary:
           'Tasuta arvelduskonto internetipangaga. Eesti esimene pank, mis maksab 2% tootlust kogu kontojäägilt ilma miinimumjäägi nõudeta.',
-        rates: ['2% tootlus aastas kogu kontojäägilt, miinimumjäägi nõuet ei ole (bigbank.ee/arvelduskonto)'],
+        rates: [
+          '2% aastas kogu kontojäägilt, miinimumjääki ei nõuta',
+          'Konto, maksed, välkmaksed 24/7: 0 €',
+          'Kampaania: palk/pension 3 kuud järjest → 50 € boonus',
+          'Loos 1000 €: suurenda jääki 30.11.2026 seisuga ≥100 € võrra',
+          'Kutsu sõber: 5 € iga sõbra eest'
+        ],
         details: [
           'Kuu- ja haldustasu puudub (bigbank.ee/arvelduskonto)',
           'SEPA ülekanded tasuta',
@@ -175,18 +195,28 @@ export const BIGBANK_CATALOG = [
       },
       {
         name: 'Deebetkaart',
-        url: 'https://www.bigbank.ee/arvelduskonto/',
-        summary: 'Deebetkaart igapäevasteks ostudeks. Esmane kaart tasuta.',
-        details: [
-          'Esmase deebetkaardiga lisatasusid ei kaasne (bigbank.ee/arvelduskonto)',
-          'Apple Pay, Google Pay'
-        ]
+        url: 'https://www.bigbank.ee/deebetkaart/',
+        summary:
+          'Teenustasudeta deebetkaart (füüsiline + virtuaalne), postiga koju tasuta. (Allikas: bigbank.ee/deebetkaart, 24.11.2026)',
+        rates: [
+          'Väljastamine ja haldus 0 €',
+          'Sularaha tasuta kuni 2000 €/kuus üle maailma',
+          'Ostukindlustus tasuta: 180 päeva, kuni 5000 €'
+        ],
+        details: ['Apple Pay ja Google Pay']
       },
       {
         name: 'Internetipank',
         url: 'https://www.bigbank.ee/',
         summary: 'Bigbank internetipank ja mobiililahendus.',
         details: ['Smart-ID, Mobile-ID']
+      },
+      {
+        name: 'Krediitkaart',
+        url: 'https://www.bigbank.ee/krediitkaart/',
+        summary:
+          'Bigbanki krediitkaart: 0 € lepingu- ja väljastamistasu, kuni 30 päeva intressivaba. (Allikas: bigbank.ee/krediitkaart, 24.11.2026)',
+        rates: ['Krediidilimiit 500–5000 €', 'Intress 16,9% aastas', '0% intress kuni 30 päeva']
       }
     ]
   },
@@ -197,12 +227,24 @@ export const BIGBANK_CATALOG = [
         name: 'Ärilaen',
         url: 'https://www.bigbank.ee/arilaen/',
         summary: 'Ettevõtte finantseerimine.',
-        details: ['Investeerimislaen', 'Käibekapital']
+        rates: [
+          'Intress alates 3,4% + EURIBOR (kinnisvara, kuni 30 mln €)',
+          'Käibelaen / muud: 3,9–5% + EURIBOR',
+          'Finantseerime kuni 12,5 mln €'
+        ],
+        details: ['Ka põllu- ja metsamaa laen, arenduslaen, investeerimislaen, hüpoteeklaen ettevõtjale']
       },
       {
         name: 'Krediidiliin',
         url: 'https://www.bigbank.ee/krediidiliin/',
-        summary: 'Paindlik krediidiliin ettevõttele — intress arvestatakse ainult kasutatud summalt.',
+        summary:
+          'Paindlik krediidiliin ettevõttele — intress arvestatakse ainult kasutatud summalt.',
+        rates: [
+          '25 000 – 1 500 000 €',
+          'Intress alates 4% + 6 kuu EURIBOR kasutatud summalt',
+          'Kohustistasu kuni 1% aastas kasutamata limiidilt',
+          'Tagastamine igal ajal tasuta'
+        ],
         details: [
           'Intress ainult kasutatud summalt (bigbank.ee/krediidiliin)',
           'Laenatud summa saab igal ajal tasuta tagasi maksta'
@@ -210,8 +252,8 @@ export const BIGBANK_CATALOG = [
       },
       {
         name: 'Äriliising',
-        url: 'https://www.bigbank.ee/ariliising/',
-        summary: 'Ettevõtte liising sõidukitele ja seadmetele.',
+        url: 'https://www.bigbank.ee/seadmeliising/',
+        summary: 'Seadmeliising ettevõtjale. (Allikas: bigbank.ee/seadmeliising)',
         details: ['Finantsliising', 'Operatiivliising']
       },
       {
@@ -238,14 +280,25 @@ export const BIGBANK_CATALOG = [
       },
       {
         name: 'Kontakt',
-        url: 'https://www.bigbank.ee/kontakt/',
+        url: 'https://www.bigbank.ee/kontaktid/',
         summary: 'Kontaktinfo ja klienditugi.',
         details: ['Telefon ja e-post', 'Kontorid Eestis ja Baltikumis']
       },
       {
         name: 'Meist',
-        url: 'https://www.bigbank.ee/meist/',
+        url: 'https://www.bigbank.ee/ettevottest/',
         summary: 'Bigbank AS — Baltikumi finantsettevõte, spetsialiseerunud laenudele ja hoiustele.'
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://open-banking.bigbank.eu/',
+        summary:
+          'Bigbank PSD2 API: open-banking.bigbank.eu (TPP registreerimine eIDAS sertifikaadiga, TLS kliendi autentimine). MCP serverit ei ole (24.11.2026). Agregaatorid (nt Enable Banking, Tink, GoCardless) pakuvad ligipääsu sama PSD2 API kaudu ilma oma eIDAS-sertifikaadita (enablebanking.com/docs/markets/ee).'
       }
     ]
   }

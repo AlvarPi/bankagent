@@ -8,7 +8,7 @@ export const SWEDBANK_CATALOG = [
     items: [
       {
         name: 'Tähtajaline hoius',
-        url: 'https://www.swedbank.ee/private/investor/deposits/term',
+        url: 'https://www.swedbank.ee/private/investor/deposits/my/interests?language=EST',
         summary:
           'Fikseeritud intressiga tähtajaline hoius. Intressimäär on fikseeritud kogu hoiuperioodi vältel. Tagatud Tagatisfondi poolt kuni 100 000 €.',
         rates: [
@@ -23,15 +23,22 @@ export const SWEDBANK_CATALOG = [
         ]
       },
       {
-        name: 'Kogumishoius',
-        url: 'https://www.swedbank.ee/private/savings/savings-account',
-        summary: 'Paindlik kogumiskonto igapäevaseks säästmiseks.',
-        details: ['Igakuine sissemakse', 'Väljavõtt võimalik', 'Intress koguneb']
+        name: 'Rahakoguja',
+        url: 'https://www.swedbank.ee/private/investor/funds/easySaver?language=EST',
+        summary:
+          'Rahakoguja: igapäevase intressiga kogumiskonto ilma raha lukustamata — kaardimaksed ümardatakse järgmise euroni ja vahe kantakse Rahakogujasse; sissemaksed ja väljavõtted tasuta ja kohe. (Allikas: swedbank.ee/private/investor/funds/easySaver, 24.11.2026)',
+        details: [
+          'Miinimumsumma puudub, tähtajatu, lõpetamine tasuta',
+          'Intress päevajäägilt, makstakse kord kuus (360-päevane aasta)',
+          'Kasutada saavad täisealised ja alates 6-aastased lapsed',
+          'Määr kuvatakse lehel JS-iga — vt hinnakiri/depositrates'
+        ]
       },
       {
         name: 'Investeerimishoius',
-        url: 'https://www.swedbank.ee/?pageId=hanzanet.private.investor.deposits.investment',
-        summary: 'Hoius, mille tootlus on seotud alusvara (nt indeksi) liikumisega; põhiosa kaitsega.',
+        url: 'https://www.swedbank.ee/private/investor/deposits/my/interests?language=EST',
+        summary:
+          'Hoius, mille tootlus on seotud alusvara (nt indeksi) liikumisega; põhiosa kaitsega.',
         details: ['Tootlus seotud alusvaraga', 'Tähtajaline']
       },
       {
@@ -46,14 +53,26 @@ export const SWEDBANK_CATALOG = [
       },
       {
         name: 'Investeerimine',
-        url: 'https://www.swedbank.ee/private/savings/invest',
-        summary: 'Fondid, aktsiad, pension. Swedbank investeerimisplatvorm.',
-        details: ['Swedbank fondid', 'Robo-nõustamine', 'Väärtpaberikonto']
+        url: 'https://www.swedbank.ee/private/investor/stock/startInvesting?language=EST',
+        summary:
+          'Väärtpaberi- ja investeerimiskonto avamine tasuta; Balti aktsiad ja Roburi fondid tehingu- ja hoidmistasuta. (Allikas: swedbank.ee/private/investor/stock/startInvesting, 24.11.2026)',
+        rates: [
+          'Konto avamine 0 €',
+          'Balti aktsiad ja Roburi fondid: tehingud ja hoidmine 0 €',
+          'Välisaktsiad (EL, USA): tehingutasu alates 3,90 € (alla 1000 €) / 9,90 €',
+          'Välisaktsiate hoidmine kuni 100 000 € tasuta'
+        ],
+        details: [
+          'Investeerimiskonto: tulumaksu edasilükkamine',
+          'Fondidesse alates 1 €',
+          'Lastele investeerimine: collegefund'
+        ]
       },
       {
         name: 'Pension (II ja III sammas)',
         url: 'https://www.swedbank.ee/private/savings/pension',
-        summary: 'II samba pensionifondid ja III samba vabatahtlik pension. Swedbank loobus III samba fondidelt kõikidest lisatasudest.',
+        summary:
+          'II samba pensionifondid ja III samba vabatahtlik pension. Swedbank loobus III samba fondidelt kõikidest lisatasudest.',
         rates: [
           'II sammas Indeks: valitsemistasu 0,27% aastas',
           'II sammas elutsüklifondid: 0,31–0,75% aastas (nooremad sünniaastad kõrgem)',
@@ -76,7 +95,8 @@ export const SWEDBANK_CATALOG = [
       {
         name: 'Põhipakett',
         url: 'https://www.swedbank.ee/private/dailybanking/packages',
-        summary: 'Põhiline pangapakett igapäevaseks arvelduseks: deebetkaart ja piiramatud ülekanded Swedbanki äpis ja internetipangas.',
+        summary:
+          'Põhiline pangapakett igapäevaseks arvelduseks: deebetkaart ja piiramatud ülekanded Swedbanki äpis ja internetipangas.',
         rates: [
           'Kuutasu 1,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)',
           'Kuni 25 a. (k.a): tasuta',
@@ -102,7 +122,8 @@ export const SWEDBANK_CATALOG = [
       {
         name: 'Reisipakett',
         url: 'https://www.swedbank.ee/private/dailybanking/packages',
-        summary: 'Kõrgeima taseme pakett: ostupaketi hüved + ulatuslik reisikindlustus (saadaval alates 6. eluaastast).',
+        summary:
+          'Kõrgeima taseme pakett: ostupaketi hüved + ulatuslik reisikindlustus (saadaval alates 6. eluaastast).',
         rates: ['Kuutasu 6,00 € (allikas: swedbank.ee depositrates, kehtiv alates 01.11.2025)'],
         details: [
           'Kõik ostupaketi hüved',
@@ -113,8 +134,14 @@ export const SWEDBANK_CATALOG = [
         name: 'Noored (kuni 25 a.)',
         url: 'https://www.swedbank.ee/private/dailybanking/for-young-people',
         summary: 'Eritingimused noortele.',
-        rates: ['Põhipakett kuni 25 a. (k.a): tasuta', 'Deebetkaart kuni 19 a.: tasuta; 20–25 a.: 0,32 €/kuus'],
-        details: ['ISIC Mastercard tudengikaart (alates 16 a., kõrgkooliõpe)', 'Tudengikaart toimib ühistranspordikaardina Tallinnas ja Harjumaal']
+        rates: [
+          'Põhipakett kuni 25 a. (k.a): tasuta',
+          'Deebetkaart kuni 19 a.: tasuta; 20–25 a.: 0,32 €/kuus'
+        ],
+        details: [
+          'ISIC Mastercard tudengikaart (alates 16 a., kõrgkooliõpe)',
+          'Tudengikaart toimib ühistranspordikaardina Tallinnas ja Harjumaal'
+        ]
       },
       {
         name: 'Pensionäride soodustused',
@@ -130,8 +157,9 @@ export const SWEDBANK_CATALOG = [
     items: [
       {
         name: 'Deebetkaart Pluss',
-        url: 'https://www.swedbank.ee/private/dailybanking/cards',
-        summary: 'Visa/Mastercard deebetkaart (100% taaskasutatud plastikust, alates 6 a.). Apple Pay, Google Pay.',
+        url: 'https://www.swedbank.ee/private/cards/cards/debit/debitplus?language=EST',
+        summary:
+          'Visa/Mastercard deebetkaart (100% taaskasutatud plastikust, alates 6 a.). Apple Pay, Google Pay.',
         rates: [
           'Kuutasu 1,00 € (kuni 19 a.: tasuta; 20–25 a. ja 65+: 0,32 €)',
           'Esimese deebetkaardi avamine: tasuta',
@@ -157,7 +185,7 @@ export const SWEDBANK_CATALOG = [
       },
       {
         name: 'Krediitkaart',
-        url: 'https://www.swedbank.ee/private/cards/cards/credit',
+        url: 'https://www.swedbank.ee/private/cards/cards/credit?language=EST',
         summary: 'Krediitkaardid ostukindlustuse ja reisikindlustusega; vaba tagasimaksega.',
         rates: [
           'Vaba tagasimaksega: 2 €/kuus (kuni 25 a.: tasuta), intress 19–22% aastas, intressivaba kalendrikuu lõpuni',
@@ -182,8 +210,14 @@ export const SWEDBANK_CATALOG = [
       },
       {
         name: 'Nutimaksed',
-        url: 'https://www.swedbank.ee/private/dailybanking/cards',
-        summary: 'Apple Pay, Google Pay, Garmin Pay.'
+        url: 'https://www.swedbank.ee/private/cards/paymentSolutions/applepay?language=EST',
+        summary:
+          'Apple Pay, Google Pay, nutikell- ja kantavad maksed, Click to Pay; Swedbank Apple Pay maksetele lisatasu ei võta. (Allikas: swedbank.ee/private/cards/paymentSolutions/*)',
+        details: [
+          'Apple Pay / Google Pay lisatasuta',
+          'Garmin, Fitbit jt nutikellad',
+          'Click to Pay e-poodides'
+        ]
       }
     ]
   },
@@ -192,8 +226,9 @@ export const SWEDBANK_CATALOG = [
     items: [
       {
         name: 'Kodulaen',
-        url: 'https://www.swedbank.ee/private/loans/home-loan',
-        summary: 'Kinnisvara ostmine, ehitus, renoveerimine. Intress = panga marginaal + 6 kuu Euribor.',
+        url: 'https://www.swedbank.ee/private/credit/loans/home?language=EST',
+        summary:
+          'Kinnisvara ostmine, ehitus, renoveerimine. Intress = panga marginaal + 6 kuu Euribor.',
         rates: [
           'Summa 10 000–500 000 €',
           'Intress alates 2% (allikas: taotle.ee/pakkuja/swedbank)',
@@ -209,7 +244,7 @@ export const SWEDBANK_CATALOG = [
       },
       {
         name: 'Väikelaen',
-        url: 'https://www.swedbank.ee/private/credit/loans/newSmall',
+        url: 'https://www.swedbank.ee/private/credit/loans/newSmall?language=EST',
         summary: 'Tagatiseta isiklik laen, ilma igakuise haldustasuta.',
         rates: [
           'Summa 300–20 000 €',
@@ -222,14 +257,14 @@ export const SWEDBANK_CATALOG = [
       },
       {
         name: 'Kodu väikelaen',
-        url: 'https://www.swedbank.ee/private/credit/loans/homeSmall',
+        url: 'https://www.swedbank.ee/private/credit/loans/homeSmall?language=EST',
         summary: 'Tagatiseta väikelaen kodu remondiks/parendamiseks.',
         rates: ['Summa 5 000–30 000 € (allikas: otsingu snippet, swedbank.ee)'],
         details: ['Ilma tagatiseta ja sissemakseta']
       },
       {
         name: 'Autolaen',
-        url: 'https://www.swedbank.ee/private/loans/car-loan',
+        url: 'https://www.swedbank.ee/private/credit/leasing/carloan?language=EST',
         summary: 'Sõiduki soetamiseks.',
         rates: [
           'Summa 2 000–50 000 €',
@@ -241,7 +276,7 @@ export const SWEDBANK_CATALOG = [
       },
       {
         name: 'Liising',
-        url: 'https://www.swedbank.ee/private/loans/leasing',
+        url: 'https://www.swedbank.ee/private/credit/leasing/carleasing?language=EST',
         summary: 'Finants- ja operatiivliising.',
         rates: [
           'Sõidukiliising: 2 000–200 000 €, alates 4,5%',
@@ -252,15 +287,34 @@ export const SWEDBANK_CATALOG = [
         details: ['Kapitaliliising', 'Operatiivliising']
       },
       {
-        name: 'Krediidikonto',
-        url: 'https://www.swedbank.ee/private/loans/credit-line',
-        summary: 'Paindlik krediidikonto.',
-        details: ['Intress kasutatud summalt', 'Limiit sõltub sissetulekust']
+        name: 'Arvelduslaen (krediidilimiit)',
+        url: 'https://www.swedbank.ee/private/credit/loans/pcl?language=EST',
+        summary:
+          'Arvelduslaen ehk krediidilimiit arvelduskontol — intress ainult kasutatud päevade eest, ennetähtaegne tagastamine tasuta. Tagasimakseperiood max 48 kuud. (Allikas: swedbank.ee/private/credit/loans/pcl, 24.11.2026)',
+        rates: [
+          'Intress alates 13% aastas',
+          'Kohustistasu 1,2% aastas kasutamata summalt',
+          'KKM 19,575% (limiit 2000 €, intress 17%, lepingutasu 35 €, 5 a)'
+        ],
+        details: ['Kuumakse = limiit / 48', 'Alternatiiv: krediitkaart']
       },
       {
         name: 'Õppelaen',
-        url: 'https://www.swedbank.ee/private/loans',
-        summary: 'Õpingute finantseerimine.'
+        url: 'https://www.swedbank.ee/private/credit/loans/student?language=EST',
+        summary:
+          'Õppelaen 2026/27: kuni 6000 € aastas, ilma käenduse ja kinnisvara tagatiseta; lepingutasu 0 €. (Allikas: swedbank.ee/private/credit/loans/student, 24.11.2026)',
+        rates: [
+          'Intress 1,49% + 6 kuu EURIBOR',
+          'Kuni 6000 € õppeaastas (alla 9 kuu õpe 3000 €)',
+          'Lepingutasu 0 €',
+          'KKM näide 5,18%'
+        ],
+        details: [
+          '2026/27 lepingutele tagatist ei nõuta (varasematel käendus/kinnisvara)',
+          'Õpingute ajal intress 31. oktoobril',
+          'Põhiosa 12 kuud pärast lõpetamist (taotlusel 18 kuud)',
+          'oppelaen@swedbank.ee'
+        ]
       }
     ]
   },
@@ -269,31 +323,70 @@ export const SWEDBANK_CATALOG = [
     items: [
       {
         name: 'Kodukindlustus',
-        url: 'https://www.swedbank.ee/private/insurance/home',
-        summary: 'Kodu ja koduvara kindlustus.',
-        details: ['Erinevad kaitsetasemed', 'Kodulaenu puhul nõutav']
+        url: 'https://www.swedbank.ee/private/insurance/home/ihome?language=EST',
+        summary:
+          'Swedbank P&C kodukindlustus, sõlmitav internetipangas; pakkumine kehtib 30 päeva. (Allikas: swedbank.ee/private/insurance/home/ihome, 24.11.2026)',
+        rates: [
+          '10% soodsam, kui lisaks ehitisele kodune vara ≥15 000 €',
+          'Kampaania: kodukindlustus aastaks −20%',
+          'Omavastutus tavaliselt 190 € (0 €, kui kahju põhjustas kolmas isik)'
+        ],
+        details: [
+          'Väärisesemed kuni 25% koduse vara summast',
+          'Sularaha kodus kuni 500 €',
+          'Kodune vara üle Eesti kuni 5%',
+          'Ajutine eluase kuni 12 kuud, üüritulu kuni 12 kuud',
+          'Hoone seadmete rike kuni 7 a seadmetel',
+          'Koduabi 24/7 888 2111'
+        ]
       },
       {
         name: 'Reisikindlustus',
-        url: 'https://www.swedbank.ee/private/insurance/travel',
-        summary: 'Reisi- ja tervisekindlustus.',
-        details: ['Reisipaketis kaasas', 'Ühekordne või aastapoliis']
+        url: 'https://www.swedbank.ee/private/insurance/travel/travelInsurance?language=EST',
+        summary:
+          'Reisikindlustus internetipangas või veebis; reisi ärajäämisel raha tagasi 5 tööpäevaga. Reisipakett 6 €/kuus sisaldab isiklikku reisikindlustust. (Allikas: swedbank.ee/private/insurance/travel, 24.11.2026)',
+        rates: [
+          'Meditsiiniabi kuni 1 000 000 €',
+          'Õnnetusjuhtum 10 000 € automaatselt',
+          'Omavastutus 50 € (reisitõrge, vastutus, isiklikud esemed)',
+          'Reisipakett 6 €/kuus (reisikindlustus + deebetkaart + maksed)'
+        ],
+        details: ['Lisakaitsed: ekstreemsport, välisriigis töötamine', 'Kahjukäsitlus 888 2111']
       },
       {
         name: 'Liiklus- ja kaskokindlustus',
-        url: 'https://www.swedbank.ee/private/insurance',
+        url: 'https://www.swedbank.ee/private/insurance/car/casco?language=EST',
         summary: 'Sõiduki kindlustuslahendused.',
-        details: ['Võrdle pakkumisi', 'Liisingu puhul kasko']
+        rates: [
+          'Klaasikahjud omavastutus 0 €',
+          'Kokkupõrge looma/linnuga omavastutus 0 €',
+          'Makse kuu/kvartali/poolaasta kaupa, hind ei tõuse'
+        ],
+        details: [
+          '24 h autoabi kõikjal Euroopas (Falck 888 1888)',
+          'Reisikatkestus: Eestis kuni 350 €, välismaal 1000 €',
+          'Asendusauto päevalimiit 30 või 60 €'
+        ]
       },
       {
         name: 'Õnnetusjuhtumi kindlustus',
-        url: 'https://www.swedbank.ee/private/insurance',
-        summary: 'Õnnetusjuhtumikindlustus.'
+        url: 'https://www.swedbank.ee/private/insurance/life/life?language=EST',
+        summary:
+          'Traumakaitse elukindlustuse lisana: 6,25 €/kuus, trauma kindlustussumma 20 000 €. (Allikas: swedbank.ee/private/insurance/life/life)',
+        rates: ['Traumakaitse 6,25 €/kuus', 'Trauma kindlustussumma 20 000 €']
       },
       {
         name: 'Elukindlustus',
-        url: 'https://www.swedbank.ee/private/insurance',
-        summary: 'Elukindlustus pere kaitsmiseks.'
+        url: 'https://www.swedbank.ee/private/insurance/life/life?language=EST',
+        summary:
+          'Swedbank Life Insurance elukindlustus (ka laenuga seotud): kindlustussumma alates 20 000 €, automaatne +3%/aastas kuni 200 000 €. Tasuta kiusamisvastane teenus (Fonds Plecs). (Allikas: swedbank.ee/private/insurance/life/life, 24.11.2026)',
+        rates: ['Min kindlustussumma 20 000 €', 'Kindlustussumma suurendaja +3% aastas'],
+        details: [
+          'Sissetulek vähemalt 500 €/kuus',
+          'Taganemine 30 päeva jooksul, maksed tagasi',
+          'Tervisekontroll partneri juures tasuta',
+          '2025 maksti hüvitisi üle 5,7 mln €'
+        ]
       }
     ]
   },
@@ -302,14 +395,15 @@ export const SWEDBANK_CATALOG = [
     items: [
       {
         name: 'Swedbank pakkumised',
-        url: 'https://www.swedbank.ee/private/offers',
+        url: 'https://www.swedbank.ee/private/home/important/offers?language=EST',
         summary: 'Partnerite soodustused ja kampaaniad.',
         details: ['Muutuvad pakkumised', 'Ostu- ja reisipaketi hüved']
       },
       {
         name: 'Uue kliendi kampaaniad',
-        url: 'https://www.swedbank.ee/private',
-        summary: 'Aeg-ajalt kampaaniad uutele klientidele.'
+        url: 'https://www.swedbank.ee/private/d2d/accounts/becomeOurCustomer?language=EST',
+        summary:
+          'Kliendiks saamine veebis; lojaalsusprogramm (private.campaign.loyalty) ja partnerpakkumised kaardiomanikele (cards/cardManagement/partnersOffers). (Allikas: swedbank.ee sitemap)'
       }
     ]
   },
@@ -330,7 +424,9 @@ export const SWEDBANK_CATALOG = [
         name: 'Äripaketid',
         url: 'https://www.swedbank.ee/business/daily-banking',
         summary: 'Erineva mahuga äripaketid; kuutasu sõltub mahust.',
-        details: ['Täpsed kuutasud: swedbank.ee/business hinnakiri (lehel ei õnnestunud konkreetseid numbreid kätte saada)']
+        details: [
+          'Täpsed kuutasud: swedbank.ee/business hinnakiri (lehel ei õnnestunud konkreetseid numbreid kätte saada)'
+        ]
       },
       {
         name: 'Ärilaen',
@@ -377,13 +473,25 @@ export const SWEDBANK_CATALOG = [
       },
       {
         name: 'Teenuste tingimused',
-        url: 'https://www.swedbank.ee/private/home/more/terms',
+        url: 'https://www.swedbank.ee/private/home/more/legislation?language=EST',
         summary: 'Üldtingimused ja infolehed.'
       },
       {
         name: 'Pangakontorid',
-        url: 'https://www.swedbank.ee/private/home/contact',
+        url: 'https://www.swedbank.ee/private/home/contacts/branches?language=EST',
         summary: 'Kontorite asukohad ja klienditugi.'
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://developer.swedbank.com',
+        summary:
+          'Swedbank PSD2 API arendajaportaalis developer.swedbank.com (sandbox olemas). Ametlikku MCP serverit ei ole; kolmanda osapoole bank-mcp (github.com/elcukro/bank-mcp) toetab Swedbanki Enable Banking/Tink kaudu. Agregaatorid (nt Enable Banking, Tink, GoCardless) pakuvad ligipääsu sama PSD2 API kaudu ilma oma eIDAS-sertifikaadita (enablebanking.com/docs/markets/ee).',
+        details: ['Valuutakursid: swedbank.ee/private/d2d/payments2/rates/currency (HTML)']
       }
     ]
   }

@@ -1,5 +1,11 @@
 import { fetchHtml, makeRow } from '../_shared/util.js';
-import { parseWiseRates, WISE_FEES_URL, WISE_INTEREST_URL } from './collect.js';
+import {
+  fetchWiseQuotes,
+  parseWiseRates,
+  WISE_FEES_URL,
+  WISE_INTEREST_URL,
+  WISE_QUOTE_API
+} from './collect.js';
 
 /**
  * @returns {Promise<import('../_shared/util.js').CollectResult>}
@@ -28,13 +34,27 @@ export async function collect() {
     })
   );
 
+  const quotes = await fetchWiseQuotes(1000);
+  for (const q of quotes) {
+    rows.push(
+      makeRow('wise', {
+        product_type: 'fee',
+        label: `Ülekanne 1000 EUR → ${q.target}: tasu ${q.fee} €, kurss ${q.rate}, saaja saab ${q.received} ${q.target}`,
+        fee_cents: q.fee == null ? null : Math.round(q.fee * 100),
+        source_url: WISE_QUOTE_API,
+        raw_text: `wise-quote-api: pangaülekanne→pangakonto, kohale ${q.delivery}`.trim()
+      })
+    );
+  }
+
   return {
     slug: 'wise',
     bankName: 'Wise',
     rows,
     sources: [
       { kind: 'primary', url: WISE_INTEREST_URL, note: 'Wise Interest (fintech)' },
-      { kind: 'reference', url: WISE_FEES_URL, note: 'tasud' }
+      { kind: 'reference', url: WISE_FEES_URL, note: 'tasud' },
+      { kind: 'api', url: WISE_QUOTE_API, note: 'avalik hinnapäring (autentimata), 1000 EUR' }
     ],
     fetchedAt,
     warnings: [

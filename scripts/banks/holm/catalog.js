@@ -10,7 +10,7 @@ export const HOLM_CATALOG = [
         name: 'Tähtajaline hoius',
         url: 'https://www.holmbank.ee/et/eraklient/hoius',
         summary:
-          'Fikseeritud intressiga tähtajaline hoius. Minimaalne summa 100 €, periood 1–60 kuud. Tagatud Tagatisfondi poolt kuni 100 000 € hoiustaja kohta (koos kogunenud intressiga). Allikas: https://www.holmbank.ee/hoiused',
+          'Tähtajaline hoius alates 100 €, periood 1–60 kuud; 365-päevane aasta; ennetähtaegne lõpetamine iseteeninduses, raha 2 pangapäevaga. Tagatisfond kuni 100 000 €. (Allikas: holmbank.ee/et/eraklient/hoius, 24.11.2026; määrad öise skänniga)',
         rates: [
           'Intressitabel (kehtiv alates 08.06.2026, allikas: https://www.holmbank.ee/hoiused):',
           '1–2 kuud: 2,30% aastas',
@@ -50,15 +50,12 @@ export const HOLM_CATALOG = [
         summary:
           'Tagatiseta isiklik väikelaen kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen',
         rates: [
-          'Fikseeritud intress: alates 7,9% aastas (kampaania kuni 13.07.2026) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)',
-          'Krediidi kulukuse määr (näide): 19,79% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)'
+          'Kampaania: kõik väikelaenud fikseeritud intressiga 7%, ilma lepingu- ja haldustasuta (holmbank.ee/et/eraklient/laenud, 24.11.2026)',
+          'Summa kuni 25 000 €'
         ],
         details: [
-          'Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)',
-          'Periood: 6–120 kuud (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)',
-          'Lepingutasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)',
-          'Kuine haldustasu: 0,99 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)',
-          'Näidisarvutus: laen 4 500 €, lepingutasu 67,50 €, haldustasu 0,99 €/kuu, periood 48 kuud, fikseeritud intress 9,40% aastas, tagasimakstav kokku 6 289,64 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-vaikelaen)'
+          'Vähemalt 20-aastane, sissetulek ≥550 €/kuus',
+          'Maksegraafiku alusel, eraldi arvet ei saadeta'
         ]
       },
       {
@@ -67,18 +64,16 @@ export const HOLM_CATALOG = [
         summary:
           'Kinnisvara ostmine, ehitus, renoveerimine. Laenusumma alates 25 000 €, kuni 30 aastat. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen',
         rates: [
-          'Intress: 6 kuu EURIBOR + personaalne intressimarginaal (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)',
-          'Krediidi kulukuse määr (näide): 6,63% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)'
+          '6 kuu EURIBOR + personaalne marginaal',
+          'Laenusumma alates 25 000 €, kuni 30 aastat',
+          'Lepingutasu 1%, min 150 €',
+          'Sissemakse min 15% (EIS käendusega 10%)',
+          'KKM näide 6,63%'
         ],
         details: [
-          'Minimaalne laenusumma: 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)',
-          'Maksimaalne summa: kuni 85% kinnisvara väärtusest, KredEx/EIS tagatisega kuni 90% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)',
-          'Maksimaalne periood: 30 aastat (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)',
-          'Lepingutasu: 1% laenusummast, min. 150 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)',
-          'Haldustasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)',
-          'Omafinantseering: min 15% (10% EIS tagatisega, 0% lisatagatisega) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)',
-          'Näide: laen 70 000 €, periood 25 aastat, lepingutasu 700 €, marginaal 4% + 6 kuu EURIBOR 2,244% (11.04.2025 seisuga), KKM 6,63% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-kodulaen)',
-          'Kodukindlustus nõutav'
+          'Kuni 85% kinnisvara väärtusest (EIS-iga 90%)',
+          'Ennetähtaegne tagastamine tasuta 3 kuu etteteatamisega',
+          'Lahe Kinnisvarabüroo hindamisaktid −10%'
         ]
       },
       {
@@ -87,17 +82,10 @@ export const HOLM_CATALOG = [
         summary:
           'Tagatiseta laen sõiduki soetamiseks, kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen',
         rates: [
-          'Fikseeritud intress: alates 5,99% aastas (kampaania kuni 31.07.2026) (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)',
-          'Krediidi kulukuse määr (näide): 15,74% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)'
+          'Kampaania: fikseeritud intress 7%, lepingu- ja haldustasuta (kõik väikelaenud, 24.11.2026)',
+          'Summa kuni 25 000 €'
         ],
-        details: [
-          'Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)',
-          'Periood: 6–120 kuud (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)',
-          'Lepingutasu: 2% (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)',
-          'Haldustasu: 0,15% kuus, min 0 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)',
-          'Näidisarvutus: laen 4 500 €, lepingutasu 90 €, haldustasu 6,75 €, periood 48 kuud, tagasimakstav kokku 5 998,56 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-autolaen)',
-          'Tagatiseta laen; kindlustus If P&C Insurance AS kaudu'
-        ]
+        details: ['Vähemalt 20-aastane, sissetulek ≥550 €/kuus']
       },
       {
         name: 'Refinantseerimislaen',
@@ -105,8 +93,10 @@ export const HOLM_CATALOG = [
         summary:
           'Olemasolevate laenude ühendamine, kuni 25 000 €, periood 6–120 kuud. Allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen',
         rates: [
-          'Intress: alates 5,99% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)',
-          'Krediidi kulukuse määr (näide): 19,79% aastas (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)'
+          'Intress alates 5,99% aastas',
+          'Summa kuni 25 000 €, periood 6–120 kuud',
+          'Lepingutasu alates 50 €, haldustasu alates 3,99 €/kuus',
+          'KKM näide 18,61% (4500 €)'
         ],
         details: [
           'Maksimaalne summa: kuni 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/laenud/holm-refinantseerimislaen)',
@@ -120,7 +110,13 @@ export const HOLM_CATALOG = [
         name: 'Järelmaks (Liisi)',
         url: 'https://www.holmbank.ee/et/eraklient/jarelmaks',
         summary:
-          'Järelmaks partnerite poodides ja e-poodides üle Eesti, summa kuni 25 000 €, periood kuni 10 aastat. Allikas: https://www.holmbank.ee/et/eraklient/jarelmaks',
+          'Liisi järelmaks (30 aastat Eestis) partnerkauplustes ja e-poodides; Liisi Pluss — järelmaks ükskõik kus (taotle iseteeninduses, lisa toote pilt/arve). (Allikas: holmbank.ee/et/eraklient/jarelmaks, 24.11.2026)',
+        rates: [
+          'Max 25 000 €, periood kuni 10 aastat',
+          'Liisi 6: kuus osas 0% intress, 0 € lepingutasu, 0 € sissemakse',
+          'Liisi 3: kolmes osas 0%, lepingutasu 9,9 €',
+          'Esimesed 6 kuud 0% (min periood 12 kuud)'
+        ],
         details: [
           'Maksimaalne summa: 25 000 € (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks)',
           'Maksimaalne periood: kuni 10 aastat (allikas: https://www.holmbank.ee/et/eraklient/jarelmaks)',
@@ -131,9 +127,9 @@ export const HOLM_CATALOG = [
       },
       {
         name: 'Krediidikonto',
-        url: 'https://www.holmbank.ee/et/eraklient',
+        url: 'https://www.holmbank.ee/et/eraklient/krediitkaart',
         summary:
-          'Paindlik krediidikonto igapäevaseks kasutuseks. Konkreetsed tingimused vt holmbank.ee.',
+          'Holmil eraldi krediidikontot ei ole — krediidilimiit on Holm VISA krediitkaardil (kuni 10 000 €). (Allikas: holmbank.ee/et/eraklient/krediitkaart)',
         details: ['Intress ainult kasutatud summalt']
       }
     ]
@@ -147,28 +143,43 @@ export const HOLM_CATALOG = [
         summary:
           'Krediitkaart krediidilimiidiga kuni 5 000 €, lepingu- ja kuutasu 0 €, 15 päeva intressivaba periood. Allikas: https://www.holmbank.ee/et/eraklient/krediitkaart',
         rates: [
-          'Intress: alates 1,2% kuus (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)',
-          'Krediidi kulukuse määr (näide): 36,89% aastas (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)'
+          'Limiit kuni 10 000 €',
+          'Kuuintress alates 1%',
+          'Lepingu- ja kuutasu 0 €; virtuaal- ja esimene plastkaart tasuta',
+          'Kampaania: uus klient, kasuta 2000 € aasta lõpuni → 100 € tagasi jaanuaris',
+          'Arvutitark ostud okt–dets 10% tagasi'
         ],
         details: [
-          'Krediidilimiit: kuni 5 000 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)',
-          'Lepingu- ja kuutasu: 0 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)',
-          'Intressivaba periood: 15 päeva (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)',
-          'KKM näide: limiit 2 000 €, fikseeritud intress 30% aastas, tagasimakse 12 kuuga, makstav kokku 2 605,19 € (allikas: https://www.holmbank.ee/et/eraklient/krediitkaart)',
-          'Kaardi tasud hinnakirjas: uuendamine/sulgemine tasuta, asendamine 10 €, sularaha väljavõtt Eestis/Euroopas 2 €, valuutatehing 1% tehingu summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)'
+          'Vähemalt 20-aastane, sissetulek ≥385 €/kuus',
+          'Ostukindlustus',
+          'Estraveli 2000 € kinkekaardi loos (uued kliendid, november)'
         ]
       },
       {
         name: 'Arvelduskonto',
         url: 'https://www.holmbank.ee/et/eraklient',
-        summary: 'Põhiarvelduskonto interneti- ja mobiilipangaga.',
-        details: ['SEPA maksed', 'Püsikorraldused', 'Kuutasu: vt hinnakiri https://www.holmbank.ee/et/eraklient/hinnakiri']
+        summary:
+          'Holm on laenu- ja hoiusepank: igapäevast arvelduskontot ja deebetkaarti ei paku; laenud ja hoiused käivad kliendikonto kaudu iseteeninduses. (Allikas: holmbank.ee/et/eraklient, 24.11.2026)',
+        details: ['Kliendikonto iseteeninduses', 'Igapäevapanganduseks vaja teist panka']
       },
       {
         name: 'Internetipank ja mobiilipank',
         url: 'https://www.holmbank.ee/et/eraklient',
-        summary: 'Holm Bank internetipank ja mobiilipank.',
+        summary:
+          'Holmi iseteenindus (veeb) ja äpp: laenude, järelmaksude, hoiuste ja krediitkaardi haldus. (Allikas: holmbank.ee)',
         details: ['Smart-ID, Mobile-ID', 'Tehingute ajalugu', 'SEPA maksed ja ülekanded']
+      },
+      {
+        name: 'Liising (eraklient)',
+        url: 'https://www.holmbank.ee/et/eraklient/liising',
+        summary:
+          'Sõidukiliising uutele ja kasutatud autodele, paindlik jääkväärtus. (Allikas: holmbank.ee/et/eraklient/liising, 24.11.2026)',
+        rates: [
+          'Intress alates 5,85% + EURIBOR',
+          'Lepingutasu alates 1%, min 150 €',
+          'Ennetähtaegne lõpetamine tasuta',
+          'KKM näide 9,29% (25 000 €)'
+        ]
       }
     ]
   },
@@ -178,23 +189,28 @@ export const HOLM_CATALOG = [
       {
         name: 'Investeerimislaen',
         url: 'https://www.holmbank.ee/et/ariklient/laenud/investeerimislaen',
-        summary: 'Ettevõtte investeeringute finantseerimine. Konkreetsed tingimused vt holmbank.ee.'
+        summary: 'Ettevõtte investeeringute finantseerimine. Konkreetsed tingimused vt holmbank.ee.',
+        rates: ['Kampaania: kuni 500 000 € laenude lepingutasu 0 € kuni 30.11.2026']
       },
       {
         name: 'Limiidilaen',
         url: 'https://www.holmbank.ee/et/ariklient/laenud/limiidilaen',
-        summary: 'Käibekapitali finantseerimine krediidilimiidina. Konkreetsed tingimused vt holmbank.ee.'
+        summary:
+          'Käibekapitali finantseerimine krediidilimiidina. Konkreetsed tingimused vt holmbank.ee.',
+        rates: ['Periood kuni 12 kuud', 'Lepingutasu kuni 1%', 'Kohustistasu 3% aastas kasutamata limiidilt']
       },
       {
         name: 'Laen põllumaa tagatisel',
         url: 'https://www.holmbank.ee/et/ariklient/laen-pollumaa-tagatisel',
-        summary: 'Laen põllumajandusmaa tagatisel. Konkreetsed tingimused vt holmbank.ee.'
+        summary: 'Laen põllumajandusmaa tagatisel. Konkreetsed tingimused vt holmbank.ee.',
+        rates: ['Intress alates 5,5% + 6 kuu EURIBOR', 'Maksegraafik kuni 20 aastat']
       },
       {
         name: 'Äriliising',
         url: 'https://www.holmbank.ee/et/ariklient/liising',
         summary: 'Ettevõtte liising sõidukitele ja seadmetele.',
-        details: ['Finantsliising', 'Operatiivliising']
+        rates: ['Alates 20 000 €, kuni 8 aastat', 'Lepingutasu alates 1%, min 150 €'],
+        details: ['Ettevõte tegutsenud ≥12 kuud', 'EIS või MES käendus sobib']
       }
     ]
   },
@@ -219,14 +235,27 @@ export const HOLM_CATALOG = [
       },
       {
         name: 'Kontakt ja pangakontorid',
-        url: 'https://www.holmbank.ee/et/kontakt',
-        summary: 'Kontaktinfo ja pangakontorid.',
+        url: 'https://www.holmbank.ee/et/eraklient/kontaktid',
+        summary:
+          'Holm Bank AS, Pärnu mnt 158/1, Tallinn; kontor ka Haapsalus (Posti 30). Klienditugi +372 675 5055 (E–R 8–18). (Allikas: holmbank.ee/et/eraklient/kontaktid)',
         details: ['Tallinn, Tartu', 'Klienditugi']
       },
       {
         name: 'Meist',
-        url: 'https://www.holmbank.ee/et/meist',
-        summary: 'Holm Bank AS ülevaade — Eesti kapitalil põhinev pank.'
+        url: 'https://www.holmbank.ee/et/holmist/ettevottest',
+        summary:
+          'Holm Bank AS (Liisi järelmaksu pakkuja), pangalitsents 02.04.2019, reg 14080830. (Allikas: holmbank.ee/et/holmist/ettevottest)'
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://www.holmbank.ee/et/eraklient',
+        summary:
+          'Holm Bankil avalikku arendajaportaali ega MCP serverit ei leitud (24.11.2026); kuna arvelduskontot ei pakuta, on PSD2 kasutus piiratud.'
       }
     ]
   }

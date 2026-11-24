@@ -8,17 +8,13 @@ export const CITADELE_CATALOG = [
     items: [
       {
         name: 'Tähtajaline hoius',
-        url: 'https://www.citadele.ee/et/private/savings/',
+        url: 'https://www.citadele.ee/et/private/savings/rates',
         summary:
-          'Fikseeritud intressiga tähtajaline hoius, fikseeritud tähtaeg ja valitav valuuta (EUR või USD). Hoiused tagatud kuni 100 000 € (Läti tagatisskeem).',
+          'Tähtajaline hoius 1 kuu – 5 aastat, min 100 EUR / 200 USD; määrad kuni 5 mln EUR. Ennetähtaegsel väljavõtmisel intressi ei maksta. (Allikas: citadele.ee/et/private/savings/rates, kehtivad alates 16.10.2026, kontrollitud 24.11.2026)',
         rates: [
-          'EUR 1 kuu: 1,75% (min 100 €) — citadele.ee/en/private/savings/rates (kehtiv 15.05.2026)',
-          'EUR 3 kuud: 1,95% (min 100 €) — citadele.ee rates',
-          'EUR 6 kuud: 2,00% (min 100 €) — citadele.ee rates',
-          'EUR 1 aasta: 2,00% (min 100 €) — citadele.ee rates; minuraha baromeeter 12 kuud: 2,0%',
-          'EUR 2 aastat: 2,20% (min 100 €) — citadele.ee rates',
-          'EUR 5 aastat: 2,50% (min 100 €) — citadele.ee rates',
-          'USD 6 kuud: 1,75%; USD 1 aasta+: 2,50% (min 200 USD) — citadele.ee rates'
+          'EUR (intress perioodi lõpus): 1 k 2,00% · 3 k 2,20% · 6 k 2,40% · 9 k 2,40% · 1–5 a 2,60%',
+          'EUR igakuise intressiga: 6 k 2,39% · 1 a 2,57% · 2 a 2,54% · 5 a 2,45%',
+          'USD: 6 k 1,75% · 9 k 2,00% · 1–5 a 2,50%'
         ],
         details: [
           'Periood 1 kuu kuni 5 aastat',
@@ -29,9 +25,10 @@ export const CITADELE_CATALOG = [
       },
       {
         name: 'Kogumiskonto (Säästukonto)',
-        url: 'https://www.citadele.ee/et/private/savings/',
-        summary: 'Paindlik kogumiskonto igapäevaseks säästmiseks, raha kättesaadav igal ajal ilma etteteatamiseta.',
-        rates: ['EUR 1,00%, USD 1,00% (kehtiv 01.01.2025) — citadele.ee/en/private/savings/rates'],
+        url: 'https://www.citadele.ee/et/private/savings/rates',
+        summary:
+          'Paindlik kogumiskonto igapäevaseks säästmiseks, raha kättesaadav igal ajal ilma etteteatamiseta.',
+        rates: ['EUR 1,00%, USD 1,00% (era- ja äriklient)', 'Avamine/sulgemine tasuta'],
         details: [
           'Alates 1 €, ülempiir puudub',
           'Väljavõtt tasuta ja ilma etteteatamiseta',
@@ -40,9 +37,13 @@ export const CITADELE_CATALOG = [
       },
       {
         name: 'Roheline kogumiskonto',
-        url: 'https://www.citadele.ee/et/private/savings/',
-        summary: 'Roheline säästmislahendus — raha suunatakse jätkusuutlikesse (energiatõhusatesse) projektidesse.',
-        rates: ['1,50% aastas, jäägile kuni 100 000 € (kehtiv 01.05.2025) — citadele.ee rates'],
+        url: 'https://www.citadele.ee/et/private/savings/rates',
+        summary:
+          'Roheline säästmislahendus — raha suunatakse jätkusuutlikesse (energiatõhusatesse) projektidesse.',
+        rates: [
+          '1,50% aastas jäägilt kuni 100 000 €',
+          'Väljamakse 60 päeva etteteatamisega tasuta; ilma — 60 päeva intress väljamakstavalt summalt'
+        ],
         details: [
           'Üks konto kliendi kohta, jääk kuni 100 000 €',
           'Väljavõtt tuleb ette teatada 60 päeva',
@@ -50,22 +51,29 @@ export const CITADELE_CATALOG = [
         ]
       },
       {
-        name: 'Kasvukonto (Piggybank)',
-        url: 'https://www.citadele.ee/et/private/savings/',
-        summary: 'Kõrge intressiga säästukonto väiksemale jäägile.',
-        rates: ['3,00% aastas, jäägile kuni 10 000 € (kehtiv 14.05.2025) — citadele.ee rates'],
+        name: 'Rahakassa (Piggybank)',
+        url: 'https://www.citadele.ee/et/private/piggybank/',
+        summary:
+          'Rahakassa mobiiliäpis: kaardiostud ümardatakse 0,10 € või 1 € peale, kordaja ×2/3/5/10; ka lastele alates 7 a. (Allikas: citadele.ee/et/private/piggybank, 24.11.2026)',
+        rates: [
+          '3,00% aastas jäägilt kuni 10 000 € (alates 14.05.2025)',
+          'Avamine, sulgemine ja väljavõtt tasuta',
+          'Loos: 5 × 1000 € (≥500 € ülekanne 19.10–31.12.2026)'
+        ],
         details: ['Üks konto kliendi kohta', 'Intress jäägile kuni 10 000 €']
       },
       {
         name: 'Investeerimine',
-        url: 'https://www.citadele.ee/et/private/investments',
-        summary: 'Fondid, aktsiad, obligatsioonid. Citadele investeerimisplatvorm.',
+        url: 'https://www.citadele.ee/et/private/c-wealth/',
+        summary:
+          'Citadele investeerimisteenused jõukuse halduse (C wealth) kaudu; Eestis jaeinvesteerimise platvormi ei paku. (Allikas: citadele.ee/et/private/c-wealth)',
         details: ['Citadele fondid', 'Väärtpaberikonto', 'Nõustamine']
       },
       {
         name: 'Pension (II ja III sammas)',
-        url: 'https://www.citadele.ee/et/private/pension',
-        summary: 'II samba pensionifondid ja III samba vabatahtlik pension.',
+        url: 'https://www.citadele.ee/et/private/',
+        summary:
+          'Citadele Eestis oma pensionifonde ei paku (Läti/Leedus on). (Allikas: citadele.ee/et/private menüü, 24.11.2026)',
         details: ['Citadele pensionifondid', 'III samba maksusoodustus']
       }
     ]
@@ -95,7 +103,12 @@ export const CITADELE_CATALOG = [
         name: 'C supreme',
         url: 'https://www.citadele.ee/et/private/c-cards/',
         summary: 'Keskmise taseme kaart krediidilimiidi ja põhikindlustusega.',
-        rates: ['Kuutasu: 3,99 €/kuus (esimesed kuud tasuta) — citadele.ee/en/private/c-cards'],
+        rates: [
+          'Kuutasu 4,99 €/kuus (kaugteel kliendiks: 2 kuud tasuta)',
+          'Krediidilimiit 500–5000 €, intress 18%',
+          'C REWARDS: 1 € = 1 punkt',
+          'Aktiivsel kasutamisel kuutasu −25%/−50%'
+        ],
         details: [
           'Sularaha väljavõtt kuni 1500 €/kuus',
           'Krediidilimiit kuni 5000 €',
@@ -107,7 +120,13 @@ export const CITADELE_CATALOG = [
         name: 'C prime',
         url: 'https://www.citadele.ee/et/private/c-cards/',
         summary: 'Kõrgeima taseme kaart laiendatud hüvede ja reisikindlustusega.',
-        rates: ['Kuutasu: 6,99 €/kuus (esimesed kuud tasuta) — citadele.ee/en/private/c-cards'],
+        rates: [
+          'Kuutasu 6,99 €/kuus (kaugteel kliendiks: 3 kuud tasuta)',
+          'Krediidilimiit 700–15 000 €, intress 16%',
+          'Sularaha tasuta kuni 2000 €/kuus üle maailma',
+          'Reisi- ja ostukindlustus kuutasu sees',
+          'Aktiivsel kasutamisel kuutasu −25%/−50%'
+        ],
         details: [
           'Sularaha väljavõtt kuni 2000 €/kuus',
           'Krediidilimiit kuni 15 000 €',
@@ -130,8 +149,13 @@ export const CITADELE_CATALOG = [
       {
         name: 'Deebetkaart (C kaardid)',
         url: 'https://www.citadele.ee/et/private/c-cards/',
-        summary: 'Visa/Mastercard C-kaardid, nutimaksed. Tasuta SEPA-maksed ja kiirmaksed Euroopas.',
-        details: ['Apple Pay, Google Pay', 'C REWARDS punktiprogramm']
+        summary:
+          'C kaardid: C lite (virtuaalne, 0 €), C smart (1,99 €, 7–21 a tasuta), C supreme, C prime, C Infinite, C airBaltic. Tasuta SEPA- ja välkmaksed, ~100 ühisvõrgu automaati Eestis. (Allikas: citadele.ee/et/private/c-cards, 24.11.2026)',
+        rates: [
+          'Sularaha tasuta mistahes automaadist (C smart kuni 1000 €/kuus, C prime kuni 2000 €/kuus), edasi 1% (min 1 €)',
+          'Tasuta sissemaksed 50 automaadis'
+        ],
+        details: ['Kutsu sõber: 6 kuud kuutasuta iga sõbra kohta (piiramatult)', 'Kaart postiga 5 tööpäevaga']
       },
       {
         name: 'Krediitkaart (C supreme / C prime)',
@@ -146,15 +170,19 @@ export const CITADELE_CATALOG = [
       },
       {
         name: 'Maksed',
-        url: 'https://www.citadele.ee/et/private/fees/main/payments/',
-        summary: 'SEPA, kiirmaksed, välismaa maksed. C-kaartidega tasuta SEPA- ja kiirmaksed Euroopas.',
-        rates: ['Täpsed maksetasud erakliendi hinnakirjas (PDF, alates 16.02.2026) — citadele.ee/et/private/fees'],
+        url: 'https://www.citadele.ee/et/private/payments/',
+        summary:
+          'SEPA, kiirmaksed, välismaa maksed. C-kaartidega tasuta SEPA- ja kiirmaksed Euroopas.',
+        rates: [
+          'Täpsed maksetasud erakliendi hinnakirjas (PDF, alates 16.02.2026) — citadele.ee/et/private/fees'
+        ],
         details: ['SEPA Instant', 'Püsikorraldused']
       },
       {
         name: 'Nutimaksed',
-        url: 'https://www.citadele.ee/et/private/c-cards/',
-        summary: 'Apple Pay, Google Pay.'
+        url: 'https://www.citadele.ee/et/support/apple-pay/',
+        summary:
+          'Apple Pay, Google Pay, Garmin Pay ja makse Citadele äpiga. (Allikas: citadele.ee/et/support/apple-pay, /google-pay, /garmin-pay)'
       }
     ]
   },
@@ -166,17 +194,16 @@ export const CITADELE_CATALOG = [
         url: 'https://www.citadele.ee/et/private/mortgage/',
         summary: 'Kinnisvara ostmine, ehitus, renoveerimine. Muutuv või fikseeritud intress.',
         rates: [
-          'Marginaal alates 1,8% + 6 kuu Euribor — citadele.ee/et/private/mortgage',
-          'Näidis kogu intress ~3,956% (6 kuu Euribor 2,156%, seis 26.01.2026)',
-          'Lepingutasu kuni 1% laenusummast, min 200 € — citadele.ee'
+          'Marginaal alates 1,8% + 6 kuu EURIBOR (KKM näide 4,79%)',
+          'Kampaania: uus kodu arendajalt — lepingutasu 0 € (kuni 31.12.2026), hindamisakt kuni 450 € hüvitatakse',
+          'Tavaline lepingutasu kuni 1%, min 200 €',
+          'Finantseerimine kuni 95% (lasterikas pere / EIS käendus)',
+          'Kodulaenu kliendile väikelaen 7,9%'
         ],
         details: [
-          'Tähtaeg kuni 30 aastat',
-          'Minimaalne laenusumma 10 000 €',
-          'Finantseerimine kuni 75% tagatise väärtusest (KredEx käendusega kuni 95%)',
-          'Uue arenduse korral lepingutasu 0% (kuni 31.12.2026)',
-          'Energiatõhus (A/B klass) kinnisvara — soodusintress',
-          'Hindamiskulu kuni 450 € panga kanda 3+ lapsega peredele'
+          'Refinantseerimine: notari- ja hindamistasu hüvitis kuni 600 €',
+          'Muudatus 1× aastas tasuta, edasi 75 €',
+          'Roheline kodulaen ja energiatõhususe laen eraldi'
         ]
       },
       {
@@ -184,9 +211,11 @@ export const CITADELE_CATALOG = [
         url: 'https://www.citadele.ee/et/private/consumer/',
         summary: 'Tagatiseta isiklik laen, otsus 20 minutiga, ka mitte-kliendile.',
         rates: [
-          'Summa 1000–25 000 € — citadele.ee/et/private/consumer',
-          'Intress alates 6,5% aastas; näidis KKM (APR) 10,80% — citadele.ee',
-          'Lepingutasu 2% laenusummast, min 50 €'
+          'Intress alates 6,5% (fikseeritud)',
+          'Summa 1000–25 000 €, periood kuni 84 kuud',
+          'Kampaania: lepingutasu 0 € taotlustele 15.10–30.11.2026 (tavaliselt 2%, min 50 €)',
+          'KKM näide 6,79% (5000 €, 60 kuud, lepingutasu 0)',
+          'Ennetähtaegne tagastamine tasuta'
         ],
         details: [
           'Periood kuni 84 kuud',
@@ -200,9 +229,9 @@ export const CITADELE_CATALOG = [
         url: 'https://www.citadele.ee/et/private/leasing/',
         summary: 'Sõiduki soetamiseks kapitali- või kasutusrent (operatiivliising).',
         rates: [
-          'Intress: fikseeritud marginaal + 3 või 6 kuu Euribor; vahemik 1,40%–7,00% aastas — citadele.ee/et/private/leasing',
-          'Lepingutasu 1% sõiduki hinnast, min 190 €',
-          'Operatiivliisingu (fikseeritud) ennetähtaegse lõpetamise tasu 1,5%, min 275 €'
+          'Intress 1,40–7,00% (marginaal + 3/6 kuu EURIBOR)',
+          'Sissemakse alates 10%, finantseeritav summa ≥10 000 €',
+          'Lepingutasu 1% sõiduki hinnast, min 190 €'
         ],
         details: [
           'Omafinantseering alates 10% sõiduki hinnast',
@@ -214,8 +243,10 @@ export const CITADELE_CATALOG = [
       },
       {
         name: 'Krediidikonto / krediidilimiit',
-        url: 'https://www.citadele.ee/et/private/c-cards/',
-        summary: 'Paindlik krediidilimiit C-kaardil, intress kasutatud summalt.',
+        url: 'https://www.citadele.ee/et/private/flexible-loan/',
+        summary:
+          'Paindlik laen / krediidilimiit kuni 15 000 € ning C supreme/C prime krediitkaardi limiit; Klix järelmaks („maksa hiljem”). (Allikas: citadele.ee/et/private/consumer, /flexible-loan, /klix-pay-later)',
+        rates: ['Krediidilimiit kuni 15 000 €', 'Kasutamata limiidi eest tasu ei võeta'],
         details: ['Intressivaba periood kuni 45 päeva', 'Minimaalne kuumakse 5% kasutatud limiidist']
       }
     ]
@@ -225,21 +256,47 @@ export const CITADELE_CATALOG = [
     items: [
       {
         name: 'Reisikindlustus',
-        url: 'https://www.citadele.ee/et/private/c-cards/',
-        summary: 'Reisikindlustus, mis on kaasas C prime kaardiga.',
+        url: 'https://www.citadele.ee/et/private/multitrip-travel/',
+        summary:
+          'Aastane korduvreisikindlustus (BTA) Citadele äpis; lisaks kaardiga kaasnev reisikindlustus (C prime, C Infinite). (Allikas: citadele.ee/et/private/multitrip-travel, 24.11.2026)',
+        rates: [
+          'Plaanid 6,90 € ja 11,75 € kuus inimese kohta',
+          'Pereplaanid 16,50 € ja 32,40 € kuus',
+          'Ravikulud 75 000 € / 125 000 €'
+        ],
         details: ['C prime: reisikindlustus', 'C supreme: põhikindlustus']
       },
       {
         name: 'Ostukaitse / kaardikindlustus',
-        url: 'https://www.citadele.ee/et/private/c-cards/',
+        url: 'https://www.citadele.ee/et/private/c-cards/insurance/',
         summary: 'C-kaartidega kaasnev kindlustuskaitse.',
         details: ['Sõltub kaardi tasemest']
       },
       {
         name: 'Liising-kindlustus (kasko + liiklus)',
-        url: 'https://www.citadele.ee/et/private/leasing/',
+        url: 'https://www.citadele.ee/et/private/vehicle-insurance/',
         summary: 'Liisinglepingu kestel nõutav kasko- ja kohustuslik liikluskindlustus.',
         details: ['Kohustuslik kogu lepingu vältel']
+      },
+      {
+        name: 'Õnnetusjuhtumikindlustus',
+        url: 'https://www.citadele.ee/et/private/accident-insurance/',
+        summary:
+          'Õnnetusjuhtumikindlustus 3–70-aastastele, kehtib 24/7 üle maailma, sh hobi ja sport. Taganemine 14 päeva. (Allikas: citadele.ee/et/private/accident-insurance, 24.11.2026)',
+        rates: ['3,50 € / 5,00 € / 6,00 € kuus', 'Kindlustussumma 4000–10 000 €']
+      },
+      {
+        name: 'Kodukindlustus',
+        url: 'https://www.citadele.ee/et/private/home-insurance/',
+        summary:
+          'Kodukindlustus (BTA) Citadele kaudu — kuni 20% soodsam. Abihooned kuni 300 m² automaatselt kindlustatud; ajutine elukoht kuni 12 kuud omavastutuseta; ehitustööde kahju kuni 10 000 €. (Allikas: citadele.ee/et/private/home-insurance)',
+        details: ['BTA 24/7 +372 5686 8668']
+      },
+      {
+        name: 'Arvete kaitse kindlustus',
+        url: 'https://www.citadele.ee/et/private/bill-protection-insurance/',
+        summary:
+          'Arvete/laenumaksete kaitse töökaotuse või haiguse korral. (Allikas: citadele.ee/et/private/bill-protection-insurance)'
       }
     ]
   },
@@ -249,13 +306,15 @@ export const CITADELE_CATALOG = [
       {
         name: 'C prime / C supreme tasuta kuud',
         url: 'https://www.citadele.ee/et/private/c-cards/',
-        summary: 'Uue C-kaardi taotlemisel esimesed kuud kuutasuta.',
+        summary:
+          'Kaugteel kliendiks tulles C supreme 2 kuud ja C prime 3 kuud kuutasuta; olemasolevad kliendid 3 kuud kaardi vahetamisel. Kutsu sõber: 6 kuud tasuta iga sõbra kohta. (Allikas: citadele.ee/et/private/c-cards, 24.11.2026)',
         details: ['C prime: esimesed kuud tasuta', 'C supreme: esimesed kuud tasuta']
       },
       {
         name: 'Kodulaenu lepingutasu 0% uuele kinnisvarale',
         url: 'https://www.citadele.ee/et/private/mortgage/',
-        summary: 'Arendajalt otse uue kinnisvara ostmisel lepingutasu 0% (kuni 31.12.2026).',
+        summary:
+          'Uus kodu otse arendajalt — kodulaenu lepingutasu 0 €, kehtib kuni 31.12.2026; hindamisakt kuni 450 € hüvitatakse. (Allikas: citadele.ee/et/private/mortgage, 24.11.2026)',
         details: ['Kehtib uusarendustele']
       },
       {
@@ -271,26 +330,29 @@ export const CITADELE_CATALOG = [
     items: [
       {
         name: 'Ärikonto',
-        url: 'https://www.citadele.ee/et/business',
-        summary: 'Ettevõtte arveldus ja teenused.',
+        url: 'https://www.citadele.ee/et/business/',
+        summary:
+          'Ärikonto ja C business platvorm (mobiilne ärikonto). (Allikas: citadele.ee/et/business, /business/c-business-platform)',
         details: ['SEPA maksed', 'Mitme kasutaja ligipääs']
       },
       {
         name: 'Äriklientide hoius / säästukonto',
         url: 'https://www.citadele.ee/en/business/savings/',
         summary: 'Juriidilise isiku säästu- ja hoiuselahendused.',
-        rates: ['Säästukonto juriidilisele isikule: EUR 1,00%, USD 1,00% (kehtiv 01.01.2025) — citadele.ee rates'],
+        rates: [
+          'Säästukonto juriidilisele isikule: EUR 1,00%, USD 1,00% (kehtiv 01.01.2025) — citadele.ee rates'
+        ],
         details: ['Tähtajaline hoius', 'Säästukonto']
       },
       {
         name: 'Ärilaen ja finantseerimine',
-        url: 'https://www.citadele.ee/et/business/financing',
+        url: 'https://www.citadele.ee/et/business/',
         summary: 'Ettevõtte finantseerimine.',
         details: ['Investeerimislaen', 'Liising', 'Faktooring']
       },
       {
         name: 'Kaardimaksed (kaupmehele)',
-        url: 'https://www.citadele.ee/et/business/card-payments',
+        url: 'https://www.citadele.ee/et/business/',
         summary: 'POS, e-kaubandus.',
         details: ['Visa/Mastercard kaupmehele']
       },
@@ -308,12 +370,13 @@ export const CITADELE_CATALOG = [
       {
         name: 'Teenuste hinnakiri (eraklient)',
         url: 'https://www.citadele.ee/et/private/fees/',
-        summary: 'Erakliendi teenuste hinnakiri. Täpsed tasud PDF-dokumendis "Hinnakiri erakliendile alates 16.02.2026".',
+        summary:
+          'Erakliendi hinnakiri alates 01.08.2026; liisingu hinnakiri alates 30.06.2025 (PDF). (Allikas: citadele.ee/et/private/fees)',
         details: ['Kaartide kuutasud', 'Maksete hinnad', 'Uus versioon jõustub 01.08.2026']
       },
       {
         name: 'Hoiuste intressimäärad',
-        url: 'https://www.citadele.ee/et/private/savings/rates/',
+        url: 'https://www.citadele.ee/et/private/savings/rates',
         summary: 'Hoiuste ja kogumiskontode intressimäärade ametlik leht.',
         details: ['Tähtajaline hoius kehtiv 15.05.2026', 'Kehtib kuni 5 000 000 €, üle selle individuaalselt']
       },
@@ -325,8 +388,23 @@ export const CITADELE_CATALOG = [
       },
       {
         name: 'Pangakontorid ja klienditugi',
-        url: 'https://www.citadele.ee/et/contact',
-        summary: 'Kontorite asukohad ja klienditugi.'
+        url: 'https://www.citadele.ee/et/contacts/',
+        summary: 'Kontorite asukohad ja klienditugi.',
+        details: [
+          'Klienditugi 77 00 000',
+          'Kohtumine eelneval kokkuleppel (https://www.citadele.ee/et/contacts/booking/eesti/)'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://developer.citadele.lv',
+        summary:
+          'Citadele PSD2 API arendajaportaalis developer.citadele.lv (Baltikumi ühine, sandbox). MCP serverit ei ole (24.11.2026). Agregaatorid (nt Enable Banking, Tink, GoCardless) pakuvad ligipääsu sama PSD2 API kaudu ilma oma eIDAS-sertifikaadita (enablebanking.com/docs/markets/ee).'
       }
     ]
   }

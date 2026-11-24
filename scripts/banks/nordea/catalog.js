@@ -180,8 +180,13 @@ export const NORDEA_CATALOG = [
       {
         name: 'Kontod, kaardid ja kliendiprogrammid',
         url: 'https://www.nordea.se/privat/produkter/kundprogram/premium.html',
-        summary: 'Pangakontod, deebet- ja krediitkaardid ning kliendiprogrammid (nt Nordea Premium) Põhjamaades.',
-        details: ['Visa/Mastercard kaardid', 'Kliendiprogrammid jõukamatele klientidele', 'Allikas: nordea.se, nordea.fi']
+        summary:
+          'Pangakontod, deebet- ja krediitkaardid ning kliendiprogrammid (nt Nordea Premium) Põhjamaades.',
+        details: [
+          'Visa/Mastercard kaardid',
+          'Kliendiprogrammid jõukamatele klientidele',
+          'Allikas: nordea.se, nordea.fi'
+        ]
       }
     ]
   },
@@ -244,6 +249,17 @@ export const NORDEA_CATALOG = [
           'Aktuaalseid määrasid kontrolli vastava riigi Nordea lehel',
           'Eesti pangateenuste jaoks vaata Luminor'
         ]
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://developer.nordeaopenbanking.com',
+        summary:
+          'Nordea Open Banking arendajaportaal developer.nordeaopenbanking.com (PSD2 + sandbox, Põhjamaad). Eestis Nordea jaepangandust ei ole. MCP serverit ei ole (24.11.2026).'
       }
     ]
   }

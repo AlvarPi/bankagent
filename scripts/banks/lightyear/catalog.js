@@ -12,15 +12,14 @@ export const LIGHTYEAR_CATALOG = [
         summary:
           'Kasutamata raha teenib intressi AAA-reitinguga rahaturufondi kaudu (mitte pangahoiusena). Raha saab igal ajal välja võtta; intress arvestatakse iga päev. Tegemist on investeeringuga fondi, mitte hoiusega — kapital on riskis.',
         rates: [
-          'EUR: 2,16% APY — seisuga 01.07.2026 (lightyear.com/et-ee/vaults)',
-          'GBP: 3,83% APY — seisuga 01.07.2026',
-          'USD: 3,68% APY — seisuga 01.07.2026'
+          'EUR Kasvufond: 2,50% APY neto (2,67% − 0,20% tasu) — seisuga 24.11.2026 (lightyear.com/et-ee/vaults)',
+          'GBP / USD: vt lightyear.com/et-ee/vaults (eelmine seis 01.07.2026: GBP 3,83%, USD 3,68%)',
+          'Miinimum 1 €, maksimumi pole'
         ],
         details: [
-          'Tootlus tuleb rahaturufondi (AAA) kaudu, mitte pangahoiusena',
-          'Muutuv määr, jälgib keskpankade intresse',
-          'Raha saab igal ajal kulutada/üle kanda',
-          'Kapital on riskis, tootlus ei ole garanteeritud'
+          'Fond: BlackRock ICS Euro Liquidity Fund (Premier), ~66 mld €',
+          'Järgib EKP baasintressi',
+          'Näide: 1000 € → oktoobris tootlus ~67,50 € (kogusumma põhjal)'
         ]
       }
     ]
@@ -60,7 +59,16 @@ export const LIGHTYEAR_CATALOG = [
       {
         name: 'Tasud',
         url: 'https://lightyear.com/et-ee/pricing',
-        summary: 'Kontotasu puudub; makstakse ainult kasutamise eest.',
+        summary:
+          'Lightyeari hinnakiri (Allikas: lightyear.com/et-ee/pricing, 24.11.2026). Täpsed tasud sõltuvad turust.',
+        rates: [
+          'USA aktsiad: 0,1%, max 1 USD tehingu kohta',
+          'Eurodes kaubeldavad aktsiad, võlakirjad, ETN/ETC: 1 EUR',
+          'Muud Euroopa aktsiad: 0,1%',
+          'Valuutavahetus 0,35%',
+          'Konto ja hoiustamine tasuta; Kasvufondi tasud tootlusest juba maha arvatud',
+          'LEI-kood 48 € + km'
+        ],
         details: [
           'Konto avamine ja haldus: tasuta',
           'ETF-ide kauplemine: tasuta',
@@ -79,6 +87,17 @@ export const LIGHTYEAR_CATALOG = [
           'USA väärtpaberid: kuni 500 000 $ SIPC (partner Alpaca kaudu)',
           'Kliendivara hoitakse eraldatuna AAA-fondides ja litsentseeritud pankades'
         ]
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
+      {
+        name: 'API, Open Banking ja MCP',
+        url: 'https://lightyear.com/et-ee/help',
+        summary:
+          'Lightyearil avalikku API-t ega MCP serverit ei ole (24.11.2026); andmed ainult rakenduses / väljavõtetena.'
       }
     ]
   }

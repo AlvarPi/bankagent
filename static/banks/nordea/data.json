@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "nordea",
   "name": "Nordea",
-  "fetchedAt": "2026-11-24T01:47:16.930Z",
-  "generatedAt": "2026-11-24T01:47:17.063Z",
+  "fetchedAt": "2026-11-24T21:20:30.810Z",
+  "generatedAt": "2026-11-24T21:20:30.934Z",
   "sources": [
     {
       "kind": "primary",
@@ -376,6 +376,16 @@
               "Aktuaalseid määrasid kontrolli vastava riigi Nordea lehel",
               "Eesti pangateenuste jaoks vaata Luminor"
             ]
+          }
+        ]
+      },
+      {
+        "title": "API ja andmeühendused",
+        "items": [
+          {
+            "name": "API, Open Banking ja MCP",
+            "url": "https://developer.nordeaopenbanking.com",
+            "summary": "Nordea Open Banking arendajaportaal developer.nordeaopenbanking.com (PSD2 + sandbox, Põhjamaad). Eestis Nordea jaepangandust ei ole. MCP serverit ei ole (24.11.2026)."
           }
         ]
       }

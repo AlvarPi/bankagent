@@ -25,7 +25,8 @@ export const SEB_CATALOG = [
       {
         name: 'Kogumishoius',
         url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine',
-        summary: 'Paindlik kogumishoius (sh Digikassa) vabade vahendite kasvatamiseks igakuise sissemaksega.',
+        summary:
+          'Paindlik kogumishoius (sh Digikassa) vabade vahendite kasvatamiseks igakuise sissemaksega.',
         rates: ['1,65% aastas (seb.ee hoiuste intressimäärade leht, 06.2026; varem 1,55%)'],
         details: ['Paindlik sissemakse', 'Digikassa raha kogutakse automaatselt kogumishoiusesse']
       },
@@ -41,21 +42,39 @@ export const SEB_CATALOG = [
       },
       {
         name: 'Digikassa',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/digikassa',
-        summary: 'Digitaalne rahakott ja makselahendus. Seotud kogumishoiusega (intress 1,65% aastas).',
+        url: 'https://www.seb.ee/noored',
+        summary:
+          'Tasuta kogumislahendus SEB rakenduses: maksed ümardatakse järgmise euroni ja vahe pannakse kõrvale; summa saab igal ajal vabaks. (Allikas: seb.ee/noored, 24.11.2026)',
         details: ['Ostudest kogumishoiusesse kogumine', 'Mobiilirakendus']
       },
       {
         name: 'Investeerimine',
-        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine',
-        summary: 'Fondid, aktsiad, ETF-id, obligatsioonid. SEB investeerimisplatvorm ja nõustamine.',
-        details: ['SEB fondid ja kolmandate osapoolte fondid', 'Investeerimiskonto ja väärtpaberikonto']
+        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/investeerimine',
+        summary:
+          'Väärtpaberikonto, SEB fondid, mikroinvesteerimine (ETF-id alates 1 €) ja portfelli valitsemine (alates 40 000 €). (Allikas: seb.ee/eraklient/kogumine-ja-investeerimine/investeerimine, seb.ee/mikroinvesteerimine, 24.11.2026)',
+        rates: [
+          'Väärtpaberikonto avamine ja hoidmine 0 €',
+          'Balti aktsiate tehingutasu internetipangas 0 €',
+          'USA ja Euroopa börsid 0,14%, min 5 €',
+          'Mikroinvesteerimine: ost/müük 0,5%, miinimumtasu ja haldustasu puudub',
+          'Portfelli valitsemine kuni 1,2% + km aastas (alates 40 000 €)'
+        ],
+        details: [
+          'Mikroinvesteerimise ETF-id eurodes (võlakirja-ETF-id, ESG)',
+          'Fondidesse alates 10 €',
+          'Fondiosakute märkimine 0 €'
+        ]
       },
       {
         name: 'Pension (II ja III sammas)',
-        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine',
-        summary: 'II samba pensionifondid ja III samba vabatahtlik pension.',
-        details: ['SEB pensionifondide valik', 'III samba sissemaksetelt tulumaksusoodustus kuni 15% tulust (max 6000 €/a, riiklik reegel)']
+        url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/pension',
+        summary:
+          'SEB pensionifondid II ja III sambas; tasu väheneb kogutud summa kasvades. SEB langetas 2026 III samba fondide valitsemistasusid. Uue põlvkonna pension (elukindlustusega kogumine). (Allikas: seb.ee/eraklient/kogumine-ja-investeerimine/pension)',
+        details: [
+          'II sammas 2%, 4% või 6% brutopalgast',
+          'Vähenev tasu kogutud summa kasvades',
+          'Uue põlvkonna pension: seb.ee/eraklient/kogumine-ja-investeerimine/pension/uue-polvkonna-pension'
+        ]
       },
       {
         name: 'Lapsele kogumine',
@@ -124,7 +143,8 @@ export const SEB_CATALOG = [
       {
         name: 'Eliit pakett (Elite)',
         url: 'https://www.seb.ee/eraklient/igapaevapangandus/arvelduspaketid',
-        summary: 'Kõrgeima taseme premium-pakett, Premium Mastercard ja personaalsed hüved, kuni 4 lisaliiget.',
+        summary:
+          'Kõrgeima taseme premium-pakett, Premium Mastercard ja personaalsed hüved, kuni 4 lisaliiget.',
         rates: ['Kuutasu: 33 €/kuus (seb.ee hinnakiri, 06.2026)'],
         details: [
           'Premium Mastercard',
@@ -141,7 +161,7 @@ export const SEB_CATALOG = [
     items: [
       {
         name: 'Deebetkaart',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid',
+        url: 'https://www.seb.ee/eraklient/kaardid',
         summary: 'Visa/Mastercard deebetkaardid, Apple Pay, Google Pay, Garmin Pay.',
         rates: [
           'Mastercard deebetkaart: 1 €/kuus (seb.ee hinnakiri, 06.2026)',
@@ -153,16 +173,20 @@ export const SEB_CATALOG = [
       },
       {
         name: 'Krediitkaart',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid',
+        url: 'https://www.seb.ee/eraklient/kaardid',
         summary: 'Krediitkaart ostukindlustuse ja reisikindlustusega.',
         rates: [
-          'Standard / pildi-krediitkaart: tasuta (seb.ee hinnakiri, 06.2026)',
-          'Mastercard krediitkaart: 1,60 €/kuus',
-          'Gold / Premium: 7,50 €/kuus',
-          'Platinum: 10 €/kuus',
-          'World Elite: 30 €/kuus'
+          'Krediitkaart (sissetulek ≥640 €): 1,60 €/kuus, tasuta Mitmekesine/Eliit paketis',
+          'Kuldkaart (≥1200 €): 7,50 €/kuus, tasuta Esmaklassiline/Eliit paketis',
+          'World Elite (≥3000 €): 30 €/kuus, tasuta Eliit paketis',
+          'Kuni 45 päeva intressivaba krediiti',
+          'Mitmekesine/Eliit paketis intress 2% soodsam'
         ],
-        details: ['Intressivaba periood (grace period) ostudele', 'Intressimäär sõltub lepingust']
+        details: [
+          'Püsimaksega krediitkaart (sissetulek ≥500 €) ilma kuutasuta',
+          'Mastercard Travel & Lifestyle Services (World Elite)',
+          'Kaardid 84% maisipõhisest bioplastist'
+        ]
       },
       {
         name: 'SEB Maksed',
@@ -178,8 +202,10 @@ export const SEB_CATALOG = [
       },
       {
         name: 'Nutimaksed',
-        url: 'https://www.seb.ee/eraklient/igapaevapangandus/kaardid',
-        summary: 'Apple Pay, Google Pay, Samsung Pay, Garmin Pay.'
+        url: 'https://www.seb.ee/googlepay',
+        summary:
+          'SEB kaardid Google Pay, Apple Pay ja Garmin Pay rakendustes; Click to Pay e-poodides. Viipemaksed kuni 150 €, PIN küsitakse üle 50 €. (Allikas: seb.ee/eraklient/kaardid, seb.ee/googlepay, seb.ee/click-to-pay)',
+        details: ['Deebetkaardiga automaadist max 3500 €/päevas', 'Kaart postiga 5–6 tööpäevaga']
       }
     ]
   },
@@ -189,7 +215,8 @@ export const SEB_CATALOG = [
       {
         name: 'Kodulaen',
         url: 'https://www.seb.ee/eraklient/laenud/kodulaen',
-        summary: 'Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine. Muutuv intress = individuaalne marginaal + Euribor (3, 6 või 12 kuud).',
+        summary:
+          'Kinnisvara ostmine, ehitus, renoveerimine, refinantseerimine. Muutuv intress = individuaalne marginaal + Euribor (3, 6 või 12 kuud).',
         rates: [
           'Euribor (seb.ee, 25.06.2026): 3 kuud 2,2930%; 6 kuud 2,6060%; 12 kuud 2,7850%',
           'Näidislepingu KKM ~3,66% (näide: 150 000 €, 26 a, marginaal 1,40% + 6 kuu Euribor 2,114%; seb.ee)',
@@ -207,16 +234,22 @@ export const SEB_CATALOG = [
         name: 'Kodulaen noortele / KredEx',
         url: 'https://www.seb.ee/eraklient/laenud/kodulaen',
         summary: 'Eritingimused noortele ja peredele KredEx/EIS käendusega.',
-        details: ['KredEx/EIS käendusega omafinantseering alla 15%', 'Tingimused sõltuvad käenduse reeglitest']
+        details: [
+          'KredEx/EIS käendusega omafinantseering alla 15%',
+          'Tingimused sõltuvad käenduse reeglitest'
+        ]
       },
       {
         name: 'Väikelaen',
         url: 'https://www.seb.ee/eraklient/laenud/vaikelaen',
-        summary: 'Tagatiseta isiklik laen erinevateks vajadusteks. Fikseeritud intress kogu perioodiks.',
+        summary:
+          'Tagatiseta isiklik laen erinevateks vajadusteks. Fikseeritud intress kogu perioodiks.',
         rates: [
-          'Intress alates 6,9% aastas (seb.ee, 06.2026)',
-          'Kampaania 01.04–30.06.2026: 7,5% laenukindlustusega / 8,5% ilma kindlustuseta; lepingutasu 0 €',
-          'Lepingutasu (tavaolukord): 1,5% laenusummast, min 35 € (auto puhul min 75 €; kinnisvara/päikesepaneelid 1%, min 75 €; kodu energiatõhusus 1%, min 50 €)'
+          'Intress alates 6,9% (fikseeritud)',
+          'Laenusumma kuni 25 000 € (kaastaotlejaga kuni 40 000 €)',
+          'Lepingutasu: auto 1,5% (min 75 €), kinnisvara/päikesepaneelid 1% (min 75 €), energiasääst 1% (min 50 €), muu 1,5% (min 35 €)',
+          'KKM näide 10,64%',
+          'Ennetähtaegne tagastamine tasuta'
         ],
         details: [
           'Summa kuni 25 000 € (üksiktaotleja); kuni 40 000 € kaaslaenajaga',
@@ -247,15 +280,25 @@ export const SEB_CATALOG = [
       },
       {
         name: 'Krediidikonto',
-        url: 'https://www.seb.ee/eraklient/laenud',
-        summary: 'Paindlik krediidikonto igapäevaseks kasutuseks.',
+        url: 'https://www.seb.ee/eraklient/kaardid',
+        summary:
+          'Krediidilimiit krediitkaardi kaudu; alla 1000 € vajaduseks soovitab SEB püsimaksega krediitkaarti (kuutasuta, sissetulek ≥500 €). (Allikas: seb.ee/eraklient/kaardid, seb.ee/eraklient/laenud/vaikelaen)',
         details: ['Kasutad ainult vajadusel', 'Intress ainult kasutatud summalt']
       },
       {
         name: 'Õppelaen',
-        url: 'https://www.seb.ee/eraklient/laenud',
-        summary: 'Õpingute finantseerimine (riiklikult reguleeritud õppelaen).',
-        details: ['Tingimused riiklike reeglite alusel']
+        url: 'https://www.seb.ee/eraklient/laenud/oppelaen',
+        summary:
+          '2026/2027. õppeaastal SEB UUSI õppelaenulepinguid ei sõlmi; olemasolevate lepingute alusel saab väljamakset taotleda alates 01.09.2026. (Allikas: seb.ee/eraklient/laenud/oppelaen, 24.11.2026)',
+        rates: [
+          'Olemasolevad lepingud: fikseeritud 5% laenujäägilt aastas',
+          'Max 6000 € õppeaastas',
+          'KKM näide 5,3%'
+        ],
+        details: [
+          'Uusi lepinguid 2026/27 ei sõlmita — alternatiiv LHV/Swedbank',
+          'Põhiosa tagasimakse hiljemalt 12 kuud pärast lõpetamist'
+        ]
       }
     ]
   },
@@ -264,32 +307,53 @@ export const SEB_CATALOG = [
     items: [
       {
         name: 'Kodukindlustus',
-        url: 'https://www.seb.ee/eraklient/kindlustus',
-        summary: 'Kodu, koduvara ja vastutuskindlustus. Kodulaenu tagatis peab olema kindlustatud vähemalt taastamisväärtuses.',
-        details: ['Erinevad kaitsetasemed']
+        url: 'https://www.seb.ee/eraklient/kindlustus/kodukindlustus',
+        summary:
+          'SEB kodukindlustus (kindlustusandja PZU, tingimused SEB-K100/2026), sõlmitav internetipangas kuni 3 aastaks — 3-aastane leping soodsam ja makse fikseeritud. (Allikas: seb.ee/eraklient/kindlustus/kodukindlustus, 24.11.2026)',
+        details: [
+          'Rikkekaitse kuni 4 a vanusele kodusele varale ja köögitehnikale',
+          'Tehnosüsteemide rikked kuni 8 a seadmetele',
+          'Väärisesemed kuni 4000 €, ajutine elukoht 6000 €',
+          'Lisakaitsed: vastutus, sadevesi, nutiseade (omavastutus 100 €), pikendatud garantii kuni 6 a',
+          'Agenditasu 26,7% kindlustusmaksest (avalikustatud)',
+          'Koduabi PZU 24/7 +372 622 4545'
+        ]
       },
       {
         name: 'Reisikindlustus',
-        url: 'https://www.seb.ee/eraklient/kindlustus',
-        summary: 'Reisi tühistamine, meditsiin, pagas. Traumakindlustus kaasas pakettides (50–200 € sõltuvalt pakettist).',
-        details: ['Ühekordne reis või aastapoliis']
+        url: 'https://www.seb.ee/eraklient/kindlustus/reisikindlustus',
+        summary:
+          'Ühekordne (1 päev – 1 aasta) või korduvreisikindlustus (Travel R100 / Family R200, reis kuni 90 päeva); kindlustusandja PZU. (Allikas: seb.ee/eraklient/kindlustus/reisikindlustus, 24.11.2026)',
+        rates: [
+          'Korduvreisikindlustus Travel alates 149 €/aastas',
+          'Family (abikaasa + lapsed kuni 21 a) alates 199 €/aastas'
+        ],
+        details: [
+          'Üks reis kuni 90 päeva',
+          'Lennu hilinemine üle 12 h hüvitatakse',
+          'Agenditasu 5% kindlustusmaksest',
+          'Kiirabi PZU 24/7 +372 622 4545'
+        ]
       },
       {
         name: 'Laenukindlustus',
-        url: 'https://www.seb.ee/eraklient/laenud',
-        summary: 'Väike- ja autolaenu kaitse; vähendab laenu intressimäära (nt väikelaenul 7,5% vs 8,5%).',
+        url: 'https://www.seb.ee/eraklient/kindlustus/kahjujuhtum/laenukaitse-kindlustus',
+        summary:
+          'Laenukaitse kindlustus väikelaenule — kampaanias alandab intressi 1 protsendipunkti (8,5% → 7,5%). (Allikas: seb.ee/eraklient/laenud/vaikelaen)',
         details: ['Vabatahtlik, soodustab madalamat intressi']
       },
       {
         name: 'Liikluskindlustus ja kasko',
-        url: 'https://www.seb.ee/eraklient/kindlustus',
+        url: 'https://www.seb.ee/kindlustuslahendused',
         summary: 'Kohustuslik liikluskindlustus ja kaskokindlustus.',
         details: ['Liisingu/autolaenu puhul kasko sageli nõutav']
       },
       {
         name: 'Õnnetusjuhtumi- ja elukindlustus',
-        url: 'https://www.seb.ee/eraklient/kindlustus',
-        summary: 'Õnnetusjuhtumi- ja elukindlustus pere kaitsmiseks.'
+        url: 'https://www.seb.ee/eraklient/kindlustus/elukindlustus/elukindlustus',
+        summary:
+          'SEB Elu- ja Pensionikindlustus: riskielukindlustus, elukindlustusega kogumine; Kiire traumakindlustus (paketis tasuta). (Allikas: seb.ee/eraklient/kindlustus/elukindlustus/elukindlustus, seb.ee/kiire-traumakindlustus)',
+        rates: ['Kiire traumakindlustus paketis tasuta; hüvitis 50 / 100 / 200 € sõltuvalt traumast']
       }
     ]
   },
@@ -297,9 +361,11 @@ export const SEB_CATALOG = [
     title: 'Kampaaniad ja pakkumised',
     items: [
       {
-        name: 'Väikelaenu kampaania (kevad 2026)',
+        name: 'Väikelaenu kampaania (sügis 2026)',
         url: 'https://www.seb.ee/eraklient/laenud/vaikelaen',
-        summary: 'Kampaania 01.04–30.06.2026: väikelaen 7,5% laenukindlustusega (8,5% ilma), lepingutasu 0 €.',
+        summary:
+          '01.10–31.12.2026 taotluse esitanud klientidele fikseeritud intress 8,5%, koos laenukaitse kindlustusega 7,5%. Kehtib eesmärkidele „Kodu remont ja sisustus” ja „Auto”. (Allikas: seb.ee/eraklient/laenud/vaikelaen, 24.11.2026)',
+        rates: ['Fikseeritud intress 8,5% (laenukaitsega 7,5%)', 'Kehtib 01.10–31.12.2026'],
         details: ['Tingimused kehtivad kampaaniaperioodil (seb.ee)']
       },
       {
@@ -315,7 +381,7 @@ export const SEB_CATALOG = [
     items: [
       {
         name: 'Ärikonto ja äripaketid',
-        url: 'https://www.seb.ee/ariklient/igapaevapangandus',
+        url: 'https://www.seb.ee/ariklient',
         summary: 'Ettevõtte arvelduskonto ja igapäevapangandus erineva mahuga pakettides.',
         rates: [
           'Baas: 1 €/kuus (seb.ee hinnakiri, 06.2026)',
@@ -324,12 +390,23 @@ export const SEB_CATALOG = [
           'Premium: 6 €/kuus',
           'Premium+: 15 €/kuus'
         ],
-        details: ['SEPA maksed', 'Mitme kasutajaga ligipääs', 'Integratsioonid raamatupidamisega']
+        details: [
+          'Uuele ärikliendile: maksed, kaardid ja kontod aasta tasuta',
+          'Mastercard Business krediitkaart aasta kuutasuta',
+          'Kuni 2 makseterminali aasta tasuta; e-poe maksed ilma lepingu- ja kuutasuta',
+          'Tasuta ärinõustamine'
+        ]
       },
       {
         name: 'Ärilaen',
-        url: 'https://www.seb.ee/ariklient/laenud',
-        summary: 'Investeerimislaen, käibekapitali laen, kinnisvara tagatisel.',
+        url: 'https://www.seb.ee/ariklient/finantseerimine/mikrolaen',
+        summary:
+          'Ärilaen, liising, faktooring, jätkusuutlik rahastamine ja mikrolaen. Mikrolaen: kuni 9 töötajat ja käive kuni 2 mln €. (Allikas: seb.ee/ariklient/finantseerimine/mikrolaen)',
+        rates: [
+          'Mikrolaen alates 5% + EURIBOR',
+          'Kuni 15 000 € ilma tagatise ja käenduseta',
+          'EIF garantiiga kuni 50 000 € tagatisvarata (garantii tasuta)'
+        ],
         details: ['MES ja KredEx/EIS kaasfinantseerimine', 'Liising äriklientidele']
       },
       {
@@ -340,14 +417,14 @@ export const SEB_CATALOG = [
       },
       {
         name: 'Kaardimaksed (POS ja e-kaubandus)',
-        url: 'https://www.seb.ee/ariklient/kaardimaksed',
+        url: 'https://www.seb.ee/teenused-kaupmeestele',
         summary: 'Kaupluse terminalid, e-kaubanduse makselahendused.',
         rates: ['Mastercard Business deebetkaart: 2 €/kuus (seb.ee hinnakiri)'],
         details: ['Visa/Mastercard', 'Apple Pay ja Google Pay kaupmehele']
       },
       {
         name: 'Faktooring ja arvelduskrediit',
-        url: 'https://www.seb.ee/ariklient/laenud',
+        url: 'https://www.seb.ee/ariklient/finantseerimislahendused-sinu-arile',
         summary: 'Raha laekumise kiirendamine ja käibekapital.',
         details: ['Arvete ost', 'Arvelduskrediidi limiit']
       },
@@ -364,30 +441,43 @@ export const SEB_CATALOG = [
       {
         name: 'Pangateenuste hinnakiri',
         url: 'https://www.seb.ee/en/price-list',
-        summary: 'Erakliendi ja ärikliendi teenuste hinnakiri (veeb ja PDF). Kehtiv alates 01.06.2026.',
+        summary:
+          'Erakliendi ja ärikliendi teenuste hinnakiri (veeb ja PDF). Kehtiv alates 01.06.2026.',
         details: ['Pakettide kuutasud', 'Kaartide tasud', 'Maksete hinnad']
       },
       {
         name: 'Hoiuste intressimäärad',
         url: 'https://www.seb.ee/eraklient/kogumine-ja-investeerimine/kogumine/tahtajalise-hoiuse-intressimaarad',
-        summary: 'Hoiuste, kontode ja laenude intressimäärad. Tähtajaline hoius kuni 2%, kogumishoius 1,65%, arvelduskonto 0,01%.',
+        summary:
+          'Hoiuste, kontode ja laenude intressimäärad. Tähtajaline hoius kuni 2%, kogumishoius 1,65%, arvelduskonto 0,01%.',
         details: ['Uuendatakse regulaarselt', 'Lehel toodud määrad on informatiivsed']
       },
       {
         name: 'Tingimused ja infolehed',
-        url: 'https://www.seb.ee/et/tingimused',
+        url: 'https://www.seb.ee/tingimused',
         summary: 'Üldtingimused, infolehed ja privaatsuspoliitika.'
       },
       {
         name: 'Pangakontorid ja klienditugi',
-        url: 'https://www.seb.ee/et/kontakt',
+        url: 'https://www.seb.ee/kontorid',
         summary: 'Kontorite asukohad, lahtiolekuajad, klienditugi.',
-        details: ['24/7 klienditugi kaartide ja pettuste jaoks', 'Videokohtumine võimalik']
-      },
+        details: [
+          'Klienditugi 24/7 +372 665 5100',
+          'Sularahaga kontorites tehingud alates 10 000 €',
+          'Kindlustus: 665 6622 (tööpäeviti 9–17)'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'API ja andmeühendused',
+    items: [
       {
-        name: 'Open Banking',
+        name: 'API, Open Banking ja MCP',
         url: 'https://developer.sebgroup.com',
-        summary: 'SEB avatud panganduse API arendajatele.'
+        summary:
+          'SEB PSD2 API arendajaportaalis developer.sebgroup.com (sandbox) ja ärikliendile Baltic Gateway (ka teiste pankade kontoandmed). MCP serverit ei ole (24.11.2026). Agregaatorid (nt Enable Banking, Tink, GoCardless) pakuvad ligipääsu sama PSD2 API kaudu ilma oma eIDAS-sertifikaadita (enablebanking.com/docs/markets/ee).',
+        details: ['Baltic Gateway: seb.ee/en/business/daily-banking/online-services/baltic-gateway']
       }
     ]
   }
