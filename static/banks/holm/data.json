@@ -2,65 +2,13 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "holm",
   "name": "Holm Bank",
-  "fetchedAt": "2026-11-24T21:55:52.656Z",
-  "generatedAt": "2026-11-24T21:55:54.353Z",
-  "sources": [
-    {
-      "kind": "primary",
-      "url": "https://www.holmbank.ee/et/eraklient/hoius",
-      "note": "hoius leht"
-    },
-    {
-      "kind": "fallback",
-      "url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "note": "FI baromeeter"
-    },
-    {
-      "kind": "reference",
-      "url": "https://www.holmbank.ee/et/eraklient/hinnakiri",
-      "note": "hinnakiri"
-    },
-    {
-      "kind": "reference",
-      "url": "https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf",
-      "note": "hoiustaja teabeleht"
-    }
+  "fetchedAt": "2026-11-25T01:36:47.102Z",
+  "generatedAt": "2026-11-25T01:37:27.662Z",
+  "sources": [],
+  "warnings": [
+    "Kogumine ebaõnnestus: Failed to fetch https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter"
   ],
-  "warnings": [],
-  "rates": [
-    {
-      "product_type": "deposit",
-      "label": "Tähtajaline hoius (kuni, veebileht)",
-      "rate_percent": 3.5,
-      "fee_cents": null,
-      "source_url": "https://www.holmbank.ee/et/eraklient/hoius",
-      "raw_text": "holm-collect: hoius leht (Next.js SSR)"
-    },
-    {
-      "product_type": "deposit",
-      "label": "Tähtajaline hoius 12 kuu (baromeeter), min 100 €",
-      "rate_percent": 3.5,
-      "fee_cents": null,
-      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 07.11.2026"
-    },
-    {
-      "product_type": "fee",
-      "label": "Hinnakiri",
-      "rate_percent": null,
-      "fee_cents": null,
-      "source_url": "https://www.holmbank.ee/et/eraklient/hinnakiri",
-      "raw_text": "holm-collect: hinnakiri leht"
-    },
-    {
-      "product_type": "fee",
-      "label": "Hoiustaja teabeleht (PDF)",
-      "rate_percent": null,
-      "fee_cents": null,
-      "source_url": "https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf",
-      "raw_text": "holm-collect: hoiustaja teabeleht link"
-    }
-  ],
+  "rates": [],
   "links": {
     "html": "/banks/holm/",
     "json": "/banks/holm/data.json"
@@ -86,9 +34,7 @@
               "24–35 kuud: 2,80% aastas",
               "36–47 kuud: 2,80% aastas",
               "48–59 kuud: 2,90% aastas",
-              "60 kuud: 3,00% aastas",
-              "Tähtajaline hoius (kuni, veebileht): 3.5% (https://www.holmbank.ee/et/eraklient/hoius)",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 3.5% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "60 kuud: 3,00% aastas"
             ],
             "details": [
               "Minimaalne hoiusumma: 100 € (allikas: https://www.holmbank.ee/hoiused)",
@@ -106,9 +52,6 @@
             "details": [
               "Kehtivad tingimused ja riskid",
               "Tagatisfondi info"
-            ],
-            "rates": [
-              "Hoiustaja teabeleht (PDF): vaata allikat (https://content.holmbank.ee/content/uploads/2026/01/15113155/Hoiustaja-teabeleht-EST_2026.pdf)"
             ]
           }
         ]
@@ -264,8 +207,7 @@
             "url": "https://www.holmbank.ee/et/ariklient/laenud/investeerimislaen",
             "summary": "Ettevõtte investeeringute finantseerimine. Konkreetsed tingimused vt holmbank.ee.",
             "rates": [
-              "Kampaania: kuni 500 000 € laenude lepingutasu 0 € kuni 30.11.2026",
-              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
+              "Kampaania: kuni 500 000 € laenude lepingutasu 0 € kuni 30.11.2026"
             ]
           },
           {
@@ -275,8 +217,7 @@
             "rates": [
               "Periood kuni 12 kuud",
               "Lepingutasu kuni 1%",
-              "Kohustistasu 3% aastas kasutamata limiidilt",
-              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
+              "Kohustistasu 3% aastas kasutamata limiidilt"
             ]
           },
           {
@@ -285,8 +226,7 @@
             "summary": "Laen põllumajandusmaa tagatisel. Konkreetsed tingimused vt holmbank.ee.",
             "rates": [
               "Intress alates 5,5% + 6 kuu EURIBOR",
-              "Maksegraafik kuni 20 aastat",
-              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
+              "Maksegraafik kuni 20 aastat"
             ]
           },
           {
@@ -316,9 +256,6 @@
               "Sularaha väljavõtt Eestis/Euroopas: 2 €; väljaspool Euroopat 2 € + 2,6% summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)",
               "Valuutatehing: 1% tehingu summast (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)",
               "Saldopäring/muu sularahaautomaadi tehing: 0,47 € (allikas: https://www.holmbank.ee/et/eraklient/hinnakiri)"
-            ],
-            "rates": [
-              "Hinnakiri: vaata allikat (https://www.holmbank.ee/et/eraklient/hinnakiri)"
             ]
           },
           {

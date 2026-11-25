@@ -2,68 +2,13 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "citadele",
   "name": "Citadele",
-  "fetchedAt": "2026-11-24T21:55:51.644Z",
-  "generatedAt": "2026-11-24T21:55:54.347Z",
-  "sources": [
-    {
-      "kind": "primary",
-      "url": "https://www.citadele.ee/et/private/savings/",
-      "note": "hoiused / kalkulaator"
-    },
-    {
-      "kind": "fallback",
-      "url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "note": "FI baromeeter"
-    },
-    {
-      "kind": "reference",
-      "url": "https://www.citadele.ee/et/private/fees/",
-      "note": "hinnakiri"
-    }
+  "fetchedAt": "2026-11-25T01:36:06.932Z",
+  "generatedAt": "2026-11-25T01:37:27.657Z",
+  "sources": [],
+  "warnings": [
+    "Kogumine ebaõnnestus: Failed to fetch https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter"
   ],
-  "warnings": [],
-  "rates": [
-    {
-      "product_type": "deposit",
-      "label": "Hoius (kalkulaator)",
-      "rate_percent": 1.5,
-      "fee_cents": null,
-      "source_url": "https://www.citadele.ee/et/private/savings/",
-      "raw_text": "citadele-collect: savings lehe kalkulaator"
-    },
-    {
-      "product_type": "deposit",
-      "label": "Hoius (kalkulaator)",
-      "rate_percent": 2.6,
-      "fee_cents": null,
-      "source_url": "https://www.citadele.ee/et/private/savings/",
-      "raw_text": "citadele-collect: savings lehe kalkulaator"
-    },
-    {
-      "product_type": "deposit",
-      "label": "Hoius (kalkulaator)",
-      "rate_percent": 1,
-      "fee_cents": null,
-      "source_url": "https://www.citadele.ee/et/private/savings/",
-      "raw_text": "citadele-collect: savings lehe kalkulaator"
-    },
-    {
-      "product_type": "deposit",
-      "label": "Tähtajaline hoius 12 kuu (baromeeter), min 100 €",
-      "rate_percent": 2.6,
-      "fee_cents": null,
-      "source_url": "https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter",
-      "raw_text": "minuraha: uuendatud 16.10.2026"
-    },
-    {
-      "product_type": "fee",
-      "label": "Teenuste hinnakiri",
-      "rate_percent": null,
-      "fee_cents": null,
-      "source_url": "https://www.citadele.ee/et/private/fees/",
-      "raw_text": "citadele-collect: hinnakiri link"
-    }
-  ],
+  "rates": [],
   "links": {
     "html": "/banks/citadele/",
     "json": "/banks/citadele/data.json"
@@ -81,8 +26,7 @@
             "rates": [
               "EUR (intress perioodi lõpus): 1 k 2,00% · 3 k 2,20% · 6 k 2,40% · 9 k 2,40% · 1–5 a 2,60%",
               "EUR igakuise intressiga: 6 k 2,39% · 1 a 2,57% · 2 a 2,54% · 5 a 2,45%",
-              "USD: 6 k 1,75% · 9 k 2,00% · 1–5 a 2,50%",
-              "Tähtajaline hoius 12 kuu (baromeeter), min 100 €: 2.6% (https://www.minuraha.ee/et/pangandus/hoiused/hoiuste-intressibaromeeter)"
+              "USD: 6 k 1,75% · 9 k 2,00% · 1–5 a 2,50%"
             ],
             "details": [
               "Periood 1 kuu kuni 5 aastat",
@@ -484,9 +428,6 @@
             "details": [
               "Pakettide kuutasud",
               "Maksetasud"
-            ],
-            "rates": [
-              "Teenuste hinnakiri: vaata allikat (https://www.citadele.ee/et/private/fees/)"
             ]
           }
         ]
@@ -502,9 +443,6 @@
               "Kaartide kuutasud",
               "Maksete hinnad",
               "Uus versioon jõustub 01.08.2026"
-            ],
-            "rates": [
-              "Teenuste hinnakiri: vaata allikat (https://www.citadele.ee/et/private/fees/)"
             ]
           },
           {
