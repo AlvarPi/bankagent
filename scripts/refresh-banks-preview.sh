@@ -60,6 +60,10 @@ sync_git() {
   echo "=== $(date -Is) scheduled refresh ==="
   "$NODE_BIN" scripts/generate-bank-previews.js
   echo "=== $(date -Is) refresh done ==="
+  # llms.txt / robots.txt staatus pankade saitidel → static/banks/ai-files.json.
+  # Ei tohi skanni katkestada (set -e): andmed on juba kirjutatud.
+  "$NODE_BIN" scripts/check-ai-files.js || echo "ai-files: HOIATUS — kontroll kukkus (vt viga ülal)"
+  echo "=== $(date -Is) ai-files done ==="
   # Git-sünk ei tohi skanni ebaõnnestunuks lugeda — andmed on kettal juba LIVE.
   sync_git || echo "git: HOIATUS — sünkroniseerimine kukkus (vt viga ülal)"
   echo "=== $(date -Is) git sync done ==="
