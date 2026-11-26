@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T08:03:29.789Z",
+  "generatedAt": "2026-11-26T01:31:37.562Z",
   "files": [
     "llms.txt",
     "llms-full.txt",
@@ -59,7 +59,7 @@
               {
                 "url": "https://www.cooppank.ee/eraklient/kodu/remondilaen",
                 "status": 307,
-                "to": "https://www.cooppank.ee/eraklient/kodu/remondilaen/b"
+                "to": "https://www.cooppank.ee/eraklient/kodu/remondilaen/a"
               }
             ]
           }
@@ -256,8 +256,11 @@
         "robots.txt": {
           "url": "https://www.citadele.ee/robots.txt",
           "status": 200,
-          "verdict": "soft-404",
-          "contentType": "text/html"
+          "verdict": "ok",
+          "contentType": "text/plain",
+          "bytes": 359,
+          "lines": 15,
+          "sha256": "6fc6c81e000db2bc"
         }
       }
     },

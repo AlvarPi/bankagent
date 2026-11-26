@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "lightyear",
   "name": "Lightyear",
-  "fetchedAt": "2026-11-25T01:37:27.584Z",
-  "generatedAt": "2026-11-25T01:37:27.670Z",
+  "fetchedAt": "2026-11-26T01:31:31.546Z",
+  "generatedAt": "2026-11-26T01:31:31.649Z",
   "sources": [
     {
       "kind": "primary",
@@ -47,7 +47,7 @@
     {
       "product_type": "account",
       "label": "Kasvukonto USD (APY)",
-      "rate_percent": 3.98,
+      "rate_percent": 3.99,
       "fee_cents": null,
       "source_url": "https://lightyear.com/et-ee/vaults",
       "raw_text": "lightyear-collect: Kasvukonto intress (rahaturufondi kaudu, mitte pangahoius)"
@@ -81,7 +81,7 @@
               "Miinimum 1 €, maksimumi pole",
               "Kasvukonto EUR (APY): 2.5% (https://lightyear.com/et-ee/vaults)",
               "Kasvukonto GBP (APY): 4.04% (https://lightyear.com/et-ee/vaults)",
-              "Kasvukonto USD (APY): 3.98% (https://lightyear.com/et-ee/vaults)"
+              "Kasvukonto USD (APY): 3.99% (https://lightyear.com/et-ee/vaults)"
             ],
             "details": [
               "Fond: BlackRock ICS Euro Liquidity Fund (Premier), ~66 mld €",

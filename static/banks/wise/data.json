@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "wise",
   "name": "Wise",
-  "fetchedAt": "2026-11-25T01:36:07.227Z",
-  "generatedAt": "2026-11-25T01:37:27.659Z",
+  "fetchedAt": "2026-11-26T01:31:29.265Z",
+  "generatedAt": "2026-11-26T01:31:31.636Z",
   "sources": [
     {
       "kind": "primary",
@@ -84,15 +84,15 @@
     },
     {
       "product_type": "fee",
-      "label": "Ülekanne 1000 EUR → USD: tasu 6.21 €, kurss 1.09575, saaja saab 1088.95 USD",
+      "label": "Ülekanne 1000 EUR → USD: tasu 6.21 €, kurss 1.0968, saaja saab 1089.99 USD",
       "rate_percent": null,
       "fee_cents": 621,
       "source_url": "https://api.wise.com/v3/quotes",
-      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Wednesday"
+      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Friday"
     },
     {
       "product_type": "fee",
-      "label": "Ülekanne 1000 EUR → GBP: tasu 5.76 €, kurss 0.83595, saaja saab 831.13 GBP",
+      "label": "Ülekanne 1000 EUR → GBP: tasu 5.76 €, kurss 0.83655, saaja saab 831.73 GBP",
       "rate_percent": null,
       "fee_cents": 576,
       "source_url": "https://api.wise.com/v3/quotes",
@@ -100,7 +100,7 @@
     },
     {
       "product_type": "fee",
-      "label": "Ülekanne 1000 EUR → SEK: tasu 6.02 €, kurss 11.2322, saaja saab 11164.58 SEK",
+      "label": "Ülekanne 1000 EUR → SEK: tasu 6.02 €, kurss 11.2312, saaja saab 11163.59 SEK",
       "rate_percent": null,
       "fee_cents": 602,
       "source_url": "https://api.wise.com/v3/quotes",
@@ -108,19 +108,19 @@
     },
     {
       "product_type": "fee",
-      "label": "Ülekanne 1000 EUR → PLN: tasu 6.2 €, kurss 4.4615, saaja saab 4433.84 PLN",
+      "label": "Ülekanne 1000 EUR → PLN: tasu 6.2 €, kurss 4.4717, saaja saab 4443.98 PLN",
       "rate_percent": null,
       "fee_cents": 620,
       "source_url": "https://api.wise.com/v3/quotes",
-      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Thursday"
+      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Friday"
     },
     {
       "product_type": "fee",
-      "label": "Ülekanne 1000 EUR → NOK: tasu 5.82 €, kurss 10.7421, saaja saab 10679.58 NOK",
+      "label": "Ülekanne 1000 EUR → NOK: tasu 5.82 €, kurss 10.7521, saaja saab 10689.52 NOK",
       "rate_percent": null,
       "fee_cents": 582,
       "source_url": "https://api.wise.com/v3/quotes",
-      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Thursday"
+      "raw_text": "wise-quote-api: pangaülekanne→pangakonto, kohale by Friday"
     }
   ],
   "links": {

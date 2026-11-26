@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "coop",
   "name": "Coop Pank",
-  "fetchedAt": "2026-11-25T01:35:01.538Z",
-  "generatedAt": "2026-11-25T01:37:27.603Z",
+  "fetchedAt": "2026-11-26T01:31:22.853Z",
+  "generatedAt": "2026-11-26T01:31:31.569Z",
   "sources": [
     {
       "kind": "primary",
