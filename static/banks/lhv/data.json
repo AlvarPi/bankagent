@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "lhv",
   "name": "LHV",
-  "fetchedAt": "2026-11-26T01:31:23.026Z",
-  "generatedAt": "2026-11-26T01:31:31.612Z",
+  "fetchedAt": "2026-11-27T01:46:06.702Z",
+  "generatedAt": "2026-11-27T01:46:17.145Z",
   "sources": [
     {
       "kind": "reference",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T01:31:37.562Z",
+  "generatedAt": "2026-11-27T01:46:22.845Z",
   "files": [
     "llms.txt",
     "llms-full.txt",
@@ -59,7 +59,7 @@
               {
                 "url": "https://www.cooppank.ee/eraklient/kodu/remondilaen",
                 "status": 307,
-                "to": "https://www.cooppank.ee/eraklient/kodu/remondilaen/a"
+                "to": "https://www.cooppank.ee/eraklient/kodu/remondilaen/b"
               }
             ]
           }
@@ -440,7 +440,7 @@
           "contentType": "text/markdown",
           "bytes": 12298,
           "lines": 85,
-          "sha256": "7919b6806cbcf2bc",
+          "sha256": "362436260ccd86fe",
           "title": "Lightyear",
           "sections": [
             "When to use Lightyear",

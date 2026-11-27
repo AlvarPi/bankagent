@@ -2,8 +2,8 @@
   "schema": "pankade-teenused/bank-knowledge/1",
   "slug": "swedbank",
   "name": "Swedbank",
-  "fetchedAt": "2026-11-26T01:31:27.140Z",
-  "generatedAt": "2026-11-26T01:31:31.626Z",
+  "fetchedAt": "2026-11-27T01:46:12.073Z",
+  "generatedAt": "2026-11-27T01:46:17.157Z",
   "sources": [
     {
       "kind": "api",
@@ -244,10 +244,10 @@
     {
       "product_type": "loan",
       "label": "EURIBOR 6 kuud (Swedbanki leht)",
-      "rate_percent": 3.077,
+      "rate_percent": 3.074,
       "fee_cents": null,
       "source_url": "https://www.swedbank.ee/private/credit/loans/home?language=EST",
-      "raw_text": "mortgage-collect: EURIBOR 6 kuud (3.077%)"
+      "raw_text": "mortgage-collect: EURIBOR 6 kuud (3.074%)"
     }
   ],
   "links": {
@@ -325,7 +325,7 @@
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
-              "EURIBOR 6 kuud (Swedbanki leht): 3.077% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
+              "EURIBOR 6 kuud (Swedbanki leht): 3.074% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ],
             "details": [
               "Intress arvutatakse päevasaldolt, kantakse kontole järgmise kuu 3. kuupäevaks"
@@ -391,7 +391,7 @@
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
-              "EURIBOR 6 kuud (Swedbanki leht): 3.077% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
+              "EURIBOR 6 kuud (Swedbanki leht): 3.074% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ],
             "details": [
               "Deebetkaart",
@@ -638,7 +638,7 @@
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
-              "EURIBOR 6 kuud (Swedbanki leht): 3.077% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
+              "EURIBOR 6 kuud (Swedbanki leht): 3.074% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ],
             "details": [
               "Kuumakse = limiit / 48",
@@ -757,7 +757,7 @@
               "Ostu- ja reisipaketi hüved"
             ],
             "rates": [
-              "EURIBOR 6 kuud (Swedbanki leht): 3.077% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
+              "EURIBOR 6 kuud (Swedbanki leht): 3.074% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ]
           },
           {
@@ -789,7 +789,7 @@
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
-              "EURIBOR 6 kuud (Swedbanki leht): 3.077% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
+              "EURIBOR 6 kuud (Swedbanki leht): 3.074% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ]
           },
           {
@@ -851,7 +851,7 @@
               "Tähtajaline hoius EUR 18 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Tähtajaline hoius EUR 24 kuud: 2.6% (https://www.swedbank.ee/private/home/more/calculator/calc/deposit?language=EST)",
               "Kodulaen KKM näite marginaal (+ 6 kuu EURIBOR): 1.5% (https://www.swedbank.ee/private/credit/loans/home?language=EST)",
-              "EURIBOR 6 kuud (Swedbanki leht): 3.077% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
+              "EURIBOR 6 kuud (Swedbanki leht): 3.074% (https://www.swedbank.ee/private/credit/loans/home?language=EST)"
             ]
           },
           {
